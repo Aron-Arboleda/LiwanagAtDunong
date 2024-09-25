@@ -1,0 +1,19 @@
+{
+  "name": "liwanagatdunong",
+  "version": "1.0.0",
+  "description": "Liwanag at Dunong Project landing page",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "liwanagatdunongproject",
+    "volunteerism"
+  ],
+  "author": "LD Dev Team",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^9.11.1",
+    "globals": "^15.9.0"
+  }
+}
