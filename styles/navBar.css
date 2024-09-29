@@ -1,0 +1,40 @@
+a {
+    text-decoration: none;
+}
+
+:root {
+    --cell-width: 150px;
+}
+
+nav {
+    position: fixed;
+    left: 220px;
+    top: 10px;
+    display: grid;
+    grid-template-columns: var(--cell-width) var(--cell-width) var(--cell-width) calc(var(--cell-width) + 50px) var(--cell-width) var(--cell-width) var(--cell-width);
+    align-items: center;
+    text-align: center;
+    height: 60px;
+    width: 1100px;
+    background-color: #347928;
+    border-radius: 30px;
+    border: 2px solid #FFFBE6;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.228);
+    z-index: 1000;
+}
+
+nav a {
+    font-family: "Architects Daughter", cursive;
+    font-weight: 400;
+    font-style: normal;
+    color: white;
+    font-size: 17px;
+}
+
+#volunteer {
+    font-family: "Corben", cursive;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+  

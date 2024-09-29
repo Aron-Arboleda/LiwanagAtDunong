@@ -1,0 +1,34 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI';
+}
+
+.cartoonyBorder {
+    border: 3px solid black;
+}
+
+.cartoonyComponentShadow {
+    box-shadow: 4px 4px 0px black;
+}
+
+.cartoonyTextBorder {
+    text-shadow: 2.5px 0 #000000, 
+                -2.5px 0 #000000, 
+                0 2.5px #000000, 
+                0 -2.5px #000000,
+               2px 2px #000000, 
+               -2px -2px #000000, 
+               2px -2px #000000, 
+               -2px 2px #000000;
+}
+
+.lightTextBorder {
+    text-shadow: 2px 0 #000000, 
+                -2px 0 #000000, 
+                0 2px #000000, 
+                0 -2px #000000,
+            1px 1px #000000, 
+            -1px -1px #000000, 
+            1px -1px #000000, 
+            -1px 1px #000000;
+}
