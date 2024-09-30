@@ -65,11 +65,25 @@ body {
     font-weight: bold;
 }
 
+
+
 .announcementBar {
+    max-width: 100%;
+    height: 20px;
+    overflow: hidden;
     background-color: var(--pallete-brightWhite);
     font-family: 'Fuzzy Bubbles';
     padding: 5px 0px;
     font-size: 17px;
-    text-align: right;
+  }
+  
+.marquee {
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    animation: marqueeBarLoop 10s linear infinite;
 }
 
+.marquee p {
+    display: inline-block;
+}
