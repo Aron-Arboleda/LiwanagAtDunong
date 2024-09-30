@@ -18,6 +18,10 @@ body {
     font-family: 'Segoe UI';
 }
 
+.lightCartoonyBorder {
+    border: 1px solid black;
+}
+
 .cartoonyBorder {
     border: 3px solid black;
 }

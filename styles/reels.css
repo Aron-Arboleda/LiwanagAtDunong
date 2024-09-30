@@ -1,0 +1,50 @@
+@import url("generalStyles.css");
+
+#reelsPage {
+    width: 100%;
+    height: 900px;
+    background-color: var(--pallete-yellow);
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 10% 80% 10%;
+    align-items: center;
+}
+
+#startLeft, #startRight {
+    width: 100%;
+}
+
+#reelsTiktokLogoContainer {
+    width: 80px;
+    height: 80px;
+    background-color: var(--pallete-brightWhite);
+    padding: 15px;
+    border-radius: 55px;
+}
+
+#reelsTiktokLogoContainer img{
+    width: 100%;
+}
+
+#reelsContainer {
+    padding: 10px;
+    text-align: center;
+}
+
+#reelsContainer video{
+    margin-right: 20px;
+    width: 230px;
+    border-radius: 30px;
+    border: 2px solid black;
+    box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.543);
+}
+
+#edukParaSaLahatContainer {
+    display: flex;
+    justify-content: center;
+}
+
+#edukParaSaLahatContainer img {
+    width: 180px;
+}
