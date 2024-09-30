@@ -7,10 +7,16 @@
     --pallete-yellow: #FCCD2A;
     --pallete-shadowColor: #371C05;
     --pallete-greenTextColor: #083800;
+    --pallete-brownTextColor: #442609;
 }
 
 p {
     margin: 0;
+}
+
+h2 {
+    margin: none;
+    padding: none;
 }
 
 body {
@@ -79,7 +85,10 @@ body {
     font-family: 'Fuzzy Bubbles';
     padding: 5px 0px;
     font-size: 17px;
-  }
+    box-shadow: 0px 0px 18px rgba(0, 0, 0, 0.509);
+    position: relative;
+    z-index: 100;
+}
   
 .marquee {
     white-space: nowrap;

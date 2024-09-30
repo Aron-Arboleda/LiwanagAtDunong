@@ -1,0 +1,86 @@
+@import url("generalStyles.css");
+
+#goalsPage {
+    width: 100%;
+    height: auto;
+    background-color: var(--pallete-brightWhite);
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+#mainContainer {
+    max-width: 70vw;
+    padding: 50px 0px;
+    height: auto;
+}
+
+#mainContainer h1{
+    font-family: "Fascinate Inline";
+    color: var(--pallete-brownTextColor);
+    font-size: 70px;
+    text-align: center;
+}
+
+.textGreen {
+    color: var(--pallete-green);
+}
+
+.textYellow {
+    color: var(--pallete-yellow);
+}
+
+.goalRow {
+    display: flex;
+    align-items: center;
+    column-gap: 30px;
+}
+
+#goalRow2 {
+    justify-content: right;
+}
+
+.goalsImage {
+    width: 300px;
+    border-radius: 10px;
+    border: 1px solid black;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.489);
+}
+
+.goalsCard {
+    width: 500px;
+    height: 250px;
+    background-color: var(--pallete-lightGreen);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 50px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.276);
+}
+
+.goalsCard h2 {
+    text-align: center;
+    font-family: 'Corben';
+    padding: 0;
+    color: var(--pallete-yellow);
+    font-size: 20px;
+    text-shadow: 2px 0 #000000, 
+                -2px 0 #000000, 
+                0 2px #000000, 
+                0 -2px #000000,
+            1px 1px #000000, 
+            -1px -1px #000000, 
+            1px -1px #000000, 
+            -1px 1px #000000,
+            3px 3px var(--pallete-shadowColor);
+}
+
+.goalsCard p {
+    text-align: center;
+    font-family: 'Anek Odia';
+    color: var(--pallete-brownTextColor);
+}
