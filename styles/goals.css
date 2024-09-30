@@ -14,7 +14,7 @@
 
 #mainContainer {
     max-width: 70vw;
-    padding: 50px 0px;
+    padding: 120px 0px;
     height: auto;
 }
 
@@ -23,6 +23,7 @@
     color: var(--pallete-brownTextColor);
     font-size: 70px;
     text-align: center;
+    margin-top: 0px;
 }
 
 .textGreen {
