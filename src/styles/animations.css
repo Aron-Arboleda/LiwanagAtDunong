@@ -1,0 +1,15 @@
+@keyframes marqueeBarLoop {
+    from {
+        transform: translateX(30%);
+    }
+    to {
+        transform: translateX(-200%);
+    }
+}
+
+.marqueeText {
+    animation-name: marqueeBarLoop;
+    animation-duration: 20s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
