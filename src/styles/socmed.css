@@ -1,0 +1,50 @@
+@import url("generalStyles.css");
+
+#socmedPage {
+    width: 100%;
+}
+
+#curveSectionSVG {
+    width: 100%;
+}
+
+#socmedHalf1 {
+    width: 100%;
+    height: 900px;
+    background-color: var(--pallete-yellow);
+}
+
+#socmedHalf2 {
+    width: 100%;
+    height: auto;
+    background-color: var(--pallete-green);
+}
+
+#postsContainer {
+    display: flex;
+    justify-content: center;
+    column-gap: 70px;
+    position: relative;
+    top: 300px;
+}
+
+.socmedPost {
+    border-radius: 15px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.422);
+}
+
+#igPost {
+    width: 300px;
+    position: relative;
+    top: -100px;
+}
+
+#facebookPost {
+    width: 313px;
+}
+
+#twitterPost {
+    position: relative;
+    top: -50px;
+    width: 383px;
+}
