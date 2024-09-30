@@ -1,3 +1,18 @@
+@import url("animations.css");
+
+:root {
+    --pallete-green: #347928;
+    --pallete-lightGreen: #C0EBA6;
+    --pallete-brightWhite: #FFFBE6;
+    --pallete-yellow: #FCCD2A;
+    --pallete-shadowColor: #371C05;
+    --pallete-greenTextColor: #083800;
+}
+
+p {
+    margin: 0;
+}
+
 body {
     margin: 0;
     font-family: 'Segoe UI';
@@ -32,3 +47,29 @@ body {
             1px -1px #000000, 
             -1px 1px #000000;
 }
+
+.lightTextBorderWithShadow {
+    text-shadow: 2px 0 #000000, 
+                -2px 0 #000000, 
+                0 2px #000000, 
+                0 -2px #000000,
+            1px 1px #000000, 
+            -1px -1px #000000, 
+            1px -1px #000000, 
+            -1px 1px #000000,
+            5px 5px var(--pallete-shadowColor);
+}
+
+.corben {
+    font-family: 'Corben';
+    font-weight: bold;
+}
+
+.announcementBar {
+    background-color: var(--pallete-brightWhite);
+    font-family: 'Fuzzy Bubbles';
+    padding: 5px 0px;
+    font-size: 17px;
+    text-align: right;
+}
+
