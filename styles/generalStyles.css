@@ -4,6 +4,7 @@
     --pallete-green: #347928;
     --pallete-lightGreen: #C0EBA6;
     --pallete-brightWhite: #FFFBE6;
+    --pallete-lightYellow: #FFF1A7;
     --pallete-yellow: #FCCD2A;
     --pallete-shadowColor: #371C05;
     --pallete-greenTextColor: #083800;
@@ -100,4 +101,11 @@ body {
 
 .marquee p {
     display: inline-block;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    column-gap: 10%;
+    padding: 0;
 }
