@@ -109,3 +109,13 @@ body {
     column-gap: 10%;
     padding: 0;
 }
+
+.noteMessage {
+    font-family: "Annie Use Your Telescope";
+    background-color: var(--pallete-brightWhite);
+    padding: 30px 100px;
+    text-align: center;
+    width: 75%;
+    transform: rotate(0.5deg);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.249);
+}
