@@ -8,16 +8,10 @@
     width: 100%;
 }
 
-#socmedHalf1 {
+#socmedHalf {
     width: 100%;
     height: 900px;
     background-color: var(--pallete-yellow);
-}
-
-#socmedHalf2 {
-    width: 100%;
-    height: auto;
-    background-color: var(--pallete-green);
 }
 
 #postsContainer {
