@@ -2,17 +2,40 @@
 
 #reelsPage {
     width: 100%;
-    height: 900px;
     background-color: var(--pallete-yellow);
-    padding: 0;
+    padding: 50px 0px;
     margin: 0;
-    display: grid;
-    grid-template-columns: 10% 80% 10%;
-    align-items: center;
+    position: relative;
 }
 
-#startLeft, #startRight {
-    width: 100%;
+#reelsPageWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 1300px;
+    margin-inline: auto;
+    padding: 0px 50px;
+    position: relative;
+    z-index: 3;
+}
+
+#starLeft, #starRight {
+    height: 100%;
+    top: 0;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    z-index: 2;
+}
+
+#starLeft img, #starRight img{
+    max-width: 150px;
+}
+#starLeft {
+    left: 0;
+}
+#starRight {
+    right: 0;
 }
 
 #reelsTiktokLogoContainer {
@@ -29,7 +52,10 @@
 
 #reelsContainer {
     padding: 10px;
-    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
 }
 
 #reelsContainer video{
@@ -48,3 +74,15 @@
 #edukParaSaLahatContainer img {
     width: 180px;
 }
+
+/* @media (min-width: 1078px) {
+	#reelsPage {
+		grid-template-columns: 12% 76% 12%;
+	}
+}
+
+@media (min-width: 1355px) {
+	#reelsPage {
+		grid-template-columns: 10% 80% 10%;
+	}
+} */
