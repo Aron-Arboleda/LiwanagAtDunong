@@ -10,7 +10,10 @@
     --pallete-greenTextColor: #083800;
     --pallete-brownTextColor: #442609;
     --pallete-brownBackgroundColor: #A75629;
+    --pallete-lightOrangeBackgroundColor: #FFA048;
     --pallete-redOrangeBackgroundColor: #FF4026;
+    --pallete-lightBlue: #7B98FF;
+    --pallete-purple: #C148EB;
 }
 
 p {
