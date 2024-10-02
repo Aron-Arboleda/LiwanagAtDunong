@@ -105,6 +105,7 @@
     border-top: 2px solid black;
     z-index: 1;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     padding: 30px 0px;
@@ -198,7 +199,7 @@
 }
 
 .progressImage {
-    width: 30rem;
+    max-width: 30rem;
     border: 2px solid black;
     box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.731);
 }
