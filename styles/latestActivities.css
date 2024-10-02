@@ -1,10 +1,7 @@
 @import url(generalStyles.css);
 
 #latestActivities {
-    width: 100%;
-    height: 900px;
     background-color: #347928;
-    padding: 0;
     margin: 0;
     display: flex;
     justify-content: center;
@@ -13,13 +10,20 @@
 
 #latestActivitiesBox {
     padding: 20px 60px;
+    margin: 80px;
     display: grid;
-    grid-template-columns: 1% 55% 44%;
+    grid-template-columns:
+		repeat(auto-fit, minmax(550px, 1fr));
     background-color: #FFFBE6;
-    width: 75%;
-    height: 630px;
+    min-height: 630px;
+    max-width: 900px;
     border-radius: 30px;
     box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.543);
+    position: relative;
+}
+
+#latestActivitiesInfo {
+    max-width: 600px;
 }
 
 #facebookContainer {
@@ -29,9 +33,9 @@
     padding: 15px;
     background-color: #FFFBE6;
     border-radius: 60px;
-    position: relative;
-    left: -120px;
-    top: -60px;
+    position: absolute;
+    left: -60px;
+    top: -35px;
 }
 
 #facebookContainer img{
@@ -42,7 +46,7 @@
     display: inline-block;
     margin: 0;
     color: var(--pallete-brightWhite);
-    font-size: 23px;
+    font-size: 1.5rem;
     text-shadow: 2.5px 0 #000000, 
                 -2.5px 0 #000000, 
                 0 2.5px #000000, 
@@ -58,8 +62,7 @@
     margin: 20px 0px;
     font-family: 'Crimson Text';
     font-weight: bold;
-    font-size: 75px;
-    width: 100%;
+    font-size: 4.5rem;
     color: var(--pallete-yellow);
 }
 
@@ -67,8 +70,17 @@
     margin: 50px 0px;
     font-family: 'Anonymous Pro';
     font-size: 16px;
-    width: 100%;
     color: var(--pallete-greenTextColor);
+}
+
+
+#latestActivitiesImagesContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    align-items: center;
+    min-width: 550px;
+    min-height: 500px;
 }
 
 .latestActivitiesImage {
@@ -78,23 +90,31 @@
     border: 1px solid black;
     position: relative;
     object-fit: cover;
+    grid-area: 1 / 1;
+    display: inline-block;
+    margin-inline: auto;
 }
 
 #LA_image1 {
-    left: 55px;
-    top: 60px;
+    bottom: 138px;
+    right: 82px;
     z-index: 10;
 }
 
 #LA_image2 {
-    left: 23px;
-    top: 181px;
+    left: 115px;
+    bottom: 28px;
     z-index: 20;
 }
 
 #LA_image3 {
-    left: 69px;
     top: 116px;
+    right: 59px;
     z-index: 10;
 }
 
+@media (min-width: 1355px) {
+	#latestActivitiesBox {
+		max-width: 1100px;
+	}
+}
