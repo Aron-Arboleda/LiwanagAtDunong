@@ -7,7 +7,7 @@
 }
 
 #supportMainContainer {
-    width: 80vw;
+    max-width: 80vw;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -25,15 +25,16 @@
 
 #supportPubmatsContainer {
     display: grid;
-    grid-template-columns: auto auto auto;
-    width: 100%;
+    grid-template-rows: auto auto auto;
+    gap: 30px;
 }
 
 .supportPubmatColumn {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: center;
     align-items: center;
-    row-gap: 50px;
+    gap: 20px;
 }
 
 #supportGCashColumn {
@@ -63,7 +64,8 @@
 }
 
 .pubmatImage {
-    width: 20rem;
+    min-width: 200px;
+    max-width: 20rem;
     border-radius: 15px;
     box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.358);
 }
@@ -72,4 +74,13 @@
     display: flex;
     justify-content: center;
     padding: 50px;
+}
+
+@media (min-width: 1250px) {
+    .supportPubmatColumn {
+        flex-direction: column;
+    }
+    #supportPubmatsContainer {
+        grid-template-columns: auto auto auto;
+    }
 }
