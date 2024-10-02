@@ -114,6 +114,12 @@ body {
     padding: 0;
 }
 
+.flex-center-alignCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .noteMessage {
     font-family: "Annie Use Your Telescope";
     background-color: var(--pallete-brightWhite);
