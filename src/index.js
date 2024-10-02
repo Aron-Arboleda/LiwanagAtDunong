@@ -38,3 +38,14 @@ for (let tabIndex = 0; tabIndex < folderTabs.length; tabIndex++){
         }
     })
 }
+
+
+const menuToggle = document.getElementById('menuToggle');
+const navBar = document.getElementById('navBar')
+menuToggle.addEventListener('click', () => {
+    if (navBar.style.display === 'flex'){
+        navBar.style.display = 'none';
+    } else {
+        navBar.style.display = 'flex';
+    }
+})

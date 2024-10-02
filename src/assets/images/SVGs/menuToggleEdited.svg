@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="800px" height="800px" viewBox="-5.105 -4.982 34.088 33.922" fill="none" stroke="#ffffff" transform="rotate(180)" xmlns="http://www.w3.org/2000/svg">
+  <defs/>
+  <g id="SVGRepo_bgCarrier" stroke-width="0" transform="translate(0,0), scale(1)">
+    <rect x="-4.32" y="-4.32" width="32.64" height="32.64" rx="5.15" fill="#347928" strokewidth="0" ry="5.15" style="paint-order: fill markers; stroke: rgb(255, 251, 230); stroke-width: 1px;"/>
+  </g>
+  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="0.528"/>
+  <g id="SVGRepo_iconCarrier">
+    <path d="M4 6H20M4 12H20M4 18H20" stroke="#FFFBE6" stroke-width="1.6799999999999997" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>
