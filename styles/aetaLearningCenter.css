@@ -55,6 +55,8 @@
     width: 100%;
     grid-area: 1 / 1;
     height: auto;
+    pointer-events: none;
+    position: relative;
 }
 
 #folder1 {
@@ -71,17 +73,18 @@
 }
 #folder5 {
     z-index: 6;
+    /* position: relative;
+    bottom: 460px; */
 }
 #folder6 {
     z-index: 5;
-    position: relative;
-    bottom: 460px;
 }
 
 
 .folderHeader {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    pointer-events: none;
 }
 
 .folderNotch {
@@ -94,6 +97,7 @@
     height: 40px;
     align-items: center;
     z-index: 2;
+    pointer-events: auto;
 }
 
 .folderBody {
