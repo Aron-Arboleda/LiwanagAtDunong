@@ -24,8 +24,8 @@
 }
 
 .pLogoContainer {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     display: flex;
     align-items: center;
     background-color: var(--pallete-brightWhite);
@@ -36,7 +36,7 @@
 }
 
 .pLogo {
-    width: 100px;
+    width: 100%;
     border-radius: 10%;
 }
 
@@ -61,7 +61,7 @@
             1px -1px #000000, 
             -1px 1px #000000,
             10px 7px rgba(0, 0, 0, 0.683);
-    font-size: 3rem;
+    font-size: 2rem;
     max-width: 450px;
     text-align: center;
     display: inline-block;
@@ -84,6 +84,17 @@
     flex-direction: row;
     flex-wrap: wrap;
     gap: 30px;
+}
+
+@media (min-width: 530px) {
+    .pLogoContainer {
+        width: 100px;
+        height: 100px;
+    }
+
+    #partnershipsPage h1 {
+        font-size: 3rem;
+    }
 }
 
 @media (min-width: 1245px) {
