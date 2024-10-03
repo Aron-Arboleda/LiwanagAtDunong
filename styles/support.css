@@ -83,6 +83,10 @@
     .supportPubmatColumn {
         flex-direction: row;
     }
+
+    .noteMessage {
+        padding: 30px 100px;
+    }
 }
 
 @media (min-width: 1250px) {
