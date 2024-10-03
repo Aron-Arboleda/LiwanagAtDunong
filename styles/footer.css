@@ -14,7 +14,7 @@ footer {
 }
 
 #footerMainContainer {
-    padding: 0px 50px
+    padding: 0px 20px;
 }
 
 #footerInfoContainer {
@@ -29,6 +29,8 @@ footer {
 
 #footerInfoContainer div{
     max-width: 350px;
+    font-size: 0.8rem;
+    text-align: center;
 }
 
 
@@ -40,6 +42,7 @@ footer {
 
 .footerh2 {
     margin: 50px 0px;
+    text-align: center;
 }
 
 .footerIconTextGridLayout {
@@ -52,4 +55,27 @@ footer {
 
 .footerIconTextGridLayout img{
     width: 40px;
+}
+
+@media (min-width: 420px) {
+    #footerMainContainer {
+        padding: 0px 50px
+    }
+}
+
+@media (min-width: 820px) {
+    #footerInfoContainer div{
+        max-width: 350px;
+        font-size: 1rem;
+    }
+    #footerInfoContainer {
+        justify-content: center;
+    }
+    .footerh2 {
+        margin: 50px 0px;
+        text-align: left;
+    }
+    #footerInfoContainer div{
+        text-align: left;
+    }
 }
