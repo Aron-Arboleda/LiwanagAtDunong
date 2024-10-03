@@ -123,7 +123,7 @@ body {
 .noteMessage {
     font-family: "Annie Use Your Telescope";
     background-color: var(--pallete-brightWhite);
-    padding: 30px 100px;
+    padding: 30px;
     text-align: center;
     width: 75%;
     transform: rotate(0.5deg);
