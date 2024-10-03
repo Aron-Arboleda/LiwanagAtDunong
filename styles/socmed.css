@@ -1,22 +1,30 @@
 @import url("generalStyles.css");
 
-#curveSectionSVG {
-    width: 100%;
-}
-
 #socmedHalf {
-    width: 100%;
-    height: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    align-items: flex-end;
     background-color: var(--pallete-yellow);
+    margin-top: 400px;
 }
 
 #postsContainer {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    column-gap: 70px;
+    gap: 3rem;
+    grid-area: 1 / 1;
+    z-index: 6;
     position: relative;
-    top: 300px;
+    bottom: 170px;
+    margin: 0px 50px;
+}
+
+#curveSectionSVG {
+    width: 100%;
+    grid-area: 1 / 1;
+    z-index: 5;
 }
 
 .socmedPost {
@@ -26,8 +34,6 @@
 
 #igPost {
     width: 300px;
-    position: relative;
-    top: -100px;
 }
 
 #facebookPost {
@@ -35,7 +41,5 @@
 }
 
 #twitterPost {
-    position: relative;
-    top: -50px;
     width: 383px;
 }
