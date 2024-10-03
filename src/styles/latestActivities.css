@@ -9,11 +9,11 @@
 }
 
 #latestActivitiesBox {
-    padding: 20px 60px;
-    margin: 80px;
-    display: grid;
-    grid-template-columns:
-		repeat(auto-fit, minmax(550px, 1fr));
+    padding: 20px 30px;
+    margin: 65px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     background-color: #FFFBE6;
     min-height: 630px;
     max-width: 900px;
@@ -27,15 +27,15 @@
 }
 
 #facebookContainer {
-    width: 75px;
-    height: 75px;
+    width: 50px;
+    height: 50px;
     object-fit: contain;
-    padding: 15px;
+    padding: 10px;
     background-color: #FFFBE6;
     border-radius: 60px;
     position: absolute;
-    left: -60px;
-    top: -35px;
+    left: -40px;
+    top: -25px;
 }
 
 #facebookContainer img{
@@ -43,7 +43,6 @@
 }
 
 #latestActivities h1 {
-    display: inline-block;
     margin: 0;
     color: var(--pallete-brightWhite);
     font-size: 1.5rem;
@@ -56,36 +55,44 @@
             2px -2px #000000, 
             -2px 2px #000000,
             5px 5px var(--pallete-shadowColor);
+    text-align: center;
 }
 
 #latestActivities h2 {
     margin: 20px 0px;
     font-family: 'Crimson Text';
     font-weight: bold;
-    font-size: 4.5rem;
+    font-size: 3rem;
     color: var(--pallete-yellow);
+    text-align: center;
+    text-shadow: 2px 0 #000000, 
+        -2px 0 #000000, 
+        0 2px #000000, 
+        0 -2px #000000,
+    1px 1px #000000, 
+    -1px -1px #000000, 
+    1px -1px #000000, 
+    -1px 1px #000000;
 }
 
 #latestActivities p {
     margin: 50px 0px;
     font-family: 'Anonymous Pro';
-    font-size: 16px;
+    font-size: 1rem;
     color: var(--pallete-greenTextColor);
 }
 
 
 #latestActivitiesImagesContainer {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
+    display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    min-width: 550px;
-    min-height: 500px;
+    gap: 1rem;
 }
 
 .latestActivitiesImage {
-    width: 220px;
-    height: 220px;
+    width: 180px;
+    height: 180px;
     border-radius: 5%;
     border: 1px solid black;
     position: relative;
@@ -95,26 +102,92 @@
     margin-inline: auto;
 }
 
-#LA_image1 {
-    bottom: 138px;
-    right: 82px;
-    z-index: 10;
+@media (min-width: 720px) {
+    #facebookContainer {
+        width: 75px;
+        height: 75px;
+        object-fit: contain;
+        padding: 15px;
+        background-color: #FFFBE6;
+        border-radius: 60px;
+        position: absolute;
+        left: -60px;
+        top: -35px;
+    }
+
+    #latestActivities h2 {
+        font-size: 3rem;
+    }
+
+    #latestActivitiesBox {
+		width: auto;
+	}
+    .latestActivitiesImage {
+        width: 220px;
+        height: 220px;
+    }
+
+    #latestActivitiesImagesContainer {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        align-items: center;
+        min-height: 500px;
+    }
+
+    #LA_image1 {
+        bottom: 138px;
+        right: 82px;
+        z-index: 10;
+    }
+    
+    #LA_image2 {
+        left: 115px;
+        bottom: 28px;
+        z-index: 20;
+    }
+    
+    #LA_image3 {
+        top: 116px;
+        right: 59px;
+        z-index: 10;
+    }
 }
 
-#LA_image2 {
-    left: 115px;
-    bottom: 28px;
-    z-index: 20;
-}
+@media (min-width: 810px) {
+    #latestActivities h2 {
+        font-size: 4.5rem;
+        text-shadow: 2px 0 #000000, 
+        -2px 0 #000000, 
+        0 2px #000000, 
+        0 -2px #000000,
+    1px 1px #000000, 
+    -1px -1px #000000, 
+    1px -1px #000000, 
+    -1px 1px #000000,
+    5px 5px 0px rgba(0, 0, 0, 0.785);
+    }
 
-#LA_image3 {
-    top: 116px;
-    right: 59px;
-    z-index: 10;
+    #latestActivitiesBox {
+		max-width: 600px;
+        margin: 40px;
+        padding: 20px 40px;
+	}
 }
 
 @media (min-width: 1355px) {
-	#latestActivitiesBox {
-		max-width: 1100px;
+	#latestActivities h1, #latestActivities h2{
+        text-align: left;
+    }
+    
+    #latestActivitiesBox {
+		max-width: 1200px;
+        margin: 80px;
+        padding: 20px 60px;
 	}
+
+    #latestActivitiesImagesContainer {
+        min-width: 480px;
+    }
 }
+

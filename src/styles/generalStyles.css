@@ -30,11 +30,6 @@ body {
     font-family: 'Segoe UI';
 }
 
-.wrapper {
-	max-width: 1180px;
-    margin-inline: auto;
-}
-
 .lightCartoonyBorder {
     border: 1px solid black;
 }
