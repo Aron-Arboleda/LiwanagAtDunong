@@ -31,14 +31,6 @@
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.422);
 }
 
-#igPost {
-    width: 300px;
-}
-
-#facebookPost {
-    width: 313px;
-}
-
-#twitterPost {
-    width: 383px;
+#igPost, #facebookPost, #twitterPost {
+    max-width: 300px;
 }

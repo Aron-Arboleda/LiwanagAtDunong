@@ -194,7 +194,7 @@
 }
 
 .progressImageContainer {
-    padding: 2rem 3rem 7rem 3rem;
+    padding: 2rem 1rem 7rem 1rem;
 }
 
 .progressImage {
@@ -256,6 +256,18 @@
 
     #postsContainer {
         margin: 0px 50px;
+    }
+
+    #igPost {
+        max-width: 300px;
+    }
+    
+    #facebookPost {
+        max-width: 313px;
+    }
+    
+    #twitterPost {
+        max-width: 383px;
     }
 }
 
