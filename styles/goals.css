@@ -21,7 +21,7 @@
 #mainContainer h1{
     font-family: "Fascinate Inline";
     color: var(--pallete-brownTextColor);
-    font-size: 4rem;
+    font-size: 3rem;
     text-align: center;
     margin-top: 0px;
 }
@@ -50,8 +50,10 @@
 }
 
 #goalRow2 {
-    justify-content: center;
+    display: flex;
     flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
 }
 
 .goalsImage {
@@ -62,7 +64,6 @@
 }
 
 .goalsCard {
-    width: 100%;
     max-width: 550px;
     padding: 30px;
     background-color: var(--pallete-lightGreen);
@@ -97,7 +98,42 @@
     color: var(--pallete-brownTextColor);
 }
 
+@media (min-width: 868px) {
+    #goalRow2 {
+        justify-content: center;
+        flex-direction: row;
+    }
+}
+
 @media (min-width: 1020px){
+    #mainContainer h1 {
+        font-size: 4rem;
+    }
+
+    #goalsContainer {
+        display: flex;
+        flex-direction: row;
+        gap: 3rem;
+        align-items: center;
+    }
+}
+
+@media (min-width: 1160px){
+    #mainContainer {
+        width: 1200px;
+    }
+
+    .goalsCard {
+        width: 600px;
+    }
+
+    #goalsContainer {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        gap: 3rem;
+    }
+
     .goalRow {
         justify-content: left;
         flex-direction: row;
