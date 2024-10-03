@@ -10,7 +10,7 @@
 
 #latestActivitiesBox {
     padding: 20px 30px;
-    margin: 65px;
+    margin: 20px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -27,15 +27,15 @@
 }
 
 #facebookContainer {
-    width: 50px;
-    height: 50px;
+    width: 35px;
+    height: 35px;
     object-fit: contain;
-    padding: 10px;
+    padding: 7px;
     background-color: #FFFBE6;
     border-radius: 60px;
     position: absolute;
-    left: -40px;
-    top: -25px;
+    left: -20px;
+    top: -15px;
 }
 
 #facebookContainer img{
@@ -45,7 +45,7 @@
 #latestActivities h1 {
     margin: 0;
     color: var(--pallete-brightWhite);
-    font-size: 1.5rem;
+    font-size: 1rem;
     text-shadow: 2.5px 0 #000000, 
                 -2.5px 0 #000000, 
                 0 2.5px #000000, 
@@ -62,12 +62,12 @@
     margin: 20px 0px;
     font-family: 'Crimson Text';
     font-weight: bold;
-    font-size: 3rem;
+    font-size: 2rem;
     color: var(--pallete-yellow);
     text-align: center;
     text-shadow: 2px 0 #000000, 
         -2px 0 #000000, 
-        0 2px #000000, 
+        0 1px #000000, 
         0 -2px #000000,
     1px 1px #000000, 
     -1px -1px #000000, 
@@ -102,7 +102,19 @@
     margin-inline: auto;
 }
 
-@media (min-width: 720px) {
+@media (min-width: 484px){
+    #latestActivities h1 {
+        font-size: 1.2rem;
+    }
+
+    #latestActivities h2 {
+        font-size: 2.5rem;
+    }
+
+    #latestActivitiesBox {
+        margin: 65px;
+	}
+
     #facebookContainer {
         width: 75px;
         height: 75px;
@@ -114,7 +126,9 @@
         left: -60px;
         top: -35px;
     }
+}
 
+@media (min-width: 720px) {
     #latestActivities h2 {
         font-size: 3rem;
     }

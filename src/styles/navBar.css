@@ -61,11 +61,14 @@ nav a {
 
 #header img {
     margin: 10px;
+    width: 50px;
 }
 
 nav {
     display: none;
 }
+
+
 
 @media (min-width:1080px){
     #header {
