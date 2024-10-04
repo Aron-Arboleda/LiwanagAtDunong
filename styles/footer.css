@@ -11,6 +11,11 @@ footer {
     width: 100px;
     border-radius: 50%;
     box-shadow: 0px 0px 20px yellow;
+    transition: transform 0.3s;
+}
+
+#footerLogo:hover {
+    transform: scale(1.2);
 }
 
 #footerMainContainer {
@@ -55,7 +60,13 @@ footer {
 
 .footerIconTextGridLayout img{
     width: 40px;
+    transition: transform 0.3s;
 }
+
+.footerIconTextGridLayout img:hover{
+    transform: scale(1.2);
+}
+
 
 @media (min-width: 420px) {
     #footerMainContainer {

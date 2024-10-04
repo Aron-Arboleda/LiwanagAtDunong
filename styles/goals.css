@@ -130,6 +130,12 @@
 
     .goalsCard {
         width: 600px;
+        transition: 0.5s ease;
+        transform: scale(0.6);
+    }
+
+    .goalsCard.scaleUp {
+        transform: scale(1);
     }
 
     #goalsContainer {
