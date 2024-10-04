@@ -98,3 +98,55 @@ btnVolunteerAboutContainer.addEventListener('mouseenter', function() {
 btnVolunteerAboutContainer.addEventListener('mouseleave', function() {
     iButtonInfoSvg.style.display = 'none'
 });
+
+window.onscroll = function() {
+    const navBar = document.getElementById('navBar');
+
+    if (window.scrollY > 100) {
+        navBar.classList.add('shrink');
+    } else {
+        navBar.classList.remove('shrink');
+    }
+
+    const latestActivitiesBox = document.getElementById('latestActivitiesBox')
+
+    if (window.scrollY > 300) {
+        latestActivitiesBox.classList.add('show');
+    } else {
+        latestActivitiesBox.classList.remove('show');
+    }
+
+    const goalsCards = document.getElementsByClassName('goalsCard');
+    console.log(goalsCards.length);
+    
+
+    let initialScroll = 2500;
+    for (const goalCard of goalsCards){
+        if (window.scrollY > initialScroll) {
+            goalCard.classList.add('scaleUp');
+        } else {
+            goalCard.classList.remove('scaleUp');
+        }
+        initialScroll += 200    
+    }
+
+    const partnershipsRow1 = document.getElementById('partnershipsRow1');
+    const partnershipsRow3 = document.getElementById('partnershipsRow3');
+    const pyramidGroup1 = document.getElementById('pyramidGroup1');
+    const pyramidGroup2 = document.getElementById('pyramidGroup2');
+    const ptHeading = document.getElementById('ptHeading');
+
+    if (window.scrollY > 5500) {
+        partnershipsRow1.classList.add('spread');
+        partnershipsRow3.classList.add('spread');
+        pyramidGroup1.classList.add('spread');
+        pyramidGroup2.classList.add('spread');
+        ptHeading.classList.add('spread');
+    } else {
+        partnershipsRow1.classList.remove('spread');
+        partnershipsRow3.classList.remove('spread');
+        pyramidGroup1.classList.remove('spread');
+        pyramidGroup2.classList.remove('spread');
+        ptHeading.classList.remove('spread');
+    }
+};

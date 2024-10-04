@@ -103,6 +103,15 @@ nav {
         justify-content: center;
     }
 
+    #navBar {
+        transition: 1s ease;
+        transform-origin: top;
+    }
+
+    #navBar.shrink {
+        transform: scale(0.8);
+    }
+
     nav {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1.4fr 1fr 1fr 1fr;

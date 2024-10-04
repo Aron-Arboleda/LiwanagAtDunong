@@ -110,4 +110,28 @@
     .pyramidGroup {
         max-width: 280px;
     }
+
+    #partnershipsRow1, #partnershipsRow3, #pyramidGroup1, #pyramidGroup2, #ptHeading{
+        transition: 1s ease;
+    }
+
+    #partnershipsRow1 {
+        transform: translateY(140px);
+    }
+    #partnershipsRow3 {
+        transform: translateY(-140px);
+    }
+    #pyramidGroup1 {
+        transform: translateX(240px);
+    }
+    #pyramidGroup2 {
+        transform: translateX(-240px);
+    }
+    #partnershipsPage h1 {
+        transform: scale(0.4);
+    }
+
+    #partnershipsRow1.spread, #partnershipsRow3.spread, #pyramidGroup1.spread, #pyramidGroup2.spread, #ptHeading.spread {
+        transform: translate(0px) scale(1);
+    }
 }

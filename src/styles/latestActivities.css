@@ -206,7 +206,13 @@
 		max-width: 600px;
         margin: 40px;
         padding: 20px 40px;
+        transition: 1s ease;
+        transform: skew(-50deg, 0deg) scale(0.5) translate(1000px, 500px);
 	}
+
+    #latestActivitiesBox.show {
+        transform: skew(0deg, 0deg) scale(1) translate(0px);
+    }
 }
 
 @media (min-width: 1355px) {
