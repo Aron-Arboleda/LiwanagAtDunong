@@ -35,6 +35,7 @@
                2px -2px #000000, 
                -2px 2px #000000;
     cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 #btnVolunteerAboutContainer {
@@ -49,6 +50,7 @@
     font-size: 17px;
     padding: 0;
     border: 1px solid black;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 #btnVolunteerAbout {
@@ -89,9 +91,20 @@
                    -2px 2px #000000;
         cursor: pointer;
     }
+
+    #btnVolunteer:hover {
+        transform: translate(5px,5px);
+        box-shadow: 0px 0px 0px black;
+    }
+
     #btnVolunteerAboutContainer {
         position: absolute;
         left: 300px;
         top: 520px;
+    }
+
+    #btnVolunteerAboutContainer:hover {
+        transform: translate(5px,5px);
+        box-shadow: 0px 0px 0px black;
     }
 }
