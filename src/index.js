@@ -49,3 +49,15 @@ menuToggle.addEventListener('click', () => {
         navBar.style.display = 'flex';
     }
 })
+
+
+const btnVolunteerAboutContainer = document.getElementById('btnVolunteerAboutContainer');
+const iButtonInfoSvg = document.getElementById('iButtonInfoSvg');
+
+btnVolunteerAboutContainer.addEventListener('mouseenter', function() {
+    iButtonInfoSvg.style.display = 'block'
+});
+
+btnVolunteerAboutContainer.addEventListener('mouseleave', function() {
+    iButtonInfoSvg.style.display = 'none'
+});

@@ -53,6 +53,14 @@
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
+#iButtonInfoSvg {
+    display: none;
+    position: absolute;
+    left: -145px;
+    bottom: 40px;
+    width: 350px;
+}
+
 #btnVolunteerAbout {
     position: absolute;
     top:3px;
