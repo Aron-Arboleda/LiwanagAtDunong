@@ -71,7 +71,14 @@
     max-width: 20rem;
     border-radius: 15px;
     box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.358);
+    transition: transform 0.3s;
 }
+
+.pubmatImage:hover {
+    transform: scale(1.1);
+}
+
+
 
 #noteContainer {
     display: flex;
