@@ -1,12 +1,49 @@
 const folders = Array.from(document.getElementsByClassName('folder'));
 const folderTabs = Array.from(document.getElementsByClassName('folderNotch'));
-folders.shift(); folderTabs.shift(); 
+const folderBodies = Array.from(document.getElementsByClassName('folderBody'));
+folders.shift(); folderTabs.shift(); folderBodies.shift();
 
 let currentFolderShowedIndex = null;
 const switches = [false, false, false, false, false];
 
+function parseRGB(rgbString) {
+    const rgb = rgbString.match(/\d+/g); // Extract the numeric values
+    return [parseInt(rgb[0]), parseInt(rgb[1]), parseInt(rgb[2])]; // Return as array of numbers
+}
+  
+  // Brighten an RGB color by a percentage
+function brightenColor(rgbString, percent) {
+    // Parse the RGB string to get the red, green, and blue components
+    const [r, g, b] = parseRGB(rgbString);
+  
+    // Calculate the brightened values
+    const newR = Math.min(255, r + Math.round(255 * (percent / 100)));
+    const newG = Math.min(255, g + Math.round(255 * (percent / 100)));
+    const newB = Math.min(255, b + Math.round(255 * (percent / 100)));
+  
+    // Return the new brightened color in RGB format
+    return `rgb(${newR}, ${newG}, ${newB})`;
+}
+
 for (let tabIndex = 0; tabIndex < folderTabs.length; tabIndex++){
-    folders[tabIndex].style.transition = 'transform 0.5s ease-in';
+    folders[tabIndex].style.transition = 'transform 0.5s, border-top 0.3s, background-color 0.1s';
+
+    const originalColor = window.getComputedStyle(folderBodies[tabIndex]).backgroundColor;
+    folderTabs[tabIndex].addEventListener("mouseenter", () => {
+        folderTabs[tabIndex].style.borderTop = "3px solid black";
+        folderTabs[tabIndex].style.borderLeft = "3px solid black";
+        folderTabs[tabIndex].style.borderRight = "3px solid black";
+        folderTabs[tabIndex].style.backgroundColor = brightenColor(originalColor, 20);
+        folderBodies[tabIndex].style.backgroundColor = brightenColor(originalColor, 20);
+    })
+
+    folderTabs[tabIndex].addEventListener("mouseleave", () => {
+        folderTabs[tabIndex].style.borderTop = "2px solid black";
+        folderTabs[tabIndex].style.borderLeft = "2px solid black";
+        folderTabs[tabIndex].style.borderRight = "2px solid black";
+        folderTabs[tabIndex].style.backgroundColor = originalColor;
+        folderBodies[tabIndex].style.backgroundColor = originalColor;
+    })
 
     folderTabs[tabIndex].addEventListener('click', () => {
         if (switches[tabIndex] === false){

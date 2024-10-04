@@ -37,6 +37,11 @@
             2px -2px #000000, 
             -2px 2px #000000,
             0px 5px 5px rgba(0, 0, 0, 0.329);
+    transition: transform 0.3s;
+}
+
+#aetaLearningCenterPageTitle:hover {
+    transform: scale(1.2);
 }
 
 #foldersContainer {
@@ -95,6 +100,7 @@
     align-items: center;
     z-index: 2;
     pointer-events: auto;
+    cursor: pointer;
 }
 
 .folderBody {
