@@ -21,6 +21,10 @@
     pointer-events: initial;
 }
 
+#postsContainer a {
+    cursor: auto;
+}
+
 #curveSectionSVG {
     width: 100%;
     grid-area: 1 / 1;
@@ -30,7 +34,15 @@
 .socmedPost {
     border-radius: 15px;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.422);
+    transition: transform 0.3s;
+    cursor: pointer;
 }
+
+.socmedPost:hover {
+    transform: translateY(-20px);
+}
+
+
 
 #igPost, #facebookPost, #twitterPost {
     max-width: 300px;
