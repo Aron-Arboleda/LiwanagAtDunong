@@ -115,7 +115,7 @@
     grid-area: 1 / 1;
     display: inline-block;
     margin-inline: auto;
-    transition: transform 0.3s, z-index 0.3s;
+    transition: transform 0.3s;
 }
 
 .latestActivitiesImage:hover {
