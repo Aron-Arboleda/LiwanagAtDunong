@@ -9,7 +9,7 @@ Liwanag at Dunong is a non-governmental organization that seeks to uplift the Ae
 
 ## Instructions
 ### To access the website
-* Go to the link --> https://aron-arboleda.github.io/LiwanagAtDunong/
+* Go to the link --> https://liwanagatdunong.com/
 ## Features still in development
 * Custom Domain
 * Adding subpages
