@@ -1,0 +1,106 @@
+#supportPage {
+    padding: 180px 0px;
+    display: flex;
+    justify-content: center;
+    height: auto;
+    background-color: var(--pallete-lightGreen);
+}
+
+#supportMainContainer {
+    max-width: 80vw;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 30px;
+}
+
+#supportPageTitleContainer {
+    display: flex;
+    justify-content: center;
+    max-width: 700px;
+}
+
+#supportPageTitleContainer img{
+    width: 100%;
+}
+
+#supportPubmatsContainer {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    align-items: center;
+    gap: 30px;
+}
+
+.supportPubmatColumn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+#supportGCashColumn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#supportGCashColumn p{
+    font-size: 2rem;
+    color: var(--pallete-brightWhite);
+    text-shadow: 2px 0 #000000, 
+                -2px 0 #000000, 
+                0 2px #000000, 
+                0 -2px #000000,
+            1px 1px #000000, 
+            -1px -1px #000000, 
+            1px -1px #000000, 
+            -1px 1px #000000,
+            0px 6px 3px rgba(0, 0, 0, 0.146);
+}
+
+#supportGCashColumn img{
+    width: 20rem;
+    height: fit-content;
+}
+
+.pubmatImage {
+    min-width: 200px;
+    max-width: 20rem;
+    border-radius: 15px;
+    box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.358);
+    transition: transform 0.3s;
+}
+
+.pubmatImage:hover {
+    transform: scale(1.1);
+}
+
+
+
+#noteContainer {
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+}
+
+@media (min-width: 830px) {
+    .supportPubmatColumn {
+        flex-direction: row;
+    }
+
+    .noteMessage {
+        padding: 30px 100px;
+    }
+}
+
+@media (min-width: 1250px) {
+    .supportPubmatColumn {
+        flex-direction: column;
+    }
+    #supportPubmatsContainer {
+        grid-template-columns: auto auto auto;
+    }
+}

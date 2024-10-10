@@ -1,0 +1,234 @@
+@import url(generalStyles.css);
+
+#latestActivities {
+    background-color: #347928;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+#latestActivitiesBox {
+    padding: 20px 30px;
+    margin: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #FFFBE6;
+    min-height: 630px;
+    max-width: 900px;
+    border-radius: 30px;
+    box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.543);
+    position: relative;
+}
+
+#latestActivitiesInfo {
+    max-width: 600px;
+}
+
+#facebookContainer {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+    padding: 7px;
+    background-color: #FFFBE6;
+    border-radius: 60px;
+    position: absolute;
+    left: -20px;
+    top: -15px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#facebookContainer:hover {
+    transform: translate(5px,5px);
+    box-shadow: 0px 0px 0px black;
+}
+
+#facebookContainer svg{
+    max-width: 100%;
+}
+
+#facebookSVG {
+    fill: rgb(0, 0, 0);
+    transition: fill 0.3s;
+}
+
+#facebookSVG:hover {
+    fill: #1877F2;
+}
+
+#latestActivities h1 {
+    margin: 0;
+    color: var(--pallete-brightWhite);
+    font-size: 1rem;
+    text-shadow: 2.5px 0 #000000, 
+                -2.5px 0 #000000, 
+                0 2.5px #000000, 
+                0 -2.5px #000000,
+            2px 2px #000000, 
+            -2px -2px #000000, 
+            2px -2px #000000, 
+            -2px 2px #000000,
+            5px 5px var(--pallete-shadowColor);
+    text-align: center;
+}
+
+#latestActivities h2 {
+    margin: 20px 0px;
+    font-family: 'Crimson Text';
+    font-weight: bold;
+    font-size: 2rem;
+    color: var(--pallete-yellow);
+    text-align: center;
+    text-shadow: 2px 0 #000000, 
+        -2px 0 #000000, 
+        0 1px #000000, 
+        0 -2px #000000,
+    1px 1px #000000, 
+    -1px -1px #000000, 
+    1px -1px #000000, 
+    -1px 1px #000000;
+}
+
+#latestActivities p {
+    margin: 50px 0px;
+    font-family: 'Anonymous Pro';
+    font-size: 1rem;
+    color: var(--pallete-greenTextColor);
+}
+
+
+#latestActivitiesImagesContainer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+}
+
+.latestActivitiesImage {
+    width: 180px;
+    height: 180px;
+    border-radius: 5%;
+    border: 1px solid black;
+    position: relative;
+    object-fit: cover;
+    grid-area: 1 / 1;
+    display: inline-block;
+    margin-inline: auto;
+    transition: transform 0.3s;
+}
+
+.latestActivitiesImage:hover {
+    transform: scale(1.1);
+}
+
+@media (min-width: 484px){
+    #latestActivities h1 {
+        font-size: 1.2rem;
+    }
+
+    #latestActivities h2 {
+        font-size: 2.5rem;
+    }
+
+    #latestActivitiesBox {
+        margin: 65px;
+	}
+
+    #facebookContainer {
+        width: 75px;
+        height: 75px;
+        object-fit: contain;
+        padding: 15px;
+        background-color: #FFFBE6;
+        border-radius: 60px;
+        position: absolute;
+        left: -60px;
+        top: -35px;
+    }
+}
+
+@media (min-width: 720px) {
+    #latestActivities h2 {
+        font-size: 3rem;
+    }
+
+    #latestActivitiesBox {
+		width: auto;
+	}
+    .latestActivitiesImage {
+        width: 220px;
+        height: 220px;
+    }
+
+    #latestActivitiesImagesContainer {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        align-items: center;
+        min-height: 500px;
+    }
+
+    #LA_image1 {
+        bottom: 138px;
+        right: 82px;
+        z-index: 10;
+    }
+    
+    #LA_image2 {
+        left: 115px;
+        bottom: 28px;
+        z-index: 20;
+    }
+    
+    #LA_image3 {
+        top: 116px;
+        right: 59px;
+        z-index: 10;
+    }
+}
+
+@media (min-width: 810px) {
+    #latestActivities h2 {
+        font-size: 4.5rem;
+        text-shadow: 2px 0 #000000, 
+        -2px 0 #000000, 
+        0 2px #000000, 
+        0 -2px #000000,
+    1px 1px #000000, 
+    -1px -1px #000000, 
+    1px -1px #000000, 
+    -1px 1px #000000,
+    5px 5px 0px rgba(0, 0, 0, 0.785);
+    }
+
+    #latestActivitiesBox {
+		max-width: 600px;
+        margin: 40px;
+        padding: 20px 40px;
+        transition: 1s ease;
+        transform: skew(-50deg, 0deg) scale(0.5) translate(1000px, 500px);
+	}
+
+    #latestActivitiesBox.show {
+        transform: skew(0deg, 0deg) scale(1) translate(0px);
+    }
+}
+
+@media (min-width: 1355px) {
+	#latestActivities h1, #latestActivities h2{
+        text-align: left;
+    }
+    
+    #latestActivitiesBox {
+		max-width: 1200px;
+        margin: 80px;
+        padding: 20px 60px;
+	}
+
+    #latestActivitiesImagesContainer {
+        min-width: 480px;
+    }
+}
+
