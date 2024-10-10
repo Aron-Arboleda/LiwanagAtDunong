@@ -42,6 +42,10 @@ nav {
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.228);
 }
 
+#check:checked ~ nav {
+    left: 0;
+}
+
 nav a {
     font-family: 'Fuzzy Bubbles', cursive;
     padding: 0.3rem 1rem;
