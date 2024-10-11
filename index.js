@@ -48,7 +48,7 @@ for (let tabIndex = 0; tabIndex < folderTabs.length; tabIndex++){
     folderTabs[tabIndex].addEventListener('click', () => {
         if (switches[tabIndex] === false){
             currentFolderShowedIndex = tabIndex
-            folders[currentFolderShowedIndex].style.transform = 'translateY(-460px)';
+            folders[currentFolderShowedIndex].style.transform = 'translateY(-70vh)';
             switches[currentFolderShowedIndex] = true;
         } else if(switches[tabIndex] === true){
             if (currentFolderShowedIndex === tabIndex){
@@ -69,7 +69,7 @@ for (let tabIndex = 0; tabIndex < folderTabs.length; tabIndex++){
         
         for (let i = currentFolderShowedIndex + 1; i < folderTabs.length; i++) {
             if (switches[i] === false){
-                folders[i].style.transform = 'translateY(-460px)';
+                folders[i].style.transform = 'translateY(-70vh)';
                 switches[i] = true
             }
         }
