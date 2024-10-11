@@ -230,10 +230,6 @@
 }
 
 @media (min-width: 625px){
-    .progressImageContainer {
-        /* padding: 2rem 5rem 5rem 5rem; */
-    }
-
     #folderNotch4 {
         grid-area: 1 / 4;
     }
@@ -297,10 +293,6 @@
         grid-template-columns: 50% 50%;
         gap: clamp(4vw, 5vw, 6vw);
         padding: 6vh clamp(17vw, 17.5vw, 18vw) 30vh;
-    }
-
-    .progressInfoContainer, .progressImageContainer{
-        /* padding: clamp(2vw, 3vw, 4vw); */
     }
 
     .progressImage {
