@@ -293,6 +293,7 @@
         grid-template-columns: 50% 50%;
         gap: clamp(4vw, 5vw, 6vw);
         padding: 6vh clamp(17vw, 17.5vw, 18vw) 30vh;
+        overflow: visible;
     }
 
     .progressImage {
