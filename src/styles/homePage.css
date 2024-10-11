@@ -53,12 +53,22 @@
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
-#iButtonInfoSvg {
-    display: none;
+#iButtonInfoContainer {
+    display: flex;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
     position: absolute;
-    left: -145px;
-    bottom: 40px;
-    width: 350px;
+    left: -200px;
+    bottom: 30px;
+    width: 450px;
+    height: 167px;
+    font-family: 'Fuzzy Bubbles';
+    font-size: 0.85rem;
+    background-image: url('../assets/images/homePage/dialogThemedPlaceholder.svg');
+    background-size: contain;
+    padding: 30px 20px;
+    background-repeat: no-repeat;
+    color: var(--pallete-shadowColor);
 }
 
 #btnVolunteerAbout {

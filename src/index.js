@@ -89,14 +89,14 @@ menuToggle.addEventListener('click', () => {
 
 
 const btnVolunteerAboutContainer = document.getElementById('btnVolunteerAboutContainer');
-const iButtonInfoSvg = document.getElementById('iButtonInfoSvg');
+const iButtonInfoContainer = document.getElementById('iButtonInfoContainer');
 
 btnVolunteerAboutContainer.addEventListener('mouseenter', function() {
-    iButtonInfoSvg.style.display = 'block'
+    iButtonInfoContainer.style.display = 'flex'
 });
 
 btnVolunteerAboutContainer.addEventListener('mouseleave', function() {
-    iButtonInfoSvg.style.display = 'none'
+    iButtonInfoContainer.style.display = 'none'
 });
 
 window.onscroll = function() {
