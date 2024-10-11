@@ -25,8 +25,8 @@
 #aetaLearningCenterPageTitle {
     position: relative;
     margin: 15px 0px;
-    left: -45px;
-    font-size: 25px;
+    left: -0.1rem;
+    font-size: 1rem;
     color: var(--pallete-brightWhite);
     text-shadow: 2.5px 0 #000000, 
                 -2.5px 0 #000000, 
@@ -224,7 +224,7 @@
 }
 
 .progressImage {
-    max-width: 20rem;
+    max-width: 100%;
     border: 2px solid black;
     box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.731);
 }
