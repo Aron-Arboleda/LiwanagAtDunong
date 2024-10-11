@@ -92,6 +92,10 @@
     gap: 30px;
 }
 
+#partnershipsPage h1 {
+    font-size: 1.5rem;
+}
+
 @media (min-width: 530px) {
     .pLogoContainer {
         width: 100px;
