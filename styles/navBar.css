@@ -22,10 +22,6 @@ a {
     text-decoration: none;
 }
 
-:root {
-    --cell-width: 150px;
-}
-
 nav {
     display: flex;
     flex-wrap: wrap;
