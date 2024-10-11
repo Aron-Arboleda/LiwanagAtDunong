@@ -25,8 +25,8 @@
 #aetaLearningCenterPageTitle {
     position: relative;
     margin: 15px 0px;
-    left: -45px;
-    font-size: 25px;
+    left: -0.1rem;
+    font-size: 1rem;
     color: var(--pallete-brightWhite);
     text-shadow: 2.5px 0 #000000, 
                 -2.5px 0 #000000, 
@@ -48,7 +48,7 @@
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
-    margin-top: 510px;
+    margin-top: 75vh;
 }
 
 .folder {
@@ -105,13 +105,16 @@
 
 .folderBody {
     border-top: 2px solid black;
+    /* height: 80vh; */
     z-index: 1;
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
+    flex-direction: column-reverse;
     justify-content: center;
     align-items: center;
-    padding: 30px 0px;
+    gap: clamp(4vw, 5vw, 6vw);
+    padding: 6vh clamp(17vw, 17.5vw, 18vw) 20vh;
+    overflow: auto;
+    height: 50vh;
 }
 
 .folderDateText {
@@ -133,6 +136,8 @@
 }
 
 #folderBody1 {
+    display: flex;
+    height: auto;
     background-color: var(--pallete-yellow);
     padding: 0px;
 }
@@ -182,14 +187,21 @@
     background-color: var(--pallete-purple);
 }
 
-.progressTitleContainer {
+.progressInfoContainer {
     padding: none;
     padding-top: 1rem;
 }
 
+.progressInfoText {
+    background-color: var(--pallete-brightWhite);
+    padding: clamp(1vw, 2vw, 3vw);
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 3px 3px 0px black;
+    pointer-events: all;
+}
+
 .progressTitle {
-    width: 10rem;
-    height: 2rem;
     background-color: var(--pallete-brightWhite);
     border: 1px solid black;
     box-shadow: 3px 3px 0px black;
@@ -200,34 +212,24 @@
 }
 
 .progressImageContainer {
-    padding: 2rem 1rem 7rem 1rem;
+    /* padding: 2rem 1rem 7rem 1rem; */
+    flex-direction: column;
+    gap: 20px;
+    pointer-events: all;
+}
+
+.progressTitle{
+    padding: clamp(3px, 0.5vw, 7px) clamp(10px, 1vw, 20px);
+    font-size: 1rem;
 }
 
 .progressImage {
-    max-width: 20rem;
+    max-width: 100%;
     border: 2px solid black;
     box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.731);
 }
 
-@media (min-width: 500px){
-    .progressImage {
-        max-width: 25rem;
-    }
-    .progressImageContainer {
-        padding: 2rem 3rem 4rem 3rem;
-    }
-}
-
 @media (min-width: 625px){
-    .progressTitle{
-        width: 14rem;
-        height: 4rem;
-        font-size: 1rem;
-    }
-    .progressImageContainer {
-        padding: 2rem 5rem 5rem 5rem;
-    }
-
     #folderNotch4 {
         grid-area: 1 / 4;
     }
@@ -244,6 +246,10 @@
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
         pointer-events: none;
+    }
+
+    .progressInfoText {
+        margin-bottom: 10vh;
     }
     
     #folder4, #folder5, #folder6 {
@@ -279,20 +285,19 @@
 
 @media (min-width: 1077px){
     .progressTitle {
-        width: 17rem;
-        height: 8rem;
-        font-size: 1.5rem;
+        padding: clamp(5px, 0.5vw, 10px) clamp(10px, 1vw, 20px);
+        font-size: 1.2rem;
     }
     .folderBody {
-        flex-direction: row;
-    }
-
-    .progressTitleContainer{
-        padding: 2rem 5rem 5rem 5rem;
+        display: grid;
+        grid-template-columns: 50% 50%;
+        gap: clamp(4vw, 5vw, 6vw);
+        padding: 6vh clamp(17vw, 17.5vw, 18vw) 30vh;
+        overflow: visible;
     }
 
     .progressImage {
-        max-width: 30rem;
+        max-width: 100%;
     }
 
     .folderDateText {
