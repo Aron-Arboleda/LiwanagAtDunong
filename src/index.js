@@ -7,21 +7,17 @@ let currentFolderShowedIndex = null;
 const switches = [false, false, false, false, false];
 
 function parseRGB(rgbString) {
-    const rgb = rgbString.match(/\d+/g); // Extract the numeric values
-    return [parseInt(rgb[0]), parseInt(rgb[1]), parseInt(rgb[2])]; // Return as array of numbers
+    const rgb = rgbString.match(/\d+/g);
+    return [parseInt(rgb[0]), parseInt(rgb[1]), parseInt(rgb[2])];
 }
-  
-  // Brighten an RGB color by a percentage
+
 function brightenColor(rgbString, percent) {
-    // Parse the RGB string to get the red, green, and blue components
     const [r, g, b] = parseRGB(rgbString);
   
-    // Calculate the brightened values
     const newR = Math.min(255, r + Math.round(255 * (percent / 100)));
     const newG = Math.min(255, g + Math.round(255 * (percent / 100)));
     const newB = Math.min(255, b + Math.round(255 * (percent / 100)));
   
-    // Return the new brightened color in RGB format
     return `rgb(${newR}, ${newG}, ${newB})`;
 }
 
