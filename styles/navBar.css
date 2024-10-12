@@ -18,45 +18,53 @@ header {
     margin-right: 10px;
 }
 
-a {
-    text-decoration: none;
+.checkbtn {
+    display: block;
+    width: 50px;
+    cursor: pointer;
+}
+
+#check {
+    display: none;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0px;
 }
 
 nav {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    min-width: 100px;
-    gap: 0.5rem;
-    padding: 0.5rem;
     align-items: center;
     text-align: center;
     height: auto;
-    background-color: #347928;
     border-radius: 12px;
-    border: 2px solid #FFFBE6;
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.228);
 }
 
-#check:checked ~ nav {
-    left: 0;
+.navLinks {
+    color: white;
+    transition: all 0.3s;
+    text-decoration: none;
+    display: block;
+    border-radius: 20px;
+    text-decoration: none;
+    padding: 7px;
 }
 
-nav a {
+nav ul li {
     font-family: 'Fuzzy Bubbles', cursive;
-    padding: 0.3rem 1rem;
     font-weight: 400;
     font-style: normal;
-    color: white;
     font-size: 0.8rem;
-    min-width: 100px;
     border-radius: 10px;
     transition: background-color 0.3s, color 0.3s, text-shadow 0.3s;
 }
 
-nav a:hover {
-    color: var(--pallete-brownTextColor);
+nav ul li a:hover {
     background-color: var(--pallete-brightWhite);
+    color: var(--pallete-brownTextColor);
 }
 
 #volunteer {
@@ -65,76 +73,112 @@ nav a:hover {
     font-weight: bold;
     font-size: 22px;
     min-width: 70px;
+    text-decoration: none;
+    color: white;
+    border-radius: 10px;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 #volunteer:hover {
     color: var(--pallete-yellow);
-    /* text-shadow: 2px 0 #ffffff, 
-    -2px 0 #ffffff, 
-    0 2px #ffffff, 
-    0 -2px #ffffff,
-1px 1px #ffffff, 
--1px -1px #ffffff, 
-1px -1px #ffffff, 
--1px 1px #ffffff; */
 }
 
-header img {
-    margin: 10px;
+header svg {
+    margin: -40px -10px;
     width: 50px;
 }
 
-nav {
-    display: none;
+#ulNav {
+    position: fixed;
+    display: flex;
+    gap: 7px;
+    padding: 10px;
+    border: 2px solid white;
+    border-radius: 5px;
+    flex-direction: column;
+    max-width: 130px;
+    height: auto;
+    background-color: var(--pallete-green);
+    top: 60px;
+    right: 10px;
+    text-align: center;
+    transition: all .5s;
+    opacity: 0;
 }
 
-
+#check:checked ~ #ulNav {
+    opacity: 1;
+}
 
 @media (min-width:1080px){
     header {
         justify-content: center;
     }
     
-    header img {
+    header svg {
         display: none;
     }
 
     #navBarContainer {
         justify-content: center;
+        margin: 0px 80px;
     }
 
     #navBar {
+        justify-content: center;
+        margin: 0px 80px;
+    }
+
+    #ulNav {
+        position: fixed;
+        top: 0px;
+        right: auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1.7fr 1fr 1fr 1fr;
+        width: 100%;
+        max-width: 1200px;
+        gap: 0.5rem;
+        padding: 0px;
+        padding-right: 13px;
+        margin: 0px 10px;
+        margin-top: 10px;
+        border-radius: 2rem;
+        opacity: 1;
         transition: 1s ease;
         transform-origin: top;
     }
 
-    #navBar.shrink {
+    #ulNav.shrink {
         transform: scale(0.8);
     }
 
-    nav {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1.4fr 1fr 1fr 1fr;
-        max-width: 1200px;
-        gap: 0.5rem;
-        padding: 0px 7px;
-        margin-top: 10px;
-        border-radius: 2rem;
+    #ulNav li a {
+        width: 100%;
     }
 
-    nav a {
-        display: block;
-        font-size: 17px;
-        padding: 0.5rem 1vw;
-        margin: 0.1rem;
+    nav ul {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .checkbtn {
+        display: none;
+        width: 50px;
+        cursor: pointer;
+    }
+
+    nav ul li {
+        font-size: 1rem;
+        padding: 0.2rem 1vw;
         border-radius: 2rem;
         max-width: 200px;
-        font-size: clamp(0.9vw, 1vw, 1vw);
+        font-size: clamp(1rem, 1vw, 1.1rem);
     }
+
     #volunteer {
         display: block;
-        padding: 0.005rem 1rem;
-        margin: 5px 0px;
-        font-size: clamp(1.1vw, 1.3vw, 1.4vw);
+        padding: 0px 5px;
+        font-size: clamp(1.2rem, 1vw, 1.3rem);
     }
 }
