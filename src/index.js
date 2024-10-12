@@ -73,15 +73,15 @@ for (let tabIndex = 0; tabIndex < folderTabs.length; tabIndex++){
 }
 
 
-const menuToggle = document.getElementById('menuToggle');
-const navBar = document.getElementById('navBar')
-menuToggle.addEventListener('click', () => {
-    if (navBar.style.display === 'flex'){
-        navBar.style.display = 'none';
-    } else {
-        navBar.style.display = 'flex';
-    }
-})
+// const menuToggle = document.getElementById('menuToggle');
+// const navBar = document.getElementById('navBar')
+// menuToggle.addEventListener('click', () => {
+//     if (navBar.style.display === 'flex'){
+//         navBar.style.display = 'none';
+//     } else {
+//         navBar.style.display = 'flex';
+//     }
+// })
 
 
 const btnVolunteerAboutContainer = document.getElementById('btnVolunteerAboutContainer');
@@ -96,7 +96,7 @@ btnVolunteerAboutContainer.addEventListener('mouseleave', function() {
 });
 
 window.onscroll = function() {
-    const navBar = document.getElementById('navBar');
+    const navBar = document.getElementById('ulNav');
 
     if (window.scrollY > 100) {
         navBar.classList.add('shrink');
