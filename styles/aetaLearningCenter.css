@@ -5,6 +5,7 @@
     display: block;
     z-index: 1;
     position: relative;
+    /* height:auto; width: auto */
 }
 
 #aetaHeaderContainer {
@@ -199,6 +200,7 @@
     border-radius: 5px;
     box-shadow: 3px 3px 0px black;
     pointer-events: all;
+    margin-bottom: 10vh;
 }
 
 .progressTitle {
@@ -249,7 +251,7 @@
     }
 
     .progressInfoText {
-        margin-bottom: 10vh;
+        margin-bottom: 0px;
     }
     
     #folder4, #folder5, #folder6 {
