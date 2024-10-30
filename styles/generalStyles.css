@@ -2,12 +2,12 @@
 
 @font-face {
   font-family: "ChunkFive";
-  src: url("../assets/fonts/ChunkFive.otf") format("opentype");
+  src: url("/fonts/ChunkFive.otf") format("opentype");
 }
 
 @font-face {
   font-family: "Montserrat";
-  src: url("../assets/fonts/Montserrat.otf") format("opentype");
+  src: url("/fonts/Montserrat.otf") format("opentype");
 }
 
 :root {
