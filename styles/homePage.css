@@ -16,7 +16,7 @@
   position: absolute;
   left: 20px;
   top: 520px;
-  font-family: "Corben";
+  font-family: "ChunkFive";
   font-weight: bold;
   color: #fccd2a;
   background-color: #fffbe6;
@@ -96,19 +96,20 @@
     position: absolute;
     left: 90px;
     top: 500px;
-    font-family: "Corben";
+    font-family: "ChunkFive";
     font-weight: bold;
     color: #fccd2a;
     background-color: #fffbe6;
     border-radius: 35px;
     height: 70px;
     width: 200px;
-    font-size: 20px;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
     border: 3px solid black;
     box-shadow: 4px 4px 0px black;
-    text-shadow: 2.5px 0 #000000, -2.5px 0 #000000, 0 2.5px #000000,
-      0 -2.5px #000000, 2px 2px #000000, -2px -2px #000000, 2px -2px #000000,
-      -2px 2px #000000;
+    text-shadow: 2px 0 #000000, -2px 0 #000000, 0 2px #000000, 0 -2px #000000,
+      1.5px 1.5px #000000, -1.5px -1.5px #000000, 1.5px -1.5px #000000,
+      -1.5px 1.5px #000000;
     cursor: pointer;
   }
 
