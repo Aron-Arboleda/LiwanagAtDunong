@@ -1,92 +1,90 @@
 footer {
-    padding-top: 50px;
-    padding-bottom: 130px;
-    display: flex;
-    justify-content: center;
-    height: auto;
-    background: var(--pallete-green);
+  padding-top: 50px;
+  padding-bottom: 130px;
+  display: flex;
+  justify-content: center;
+  height: auto;
+  background: var(--pallete-green);
 }
 
 #footerLogo {
-    width: 100px;
-    border-radius: 50%;
-    box-shadow: 0px 0px 20px yellow;
-    transition: transform 0.3s;
+  width: 100px;
+  border-radius: 50%;
+  box-shadow: 0px 0px 20px yellow;
+  transition: transform 0.3s;
 }
 
 #footerLogo:hover {
-    transform: scale(1.2);
+  transform: scale(1.2);
 }
 
 #footerMainContainer {
-    padding: 0px 20px;
+  padding: 0px 20px;
 }
 
 #footerInfoContainer {
-    font-family: 'Anonymous Pro';
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    column-gap: 70px;
-    justify-content: center;
-    color: var(--pallete-brightWhite);
+  font-family: "Montserrat";
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  column-gap: 70px;
+  justify-content: center;
+  color: var(--pallete-brightWhite);
 }
 
-#footerInfoContainer div{
-    max-width: 350px;
-    font-size: 0.8rem;
-    text-align: center;
+#footerInfoContainer div {
+  max-width: 350px;
+  font-size: 0.8rem;
+  text-align: center;
 }
-
-
 
 #footerInfoContainer a {
-    color: var(--pallete-brightWhite);
-    text-decoration: underline;
+  color: var(--pallete-brightWhite);
+  text-decoration: underline;
 }
 
 .footerh2 {
-    margin: 50px 0px;
-    text-align: center;
+  font-family: "Corben";
+  margin: 50px 0px;
+  text-align: center;
 }
 
 .footerIconTextGridLayout {
-    display: grid;
-    grid-template-columns: 40px 1fr;
-    row-gap: 20px;
-    column-gap: 40px;
-    align-items: center;
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  row-gap: 20px;
+  column-gap: 40px;
+  align-items: center;
 }
 
-.footerIconTextGridLayout img{
-    width: 40px;
-    transition: transform 0.3s;
+.footerIconTextGridLayout img {
+  width: 40px;
+  transition: transform 0.3s;
 }
 
-.footerIconTextGridLayout img:hover{
-    transform: scale(1.2);
+.footerIconTextGridLayout img:hover {
+  transform: scale(1.2);
 }
-
 
 @media (min-width: 420px) {
-    #footerMainContainer {
-        padding: 0px 50px
-    }
+  #footerMainContainer {
+    padding: 0px 50px;
+  }
 }
 
 @media (min-width: 820px) {
-    #footerInfoContainer div{
-        max-width: 350px;
-        font-size: 1rem;
-    }
-    #footerInfoContainer {
-        justify-content: center;
-    }
-    .footerh2 {
-        margin: 50px 0px;
-        text-align: left;
-    }
-    #footerInfoContainer div{
-        text-align: left;
-    }
+  #footerInfoContainer div {
+    max-width: 350px;
+    font-size: 1rem;
+  }
+  #footerInfoContainer {
+    justify-content: center;
+  }
+  .footerh2 {
+    margin: 50px 0px;
+    text-align: left;
+  }
+  #footerInfoContainer div {
+    text-align: left;
+  }
 }

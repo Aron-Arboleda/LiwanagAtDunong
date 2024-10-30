@@ -115,7 +115,7 @@ header svg {
 
   #ulNav {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1.3fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1.5fr 1fr 1fr 1fr;
     width: 100%;
     max-width: 1200px;
     gap: 0.5rem;
@@ -159,15 +159,13 @@ header svg {
 
   #volunteer {
     display: block;
-    font-family: "ChunkFive";
-    letter-spacing: 1px;
+    font-family: "Corben";
     font-weight: bold;
-    font-size: 22px;
+    font-size: 1.2rem;
     min-width: 70px;
     text-decoration: none;
     color: white;
-    border-radius: 1rem;
+    border-radius: 1.2rem;
     transition: background-color 0.3s, color 0.3s;
-    padding: 5px 5px;
   }
 }

@@ -1,332 +1,327 @@
 #aetaLearningCenterPage {
-    background-color: var(--pallete-lightGreen);
-    padding-top: 50px;
-    margin: 0;
-    display: block;
-    z-index: 1;
-    position: relative;
-    /* height:auto; width: auto */
+  background-color: var(--pallete-lightGreen);
+  padding-top: 50px;
+  margin: 0;
+  display: block;
+  z-index: 1;
+  position: relative;
+  /* height:auto; width: auto */
 }
 
 #aetaHeaderContainer {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 #aetaLearningCenterPageCircle {
-    max-width: 250px;
-    max-height: 80px;
-    border-radius: 50%;
-    overflow: visible;
-    white-space: nowrap;
-    background-color: var(--pallete-brownBackgroundColor);
-    border: 2px solid black;
+  max-width: 250px;
+  max-height: 80px;
+  border-radius: 50%;
+  overflow: visible;
+  white-space: nowrap;
+  background-color: var(--pallete-brownBackgroundColor);
+  border: 2px solid black;
 }
 
 #aetaLearningCenterPageTitle {
-    position: relative;
-    margin: 15px 0px;
-    left: -0.1rem;
-    font-size: 1rem;
-    color: var(--pallete-brightWhite);
-    text-shadow: 2.5px 0 #000000, 
-                -2.5px 0 #000000, 
-                0 2.5px #000000, 
-                0 -2.5px #000000,
-            2px 2px #000000, 
-            -2px -2px #000000, 
-            2px -2px #000000, 
-            -2px 2px #000000,
-            0px 5px 5px rgba(0, 0, 0, 0.329);
-    transition: transform 0.3s;
+  position: relative;
+  margin: 15px 0px;
+  left: -3rem;
+  font-size: 2rem;
+  color: var(--pallete-brightWhite);
+  text-shadow: 2.5px 0 #000000, -2.5px 0 #000000, 0 2.5px #000000,
+    0 -2.5px #000000, 2px 2px #000000, -2px -2px #000000, 2px -2px #000000,
+    -2px 2px #000000, 0px 5px 5px rgba(0, 0, 0, 0.329);
+  transition: transform 0.3s;
 }
 
 #aetaLearningCenterPageTitle:hover {
-    transform: scale(1.2);
+  transform: scale(1.2);
 }
 
 #foldersContainer {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
-    margin-top: 75vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  margin-top: 75vh;
 }
 
 .folder {
-    grid-area: 1 / 1;
-    pointer-events: none;
-    position: relative;
+  grid-area: 1 / 1;
+  pointer-events: none;
+  position: relative;
 }
 
 #folder1 {
-    z-index: 10;
+  z-index: 10;
 }
 #folder2 {
-    z-index: 9;
+  z-index: 9;
 }
 #folder3 {
-    z-index: 8;
+  z-index: 8;
 }
 #folder4 {
-    z-index: 7;
-    position: relative;
-    bottom: 45px;
+  z-index: 7;
+  position: relative;
+  bottom: 45px;
 }
 #folder5 {
-    z-index: 6;
-    position: relative;
-    bottom: 45px;
+  z-index: 6;
+  position: relative;
+  bottom: 45px;
 }
 #folder6 {
-    z-index: 5;
-    position: relative;
-    bottom: 45px;
+  z-index: 5;
+  position: relative;
+  bottom: 45px;
 }
 
-
 .folderHeader {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    pointer-events: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  pointer-events: none;
 }
 
 .folderNotch {
-    margin: 0px 10px;
-    border-radius: 10px 10px 0px 0px;
-    border: 2px solid black;
-    border-bottom: none;
-    position: relative;
-    top: 2px;
-    height: 40px;
-    align-items: center;
-    z-index: 2;
-    pointer-events: auto;
-    cursor: pointer;
+  margin: 0px 10px;
+  border-radius: 10px 10px 0px 0px;
+  border: 2px solid black;
+  border-bottom: none;
+  position: relative;
+  top: 2px;
+  height: 40px;
+  align-items: center;
+  z-index: 2;
+  pointer-events: auto;
+  cursor: pointer;
 }
 
 .folderBody {
-    border-top: 2px solid black;
-    /* height: 80vh; */
-    z-index: 1;
-    display: flex;
-    flex-direction: column-reverse;
-    justify-content: center;
-    align-items: center;
-    gap: clamp(4vw, 5vw, 6vw);
-    padding: 6vh clamp(17vw, 17.5vw, 18vw) 20vh;
-    overflow: auto;
-    height: 50vh;
+  border-top: 2px solid black;
+  /* height: 80vh; */
+  z-index: 1;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(4vw, 5vw, 6vw);
+  padding: 6vh clamp(17vw, 17.5vw, 18vw) 20vh;
+  overflow: auto;
+  height: 50vh;
 }
 
 .folderDateText {
-    font-family: 'Anonymous Pro';
-    background-color: var(--pallete-brightWhite);
-    height: auto;
-    width: 100%;
-    padding: 5px;
-    border-radius: 5px;
-    border: 1px solid black;
-    margin: 0px 10px;
-    text-align: center;
-    font-size: 0.7rem;
+  font-family: "Fuzzy Bubbles";
+  background-color: var(--pallete-brightWhite);
+  height: auto;
+  width: 100%;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid black;
+  margin: 0px 10px;
+  text-align: center;
+  font-size: 0.7rem;
 }
 
 #folderNotch1 {
-    background-color: var(--pallete-yellow);
-    grid-area: 1 / 1;
+  background-color: var(--pallete-yellow);
+  grid-area: 1 / 1;
 }
 
 #folderBody1 {
-    display: flex;
-    height: auto;
-    background-color: var(--pallete-yellow);
-    padding: 0px;
+  display: flex;
+  height: auto;
+  background-color: var(--pallete-yellow);
+  padding: 0px;
 }
 
 #folderNotch2 {
-    background-color: var(--pallete-lightOrangeBackgroundColor);
-    grid-area: 1 / 2;
+  background-color: var(--pallete-lightOrangeBackgroundColor);
+  grid-area: 1 / 2;
 }
 
 #folderBody2 {
-    background-color: var(--pallete-lightOrangeBackgroundColor);
+  background-color: var(--pallete-lightOrangeBackgroundColor);
 }
 
 #folderNotch3 {
-    background-color: var(--pallete-green);
-    grid-area: 1 / 3;
+  background-color: var(--pallete-green);
+  grid-area: 1 / 3;
 }
 
 #folderBody3 {
-    background-color: var(--pallete-green);
+  background-color: var(--pallete-green);
 }
 
 #folderNotch4 {
-    background-color: var(--pallete-redOrangeBackgroundColor);
-    grid-area: 1 / 1;
+  background-color: var(--pallete-redOrangeBackgroundColor);
+  grid-area: 1 / 1;
 }
 
 #folderBody4 {
-    background-color: var(--pallete-redOrangeBackgroundColor);
+  background-color: var(--pallete-redOrangeBackgroundColor);
 }
 
 #folderNotch5 {
-    background-color: var(--pallete-lightBlue);
-    grid-area: 1 / 2;
+  background-color: var(--pallete-lightBlue);
+  grid-area: 1 / 2;
 }
 
 #folderBody5 {
-    background-color: var(--pallete-lightBlue);
+  background-color: var(--pallete-lightBlue);
 }
 
 #folderNotch6 {
-    background-color: var(--pallete-purple);
-    grid-area: 1 / 3;
+  background-color: var(--pallete-purple);
+  grid-area: 1 / 3;
 }
 
 #folderBody6 {
-    background-color: var(--pallete-purple);
+  background-color: var(--pallete-purple);
 }
 
 .progressInfoContainer {
-    padding: none;
-    padding-top: 1rem;
+  padding: none;
+  padding-top: 1rem;
 }
 
 .progressInfoText {
-    background-color: var(--pallete-brightWhite);
-    padding: clamp(1vw, 2vw, 3vw);
-    border: 1px solid black;
-    border-radius: 5px;
-    box-shadow: 3px 3px 0px black;
-    pointer-events: all;
-    margin-bottom: 10vh;
+  background-color: var(--pallete-brightWhite);
+  padding: clamp(1vw, 2vw, 3vw);
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: 3px 3px 0px black;
+  pointer-events: all;
+  margin-bottom: 10vh;
 }
 
 .progressTitle {
-    background-color: var(--pallete-brightWhite);
-    border: 1px solid black;
-    box-shadow: 3px 3px 0px black;
-    border-radius: 3px;
-    font-family: 'Fuzzy Bubbles';
-    font-size: 0.8rem;
-    transform: rotate(2deg);
+  background-color: var(--pallete-brightWhite);
+  border: 1px solid black;
+  box-shadow: 3px 3px 0px black;
+  border-radius: 3px;
+  font-family: "Fuzzy Bubbles";
+  font-size: 0.8rem;
+  transform: rotate(2deg);
 }
 
 .progressImageContainer {
-    /* padding: 2rem 1rem 7rem 1rem; */
-    flex-direction: column;
-    gap: 20px;
-    pointer-events: all;
+  /* padding: 2rem 1rem 7rem 1rem; */
+  flex-direction: column;
+  gap: 20px;
+  pointer-events: all;
 }
 
-.progressTitle{
-    padding: clamp(3px, 0.5vw, 7px) clamp(10px, 1vw, 20px);
-    font-size: 1rem;
+.progressTitle {
+  padding: clamp(3px, 0.5vw, 7px) clamp(10px, 1vw, 20px);
+  font-size: 1rem;
 }
 
 .progressImage {
+  max-width: 100%;
+  border: 2px solid black;
+  box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.731);
+}
+
+@media (min-width: 625px) {
+  #folderNotch4 {
+    grid-area: 1 / 4;
+  }
+
+  #folderNotch5 {
+    grid-area: 1 / 5;
+  }
+
+  #folderNotch6 {
+    grid-area: 1 / 6;
+  }
+
+  .folderHeader {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    pointer-events: none;
+  }
+
+  .progressInfoText {
+    margin-bottom: 0px;
+  }
+
+  #folder4,
+  #folder5,
+  #folder6 {
+    position: static;
+  }
+
+  #aetaLearningCenterPageCircle {
+    max-width: 350px;
+    max-height: 100px;
+  }
+
+  #aetaLearningCenterPageTitle {
+    left: -70px;
+    font-size: 2.7rem;
+  }
+
+  #postsContainer {
+    margin: 0px 50px;
+  }
+
+  #igPost {
+    max-width: 300px;
+  }
+
+  #facebookPost {
+    max-width: 313px;
+  }
+
+  #twitterPost {
+    max-width: 383px;
+  }
+}
+
+@media (min-width: 1077px) {
+  .progressTitle {
+    padding: clamp(5px, 0.5vw, 10px) clamp(10px, 1vw, 20px);
+    font-size: 1.2rem;
+  }
+  .folderBody {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: clamp(4vw, 5vw, 6vw);
+    padding: 6vh clamp(17vw, 17.5vw, 18vw) 30vh;
+    overflow: visible;
+  }
+
+  .progressImage {
     max-width: 100%;
-    border: 2px solid black;
-    box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.731);
+  }
+
+  .folderDateText {
+    font-size: 1rem;
+  }
 }
 
-@media (min-width: 625px){
-    #folderNotch4 {
-        grid-area: 1 / 4;
-    }
+@media (min-width: 1192px) {
+  #igPost {
+    width: 300px;
+    position: relative;
+    top: -100px;
+  }
 
-    #folderNotch5 {
-        grid-area: 1 / 5;
-    }
+  #facebookPost {
+    width: 313px;
+  }
 
-    #folderNotch6 {
-        grid-area: 1 / 6;
-    }
-
-    .folderHeader {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-        pointer-events: none;
-    }
-
-    .progressInfoText {
-        margin-bottom: 0px;
-    }
-    
-    #folder4, #folder5, #folder6 {
-        position: static;
-    }
-
-    #aetaLearningCenterPageCircle {
-        max-width: 350px;
-        max-height: 100px;
-    }
-
-    #aetaLearningCenterPageTitle {
-        left: -70px;
-        font-size: 35px;
-    }
-
-    #postsContainer {
-        margin: 0px 50px;
-    }
-
-    #igPost {
-        max-width: 300px;
-    }
-    
-    #facebookPost {
-        max-width: 313px;
-    }
-    
-    #twitterPost {
-        max-width: 383px;
-    }
+  #twitterPost {
+    position: relative;
+    top: -50px;
+    width: 383px;
+  }
 }
 
-@media (min-width: 1077px){
-    .progressTitle {
-        padding: clamp(5px, 0.5vw, 10px) clamp(10px, 1vw, 20px);
-        font-size: 1.2rem;
-    }
-    .folderBody {
-        display: grid;
-        grid-template-columns: 50% 50%;
-        gap: clamp(4vw, 5vw, 6vw);
-        padding: 6vh clamp(17vw, 17.5vw, 18vw) 30vh;
-        overflow: visible;
-    }
-
-    .progressImage {
-        max-width: 100%;
-    }
-
-    .folderDateText {
-        font-size: 1rem;
-    }
-}
-
-@media (min-width: 1192px){
-    #igPost {
-        width: 300px;
-        position: relative;
-        top: -100px;
-    }
-    
-    #facebookPost {
-        width: 313px;
-    }
-    
-    #twitterPost {
-        position: relative;
-        top: -50px;
-        width: 383px;
-    }
-}
-
-@media (min-width: 1303px){
-    .folderDateText {
-        margin: 0px 30px;
-    }
+@media (min-width: 1303px) {
+  .folderDateText {
+    margin: 0px 30px;
+  }
 }
