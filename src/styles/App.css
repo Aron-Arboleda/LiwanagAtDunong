@@ -1,5 +1,3 @@
-@import url("animations.css");
-
 @font-face {
   font-family: "ChunkFive";
   src: url("/fonts/ChunkFive.otf") format("opentype");
@@ -27,6 +25,12 @@
   --pallete-black: #000000;
 }
 
+body {
+  margin: 0;
+  font-family: "Segoe UI";
+  color: black;
+}
+
 p {
   margin: 0;
   font-family: "Montserrat";
@@ -40,11 +44,6 @@ h2 {
 h1,
 h2 {
   font-family: "ChunkFive";
-}
-
-body {
-  margin: 0;
-  font-family: "Segoe UI";
 }
 
 .lightCartoonyBorder {
@@ -79,30 +78,6 @@ body {
 .corben {
   font-family: "Corben";
   font-weight: bold;
-}
-
-.announcementBar {
-  max-width: 100%;
-  height: 20px;
-  overflow: hidden;
-  background-color: var(--pallete-brightWhite);
-  padding: 5px 0px;
-  font-size: 17px;
-  box-shadow: 0px 0px 18px rgba(0, 0, 0, 0.509);
-  position: relative;
-  z-index: 100;
-}
-
-.marquee {
-  white-space: nowrap;
-  overflow: hidden;
-  display: inline-block;
-  animation: marqueeBarLoop 10s linear infinite;
-}
-
-.marquee p {
-  display: inline-block;
-  font-family: "Fuzzy Bubbles";
 }
 
 .flex-center {
