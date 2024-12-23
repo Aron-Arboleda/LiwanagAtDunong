@@ -21,7 +21,7 @@ Liwanag at Dunong is a non-governmental organization that seeks to uplift the Ae
 - Form feature (Database management)
 - Data analytics
 
-## SPELL Team
+## LD Dev Team
 
 Front-end Designer:
 
