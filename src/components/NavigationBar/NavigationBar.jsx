@@ -1,7 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./NavigationBar.css";
 
 const NavigationBar = () => {
+  const [currentPath, setCurrentPath] = useState(window.location.pathname);
+
   useEffect(() => {
     const handleScroll = () => {
       const navBar = document.getElementById("ulNav");
@@ -12,12 +14,20 @@ const NavigationBar = () => {
       }
     };
 
+    const handleLocationChange = () => {
+      setCurrentPath(window.location.pathname);
+    };
+
     window.addEventListener("scroll", handleScroll);
+    window.addEventListener("popstate", handleLocationChange); // Update on browser back/forward.
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("popstate", handleLocationChange);
     };
   }, []);
+
+  const isActive = (path) => currentPath === path;
 
   return (
     <header>
@@ -71,23 +81,18 @@ const NavigationBar = () => {
           </svg>
         </label>
         <ul id="ulNav">
-          <li>
-            <a rel="noopener" target="_self" href="/" className="navLinks">
+          <li className={isActive("/") ? "active" : ""}>
+            <a href="/" className="navLinks">
               Home
             </a>
           </li>
-          <li>
-            <a rel="noopener" target="_self" href="/about" className="navLinks">
+          <li className={isActive("/about") ? "active" : ""}>
+            <a href="/about" className="navLinks">
               About
             </a>
           </li>
           <li>
-            <a
-              rel="noopener"
-              target="_self"
-              href="#aetaLearningCenterPage"
-              className="navLinks"
-            >
+            <a href="#aetaLearningCenterPage" className="navLinks">
               FAQs
             </a>
           </li>
@@ -103,32 +108,17 @@ const NavigationBar = () => {
             </a>
           </li>
           <li>
-            <a
-              rel="noopener"
-              target="_self"
-              href="#partnershipsPage"
-              className="navLinks"
-            >
+            <a href="#partnershipsPage" className="navLinks">
               Literacy
             </a>
           </li>
           <li>
-            <a
-              rel="noopener"
-              target="_self"
-              href="#supportPage"
-              className="navLinks"
-            >
+            <a href="#supportPage" className="navLinks">
               Partnerships
             </a>
           </li>
           <li>
-            <a
-              rel="noopener"
-              target="_self"
-              href="#footerPage"
-              className="navLinks"
-            >
+            <a href="#footerPage" className="navLinks">
               Support
             </a>
           </li>

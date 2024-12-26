@@ -91,6 +91,11 @@ header svg {
   opacity: 0;
 }
 
+#ulNav .active a {
+  background-color: var(--pallete-brightWhite);
+  color: var(--pallete-brownTextColor); /* Highlight color */
+}
+
 #check:checked ~ #ulNav {
   opacity: 1;
 }
