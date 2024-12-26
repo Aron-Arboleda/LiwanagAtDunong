@@ -3,66 +3,33 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --pallete-green: #347928;
+  --pallete-lightGreen: #c0eba6;
+  --pallete-brightWhite: #fffbe6;
+  --pallete-lightYellow: #fff1a7;
+  --pallete-yellow: #fccd2a;
+  --pallete-shadowColor: #371c05;
+  --pallete-greenTextColor: #083800;
+  --pallete-brownTextColor: #442609;
+  --pallete-brownBackgroundColor: #a75629;
+  --pallete-lightOrangeBackgroundColor: #ffa048;
+  --pallete-redOrangeBackgroundColor: #ff4026;
+  --pallete-lightBlue: #7b98ff;
+  --pallete-purple: #c148eb;
+  --pallete-black: #00100b;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+@font-face {
+  font-family: "ChunkFive";
+  src: url("/fonts/ChunkFive.otf") format("opentype");
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+@font-face {
+  font-family: "GlacialIndifference";
+  src: url("/fonts/GlacialIndifference.otf") format("opentype");
 }

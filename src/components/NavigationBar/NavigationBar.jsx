@@ -72,23 +72,13 @@ const NavigationBar = () => {
         </label>
         <ul id="ulNav">
           <li>
-            <a
-              rel="noopener"
-              target="_self"
-              href="#homePage"
-              className="navLinks"
-            >
+            <a rel="noopener" target="_self" href="/" className="navLinks">
               Home
             </a>
           </li>
           <li>
-            <a
-              rel="noopener"
-              target="_self"
-              href="#goalsPage"
-              className="navLinks"
-            >
-              Goals
+            <a rel="noopener" target="_self" href="/about" className="navLinks">
+              About
             </a>
           </li>
           <li>
@@ -98,7 +88,7 @@ const NavigationBar = () => {
               href="#aetaLearningCenterPage"
               className="navLinks"
             >
-              ALC
+              FAQs
             </a>
           </li>
           <li id="volunteerLi">
@@ -119,7 +109,7 @@ const NavigationBar = () => {
               href="#partnershipsPage"
               className="navLinks"
             >
-              Partnerships
+              Literacy
             </a>
           </li>
           <li>
@@ -129,7 +119,7 @@ const NavigationBar = () => {
               href="#supportPage"
               className="navLinks"
             >
-              Support
+              Partnerships
             </a>
           </li>
           <li>
@@ -139,7 +129,7 @@ const NavigationBar = () => {
               href="#footerPage"
               className="navLinks"
             >
-              Contacts
+              Support
             </a>
           </li>
         </ul>

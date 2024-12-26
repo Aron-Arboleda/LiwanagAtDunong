@@ -31,14 +31,6 @@
   gap: 3rem;
 }
 
-.textGreen {
-  color: var(--pallete-green);
-}
-
-.textYellow {
-  color: var(--pallete-yellow);
-}
-
 .goalRow {
   display: flex;
   flex-wrap: wrap;
