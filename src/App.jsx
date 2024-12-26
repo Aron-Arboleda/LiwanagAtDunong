@@ -7,12 +7,7 @@ import Footer from "@components/Footer/Footer";
 function App() {
   return (
     <Router>
-      <NavigationBar />
-
-      <main>
-        <AppRoutes />
-      </main>
-      <Footer />
+      <AppRoutes />
     </Router>
   );
 }

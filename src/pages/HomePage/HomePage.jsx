@@ -7,34 +7,25 @@ import AetaLearningCenterSection from "../HomePage/HomePage_components/AetaLearn
 import PartnershipsSection from "../HomePage/HomePage_components/PartnershipsSection";
 import SupportSection from "../HomePage/HomePage_components/SupportSection";
 import "./HomePage.css";
+import StandardLayout from "@components/StandardLayout/StandardLayout";
+import PageDivider from "@components/PageDivider/PageDivider";
 
 const HomePage = () => {
   return (
-    <div className="homePageSection">
+    <StandardLayout>
       <InitialSection />
-
       <LatestActivitiesSection />
-
       <AnnouncementBar />
-
       <ReelsSection />
-
       <AnnouncementBar />
-
       <GoalsSection />
-
       <AnnouncementBar />
-
       <AetaLearningCenterSection />
-
       <PartnershipsSection />
-
       <AnnouncementBar />
-
       <SupportSection />
-
-      <div className="pageDivider"></div>
-    </div>
+      <PageDivider />
+    </StandardLayout>
   );
 };
 
