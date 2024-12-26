@@ -19,13 +19,51 @@ h2 {
   font-family: "ChunkFive";
 }
 
-.pageTitleH1 {
-  font-family: "ChunkFive";
-  font-size: 3rem;
-  margin: 0;
-  padding: 0;
-  color: var(--pallete-brownTextColor);
+.pageTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.pageTable td,
+.pageTable th {
+  padding: 10px;
+  border: 1px solid black;
+}
+
+tr:nth-child(1) {
+  background-color: var(--pallete-lightYellow);
+  color: var(--pallete-black);
+}
+tr:nth-last-child(1) {
+  font-weight: bold;
+}
+
+td:nth-child(1) {
+  background-color: #fff8d5;
+}
+
+td:nth-child(n + 2),
+th:nth-child(n + 2) {
   text-align: center;
+}
+
+.pageTitleH1 {
+  font-size: 3.5rem;
+  margin: 20px 0px;
+  padding: 0;
+  text-align: center;
+}
+
+.pageTitleH1-style1 {
+  font-family: "ChunkFive";
+  color: var(--pallete-brownTextColor);
+}
+
+.pageTitleH1-style2 {
+  font-family: "Corben";
+  color: var(--pallete-brightWhite);
+  -webkit-text-stroke: 1px var(--pallete-black);
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.443);
 }
 
 .pageSubTitleH2 {
@@ -143,7 +181,7 @@ h2 {
 }
 
 .headerSpace {
-  height: 120px;
+  height: 40px;
 }
 
 .textGreen {

@@ -1,15 +1,17 @@
 import StandardLayout from "@components/StandardLayout/StandardLayout";
 import React from "react";
 import MainContainer from "@components/MainContainer/MainContainer";
-import ContentArea from "@components/ContentArea/ContentArea";
+import Section from "@components/Section/Section";
+import PageDivider from "@components/PageDivider/PageDivider";
+import WhiteSubSection from "@components/WhiteSubSection/WhiteSubSection";
 
 const AboutPage = () => {
   return (
     <StandardLayout>
       <MainContainer>
-        <ContentArea>
+        <Section backgroundColor="#fffbe6">
           <div className="headerSpace"></div>
-          <h1 className="pageTitleH1">Project Primer</h1>
+          <h1 className="pageTitleH1 pageTitleH1-style1">Project Primer</h1>
           <h2 className="pageSubTitleH2">Project Brief</h2>
           <div className="flex-container">
             <div className="flex-container-column">
@@ -35,7 +37,6 @@ const AboutPage = () => {
               className="float-right pageImageLimited"
             />
           </div>
-
           <h2 className="pageSubTitleH2">Project Site</h2>
           <div className="flex-container">
             <img
@@ -55,7 +56,6 @@ const AboutPage = () => {
               </p>
             </div>
           </div>
-
           <h2 className="pageSubTitleH2">Project History</h2>
           <div className="flex-container-column">
             <p className="pageParagP">
@@ -103,7 +103,204 @@ const AboutPage = () => {
               commenced in March 2022 and concluded in November 2022.
             </p>
           </div>
-        </ContentArea>
+        </Section>
+        <Section backgroundColor="#c0eba6">
+          <h1 className="pageTitleH1 pageTitleH1-style2">Community Profile</h1>
+          <WhiteSubSection>
+            <div className="flex-container-column">
+              <p className="pageParagP">
+                Sitio Kalangitan serves as a resettlement zone for the
+                populations impacted by the eruption of Mount Pinatubo in 1991.
+                This area is divided into nine distinct sitios, one of which is
+                Sitio Gayaman, where the Aeta Learning Center (ALC) is situated.
+                The ALC presently serves approximately 50 families in Gayaman,
+                as well as those residing in the adjacent sitio of Baguingan,
+                offering educational support to both young and adult learners.
+              </p>
+              <p className="pageParagP">
+                The livelihoods within the community vary significantly from
+                family to family. While a majority of families rely on selling
+                produce as their primary source of income, others have chosen to
+                engage in construction work or housekeeping.
+              </p>
+              <p className="pageParagP">
+                In terms of education, the statistics reveal a diverse picture.
+                Approximately 20% of individuals have attained a high school
+                education. Half of the population has completed elementary
+                school. However, there remains a significant portion of the
+                community who lack basic literacy skills and are unable to read
+                or write.
+              </p>
+              <table className="pageTable">
+                <tr>
+                  <th>Community</th>
+                  <th>No. of Households</th>
+                  <th>Total Population</th>
+                  <th>
+                    No. of Children <br />
+                    (17 years old and below)
+                  </th>
+                </tr>
+                <tr>
+                  <td>Gayaman</td>
+                  <td>41</td>
+                  <td>212</td>
+                  <td>101</td>
+                </tr>
+                <tr>
+                  <td>Baguingan</td>
+                  <td>32</td>
+                  <td>137</td>
+                  <td>51</td>
+                </tr>
+                <tr>
+                  <td>TOTAL</td>
+                  <td>73</td>
+                  <td>349</td>
+                  <td>152</td>
+                </tr>
+              </table>
+              <p>Kids currently enrolled at school:</p>
+              <div className="grid-container">
+                <table className="pageTable">
+                  <tr>
+                    <th colSpan={2}>Gayaman</th>
+                  </tr>
+                  <tr>
+                    <td>DayCare</td>
+                    <td>6</td>
+                  </tr>
+                  <tr>
+                    <td>Pre-School</td>
+                    <td>1</td>
+                  </tr>
+                  <tr>
+                    <td>Kinder</td>
+                    <td>9</td>
+                  </tr>
+                  <tr>
+                    <td>Prep</td>
+                    <td>1</td>
+                  </tr>
+                  <tr>
+                    <td>Grade 1</td>
+                    <td>13</td>
+                  </tr>
+                  <tr>
+                    <td>Grade 2</td>
+                    <td>8</td>
+                  </tr>
+                  <tr>
+                    <td>Grade 3</td>
+                    <td>3</td>
+                  </tr>
+                  <tr>
+                    <td>Grade 4</td>
+                    <td>4</td>
+                  </tr>
+                  <tr>
+                    <td>Grade 5</td>
+                    <td>8</td>
+                  </tr>
+                  <tr>
+                    <td>Grade 6</td>
+                    <td>2</td>
+                  </tr>
+                  <tr>
+                    <td>Grade 7</td>
+                    <td>4</td>
+                  </tr>
+                  <tr>
+                    <td>Grade 8</td>
+                    <td>2</td>
+                  </tr>
+                  <tr>
+                    <td>Grade 9</td>
+                    <td>5</td>
+                  </tr>
+                  <tr>
+                    <td>Grade 10</td>
+                    <td>2</td>
+                  </tr>
+                  <tr>
+                    <td>Grade 12</td>
+                    <td>1</td>
+                  </tr>
+                  <tr>
+                    <td>No Data shows</td>
+                    <td>22</td>
+                  </tr>
+                  <tr>
+                    <td>TOTAL</td>
+                    <td>91</td>
+                  </tr>
+                </table>
+                <table className="pageTable">
+                  <tr>
+                    <th colSpan={2}>Baguingan</th>
+                  </tr>
+                  <tr>
+                    <td>Pre-School</td>
+                    <td>1</td>
+                  </tr>
+                  <tr>
+                    <td>Kinder</td>
+                    <td>4</td>
+                  </tr>
+                  <tr>
+                    <td>Grade 1</td>
+                    <td>4</td>
+                  </tr>
+                  <tr>
+                    <td>Grade 2</td>
+                    <td>7</td>
+                  </tr>
+                  <tr>
+                    <td>Grade 3</td>
+                    <td>4</td>
+                  </tr>
+                  <tr>
+                    <td>Grade 4</td>
+                    <td>3</td>
+                  </tr>
+                  <tr>
+                    <td>Grade 5</td>
+                    <td>2</td>
+                  </tr>
+                  <tr>
+                    <td>Grade 6</td>
+                    <td>1</td>
+                  </tr>
+                  <tr>
+                    <td>Grade 8</td>
+                    <td>1</td>
+                  </tr>
+                  <tr>
+                    <td>Grade 10</td>
+                    <td>1</td>
+                  </tr>
+                  <tr>
+                    <td>Grade 12</td>
+                    <td>1</td>
+                  </tr>
+                  <tr>
+                    <td>Elementary</td>
+                    <td>12</td>
+                  </tr>
+                  <tr>
+                    <td>No Data shows</td>
+                    <td>16</td>
+                  </tr>
+                  <tr>
+                    <td>TOTAL</td>
+                    <td>57</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </WhiteSubSection>
+        </Section>
+        <PageDivider />
       </MainContainer>
     </StandardLayout>
   );
