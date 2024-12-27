@@ -86,7 +86,6 @@ th:nth-child(n + 2) {
   text-shadow: 2px 0 #000000, -2px 0 #000000, 0 2px #000000, 0 -2px #000000,
     1px 1px #000000, -1px -1px #000000, 1px -1px #000000, -1px 1px #000000,
     10px 7px rgba(0, 0, 0, 0.683);
-  font-size: 3.5rem;
   text-align: center;
   display: inline-block;
   margin: 10px;
@@ -141,6 +140,7 @@ th:nth-child(n + 2) {
   align-items: center;
   gap: 10px;
   margin: 30px 0 0 0;
+  font-family: "Montserrat";
 }
 
 .inlineImageAndTextContainer img {
@@ -169,6 +169,7 @@ th:nth-child(n + 2) {
 .pageOrderedList {
   font-family: "Montserrat";
   color: var(--pallete-black);
+  padding-left: 10px;
 }
 
 .pageOrderedList li {
@@ -279,6 +280,20 @@ th:nth-child(n + 2) {
 
   .pageImage {
     height: 200px;
+  }
+
+  .inlineImageAndTextContainer {
+    font-size: 0.8rem;
+  }
+  .inlineImageAndTextContainer img {
+    width: 30px;
+  }
+
+  .pageTitleH1-style3 {
+    font-size: clamp(2rem, 3.5vw, 4rem);
+    text-shadow: 2px 0 #000000, -2px 0 #000000, 0 2px #000000, 0 -2px #000000,
+      1px 1px #000000, -1px -1px #000000, 1px -1px #000000, -1px 1px #000000,
+      7px 5px rgba(0, 0, 0, 0.683);
   }
 }
 
