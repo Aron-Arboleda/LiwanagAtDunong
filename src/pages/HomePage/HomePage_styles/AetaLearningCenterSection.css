@@ -99,8 +99,10 @@
 
 .folderBody {
   border-top: 2px solid black;
-  /* height: 80vh; */
   z-index: 1;
+}
+
+.ALCContentContainer {
   display: flex;
   flex-direction: column-reverse;
   justify-content: center;
@@ -285,7 +287,8 @@
     padding: clamp(5px, 0.5vw, 10px) clamp(10px, 1vw, 20px);
     font-size: 1.2rem;
   }
-  .folderBody {
+
+  .ALCContentContainer {
     display: grid;
     grid-template-columns: 50% 50%;
     gap: clamp(4vw, 5vw, 6vw);

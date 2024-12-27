@@ -212,18 +212,20 @@ const AetaLearningCenterSection = () => {
               className="folderBody"
               style={styles[index]?.folderBody} // Apply dynamic styles to folderBody
             >
-              <div className="progressInfoContainer flex-center-alignCenter">
-                <p className="progressInfoText">{folder.description}</p>
-              </div>
-              <div className="progressImageContainer flex-center-alignCenter">
-                <div className="progressTitle flex-center-alignCenter">
-                  Progress Check:
+              <div className="ALCContentContainer">
+                <div className="progressInfoContainer flex-center-alignCenter">
+                  <p className="progressInfoText">{folder.description}</p>
                 </div>
-                <img
-                  src={folder.image}
-                  alt="Progress"
-                  className="progressImage"
-                />
+                <div className="progressImageContainer flex-center-alignCenter">
+                  <div className="progressTitle flex-center-alignCenter">
+                    Progress Check:
+                  </div>
+                  <img
+                    src={folder.image}
+                    alt="Progress"
+                    className="progressImage"
+                  />
+                </div>
               </div>
             </div>
           </div>

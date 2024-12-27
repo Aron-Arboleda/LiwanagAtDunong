@@ -29,6 +29,16 @@
   position: relative;
 }
 
+.cardlargecontainer {
+  background-color: var(--pallete-brightWhite);
+  padding: clamp(1vw, 2vw, 3vw);
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: 3px 3px 0px black;
+  pointer-events: all;
+  margin: 5rem 0;
+}
+
 @media (min-width: 720px) {
   .curvylargecontainer {
     width: auto;

@@ -1,7 +1,20 @@
+.section {
+  min-height: 700px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 4rem 0 0 0;
+}
+
 .content-area {
   display: block;
   width: 80vw;
   padding-bottom: 100px;
+}
+
+.content-area-full {
+  display: block;
+  width: 100vw;
 }
 
 @media (max-width: 700px) {

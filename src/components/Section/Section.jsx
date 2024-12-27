@@ -1,21 +1,24 @@
 import "./Section.css";
 
-const ContentArea = ({ children }) => {
-  return <div className="content-area">{children}</div>;
+export const ContentArea = ({ children, fullWidth = false }) => {
+  return (
+    <div className={fullWidth ? "content-area-full" : "content-area"}>
+      {children}
+    </div>
+  );
 };
 
-const Section = ({ children, backgroundColor = "transparent" }) => {
+const Section = ({
+  children,
+  backgroundColor = "transparent",
+  fullContentArea = false,
+}) => {
   const style = {
     backgroundColor,
-    minHeight: "700px",
-    display: "flex",
-    justifyContent: "center",
-    width: "100%",
-    padding: "4rem 0",
   };
   return (
-    <div style={style}>
-      <ContentArea>{children}</ContentArea>
+    <div className="section" style={style}>
+      <ContentArea fullWidth={fullContentArea}>{children}</ContentArea>
     </div>
   );
 };
