@@ -1,16 +1,18 @@
 import StandardLayout from "@components/StandardLayout/StandardLayout";
 import React from "react";
-import MainContainer from "@components/MainContainer/MainContainer";
 import Section from "@components/Section/Section";
-import PageDivider from "@components/PageDivider/PageDivider";
-import WhiteSubSection from "@components/WhiteSubSection/WhiteSubSection";
-import CurvySubSection from "@components/CurvySubSection/CurvySubSection";
-import TransparentSubSection from "@components/TransparentSubSection/TransparentSubSection";
 import {
   CorbenWhiteCurvyTitle,
   StandardChunkFiveTitle,
   StandardChunkFiveSubTitleH2,
 } from "@components/PageTitles/PageTitles";
+import {
+  CurvyLargeContainer,
+  MainContainer,
+  TransparentLargeContainer,
+  WhiteLargeContainer,
+} from "@components/LargeContainers/LargeContainers";
+import { PageDivider } from "@components/CustomComponents/CustomComponents";
 
 const AboutPage = () => {
   return (
@@ -18,7 +20,7 @@ const AboutPage = () => {
       <MainContainer>
         <Section backgroundColor="#fffbe6">
           <div className="headerSpace"></div>
-          <TransparentSubSection>
+          <TransparentLargeContainer>
             <StandardChunkFiveTitle title="Project Liwanag at Dunong" />
             <StandardChunkFiveSubTitleH2 title="Project Brief" />
             <div className="flex-container">
@@ -112,11 +114,11 @@ const AboutPage = () => {
                 commenced in March 2022 and concluded in November 2022.
               </p>
             </div>
-          </TransparentSubSection>
+          </TransparentLargeContainer>
         </Section>
         <Section backgroundColor="#c0eba6">
           <CorbenWhiteCurvyTitle title="Community Profile" />
-          <WhiteSubSection>
+          <WhiteLargeContainer>
             <div className="flex-container-column">
               <p className="pageParagP">
                 Sitio Kalangitan serves as a resettlement zone for the
@@ -314,12 +316,12 @@ const AboutPage = () => {
                 </div>
               </div>
             </div>
-          </WhiteSubSection>
+          </WhiteLargeContainer>
         </Section>
         <PageDivider />
         <Section backgroundColor="#fccd2a">
           <StandardChunkFiveTitle title="Construction Phase" />
-          <CurvySubSection>
+          <CurvyLargeContainer>
             <div className="flex-container-column">
               <p className="pageParagP">
                 The primary feature of the building is its solar power system,
@@ -358,7 +360,7 @@ const AboutPage = () => {
                 received food support.
               </p>
             </div>
-          </CurvySubSection>
+          </CurvyLargeContainer>
         </Section>
         <PageDivider />
       </MainContainer>

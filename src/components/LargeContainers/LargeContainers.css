@@ -1,0 +1,54 @@
+.main-container {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: transparent;
+  z-index: 5;
+}
+
+.whitelargecontainer {
+  font-family: "Montserrat";
+  background-color: var(--pallete-brightWhite);
+  padding: 30px;
+  margin: 2rem 0;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.249);
+}
+
+.curvylargecontainer {
+  padding: 20px 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: #fffbe6;
+  max-width: 1200px;
+  min-height: 630px;
+  border-radius: 30px;
+  box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.543);
+  position: relative;
+}
+
+@media (min-width: 720px) {
+  .curvylargecontainer {
+    width: auto;
+  }
+}
+
+@media (min-width: 810px) {
+  .curvylargecontainer {
+    padding: 20px 40px;
+  }
+}
+
+@media (min-width: 1355px) {
+  .curvylargecontainer {
+    padding: 40px 60px;
+  }
+}
+
+@media (max-width: 700px) {
+  .transparentlargecontainer {
+    padding: 0px 30px;
+  }
+}

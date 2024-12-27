@@ -1,4 +1,8 @@
-import ContentArea from "@components/ContentArea/ContentArea";
+import "./Section.css";
+
+const ContentArea = ({ children }) => {
+  return <div className="content-area">{children}</div>;
+};
 
 const Section = ({ children, backgroundColor = "transparent" }) => {
   const style = {

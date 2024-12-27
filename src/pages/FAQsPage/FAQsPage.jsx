@@ -1,13 +1,15 @@
 import StandardLayout from "@components/StandardLayout/StandardLayout";
 import "./FAQsPage.css";
-import MainContainer from "@components/MainContainer/MainContainer";
 import Section from "@components/Section/Section";
-import PageDivider from "@components/PageDivider/PageDivider";
-import CurvySubSection from "@components/CurvySubSection/CurvySubSection";
 import {
   SharpBrightWhiteShadowTitle,
   StandardChunkFiveTitle,
 } from "@components/PageTitles/PageTitles";
+import {
+  CurvyLargeContainer,
+  MainContainer,
+} from "@components/LargeContainers/LargeContainers";
+import { PageDivider } from "@components/CustomComponents/CustomComponents";
 
 const FAQsPage = () => {
   return (
@@ -16,7 +18,7 @@ const FAQsPage = () => {
         <Section backgroundColor="#347928">
           <div className="headerSpace"></div>
           <SharpBrightWhiteShadowTitle title="FREQUENTLY ASKED QUESTIONS FOR VOLUNTEERS" />
-          <CurvySubSection>
+          <CurvyLargeContainer>
             <div className="flex-container-column">
               <ol className="pageOrderedList">
                 <li>
@@ -111,7 +113,7 @@ const FAQsPage = () => {
               </a>
               LiwanagAtDunongProject
             </div>
-          </CurvySubSection>
+          </CurvyLargeContainer>
         </Section>
         <PageDivider />
       </MainContainer>

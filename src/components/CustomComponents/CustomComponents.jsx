@@ -1,6 +1,6 @@
-import "./AnnouncementBar.css";
+import "./CustomComponents.css";
 
-const AnnouncementBar = () => {
+export const AnnouncementBar = () => {
   return (
     <div className="announcementBar">
       <div className="marquee">
@@ -19,4 +19,14 @@ const AnnouncementBar = () => {
   );
 };
 
-export default AnnouncementBar;
+export const PageDivider = () => {
+  return (
+    <div
+      style={{
+        width: "100%",
+        height: "30px",
+        backgroundColor: "#fffbe6",
+      }}
+    ></div>
+  );
+};

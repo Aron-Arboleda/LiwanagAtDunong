@@ -1,4 +1,3 @@
-import AnnouncementBar from "@components/AnnouncementBar/AnnouncementBar";
 import InitialSection from "../HomePage/HomePage_components/InitialSection";
 import LatestActivitiesSection from "../HomePage/HomePage_components/LatestActivitiesSection";
 import ReelsSection from "../HomePage/HomePage_components/ReelsSection";
@@ -8,7 +7,10 @@ import PartnershipsSection from "../HomePage/HomePage_components/PartnershipsSec
 import SupportSection from "../HomePage/HomePage_components/SupportSection";
 import "./HomePage.css";
 import StandardLayout from "@components/StandardLayout/StandardLayout";
-import PageDivider from "@components/PageDivider/PageDivider";
+import {
+  AnnouncementBar,
+  PageDivider,
+} from "@components/CustomComponents/CustomComponents";
 
 const HomePage = () => {
   return (
