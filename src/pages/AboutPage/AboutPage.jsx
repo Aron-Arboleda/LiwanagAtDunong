@@ -5,6 +5,7 @@ import Section from "@components/Section/Section";
 import PageDivider from "@components/PageDivider/PageDivider";
 import WhiteSubSection from "@components/WhiteSubSection/WhiteSubSection";
 import CurvySubSection from "@components/CurvySubSection/CurvySubSection";
+import TransparentSubSection from "@components/TransparentSubSection/TransparentSubSection";
 
 const AboutPage = () => {
   return (
@@ -12,100 +13,103 @@ const AboutPage = () => {
       <MainContainer>
         <Section backgroundColor="#fffbe6">
           <div className="headerSpace"></div>
-          <h1 className="pageTitleH1 pageTitleH1-style1">
-            Project Liwanag at Dunong
-          </h1>
-          <h2 className="pageSubTitleH2">Project Brief</h2>
-          <div className="flex-container">
+          <TransparentSubSection>
+            <h1 className="pageTitleH1 pageTitleH1-style1">
+              Project Liwanag at Dunong
+            </h1>
+            <h2 className="pageSubTitleH2">Project Brief</h2>
+            <div className="flex-container">
+              <div className="flex-container-column">
+                <p className="pageParagP">
+                  Project Liwanag at Dunong aims to enhance indigenous peoples'
+                  access to educational opportunities by establishing a learning
+                  center that promotes culturally relevant literacy programs for
+                  young and adult learners.
+                </p>
+                <p className="pageParagP">
+                  In collaboration with the Aeta community from Sitio
+                  Gayaman-Kalangitan and a group of dedicated volunteer
+                  advocates, Project Liwanag at Dunong inaugurated the Aeta
+                  Learning Center (ALC) powered by solar energy in 2022. At
+                  present, the ALC administers an adult literacy program, aiding
+                  community members in obtaining a Certificate of Completion for
+                  Basic Education through the Alternative Learning System.
+                </p>
+              </div>
+              <img
+                src="/images/AboutPage/LearningCenterWithKids.png"
+                alt="Aeta Learning Center with Kids"
+                className="pageImageLimited"
+              />
+            </div>
+            <h2 className="pageSubTitleH2">Project Site</h2>
+            <div className="flex-container">
+              <img
+                src="/images/AboutPage/SitioGayamanMap.png"
+                alt="Aeta Learning Center with Kids"
+                className="pageImageLimited"
+              />
+              <div>
+                <p className="pageParagP">
+                  Sitio Kalangitan serves as a resettlement zone for the
+                  populations impacted by the eruption of Mount Pinatubo in
+                  1991. This area is divided into nine distinct sitios, one of
+                  which is Sitio Gayaman, where the Aeta Learning Center (ALC)
+                  is situated. The ALC presently serves approximately 50
+                  families in Gayaman, as well as those residing in the adjacent
+                  sitio of Baguingan, offering educational support to both young
+                  and adult learners.
+                </p>
+              </div>
+            </div>
+            <h2 className="pageSubTitleH2">Project History</h2>
             <div className="flex-container-column">
               <p className="pageParagP">
-                Project Liwanag at Dunong aims to enhance indigenous peoples'
-                access to educational opportunities by establishing a learning
-                center that promotes culturally relevant literacy programs for
-                young and adult learners.
+                The project's advancement was facilitated by EcoHumans, Inc., a
+                non-governmental organization dedicated to fostering
+                environmental and ecological awareness among humanity. At its
+                core, EcoHumans, Inc. maintains a close partnership with the
+                farming and Aeta communities of Central Luzon, working together
+                to advocate for social and environmental justice.
               </p>
               <p className="pageParagP">
-                In collaboration with the Aeta community from Sitio
-                Gayaman-Kalangitan and a group of dedicated volunteer advocates,
-                Project Liwanag at Dunong inaugurated the Aeta Learning Center
-                (ALC) powered by solar energy in 2022. At present, the ALC
-                administers an adult literacy program, aiding community members
-                in obtaining a Certificate of Completion for Basic Education
-                through the Alternative Learning System.
+                In 2021, during one of their engagements with Sitio
+                Kalangitan-Gayaman, the volunteer advocates became aware of how
+                the pandemic had exacerbated the educational difficulties faced
+                by Aeta youth. Challenges such as the lack of access to
+                electricity, limited internet connectivity, and insufficient
+                educational materials in most sitios heightened the obstacles to
+                implementing modular learning for Aeta children.
               </p>
-            </div>
-            <img
-              src="/images/AboutPage/LearningCenterWithKids.png"
-              alt="Aeta Learning Center with Kids"
-              className="float-right pageImageLimited"
-            />
-          </div>
-          <h2 className="pageSubTitleH2">Project Site</h2>
-          <div className="flex-container">
-            <img
-              src="/images/AboutPage/SitioGayamanMap.png"
-              alt="Aeta Learning Center with Kids"
-              className="float-left pageImageLimited"
-            />
-            <div>
               <p className="pageParagP">
-                Sitio Kalangitan serves as a resettlement zone for the
-                populations impacted by the eruption of Mount Pinatubo in 1991.
-                This area is divided into nine distinct sitios, one of which is
-                Sitio Gayaman, where the Aeta Learning Center (ALC) is situated.
-                The ALC presently serves approximately 50 families in Gayaman,
-                as well as those residing in the adjacent sitio of Baguingan,
-                offering educational support to both young and adult learners.
+                In February 2022, the volunteer advocates returned to the
+                community and proposed the establishment of a learning and
+                cultural exchange hub, subsequently named the Gayaman Aeta
+                Learning Center (ALC). The ALC was designed to complement formal
+                school programs by offering supplementary learning activities,
+                including tutorials and basic literacy programs for both young
+                learners and adult community members.
+              </p>
+              <div className="grid-container">
+                <img
+                  src="/images/AboutPage/AetaOrientation.png"
+                  alt="Liwanag at Dunong: Image of Aeta Orientation"
+                  className="pageImage"
+                />
+                <img
+                  src="/images/AboutPage/AetaPeopleRaisingHands.png"
+                  alt="Liwanag at Dunong: Image of Aeta People Raising Hands"
+                  className="pageImage"
+                />
+              </div>
+              <p className="pageParagP">
+                Following unanimous approval of the proposal, the community
+                collaborated with the technical team to designate a suitable
+                construction site, ensuring the area's suitability. Construction
+                commenced in March 2022 and concluded in November 2022.
               </p>
             </div>
-          </div>
-          <h2 className="pageSubTitleH2">Project History</h2>
-          <div className="flex-container-column">
-            <p className="pageParagP">
-              The project's advancement was facilitated by EcoHumans, Inc., a
-              non-governmental organization dedicated to fostering environmental
-              and ecological awareness among humanity. At its core, EcoHumans,
-              Inc. maintains a close partnership with the farming and Aeta
-              communities of Central Luzon, working together to advocate for
-              social and environmental justice.
-            </p>
-            <p className="pageParagP">
-              In 2021, during one of their engagements with Sitio
-              Kalangitan-Gayaman, the volunteer advocates became aware of how
-              the pandemic had exacerbated the educational difficulties faced by
-              Aeta youth. Challenges such as the lack of access to electricity,
-              limited internet connectivity, and insufficient educational
-              materials in most sitios heightened the obstacles to implementing
-              modular learning for Aeta children.
-            </p>
-            <p className="pageParagP">
-              In February 2022, the volunteer advocates returned to the
-              community and proposed the establishment of a learning and
-              cultural exchange hub, subsequently named the Gayaman Aeta
-              Learning Center (ALC). The ALC was designed to complement formal
-              school programs by offering supplementary learning activities,
-              including tutorials and basic literacy programs for both young
-              learners and adult community members.
-            </p>
-            <div className="grid-container">
-              <img
-                src="/images/AboutPage/AetaOrientation.png"
-                alt="Liwanag at Dunong: Image of Aeta Orientation"
-                className="pageImage"
-              />
-              <img
-                src="/images/AboutPage/AetaPeopleRaisingHands.png"
-                alt="Liwanag at Dunong: Image of Aeta People Raising Hands"
-                className="pageImage"
-              />
-            </div>
-            <p className="pageParagP">
-              Following unanimous approval of the proposal, the community
-              collaborated with the technical team to designate a suitable
-              construction site, ensuring the area's suitability. Construction
-              commenced in March 2022 and concluded in November 2022.
-            </p>
-          </div>
+          </TransparentSubSection>
         </Section>
         <Section backgroundColor="#c0eba6">
           <h1 className="pageTitleH1 pageTitleH1-style2">Community Profile</h1>
@@ -134,171 +138,177 @@ const AboutPage = () => {
                 community who lack basic literacy skills and are unable to read
                 or write.
               </p>
-              <table className="pageTable">
-                <tr>
-                  <th>Community</th>
-                  <th>No. of Households</th>
-                  <th>Total Population</th>
-                  <th>
-                    No. of Children <br />
-                    (17 years old and below)
-                  </th>
-                </tr>
-                <tr>
-                  <td>Gayaman</td>
-                  <td>41</td>
-                  <td>212</td>
-                  <td>101</td>
-                </tr>
-                <tr>
-                  <td>Baguingan</td>
-                  <td>32</td>
-                  <td>137</td>
-                  <td>51</td>
-                </tr>
-                <tr>
-                  <td>TOTAL</td>
-                  <td>73</td>
-                  <td>349</td>
-                  <td>152</td>
-                </tr>
-              </table>
+              <div className="tableContainer">
+                <table className="pageTable longPageTable">
+                  <tr>
+                    <th>Community</th>
+                    <th>No. of Households</th>
+                    <th>Total Population</th>
+                    <th>
+                      No. of Children <br />
+                      (17 years old and below)
+                    </th>
+                  </tr>
+                  <tr>
+                    <td>Gayaman</td>
+                    <td>41</td>
+                    <td>212</td>
+                    <td>101</td>
+                  </tr>
+                  <tr>
+                    <td>Baguingan</td>
+                    <td>32</td>
+                    <td>137</td>
+                    <td>51</td>
+                  </tr>
+                  <tr>
+                    <td>TOTAL</td>
+                    <td>73</td>
+                    <td>349</td>
+                    <td>152</td>
+                  </tr>
+                </table>
+              </div>
               <p>Kids currently enrolled at school:</p>
               <div className="grid-container">
-                <table className="pageTable">
-                  <tr>
-                    <th colSpan={2}>Gayaman</th>
-                  </tr>
-                  <tr>
-                    <td>DayCare</td>
-                    <td>6</td>
-                  </tr>
-                  <tr>
-                    <td>Pre-School</td>
-                    <td>1</td>
-                  </tr>
-                  <tr>
-                    <td>Kinder</td>
-                    <td>9</td>
-                  </tr>
-                  <tr>
-                    <td>Prep</td>
-                    <td>1</td>
-                  </tr>
-                  <tr>
-                    <td>Grade 1</td>
-                    <td>13</td>
-                  </tr>
-                  <tr>
-                    <td>Grade 2</td>
-                    <td>8</td>
-                  </tr>
-                  <tr>
-                    <td>Grade 3</td>
-                    <td>3</td>
-                  </tr>
-                  <tr>
-                    <td>Grade 4</td>
-                    <td>4</td>
-                  </tr>
-                  <tr>
-                    <td>Grade 5</td>
-                    <td>8</td>
-                  </tr>
-                  <tr>
-                    <td>Grade 6</td>
-                    <td>2</td>
-                  </tr>
-                  <tr>
-                    <td>Grade 7</td>
-                    <td>4</td>
-                  </tr>
-                  <tr>
-                    <td>Grade 8</td>
-                    <td>2</td>
-                  </tr>
-                  <tr>
-                    <td>Grade 9</td>
-                    <td>5</td>
-                  </tr>
-                  <tr>
-                    <td>Grade 10</td>
-                    <td>2</td>
-                  </tr>
-                  <tr>
-                    <td>Grade 12</td>
-                    <td>1</td>
-                  </tr>
-                  <tr>
-                    <td>No Data shows</td>
-                    <td>22</td>
-                  </tr>
-                  <tr>
-                    <td>TOTAL</td>
-                    <td>91</td>
-                  </tr>
-                </table>
-                <table className="pageTable">
-                  <tr>
-                    <th colSpan={2}>Baguingan</th>
-                  </tr>
-                  <tr>
-                    <td>Pre-School</td>
-                    <td>1</td>
-                  </tr>
-                  <tr>
-                    <td>Kinder</td>
-                    <td>4</td>
-                  </tr>
-                  <tr>
-                    <td>Grade 1</td>
-                    <td>4</td>
-                  </tr>
-                  <tr>
-                    <td>Grade 2</td>
-                    <td>7</td>
-                  </tr>
-                  <tr>
-                    <td>Grade 3</td>
-                    <td>4</td>
-                  </tr>
-                  <tr>
-                    <td>Grade 4</td>
-                    <td>3</td>
-                  </tr>
-                  <tr>
-                    <td>Grade 5</td>
-                    <td>2</td>
-                  </tr>
-                  <tr>
-                    <td>Grade 6</td>
-                    <td>1</td>
-                  </tr>
-                  <tr>
-                    <td>Grade 8</td>
-                    <td>1</td>
-                  </tr>
-                  <tr>
-                    <td>Grade 10</td>
-                    <td>1</td>
-                  </tr>
-                  <tr>
-                    <td>Grade 12</td>
-                    <td>1</td>
-                  </tr>
-                  <tr>
-                    <td>Elementary</td>
-                    <td>12</td>
-                  </tr>
-                  <tr>
-                    <td>No Data shows</td>
-                    <td>16</td>
-                  </tr>
-                  <tr>
-                    <td>TOTAL</td>
-                    <td>57</td>
-                  </tr>
-                </table>
+                <div className="tableContainer">
+                  <table className="pageTable">
+                    <tr>
+                      <th colSpan={2}>Gayaman</th>
+                    </tr>
+                    <tr>
+                      <td>DayCare</td>
+                      <td>6</td>
+                    </tr>
+                    <tr>
+                      <td>Pre-School</td>
+                      <td>1</td>
+                    </tr>
+                    <tr>
+                      <td>Kinder</td>
+                      <td>9</td>
+                    </tr>
+                    <tr>
+                      <td>Prep</td>
+                      <td>1</td>
+                    </tr>
+                    <tr>
+                      <td>Grade 1</td>
+                      <td>13</td>
+                    </tr>
+                    <tr>
+                      <td>Grade 2</td>
+                      <td>8</td>
+                    </tr>
+                    <tr>
+                      <td>Grade 3</td>
+                      <td>3</td>
+                    </tr>
+                    <tr>
+                      <td>Grade 4</td>
+                      <td>4</td>
+                    </tr>
+                    <tr>
+                      <td>Grade 5</td>
+                      <td>8</td>
+                    </tr>
+                    <tr>
+                      <td>Grade 6</td>
+                      <td>2</td>
+                    </tr>
+                    <tr>
+                      <td>Grade 7</td>
+                      <td>4</td>
+                    </tr>
+                    <tr>
+                      <td>Grade 8</td>
+                      <td>2</td>
+                    </tr>
+                    <tr>
+                      <td>Grade 9</td>
+                      <td>5</td>
+                    </tr>
+                    <tr>
+                      <td>Grade 10</td>
+                      <td>2</td>
+                    </tr>
+                    <tr>
+                      <td>Grade 12</td>
+                      <td>1</td>
+                    </tr>
+                    <tr>
+                      <td>No Data shows</td>
+                      <td>22</td>
+                    </tr>
+                    <tr>
+                      <td>TOTAL</td>
+                      <td>91</td>
+                    </tr>
+                  </table>
+                </div>
+                <div className="tableContainer">
+                  <table className="pageTable">
+                    <tr>
+                      <th colSpan={2}>Baguingan</th>
+                    </tr>
+                    <tr>
+                      <td>Pre-School</td>
+                      <td>1</td>
+                    </tr>
+                    <tr>
+                      <td>Kinder</td>
+                      <td>4</td>
+                    </tr>
+                    <tr>
+                      <td>Grade 1</td>
+                      <td>4</td>
+                    </tr>
+                    <tr>
+                      <td>Grade 2</td>
+                      <td>7</td>
+                    </tr>
+                    <tr>
+                      <td>Grade 3</td>
+                      <td>4</td>
+                    </tr>
+                    <tr>
+                      <td>Grade 4</td>
+                      <td>3</td>
+                    </tr>
+                    <tr>
+                      <td>Grade 5</td>
+                      <td>2</td>
+                    </tr>
+                    <tr>
+                      <td>Grade 6</td>
+                      <td>1</td>
+                    </tr>
+                    <tr>
+                      <td>Grade 8</td>
+                      <td>1</td>
+                    </tr>
+                    <tr>
+                      <td>Grade 10</td>
+                      <td>1</td>
+                    </tr>
+                    <tr>
+                      <td>Grade 12</td>
+                      <td>1</td>
+                    </tr>
+                    <tr>
+                      <td>Elementary</td>
+                      <td>12</td>
+                    </tr>
+                    <tr>
+                      <td>No Data shows</td>
+                      <td>16</td>
+                    </tr>
+                    <tr>
+                      <td>TOTAL</td>
+                      <td>57</td>
+                    </tr>
+                  </table>
+                </div>
               </div>
             </div>
           </WhiteSubSection>

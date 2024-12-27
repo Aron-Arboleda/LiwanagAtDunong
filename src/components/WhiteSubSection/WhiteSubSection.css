@@ -2,7 +2,6 @@
   font-family: "Montserrat";
   background-color: var(--pallete-brightWhite);
   padding: 30px;
-  width: 100%;
   margin: 2rem 0;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.249);
 }
