@@ -4,6 +4,7 @@ import MainContainer from "@components/MainContainer/MainContainer";
 import Section from "@components/Section/Section";
 import PageDivider from "@components/PageDivider/PageDivider";
 import WhiteSubSection from "@components/WhiteSubSection/WhiteSubSection";
+import CurvySubSection from "@components/CurvySubSection/CurvySubSection";
 
 const AboutPage = () => {
   return (
@@ -11,7 +12,9 @@ const AboutPage = () => {
       <MainContainer>
         <Section backgroundColor="#fffbe6">
           <div className="headerSpace"></div>
-          <h1 className="pageTitleH1 pageTitleH1-style1">Project Primer</h1>
+          <h1 className="pageTitleH1 pageTitleH1-style1">
+            Project Liwanag at Dunong
+          </h1>
           <h2 className="pageSubTitleH2">Project Brief</h2>
           <div className="flex-container">
             <div className="flex-container-column">
@@ -299,6 +302,50 @@ const AboutPage = () => {
               </div>
             </div>
           </WhiteSubSection>
+        </Section>
+        <PageDivider />
+        <Section backgroundColor="#fccd2a">
+          <h1 className="pageTitleH1 pageTitleH1-style1">Construction Phase</h1>
+          <CurvySubSection>
+            <div className="flex-container-column">
+              <p className="pageParagP">
+                The primary feature of the building is its solar power system,
+                which has the capability to support the lighting and ventilation
+                of the Aeta Learning Center. The proposal for a solar power
+                system aligns with the project's focus on cost-effectiveness,
+                environmental friendliness, and sustainability.
+              </p>
+              <p>
+                Our technical team, consisting of engineering students and
+                dedicated volunteers, initially designed a structure that
+                incorporates indigenous materials such as cogon and bamboo to
+                harmonize with the community's surroundings and culture.
+                Following extensive consultations with the community and new
+                project partners, the original design was fortified with
+                additional materials to ensure its long-lasting durability and
+                practicality.
+              </p>
+              <div className="grid-container">
+                <img
+                  src="/images/AboutPage/AetaKidsHoldingHands.png"
+                  alt="Liwanag at Dunong: Image of Aeta Orientation"
+                  className="pageImage"
+                />
+                <img
+                  src="/images/AboutPage/AetaLearningCenterConstruction.png"
+                  alt="Liwanag at Dunong: Image of Aeta People Raising Hands"
+                  className="pageImage"
+                />
+              </div>
+              <p>
+                The male members of the community joined forces to construct the
+                ALC, utilizing materials provided by IP supporters. As a token
+                of gratitude for their active involvement in the construction of
+                the ALC and their contributions to community development, they
+                received food support.
+              </p>
+            </div>
+          </CurvySubSection>
         </Section>
         <PageDivider />
       </MainContainer>
