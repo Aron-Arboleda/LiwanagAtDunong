@@ -4,6 +4,10 @@ import MainContainer from "@components/MainContainer/MainContainer";
 import Section from "@components/Section/Section";
 import PageDivider from "@components/PageDivider/PageDivider";
 import CurvySubSection from "@components/CurvySubSection/CurvySubSection";
+import {
+  SharpBrightWhiteShadowTitle,
+  StandardChunkFiveTitle,
+} from "@components/PageTitles/PageTitles";
 
 const FAQsPage = () => {
   return (
@@ -11,9 +15,7 @@ const FAQsPage = () => {
       <MainContainer>
         <Section backgroundColor="#347928">
           <div className="headerSpace"></div>
-          <h1 className="pageTitleH1 pageTitleH1-style3">
-            FREQUENTLY ASKED QUESTIONS FOR VOLUNTEERS
-          </h1>
+          <SharpBrightWhiteShadowTitle title="FREQUENTLY ASKED QUESTIONS FOR VOLUNTEERS" />
           <CurvySubSection>
             <div className="flex-container-column">
               <ol className="pageOrderedList">
@@ -76,9 +78,7 @@ const FAQsPage = () => {
                 </p>
               </ol>
             </div>
-            <h1 className="pageTitleH1 pageTitleH1-style1">
-              VOLUNTEER WITH US!
-            </h1>
+            <StandardChunkFiveTitle title="VOLUNTEER WITH US!" />
             <div className="grid-container-3">
               <img
                 src="/images/FAQsPage/VolunteersTravelingByFoot.jpg"

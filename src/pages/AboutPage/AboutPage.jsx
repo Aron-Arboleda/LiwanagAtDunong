@@ -6,6 +6,11 @@ import PageDivider from "@components/PageDivider/PageDivider";
 import WhiteSubSection from "@components/WhiteSubSection/WhiteSubSection";
 import CurvySubSection from "@components/CurvySubSection/CurvySubSection";
 import TransparentSubSection from "@components/TransparentSubSection/TransparentSubSection";
+import {
+  CorbenWhiteCurvyTitle,
+  StandardChunkFiveTitle,
+  StandardChunkFiveSubTitleH2,
+} from "@components/PageTitles/PageTitles";
 
 const AboutPage = () => {
   return (
@@ -14,10 +19,8 @@ const AboutPage = () => {
         <Section backgroundColor="#fffbe6">
           <div className="headerSpace"></div>
           <TransparentSubSection>
-            <h1 className="pageTitleH1 pageTitleH1-style1">
-              Project Liwanag at Dunong
-            </h1>
-            <h2 className="pageSubTitleH2">Project Brief</h2>
+            <StandardChunkFiveTitle title="Project Liwanag at Dunong" />
+            <StandardChunkFiveSubTitleH2 title="Project Brief" />
             <div className="flex-container">
               <div className="flex-container-column">
                 <p className="pageParagP">
@@ -42,7 +45,7 @@ const AboutPage = () => {
                 className="pageImageLimited"
               />
             </div>
-            <h2 className="pageSubTitleH2">Project Site</h2>
+            <StandardChunkFiveSubTitleH2 title="Project Site" />
             <div className="flex-container">
               <img
                 src="/images/AboutPage/SitioGayamanMap.png"
@@ -62,7 +65,7 @@ const AboutPage = () => {
                 </p>
               </div>
             </div>
-            <h2 className="pageSubTitleH2">Project History</h2>
+            <StandardChunkFiveSubTitleH2 title="Project History" />
             <div className="flex-container-column">
               <p className="pageParagP">
                 The project's advancement was facilitated by EcoHumans, Inc., a
@@ -112,7 +115,7 @@ const AboutPage = () => {
           </TransparentSubSection>
         </Section>
         <Section backgroundColor="#c0eba6">
-          <h1 className="pageTitleH1 pageTitleH1-style2">Community Profile</h1>
+          <CorbenWhiteCurvyTitle title="Community Profile" />
           <WhiteSubSection>
             <div className="flex-container-column">
               <p className="pageParagP">
@@ -315,7 +318,7 @@ const AboutPage = () => {
         </Section>
         <PageDivider />
         <Section backgroundColor="#fccd2a">
-          <h1 className="pageTitleH1 pageTitleH1-style1">Construction Phase</h1>
+          <StandardChunkFiveTitle title="Construction Phase" />
           <CurvySubSection>
             <div className="flex-container-column">
               <p className="pageParagP">

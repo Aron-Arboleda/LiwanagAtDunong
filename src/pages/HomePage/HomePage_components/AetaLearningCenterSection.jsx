@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../HomePage_styles/AetaLearningCenterSection.css";
 import { brightenColor } from "@utils/color";
+import { BrownCircleTitle } from "@components/PageTitles/PageTitles";
 
 const AetaLearningCenterSection = () => {
   const [switches, setSwitches] = useState([false, false, false, false, false]);
@@ -130,11 +131,7 @@ const AetaLearningCenterSection = () => {
 
   return (
     <div id="aetaLearningCenterPage">
-      <div id="aetaHeaderContainer">
-        <div id="aetaLearningCenterPageCircle">
-          <h2 id="aetaLearningCenterPageTitle">Aeta Learning Center</h2>
-        </div>
-      </div>
+      <BrownCircleTitle title="Aeta Learning Center" />
       <div id="foldersContainer">
         <div className="folder" id="folder1">
           <div className="folderHeader">

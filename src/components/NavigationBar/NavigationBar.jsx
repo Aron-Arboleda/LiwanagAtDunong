@@ -107,8 +107,8 @@ const NavigationBar = () => {
               VOLUNTEER
             </a>
           </li>
-          <li>
-            <a href="#partnershipsPage" className="navLinks">
+          <li className={isActive("/literacy") ? "active" : ""}>
+            <a href="/literacy" className="navLinks">
               Literacy
             </a>
           </li>
