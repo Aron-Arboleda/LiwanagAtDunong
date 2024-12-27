@@ -91,8 +91,8 @@ const NavigationBar = () => {
               About
             </a>
           </li>
-          <li>
-            <a href="#aetaLearningCenterPage" className="navLinks">
+          <li className={isActive("/faqs") ? "active" : ""}>
+            <a href="/faqs" className="navLinks">
               FAQs
             </a>
           </li>

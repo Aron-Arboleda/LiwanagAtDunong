@@ -328,12 +328,12 @@ const AboutPage = () => {
               <div className="grid-container">
                 <img
                   src="/images/AboutPage/AetaKidsHoldingHands.png"
-                  alt="Liwanag at Dunong: Image of Aeta Orientation"
+                  alt="Liwanag at Dunong: Aeta Kids Holding Hands"
                   className="pageImage"
                 />
                 <img
                   src="/images/AboutPage/AetaLearningCenterConstruction.png"
-                  alt="Liwanag at Dunong: Image of Aeta People Raising Hands"
+                  alt="Liwanag at Dunong: Image of Aeta Learning Center Construction"
                   className="pageImage"
                 />
               </div>

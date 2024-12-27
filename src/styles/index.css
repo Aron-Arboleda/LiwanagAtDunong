@@ -9,12 +9,14 @@
   -moz-osx-font-smoothing: grayscale;
 
   --pallete-green: #347928;
+  --pallete-greenTextColor: #083800;
+  --pallete-darkGreen: #283c0b;
   --pallete-lightGreen: #c0eba6;
   --pallete-brightWhite: #fffbe6;
   --pallete-lightYellow: #fff1a7;
+  --pallete-standardYellow: #dfc04b;
   --pallete-yellow: #fccd2a;
   --pallete-shadowColor: #371c05;
-  --pallete-greenTextColor: #083800;
   --pallete-brownTextColor: #442609;
   --pallete-brownBackgroundColor: #a75629;
   --pallete-lightOrangeBackgroundColor: #ffa048;
