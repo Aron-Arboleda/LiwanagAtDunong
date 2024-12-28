@@ -3,6 +3,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import AboutPage from "@pages/AboutPage/AboutPage";
 import FAQsPage from "@pages/FAQsPage/FAQsPage";
 import LiteracyPage from "@pages/LiteracyPage/LiteracyPage";
+import NetworkPage from "@pages/NetworkPage/NetworkPage";
 
 const AppRoutes = () => {
   return (
@@ -11,6 +12,7 @@ const AppRoutes = () => {
       <Route path="/about" element={<AboutPage />} />
       <Route path="/faqs" element={<FAQsPage />} />
       <Route path="/literacy" element={<LiteracyPage />} />
+      <Route path="/network" element={<NetworkPage />} />
     </Routes>
   );
 };

@@ -30,3 +30,11 @@ export const StandardChunkFiveTitle = ({ title = "Title" }) => {
 export const StandardChunkFiveSubTitleH2 = ({ title = "Title" }) => {
   return <h2 className="pageSubTitleH2">{title}</h2>;
 };
+
+export const MontserratCardTitle = ({ text }) => {
+  return <h3 className="montserratCardTitle">{text}</h3>;
+};
+
+export const MontserratCardInfo = ({ text }) => {
+  return <p className="montserratCardInfo">{text}</p>;
+};

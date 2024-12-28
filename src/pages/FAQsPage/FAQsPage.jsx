@@ -1,4 +1,9 @@
-import StandardLayout from "@components/StandardLayout/StandardLayout";
+import {
+  FlexLayoutColumn,
+  GridLayout3Column,
+  InlineImageAndTextLayout,
+  StandardLayout,
+} from "@components/Layouts/Layouts";
 import "./FAQsPage.css";
 import Section from "@components/Section/Section";
 import {
@@ -19,7 +24,7 @@ const FAQsPage = () => {
           <div className="headerSpace"></div>
           <SharpBrightWhiteShadowTitle title="FREQUENTLY ASKED QUESTIONS FOR VOLUNTEERS" />
           <CurvyLargeContainer>
-            <div className="flex-container-column">
+            <FlexLayoutColumn>
               <ol className="pageOrderedList">
                 <li>
                   <strong>
@@ -79,9 +84,9 @@ const FAQsPage = () => {
                   a difference.
                 </p>
               </ol>
-            </div>
+            </FlexLayoutColumn>
             <StandardChunkFiveTitle title="VOLUNTEER WITH US!" />
-            <div className="grid-container-3">
+            <GridLayout3Column>
               <img
                 src="/images/FAQsPage/VolunteersTravelingByFoot.jpg"
                 alt="Liwanag at Dunong: Volunteers Traveling by Foot"
@@ -97,8 +102,8 @@ const FAQsPage = () => {
                 alt="Liwanag at Dunong: Volunteer Having Fun with Aeta Kids"
                 className="pageImage"
               />
-            </div>
-            <div className="inlineImageAndTextContainer">
+            </GridLayout3Column>
+            <InlineImageAndTextLayout>
               <a
                 href="https://www.facebook.com/LiwanagAtDunongProject"
                 target="_blank"
@@ -112,7 +117,7 @@ const FAQsPage = () => {
                 <img src="/images/SVGs/instagram.svg" alt="Instagram Icon" />
               </a>
               LiwanagAtDunongProject
-            </div>
+            </InlineImageAndTextLayout>
           </CurvyLargeContainer>
         </Section>
         <PageDivider />

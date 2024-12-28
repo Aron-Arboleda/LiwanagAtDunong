@@ -112,9 +112,9 @@ const NavigationBar = () => {
               Literacy
             </a>
           </li>
-          <li>
-            <a href="#supportPage" className="navLinks">
-              Partnerships
+          <li className={isActive("/network") ? "active" : ""}>
+            <a href="/network" className="navLinks">
+              Network
             </a>
           </li>
           <li>

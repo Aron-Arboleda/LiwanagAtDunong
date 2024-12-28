@@ -6,11 +6,11 @@ import AetaLearningCenterSection from "../HomePage/HomePage_components/AetaLearn
 import PartnershipsSection from "../HomePage/HomePage_components/PartnershipsSection";
 import SupportSection from "../HomePage/HomePage_components/SupportSection";
 import "./HomePage.css";
-import StandardLayout from "@components/StandardLayout/StandardLayout";
 import {
   AnnouncementBar,
   PageDivider,
 } from "@components/CustomComponents/CustomComponents";
+import { StandardLayout } from "@components/Layouts/Layouts";
 
 const HomePage = () => {
   return (

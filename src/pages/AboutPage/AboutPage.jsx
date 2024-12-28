@@ -1,4 +1,9 @@
-import StandardLayout from "@components/StandardLayout/StandardLayout";
+import {
+  FlexLayout,
+  FlexLayoutColumn,
+  GridLayout,
+  StandardLayout,
+} from "@components/Layouts/Layouts";
 import React from "react";
 import Section from "@components/Section/Section";
 import {
@@ -14,6 +19,49 @@ import {
 } from "@components/LargeContainers/LargeContainers";
 import { PageDivider } from "@components/CustomComponents/CustomComponents";
 
+const communityCount_data = [
+  { community: "Gayaman", households: 41, population: 212, children: 101 },
+  { community: "Baguingan", households: 32, population: 137, children: 51 },
+  { community: "TOTAL", households: 73, population: 349, children: 152 },
+];
+
+const gayamanChildrenEducationTally_data = [
+  { level: "DayCare", count: 6 },
+  { level: "Pre-School", count: 1 },
+  { level: "Kinder", count: 9 },
+  { level: "Prep", count: 1 },
+  { level: "Grade 1", count: 13 },
+  { level: "Grade 2", count: 8 },
+  { level: "Grade 3", count: 3 },
+  { level: "Grade 4", count: 4 },
+  { level: "Grade 5", count: 8 },
+  { level: "Grade 6", count: 2 },
+  { level: "Grade 7", count: 4 },
+  { level: "Grade 8", count: 2 },
+  { level: "Grade 9", count: 5 },
+  { level: "Grade 10", count: 2 },
+  { level: "Grade 12", count: 1 },
+  { level: "No Data shows", count: 22 },
+  { level: "TOTAL", count: 91 },
+];
+
+const baguinganChildrenEducationTally_data = [
+  { level: "Pre-School", count: 1 },
+  { level: "Kinder", count: 4 },
+  { level: "Grade 1", count: 4 },
+  { level: "Grade 2", count: 7 },
+  { level: "Grade 3", count: 4 },
+  { level: "Grade 4", count: 3 },
+  { level: "Grade 5", count: 2 },
+  { level: "Grade 6", count: 1 },
+  { level: "Grade 8", count: 1 },
+  { level: "Grade 10", count: 1 },
+  { level: "Grade 12", count: 1 },
+  { level: "Elementary", count: 12 },
+  { level: "No Data shows", count: 16 },
+  { level: "TOTAL", count: 57 },
+];
+
 const AboutPage = () => {
   return (
     <StandardLayout>
@@ -23,8 +71,8 @@ const AboutPage = () => {
           <TransparentLargeContainer>
             <StandardChunkFiveTitle title="Project Liwanag at Dunong" />
             <StandardChunkFiveSubTitleH2 title="Project Brief" />
-            <div className="flex-container">
-              <div className="flex-container-column">
+            <FlexLayout>
+              <FlexLayoutColumn>
                 <p className="pageParagP">
                   Project Liwanag at Dunong aims to enhance indigenous peoples'
                   access to educational opportunities by establishing a learning
@@ -40,15 +88,15 @@ const AboutPage = () => {
                   community members in obtaining a Certificate of Completion for
                   Basic Education through the Alternative Learning System.
                 </p>
-              </div>
+              </FlexLayoutColumn>
               <img
                 src="/images/AboutPage/LearningCenterWithKids.png"
                 alt="Aeta Learning Center with Kids"
                 className="pageImageLimited"
               />
-            </div>
+            </FlexLayout>
             <StandardChunkFiveSubTitleH2 title="Project Site" />
-            <div className="flex-container">
+            <FlexLayout>
               <img
                 src="/images/AboutPage/SitioGayamanMap.png"
                 alt="Aeta Learning Center with Kids"
@@ -66,9 +114,9 @@ const AboutPage = () => {
                   and adult learners.
                 </p>
               </div>
-            </div>
+            </FlexLayout>
             <StandardChunkFiveSubTitleH2 title="Project History" />
-            <div className="flex-container-column">
+            <FlexLayoutColumn>
               <p className="pageParagP">
                 The project's advancement was facilitated by EcoHumans, Inc., a
                 non-governmental organization dedicated to fostering
@@ -95,7 +143,7 @@ const AboutPage = () => {
                 including tutorials and basic literacy programs for both young
                 learners and adult community members.
               </p>
-              <div className="grid-container">
+              <GridLayout>
                 <img
                   src="/images/AboutPage/AetaOrientation.png"
                   alt="Liwanag at Dunong: Image of Aeta Orientation"
@@ -106,20 +154,20 @@ const AboutPage = () => {
                   alt="Liwanag at Dunong: Image of Aeta People Raising Hands"
                   className="pageImage"
                 />
-              </div>
+              </GridLayout>
               <p className="pageParagP">
                 Following unanimous approval of the proposal, the community
                 collaborated with the technical team to designate a suitable
                 construction site, ensuring the area's suitability. Construction
                 commenced in March 2022 and concluded in November 2022.
               </p>
-            </div>
+            </FlexLayoutColumn>
           </TransparentLargeContainer>
         </Section>
         <Section backgroundColor="#c0eba6">
           <CorbenWhiteCurvyTitle title="Community Profile" />
           <WhiteLargeContainer>
-            <div className="flex-container-column">
+            <FlexLayoutColumn>
               <p className="pageParagP">
                 Sitio Kalangitan serves as a resettlement zone for the
                 populations impacted by the eruption of Mount Pinatubo in 1991.
@@ -145,184 +193,76 @@ const AboutPage = () => {
               </p>
               <div className="tableContainer">
                 <table className="pageTable longPageTable">
-                  <tr>
-                    <th>Community</th>
-                    <th>No. of Households</th>
-                    <th>Total Population</th>
-                    <th>
-                      No. of Children <br />
-                      (17 years old and below)
-                    </th>
-                  </tr>
-                  <tr>
-                    <td>Gayaman</td>
-                    <td>41</td>
-                    <td>212</td>
-                    <td>101</td>
-                  </tr>
-                  <tr>
-                    <td>Baguingan</td>
-                    <td>32</td>
-                    <td>137</td>
-                    <td>51</td>
-                  </tr>
-                  <tr>
-                    <td>TOTAL</td>
-                    <td>73</td>
-                    <td>349</td>
-                    <td>152</td>
-                  </tr>
+                  <thead>
+                    <tr>
+                      <th>Community</th>
+                      <th>No. of Households</th>
+                      <th>Total Population</th>
+                      <th>
+                        No. of Children <br />
+                        (17 years old and below)
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {communityCount_data.map((row, index) => (
+                      <tr key={index}>
+                        <td>{row.community}</td>
+                        <td>{row.households}</td>
+                        <td>{row.population}</td>
+                        <td>{row.children}</td>
+                      </tr>
+                    ))}
+                  </tbody>
                 </table>
               </div>
               <p>Kids currently enrolled at school:</p>
               <div className="grid-container">
                 <div className="tableContainer">
                   <table className="pageTable">
-                    <tr>
-                      <th colSpan={2}>Gayaman</th>
-                    </tr>
-                    <tr>
-                      <td>DayCare</td>
-                      <td>6</td>
-                    </tr>
-                    <tr>
-                      <td>Pre-School</td>
-                      <td>1</td>
-                    </tr>
-                    <tr>
-                      <td>Kinder</td>
-                      <td>9</td>
-                    </tr>
-                    <tr>
-                      <td>Prep</td>
-                      <td>1</td>
-                    </tr>
-                    <tr>
-                      <td>Grade 1</td>
-                      <td>13</td>
-                    </tr>
-                    <tr>
-                      <td>Grade 2</td>
-                      <td>8</td>
-                    </tr>
-                    <tr>
-                      <td>Grade 3</td>
-                      <td>3</td>
-                    </tr>
-                    <tr>
-                      <td>Grade 4</td>
-                      <td>4</td>
-                    </tr>
-                    <tr>
-                      <td>Grade 5</td>
-                      <td>8</td>
-                    </tr>
-                    <tr>
-                      <td>Grade 6</td>
-                      <td>2</td>
-                    </tr>
-                    <tr>
-                      <td>Grade 7</td>
-                      <td>4</td>
-                    </tr>
-                    <tr>
-                      <td>Grade 8</td>
-                      <td>2</td>
-                    </tr>
-                    <tr>
-                      <td>Grade 9</td>
-                      <td>5</td>
-                    </tr>
-                    <tr>
-                      <td>Grade 10</td>
-                      <td>2</td>
-                    </tr>
-                    <tr>
-                      <td>Grade 12</td>
-                      <td>1</td>
-                    </tr>
-                    <tr>
-                      <td>No Data shows</td>
-                      <td>22</td>
-                    </tr>
-                    <tr>
-                      <td>TOTAL</td>
-                      <td>91</td>
-                    </tr>
+                    <thead>
+                      <tr>
+                        <th colSpan={2}>Gayaman</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {gayamanChildrenEducationTally_data.map((row, index) => (
+                        <tr key={index}>
+                          <td>{row.level}</td>
+                          <td>{row.count}</td>
+                        </tr>
+                      ))}
+                    </tbody>
                   </table>
                 </div>
                 <div className="tableContainer">
                   <table className="pageTable">
-                    <tr>
-                      <th colSpan={2}>Baguingan</th>
-                    </tr>
-                    <tr>
-                      <td>Pre-School</td>
-                      <td>1</td>
-                    </tr>
-                    <tr>
-                      <td>Kinder</td>
-                      <td>4</td>
-                    </tr>
-                    <tr>
-                      <td>Grade 1</td>
-                      <td>4</td>
-                    </tr>
-                    <tr>
-                      <td>Grade 2</td>
-                      <td>7</td>
-                    </tr>
-                    <tr>
-                      <td>Grade 3</td>
-                      <td>4</td>
-                    </tr>
-                    <tr>
-                      <td>Grade 4</td>
-                      <td>3</td>
-                    </tr>
-                    <tr>
-                      <td>Grade 5</td>
-                      <td>2</td>
-                    </tr>
-                    <tr>
-                      <td>Grade 6</td>
-                      <td>1</td>
-                    </tr>
-                    <tr>
-                      <td>Grade 8</td>
-                      <td>1</td>
-                    </tr>
-                    <tr>
-                      <td>Grade 10</td>
-                      <td>1</td>
-                    </tr>
-                    <tr>
-                      <td>Grade 12</td>
-                      <td>1</td>
-                    </tr>
-                    <tr>
-                      <td>Elementary</td>
-                      <td>12</td>
-                    </tr>
-                    <tr>
-                      <td>No Data shows</td>
-                      <td>16</td>
-                    </tr>
-                    <tr>
-                      <td>TOTAL</td>
-                      <td>57</td>
-                    </tr>
+                    <thead>
+                      <tr>
+                        <th colSpan={2}>Baguingan</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {baguinganChildrenEducationTally_data.map(
+                        (row, index) => (
+                          <tr key={index}>
+                            <td>{row.level}</td>
+                            <td>{row.count}</td>
+                          </tr>
+                        )
+                      )}
+                    </tbody>
                   </table>
                 </div>
               </div>
-            </div>
+            </FlexLayoutColumn>
           </WhiteLargeContainer>
         </Section>
         <PageDivider />
         <Section backgroundColor="#fccd2a">
           <StandardChunkFiveTitle title="Construction Phase" />
           <CurvyLargeContainer>
-            <div className="flex-container-column">
+            <FlexLayoutColumn>
               <p className="pageParagP">
                 The primary feature of the building is its solar power system,
                 which has the capability to support the lighting and ventilation
@@ -340,7 +280,7 @@ const AboutPage = () => {
                 additional materials to ensure its long-lasting durability and
                 practicality.
               </p>
-              <div className="grid-container">
+              <GridLayout>
                 <img
                   src="/images/AboutPage/AetaKidsHoldingHands.png"
                   alt="Liwanag at Dunong: Aeta Kids Holding Hands"
@@ -351,7 +291,7 @@ const AboutPage = () => {
                   alt="Liwanag at Dunong: Image of Aeta Learning Center Construction"
                   className="pageImage"
                 />
-              </div>
+              </GridLayout>
               <p>
                 The male members of the community joined forces to construct the
                 ALC, utilizing materials provided by IP supporters. As a token
@@ -359,7 +299,7 @@ const AboutPage = () => {
                 the ALC and their contributions to community development, they
                 received food support.
               </p>
-            </div>
+            </FlexLayoutColumn>
           </CurvyLargeContainer>
         </Section>
         <PageDivider />

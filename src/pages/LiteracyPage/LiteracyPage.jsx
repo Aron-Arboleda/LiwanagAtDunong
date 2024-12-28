@@ -1,3 +1,8 @@
+import {
+  FlexLayoutColumn,
+  GridLayout,
+  StandardLayout,
+} from "@components/Layouts/Layouts";
 import { PageDivider } from "@components/CustomComponents/CustomComponents";
 import {
   CardLargeContainer,
@@ -10,7 +15,7 @@ import {
   StandardChunkFiveTitle,
 } from "@components/PageTitles/PageTitles";
 import Section, { ContentArea } from "@components/Section/Section";
-import StandardLayout from "@components/StandardLayout/StandardLayout";
+
 import React from "react";
 
 const LiteracyPage = () => {
@@ -27,7 +32,7 @@ const LiteracyPage = () => {
             <FolderLargeContainer color="yellow">
               <ContentArea fullWidth={false}>
                 <CardLargeContainer>
-                  <div className="flex-container-column">
+                  <FlexLayoutColumn>
                     <p className="pageParagP">
                       The Adult Literacy Program stands as the flagship
                       initiative of Project Liwanag at Dunong, with the primary
@@ -35,7 +40,7 @@ const LiteracyPage = () => {
                       Alternative Learning System (ALS) Certificate of
                       Completion for Basic Education.
                     </p>
-                    <div className="grid-container">
+                    <GridLayout>
                       <img
                         src="/images/LiteracyPage/NanayLindaSmiling.png"
                         alt="Liwanag at Dunong: Image of Nanay Linda Smiling"
@@ -46,7 +51,7 @@ const LiteracyPage = () => {
                         alt="Liwanag at Dunong: Image of a Volunteer Teaching an Aeta"
                         className="pageImage"
                       />
-                    </div>
+                    </GridLayout>
                     <p className="pageParagP">
                       The impetus for developing this program emerged from
                       research findings and community interactions that
@@ -86,7 +91,7 @@ const LiteracyPage = () => {
                       them to lead supplementary classes for beginning readers
                       on weekdays.
                     </p>
-                    <div className="grid-container">
+                    <GridLayout>
                       <img
                         src="/images/LiteracyPage/AetaALSGraduation.png"
                         alt="Liwanag at Dunong: Image of Nanay Linda Smiling"
@@ -107,8 +112,8 @@ const LiteracyPage = () => {
                         alt="Liwanag at Dunong: Image of a Volunteer Teaching an Aeta"
                         className="pageImage"
                       />
-                    </div>
-                  </div>
+                    </GridLayout>
+                  </FlexLayoutColumn>
                 </CardLargeContainer>
               </ContentArea>
             </FolderLargeContainer>

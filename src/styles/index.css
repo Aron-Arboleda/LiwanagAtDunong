@@ -8,22 +8,26 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
+  /* main pallete */
+  --pallete-hunterGreen: #4c6444;
   --pallete-green: #347928;
   --pallete-greenTextColor: #083800;
-  --pallete-darkGreen: #283c0b;
+  --pallete-darkGreen: #102820;
   --pallete-lightGreen: #c0eba6;
   --pallete-brightWhite: #fffbe6;
   --pallete-lightYellow: #fff1a7;
   --pallete-standardYellow: #dfc04b;
   --pallete-yellow: #fccd2a;
+  --pallete-lightBrown: #fde7c0;
   --pallete-shadowColor: #371c05;
   --pallete-brownTextColor: #442609;
+  --pallete-black: #00100b;
+  /* folder colors */
   --pallete-brownBackgroundColor: #a75629;
   --pallete-lightOrangeBackgroundColor: #ffa048;
   --pallete-redOrangeBackgroundColor: #ff4026;
   --pallete-lightBlue: #7b98ff;
   --pallete-purple: #c148eb;
-  --pallete-black: #00100b;
 }
 
 @font-face {
