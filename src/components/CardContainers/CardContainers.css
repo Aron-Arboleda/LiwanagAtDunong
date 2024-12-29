@@ -21,3 +21,12 @@
   border-radius: 50%;
   background-color: white;
 }
+
+.sharpCardLightShadowContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: var(--pallete-brightWhite);
+  padding: 30px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.249);
+}

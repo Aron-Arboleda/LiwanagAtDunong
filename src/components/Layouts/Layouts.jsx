@@ -29,8 +29,15 @@ export const GridLayout3Column = ({ children }) => {
   return <div className="grid-container-3">{children}</div>;
 };
 
-export const CardGridLayout = ({ children }) => {
-  return <div className="card-grid-container">{children}</div>;
+export const CardGridLayout = ({ children, sizeOfCard = "200px" }) => {
+  const style = {
+    gridTemplateColumns: `repeat(auto-fill, minmax(${sizeOfCard}, 1fr))`,
+  };
+  return (
+    <div style={style} className="card-grid-container">
+      {children}
+    </div>
+  );
 };
 
 export const InlineImageAndTextLayout = ({ children }) => {

@@ -117,8 +117,8 @@ const NavigationBar = () => {
               Network
             </a>
           </li>
-          <li>
-            <a href="#footerPage" className="navLinks">
+          <li className={isActive("/support") ? "active" : ""}>
+            <a href="/support" className="navLinks">
               Support
             </a>
           </li>

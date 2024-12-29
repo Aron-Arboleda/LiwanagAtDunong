@@ -38,3 +38,35 @@ export const MontserratCardTitle = ({ text }) => {
 export const MontserratCardInfo = ({ text }) => {
   return <p className="montserratCardInfo">{text}</p>;
 };
+
+export const WhiteChunkFiveTitle = ({ text = "Title" }) => {
+  return <h1 className="pageTitleH1 whiteChunkFiveTitle">{text}</h1>;
+};
+
+export const MontserratCardInfoBiggerText = ({ text, color = "black" }) => {
+  const style = {
+    color: color,
+  };
+  return (
+    <p className="montserratCardInfoBiggerText" style={style}>
+      {text}
+    </p>
+  );
+};
+
+export const MontserratBulletInfo = ({ children }) => {
+  return <li className="montserratBulletInfo">{children}</li>;
+};
+
+export const MontserratUnorderedList = ({ context, list }) => {
+  return (
+    <>
+      <MontserratCardInfoBiggerText text={context} />
+      <ul className="montserratUnorderedList">
+        {list.map((list, index) => (
+          <MontserratBulletInfo key={index}>{list}</MontserratBulletInfo>
+        ))}
+      </ul>
+    </>
+  );
+};
