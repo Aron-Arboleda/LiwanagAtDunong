@@ -16,6 +16,7 @@ import {
 import Section from "@components/Section/Section";
 import SharpLightShadowCard from "./SupportPageComponents/SharpLightShadowCard";
 import { GradientOrderedList } from "@components/PageTitles/PageLists";
+import SupportSection from "@pages/HomePage/HomePage_components/SupportSection";
 
 const supportNeeded_ALC_data = {
   title: "Aeta Learning Center Maintenance",
@@ -106,6 +107,7 @@ const SupportPage = () => {
         </Section>
         <PageDivider />
       </MainContainer>
+      <SupportSection />
     </StandardLayout>
   );
 };
