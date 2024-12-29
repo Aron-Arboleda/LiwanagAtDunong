@@ -15,7 +15,6 @@ import {
 } from "@components/PageTitles/PageTitles";
 import Section from "@components/Section/Section";
 import SharpLightShadowCard from "./SupportPageComponents/SharpLightShadowCard";
-import { GradientOrderedList } from "@components/PageTitles/PageLists";
 import SupportSection from "@pages/HomePage/HomePage_components/SupportSection";
 
 const supportNeeded_ALC_data = {
@@ -82,12 +81,12 @@ const SupportPage = () => {
               </CardGridLayout>
               <GridLayout>
                 <img
-                  src="/images/SupportNeededPage/AetaPersonLearningInALC.png"
+                  src="/images/PageImages/SupportPage/AetaPersonLearningInALC.png"
                   alt="Liwanag at Dunong: Image of an Aeta Person Learning in the ALC"
                   className="pageImage"
                 />
                 <img
-                  src="/images/SupportNeededPage/MaintenanceOfALC.png"
+                  src="/images/PageImages/SupportPage/MaintenanceOfALC.png"
                   alt="Liwanag at Dunong: Image of the Maintenance of the ALC"
                   className="pageImage"
                 />

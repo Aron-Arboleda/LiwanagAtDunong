@@ -1,7 +1,7 @@
 # Liwanag at Dunong Project
 
 <div style="text-align: center;">
-  <img src="public/images/homePage/LD_Logo.jpg" width="50%" />
+  <img src="public/LD_Logo.jpg" width="50%" />
 </div>
 
 ## Landing Page for Liwanag at Dunong Project
@@ -40,27 +40,27 @@ Documentation:
 ## Images
 
 <div style="text-align: center;">
-  <img src="public/images/readme/homePage.jpeg" width="100%" />
+  <img src="README/homePage.jpeg" width="100%" />
 </div>
 
 <div style="text-align: center;">
-  <img src="public/images/readme/latestActivities.jpeg" width="49%" />
-  <img src="public/images/readme/reels.jpeg" width="49%" />
+  <img src="README/latestActivities.jpeg" width="49%" />
+  <img src="README/reels.jpeg" width="49%" />
 </div>
 
 <div style="text-align: center;">
-  <img src="public/images/readme/goals.jpeg" width="49%" />
-  <img src="public/images/readme/alc.jpeg" width="49%" />
+  <img src="README/goals.jpeg" width="49%" />
+  <img src="README/alc.jpeg" width="49%" />
 </div>
 
 <div style="text-align: center;">
-  <img src="public/images/readme/socmed.jpeg" width="49%" />
-  <img src="public/images/readme/partnerships.jpeg" width="49%" />
+  <img src="README/socmed.jpeg" width="49%" />
+  <img src="README/partnerships.jpeg" width="49%" />
 </div>
 
 <div style="text-align: center;">
-  <img src="public/images/readme/support.jpeg" width="49%" />
-  <img src="public/images/readme/footer.jpeg" width="49%" />
+  <img src="README/support.jpeg" width="49%" />
+  <img src="README/footer.jpeg" width="49%" />
 </div>
 
 <br>&copy; 2024 Aron-Arboleda. All rights reserved.

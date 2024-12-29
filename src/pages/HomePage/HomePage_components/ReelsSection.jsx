@@ -51,20 +51,20 @@ const ReelsSection = () => {
         </div>
         <div id="edukParaSaLahatContainer">
           <img
-            src="/images/reelsPage/EdukasyonParaSaLahat.png"
+            src="/images/Graphics/WEBSITE_Graphics/LD_Designs/EdukasyonParaSaLahat.png"
             alt="Edukasyon Para Sa Lahat Design"
           />
         </div>
       </div>
       <div id="starLeft">
         <img
-          src="/images/reelsPage/starsLeft.svg"
+          src="/images/Graphics/WEBSITE_Graphics/Sprites/starsLeft.svg"
           alt="stars background design 1"
         />
       </div>
       <div id="starRight">
         <img
-          src="/images/reelsPage/starsRight.svg"
+          src="/images/Graphics/WEBSITE_Graphics/Sprites/starsRight.svg"
           alt="stars background design 2"
         />
       </div>

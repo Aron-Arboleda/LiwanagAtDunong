@@ -2,7 +2,7 @@
   padding: 30px 30px;
   margin: 0;
   height: 75vh;
-  background-image: url("/images/homePage/backgroundImage.svg");
+  background-image: url("/images/Graphics/WEBSITE_Graphics/Backgrounds/backgroundImage.svg");
   background-size: cover;
   background-position: center;
   position: relative;
@@ -132,7 +132,7 @@
     height: 167px;
     transform: translateX(-42%);
     font-size: 0.85rem;
-    background-image: url("/images/homePage/dialogThemedPlaceholder.svg");
+    background-image: url("/images/Graphics/WEBSITE_Graphics/Sprites/dialogThemedPlaceholder.svg");
     background-color: transparent;
     border-radius: none;
     bottom: 30px;

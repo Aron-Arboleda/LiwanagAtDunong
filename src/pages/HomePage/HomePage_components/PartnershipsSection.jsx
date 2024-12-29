@@ -51,35 +51,35 @@ const PartnershipsSection = () => {
         <div id="partnershipsRow1">
           <div className="pLogoContainer">
             <img
-              src="./images/partnershipsPage/logo1.png"
+              src="/images/Graphics/PartnersGraphics/Ecohumans-logo.png"
               alt=""
               className="pLogo"
             />
           </div>
           <div className="pLogoContainer">
             <img
-              src="./images/partnershipsPage/logo2.png"
+              src="/images/Graphics/DonorsGraphics/Nawaya-logo.jpg"
               alt=""
               className="pLogo"
             />
           </div>
           <div className="pLogoContainer">
             <img
-              src="./images/partnershipsPage/logo3.png"
+              src="/images/Graphics/DonorsGraphics/UnionOfVolunteers.png"
               alt=""
               className="pLogo"
             />
           </div>
           <div className="pLogoContainer">
             <img
-              src="./images/partnershipsPage/logo4.png"
+              src="/images/Graphics/DonorsGraphics/PAGASA-logo.png"
               alt=""
               className="pLogo"
             />
           </div>
           <div className="pLogoContainer">
             <img
-              src="./images/partnershipsPage/logo5.png"
+              src="/images/Graphics/DonorsGraphics/TeamLisaPH-logo.jpg"
               alt=""
               className="pLogo"
             />
@@ -89,21 +89,21 @@ const PartnershipsSection = () => {
           <div id="pyramidGroup1" className="pyramidGroup">
             <div className="pLogoContainer">
               <img
-                src="./images/partnershipsPage/logo6.png"
+                src="/images/Graphics/DonorsGraphics/KunaNiShobe-logo.jpg"
                 alt=""
                 className="pLogo"
               />
             </div>
             <div className="pLogoContainer">
               <img
-                src="./images/partnershipsPage/logo7.png"
+                src="/images/Graphics/DonorsGraphics/ArtSolaceManila-logo.jpg"
                 alt=""
                 className="pLogo"
               />
             </div>
             <div className="pLogoContainer">
               <img
-                src="./images/partnershipsPage/logo8.png"
+                src="/images/Graphics/DonorsGraphics/BigBrew-logo.jpg"
                 alt=""
                 className="pLogo"
               />
@@ -117,21 +117,21 @@ const PartnershipsSection = () => {
           <div id="pyramidGroup2" className="pyramidGroup">
             <div className="pLogoContainer">
               <img
-                src="./images/partnershipsPage/logo9.png"
+                src="/images/Graphics/DonorsGraphics/TulasalitaanPH-logo.png"
                 alt=""
                 className="pLogo"
               />
             </div>
             <div className="pLogoContainer">
               <img
-                src="./images/partnershipsPage/logo10.png"
+                src="/images/Graphics/PartnersGraphics/CHR-logo.png"
                 alt=""
                 className="pLogo"
               />
             </div>
             <div className="pLogoContainer">
               <img
-                src="./images/partnershipsPage/logo11.png"
+                src="/images/Graphics/DonorsGraphics/PHINMA-logo.png"
                 alt=""
                 className="pLogo"
               />
@@ -141,42 +141,42 @@ const PartnershipsSection = () => {
         <div id="partnershipsRow3">
           <div className="pLogoContainer">
             <img
-              src="./images/partnershipsPage/logo12.png"
+              src="/images/Graphics/DonorsGraphics/RPsycheS-logo.jpg"
               alt=""
               className="pLogo"
             />
           </div>
           <div className="pLogoContainer">
             <img
-              src="./images/partnershipsPage/logo13.png"
+              src="/images/Graphics/DonorsGraphics/VibalFoundation-logo.png"
               alt=""
               className="pLogo"
             />
           </div>
           <div className="pLogoContainer">
             <img
-              src="./images/partnershipsPage/logo14.png"
+              src="/images/Graphics/DonorsGraphics/StPatrickSchool-logo.png"
               alt=""
               className="pLogo"
             />
           </div>
           <div className="pLogoContainer">
             <img
-              src="./images/partnershipsPage/logo15.png"
+              src="/images/Graphics/DonorsGraphics/IBISStudentCouncil-logo.jpg"
               alt=""
               className="pLogo"
             />
           </div>
           <div className="pLogoContainer">
             <img
-              src="./images/partnershipsPage/logo16.png"
+              src="/images/Graphics/PartnersGraphics/ECEP-NESC-logo.jpg"
               alt=""
               className="pLogo"
             />
           </div>
           <div className="pLogoContainer">
             <img
-              src="./images/partnershipsPage/logo17.png"
+              src="/images/Graphics/DonorsGraphics/FCC-logo.png"
               alt=""
               className="pLogo"
             />

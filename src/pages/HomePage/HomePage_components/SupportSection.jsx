@@ -5,35 +5,41 @@ const SupportSection = () => {
     <div id="supportPage">
       <div id="supportMainContainer">
         <div id="supportPageTitleContainer">
-          <img src="./images/supportPage/call-for-support-title.svg" alt="" />
+          <img
+            src="/images/PageImages/HomePage/SupportSection/call-for-support-title.svg"
+            alt="Call for Support Title"
+          />
         </div>
         <div id="supportPubmatsContainer">
           <div className="supportPubmatColumn">
             <img
-              src="./images/supportPage/saanAabotAng20PesosMo.png"
-              alt=""
+              src="/images/PageImages/HomePage/SupportSection/saanAabotAng20PesosMo.png"
+              alt="Liwanag at Dunong Pubmat: Saan Aabot Ang 20 Pesos Mo"
               className="pubmatImage"
             />
             <img
-              src="./images/supportPage/isangYeroIsangPangarap.png"
+              src="/images/PageImages/HomePage/SupportSection/isangYeroIsangPangarap.png"
               alt=""
               className="pubmatImage"
             />
           </div>
           <div id="supportGCashColumn">
             <p>G-Cash</p>
-            <img src="./images/supportPage/QRCode.png" alt="" />
+            <img
+              src="/images/PageImages/HomePage/SupportSection/QRCode.png"
+              alt="Liwanag at Dunong Pubmat: QR Code"
+            />
             <p>QR Code</p>
           </div>
           <div className="supportPubmatColumn">
             <img
-              src="./images/supportPage/callForMedicalSupport.png"
-              alt=""
+              src="/images/PageImages/HomePage/SupportSection/callForMedicalSupport.png"
+              alt="Liwanag at Dunong Pubmat: Call for Medical Support"
               className="pubmatImage"
             />
             <img
-              src="./images/supportPage/supportLDLiteracyProject.png"
-              alt=""
+              src="/images/PageImages/HomePage/SupportSection/supportLDLiteracyProject.png"
+              alt="Liwanag at Dunong Pubmat: Support LD Literacy Project"
               className="pubmatImage"
             />
           </div>

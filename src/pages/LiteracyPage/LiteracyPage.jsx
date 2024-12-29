@@ -42,12 +42,12 @@ const LiteracyPage = () => {
                     </p>
                     <GridLayout>
                       <img
-                        src="/images/LiteracyPage/NanayLindaSmiling.png"
+                        src="/images/PageImages/LiteracyPage/NanayLindaSmiling.png"
                         alt="Liwanag at Dunong: Image of Nanay Linda Smiling"
                         className="pageImage"
                       />
                       <img
-                        src="/images/LiteracyPage/VolunteerTeachingAnAeta.png"
+                        src="/images/PageImages/LiteracyPage/VolunteerTeachingAnAeta.png"
                         alt="Liwanag at Dunong: Image of a Volunteer Teaching an Aeta"
                         className="pageImage"
                       />
@@ -93,22 +93,22 @@ const LiteracyPage = () => {
                     </p>
                     <GridLayout>
                       <img
-                        src="/images/LiteracyPage/AetaALSGraduation.png"
+                        src="/images/PageImages/LiteracyPage/AetaALSGraduation.png"
                         alt="Liwanag at Dunong: Image of Nanay Linda Smiling"
                         className="pageImage"
                       />
                       <img
-                        src="/images/LiteracyPage/AetaALSGraduation2.png"
+                        src="/images/PageImages/LiteracyPage/AetaALSGraduation2.png"
                         alt="Liwanag at Dunong: Image of a Volunteer Teaching an Aeta"
                         className="pageImage"
                       />
                       <img
-                        src="/images/LiteracyPage/AetaPeopleOnMuseum.png"
+                        src="/images/PageImages/LiteracyPage/AetaPeopleOnMuseum.png"
                         alt="Liwanag at Dunong: Image of Nanay Linda Smiling"
                         className="pageImage"
                       />
                       <img
-                        src="/images/LiteracyPage/AetaPeopleOnRizalPark.png"
+                        src="/images/PageImages/LiteracyPage/AetaPeopleOnRizalPark.png"
                         alt="Liwanag at Dunong: Image of a Volunteer Teaching an Aeta"
                         className="pageImage"
                       />

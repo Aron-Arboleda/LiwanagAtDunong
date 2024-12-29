@@ -81,19 +81,19 @@ const LatestActivitiesSection = () => {
         </div>
         <div id="latestActivitiesImagesContainer">
           <img
-            src="/images/latestActivities/paper_butterflies.jpg"
+            src="/images/PageImages/HomePage/LatestActivitiesSection/paper_butterflies.jpg"
             alt="paper butterflies image"
             className="latestActivitiesImage"
             id="LA_image1"
           />
           <img
-            src="/images/latestActivities/medals.jpg"
+            src="/images/PageImages/HomePage/LatestActivitiesSection/medals.jpg"
             alt="paper butterflies image"
             className="latestActivitiesImage"
             id="LA_image2"
           />
           <img
-            src="/images/latestActivities/cert.jpg"
+            src="/images/PageImages/HomePage/LatestActivitiesSection/cert.jpg"
             alt="paper butterflies image"
             className="latestActivitiesImage"
             id="LA_image3"

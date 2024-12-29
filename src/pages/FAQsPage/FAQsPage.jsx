@@ -88,17 +88,17 @@ const FAQsPage = () => {
             <StandardChunkFiveTitle title="VOLUNTEER WITH US!" />
             <GridLayout3Column>
               <img
-                src="/images/FAQsPage/VolunteersTravelingByFoot.jpg"
+                src="/images/PageImages/FAQsPage/VolunteersTravelingByFoot.jpg"
                 alt="Liwanag at Dunong: Volunteers Traveling by Foot"
                 className="pageImage"
               />
               <img
-                src="/images/FAQsPage/VolunteerTeaching.JPG"
+                src="/images/PageImages/FAQsPage/VolunteerTeaching.JPG"
                 alt="Liwanag at Dunong: Volunteer Teaching Aeta People"
                 className="pageImage"
               />
               <img
-                src="/images/FAQsPage/VolunteerHavingFunWithAetaKids.jpg"
+                src="/images/PageImages/FAQsPage/VolunteerHavingFunWithAetaKids.jpg"
                 alt="Liwanag at Dunong: Volunteer Having Fun with Aeta Kids"
                 className="pageImage"
               />
@@ -108,13 +108,19 @@ const FAQsPage = () => {
                 href="https://www.facebook.com/LiwanagAtDunongProject"
                 target="_blank"
               >
-                <img src="/images/SVGs/facebook.svg" alt="Facebook Icon" />
+                <img
+                  src="/images/Graphics/WEBSITE_Graphics/IconsAndVectors/BlackIcons/facebook.svg"
+                  alt="Facebook Icon"
+                />
               </a>
               <a
                 href="https://www.instagram.com/liwanagatdunong/"
                 target="_blank"
               >
-                <img src="/images/SVGs/instagram.svg" alt="Instagram Icon" />
+                <img
+                  src="/images/Graphics/WEBSITE_Graphics/IconsAndVectors/BlackIcons/instagram.svg"
+                  alt="Instagram Icon"
+                />
               </a>
               LiwanagAtDunongProject
             </InlineImageAndTextLayout>

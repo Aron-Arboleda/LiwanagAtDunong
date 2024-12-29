@@ -48,7 +48,7 @@ const GoalsSection = () => {
         <div id="goalsContainer">
           <div className="goalRow">
             <img
-              src="./images/goalsPage/raiseAwarenessImg.jpg"
+              src="/images/PageImages/HomePage/GoalsSection/raiseAwarenessImg.jpg"
               alt="Raise Awareness Image"
               className="goalsImage"
             />
@@ -79,14 +79,14 @@ const GoalsSection = () => {
               </p>
             </div>
             <img
-              src="./images/goalsPage/strongerSolidarityImg.JPG"
+              src="/images/PageImages/HomePage/GoalsSection/strongerSolidarityImg.JPG"
               alt="Raise Awareness Image"
               className="goalsImage"
             />
           </div>
           <div className="goalRow">
             <img
-              src="./images/goalsPage/empowermentImg.jpg"
+              src="/images/PageImages/HomePage/GoalsSection/empowermentImg.jpg"
               alt="Raise Awareness Image"
               className="goalsImage"
             />

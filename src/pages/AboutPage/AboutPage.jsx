@@ -90,7 +90,7 @@ const AboutPage = () => {
                 </p>
               </FlexLayoutColumn>
               <img
-                src="/images/AboutPage/LearningCenterWithKids.png"
+                src="/images/PageImages/AboutPage/LearningCenterWithKids.png"
                 alt="Aeta Learning Center with Kids"
                 className="pageImageLimited"
               />
@@ -98,7 +98,7 @@ const AboutPage = () => {
             <StandardChunkFiveSubTitleH2 title="Project Site" />
             <FlexLayout>
               <img
-                src="/images/AboutPage/SitioGayamanMap.png"
+                src="/images/PageImages/AboutPage/SitioGayamanMap.png"
                 alt="Aeta Learning Center with Kids"
                 className="pageImageLimited"
               />
@@ -145,12 +145,12 @@ const AboutPage = () => {
               </p>
               <GridLayout>
                 <img
-                  src="/images/AboutPage/AetaOrientation.png"
+                  src="/images/PageImages/AboutPage/AetaOrientation.png"
                   alt="Liwanag at Dunong: Image of Aeta Orientation"
                   className="pageImage"
                 />
                 <img
-                  src="/images/AboutPage/AetaPeopleRaisingHands.png"
+                  src="/images/PageImages/AboutPage/AetaPeopleRaisingHands.png"
                   alt="Liwanag at Dunong: Image of Aeta People Raising Hands"
                   className="pageImage"
                 />
@@ -282,12 +282,12 @@ const AboutPage = () => {
               </p>
               <GridLayout>
                 <img
-                  src="/images/AboutPage/AetaKidsHoldingHands.png"
+                  src="/images/PageImages/AboutPage/AetaKidsHoldingHands.png"
                   alt="Liwanag at Dunong: Aeta Kids Holding Hands"
                   className="pageImage"
                 />
                 <img
-                  src="/images/AboutPage/AetaLearningCenterConstruction.png"
+                  src="/images/PageImages/AboutPage/AetaLearningCenterConstruction.png"
                   alt="Liwanag at Dunong: Image of Aeta Learning Center Construction"
                   className="pageImage"
                 />
