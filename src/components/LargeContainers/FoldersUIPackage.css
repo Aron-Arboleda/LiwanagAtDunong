@@ -1,44 +1,3 @@
-#aetaLearningCenterPage {
-  background-color: var(--pallete-lightGreen);
-  padding-top: 50px;
-  margin: 0;
-  display: block;
-  z-index: 1;
-  position: relative;
-  /* height:auto; width: auto */
-}
-
-#aetaHeaderContainer {
-  display: flex;
-  justify-content: center;
-}
-
-#aetaLearningCenterPageCircle {
-  max-width: 250px;
-  max-height: 80px;
-  border-radius: 50%;
-  overflow: visible;
-  white-space: nowrap;
-  background-color: var(--pallete-brownBackgroundColor);
-  border: 2px solid black;
-}
-
-#aetaLearningCenterPageTitle {
-  position: relative;
-  margin: 15px 0px;
-  left: -3rem;
-  font-size: 2rem;
-  color: var(--pallete-brightWhite);
-  text-shadow: 2.5px 0 #000000, -2.5px 0 #000000, 0 2.5px #000000,
-    0 -2.5px #000000, 2px 2px #000000, -2px -2px #000000, 2px -2px #000000,
-    -2px 2px #000000, 0px 5px 5px rgba(0, 0, 0, 0.329);
-  transition: transform 0.3s;
-}
-
-#aetaLearningCenterPageTitle:hover {
-  transform: scale(1.2);
-}
-
 .foldersContainer {
   display: grid;
   grid-template-columns: 1fr;
@@ -105,29 +64,6 @@
   height: 80vh;
 }
 
-.ALCContentContainer {
-  display: flex;
-  flex-direction: column-reverse;
-  justify-content: flex-end;
-  align-items: center;
-  gap: clamp(4vw, 5vw, 6vw);
-  padding: 50px 10px;
-  min-height: calc(100vw + 175px);
-}
-
-.folderDateText {
-  font-family: "Fuzzy Bubbles";
-  background-color: var(--pallete-brightWhite);
-  height: auto;
-  width: 100%;
-  padding: 5px 3px;
-  border-radius: 5px;
-  border: 1px solid black;
-  margin: 0px 5px;
-  text-align: center;
-  font-size: 0.5rem;
-}
-
 .folderNotch1 {
   background-color: var(--pallete-yellow);
   grid-area: 1 / 1;
@@ -185,60 +121,7 @@
   background-color: var(--pallete-purple);
 }
 
-.progressInfoContainer {
-  padding: none;
-  padding-top: 1rem;
-}
-
-.progressInfoText {
-  font-size: 0.7rem;
-  background-color: var(--pallete-brightWhite);
-  padding: clamp(1vw, 2vw, 3vw);
-  border: 1px solid black;
-  border-radius: 5px;
-  box-shadow: 3px 3px 0px black;
-  pointer-events: all;
-  margin-bottom: 10vh;
-}
-
-.progressTitle {
-  background-color: var(--pallete-brightWhite);
-  border: 1px solid black;
-  box-shadow: 3px 3px 0px black;
-  border-radius: 3px;
-  font-family: "Fuzzy Bubbles";
-  font-size: 0.8rem;
-  transform: rotate(2deg);
-}
-
-.progressImageContainer {
-  /* padding: 2rem 1rem 7rem 1rem; */
-  flex-direction: column;
-  gap: 20px;
-  pointer-events: all;
-}
-
-.progressTitle {
-  padding: clamp(3px, 0.5vw, 7px) clamp(10px, 1vw, 20px);
-  font-size: 1rem;
-}
-
-.progressImage {
-  max-width: 100%;
-  border: 2px solid black;
-  box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.731);
-}
-
 @media (min-width: 625px) {
-  .ALCContentContainer {
-    display: grid;
-    grid-template-columns: 50% 50%;
-    gap: clamp(4vw, 5vw, 6vw);
-    padding: 6vh 7vw 30vh 11vw;
-    overflow: hidden;
-    min-height: 40vh;
-  }
-
   .folderNotch {
     height: 40px;
   }
@@ -261,143 +144,13 @@
     pointer-events: none;
   }
 
-  .progressInfoText {
-    margin-bottom: 0px;
-    font-size: 1rem;
-  }
-
   .folder4,
   .folder5,
   .folder6 {
     position: static;
   }
 
-  #aetaLearningCenterPageCircle {
-    max-width: 350px;
-    max-height: 100px;
-  }
-
-  #aetaLearningCenterPageTitle {
-    left: -70px;
-    font-size: 2.7rem;
-  }
-
-  #postsContainer {
-    margin: 0px 50px;
-  }
-
-  #igPost {
-    max-width: 300px;
-  }
-
-  #facebookPost {
-    max-width: 313px;
-  }
-
-  #twitterPost {
-    max-width: 383px;
-  }
-
-  .folderDateText {
-    font-size: 1.2vw;
-  }
-
   .folderBody {
     overflow: hidden;
   }
-}
-
-@media (min-width: 1095px) {
-  .ALCContentContainer {
-    padding: 6vh clamp(17vw, 17.5vw, 18vw) 30vh;
-  }
-
-  .progressTitle {
-    padding: clamp(5px, 0.5vw, 10px) clamp(10px, 1vw, 20px);
-    font-size: 1.2rem;
-  }
-
-  .progressImage {
-    max-width: 100%;
-  }
-
-  .folderDateText {
-    padding: 5px;
-    margin: 0px 10px;
-    font-size: 1rem;
-  }
-}
-
-@media (min-width: 1192px) {
-  #igPost {
-    width: 300px;
-    position: relative;
-    top: -100px;
-  }
-
-  #facebookPost {
-    width: 313px;
-  }
-
-  #twitterPost {
-    position: relative;
-    top: -50px;
-    width: 383px;
-  }
-}
-
-@media (min-width: 1335px) {
-  .folderDateText {
-    margin: 0px 30px;
-  }
-}
-
-/* SOCMED SECTION */
-
-#socmedHalf {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
-  align-items: flex-end;
-  background-color: var(--pallete-yellow);
-  margin-top: 400px;
-}
-
-#postsContainer {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 3rem;
-  grid-area: 1 / 1;
-  z-index: 6;
-  position: relative;
-  bottom: 170px;
-  pointer-events: initial;
-}
-
-#postsContainer a {
-  cursor: auto;
-}
-
-#curveSectionSVG {
-  width: 100%;
-  grid-area: 1 / 1;
-  z-index: 5;
-}
-
-.socmedPost {
-  border-radius: 15px;
-  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.422);
-  transition: transform 0.3s;
-  cursor: pointer;
-}
-
-.socmedPost:hover {
-  transform: translateY(-20px);
-}
-
-#igPost,
-#facebookPost,
-#twitterPost {
-  max-width: 300px;
 }
