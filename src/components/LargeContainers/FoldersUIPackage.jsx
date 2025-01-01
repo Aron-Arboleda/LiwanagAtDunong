@@ -53,10 +53,68 @@ export const FolderBody = ({ children, folderBodyIndex, style }) => {
 };
 
 export const InteractiveFolders = ({ IFoldersData }) => {
-  const [switches, setSwitches] = useState(IFoldersData.switchesData);
+  const { frontFolderData, interactiveFoldersData } = IFoldersData;
+
+  const [switches, setSwitches] = useState([false, false, false, false, false]);
   const [currentFolderShowedIndex, setCurrentFolderShowedIndex] =
     useState(null);
-  const [styles, setStyles] = useState(IFoldersData.stylesData);
+  const [styles, setStyles] = useState({
+    0: {
+      folderNotch: {
+        borderTop: "2px solid black",
+        borderLeft: "2px solid black",
+        borderRight: "2px solid black",
+        backgroundColor: interactiveFoldersData[0].originalColor, // Default color for folder 1
+      },
+      folderBody: {
+        backgroundColor: interactiveFoldersData[0].originalColor, // Default color for folder 1 body
+      },
+    },
+    1: {
+      folderNotch: {
+        borderTop: "2px solid black",
+        borderLeft: "2px solid black",
+        borderRight: "2px solid black",
+        backgroundColor: interactiveFoldersData[1].originalColor, // Default color for folder 2
+      },
+      folderBody: {
+        backgroundColor: interactiveFoldersData[1].originalColor, // Default color for folder 2 body
+      },
+    },
+    2: {
+      folderNotch: {
+        borderTop: "2px solid black",
+        borderLeft: "2px solid black",
+        borderRight: "2px solid black",
+        backgroundColor: interactiveFoldersData[2].originalColor, // Default color for folder 3
+      },
+      folderBody: {
+        backgroundColor: interactiveFoldersData[2].originalColor, // Default color for folder 3 body
+      },
+    },
+    3: {
+      folderNotch: {
+        borderTop: "2px solid black",
+        borderLeft: "2px solid black",
+        borderRight: "2px solid black",
+        backgroundColor: interactiveFoldersData[3].originalColor, // Default color for folder 4
+      },
+      folderBody: {
+        backgroundColor: interactiveFoldersData[3].originalColor, // Default color for folder 4 body
+      },
+    },
+    4: {
+      folderNotch: {
+        borderTop: "2px solid black",
+        borderLeft: "2px solid black",
+        borderRight: "2px solid black",
+        backgroundColor: interactiveFoldersData[4].originalColor, // Default color for folder 5
+      },
+      folderBody: {
+        backgroundColor: interactiveFoldersData[4].originalColor, // Default color for folder 5 body
+      },
+    },
+  });
 
   const handleTabMouseEnter = (index, originalColor) => {
     setStyles((prevStyles) => ({
@@ -128,11 +186,9 @@ export const InteractiveFolders = ({ IFoldersData }) => {
         <FolderHeader>
           <FolderNotch folderNotchIndex={1}></FolderNotch>
         </FolderHeader>
-        <FolderBody folderBodyIndex={1}>
-          {IFoldersData.frontFolderData}
-        </FolderBody>
+        <FolderBody folderBodyIndex={1}>{frontFolderData}</FolderBody>
       </Folder>
-      {IFoldersData.interactiveFoldersData.map((folder, index) => (
+      {interactiveFoldersData.map((folder, index) => (
         <Folder
           folderIndex={index + 2}
           key={index}

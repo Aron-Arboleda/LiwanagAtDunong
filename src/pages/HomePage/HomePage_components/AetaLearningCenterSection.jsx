@@ -48,64 +48,6 @@ const foldersData = [
 
 const AetaLearningCenterSection = () => {
   const IFoldersData = {
-    switchesData: [false, false, false, false, false],
-    stylesData: {
-      0: {
-        folderNotch: {
-          borderTop: "2px solid black",
-          borderLeft: "2px solid black",
-          borderRight: "2px solid black",
-          backgroundColor: "rgb(255, 160, 72)", // Default color for folder 1
-        },
-        folderBody: {
-          backgroundColor: "rgb(186, 167, 149)", // Default color for folder 1 body
-        },
-      },
-      1: {
-        folderNotch: {
-          borderTop: "2px solid black",
-          borderLeft: "2px solid black",
-          borderRight: "2px solid black",
-          backgroundColor: "rgb(52, 121, 40)", // Default color for folder 2
-        },
-        folderBody: {
-          backgroundColor: "rgb(52, 121, 40)", // Default color for folder 2 body
-        },
-      },
-      2: {
-        folderNotch: {
-          borderTop: "2px solid black",
-          borderLeft: "2px solid black",
-          borderRight: "2px solid black",
-          backgroundColor: "rgb(255, 64, 38)", // Default color for folder 3
-        },
-        folderBody: {
-          backgroundColor: "rgb(255, 64, 38)", // Default color for folder 3 body
-        },
-      },
-      3: {
-        folderNotch: {
-          borderTop: "2px solid black",
-          borderLeft: "2px solid black",
-          borderRight: "2px solid black",
-          backgroundColor: "rgb(123, 152, 255)", // Default color for folder 4
-        },
-        folderBody: {
-          backgroundColor: "rgb(123, 152, 255)", // Default color for folder 4 body
-        },
-      },
-      4: {
-        folderNotch: {
-          borderTop: "2px solid black",
-          borderLeft: "2px solid black",
-          borderRight: "2px solid black",
-          backgroundColor: "rgb(193, 72, 235)", // Default color for folder 5
-        },
-        folderBody: {
-          backgroundColor: "rgb(193, 72, 235)", // Default color for folder 5 body
-        },
-      },
-    },
     frontFolderData: (
       <div id="socmedHalf">
         <div id="postsContainer">
@@ -144,7 +86,7 @@ const AetaLearningCenterSection = () => {
         />
       </div>
     ),
-    interactiveFoldersData: foldersData.map((folder, index) => ({
+    interactiveFoldersData: foldersData.map((folder) => ({
       notchChildren: <p className="folderDateText">{folder.date}</p>,
       children: (
         <div className="ALCContentContainer">
