@@ -64,17 +64,17 @@
 #folder4 {
   z-index: 7;
   position: relative;
-  bottom: 45px;
+  bottom: 30px;
 }
 #folder5 {
   z-index: 6;
   position: relative;
-  bottom: 45px;
+  bottom: 30px;
 }
 #folder6 {
   z-index: 5;
   position: relative;
-  bottom: 45px;
+  bottom: 30px;
 }
 
 .folderHeader {
@@ -100,17 +100,20 @@
 .folderBody {
   border-top: 2px solid black;
   z-index: 1;
+  scroll-behavior: auto;
+  overflow-y: auto;
+  scroll-snap-type: none;
+  height: 80vh;
 }
 
 .ALCContentContainer {
   display: flex;
   flex-direction: column-reverse;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   gap: clamp(4vw, 5vw, 6vw);
-  padding: 6vh clamp(17vw, 17.5vw, 18vw) 20vh;
-  overflow: auto;
-  height: 50vh;
+  padding: 50px 10px;
+  min-height: calc(100vw + 175px);
 }
 
 .folderDateText {
@@ -189,6 +192,7 @@
 }
 
 .progressInfoText {
+  font-size: 0.7rem;
   background-color: var(--pallete-brightWhite);
   padding: clamp(1vw, 2vw, 3vw);
   border: 1px solid black;
@@ -227,6 +231,19 @@
 }
 
 @media (min-width: 625px) {
+  .ALCContentContainer {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: clamp(4vw, 5vw, 6vw);
+    padding: 6vh 7vw 30vh 11vw;
+    overflow: visible;
+    min-height: 40vh;
+  }
+
+  .folderNotch {
+    height: 40px;
+  }
+
   #folderNotch4 {
     grid-area: 1 / 4;
   }
@@ -247,6 +264,7 @@
 
   .progressInfoText {
     margin-bottom: 0px;
+    font-size: 1rem;
   }
 
   #folder4,
@@ -287,17 +305,13 @@
 }
 
 @media (min-width: 1095px) {
+  .ALCContentContainer {
+    padding: 6vh clamp(17vw, 17.5vw, 18vw) 30vh;
+  }
+
   .progressTitle {
     padding: clamp(5px, 0.5vw, 10px) clamp(10px, 1vw, 20px);
     font-size: 1.2rem;
-  }
-
-  .ALCContentContainer {
-    display: grid;
-    grid-template-columns: 50% 50%;
-    gap: clamp(4vw, 5vw, 6vw);
-    padding: 6vh clamp(17vw, 17.5vw, 18vw) 30vh;
-    overflow: visible;
   }
 
   .progressImage {

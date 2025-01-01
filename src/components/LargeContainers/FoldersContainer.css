@@ -23,17 +23,17 @@
 #folder4 {
   z-index: 7;
   position: relative;
-  bottom: 45px;
+  bottom: 40px;
 }
 #folder5 {
   z-index: 6;
   position: relative;
-  bottom: 45px;
+  bottom: 40px;
 }
 #folder6 {
   z-index: 5;
   position: relative;
-  bottom: 45px;
+  bottom: 40px;
 }
 
 .folderHeader {
@@ -121,6 +121,10 @@
 }
 
 @media (min-width: 625px) {
+  .folderNotch {
+    height: 40px;
+  }
+
   #folderNotch4 {
     grid-area: 1 / 4;
   }

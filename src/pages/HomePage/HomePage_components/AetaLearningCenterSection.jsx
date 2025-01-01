@@ -1,7 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "../HomePage_styles/AetaLearningCenterSection.css";
 import { brightenColor } from "@utils/color";
 import { BrownCircleTitle } from "@components/PageTitles/PageTitles";
+
+const FolderBody = ({ style, description, image }) => {
+  return (
+    <div className="folderBody" style={style}>
+      <div className="ALCContentContainer">
+        <div className="progressInfoContainer flex-center-alignCenter">
+          <p className="progressInfoText">{description}</p>
+        </div>
+        <div className="progressImageContainer flex-center-alignCenter">
+          <div className="progressTitle flex-center-alignCenter">
+            Progress Check:
+          </div>
+          <img src={image} alt="Progress" className="progressImage" />
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const AetaLearningCenterSection = () => {
   const [switches, setSwitches] = useState([false, false, false, false, false]);
@@ -186,7 +204,7 @@ const AetaLearningCenterSection = () => {
             key={index}
             style={{
               transform: switches[index]
-                ? "translateY(-70vh)"
+                ? "translateY(-65vh)"
                 : "translateY(0px)",
               transition:
                 "transform 0.5s, border-top 0.3s, background-color 0.1s",
@@ -208,7 +226,12 @@ const AetaLearningCenterSection = () => {
                 <p className="folderDateText">{folder.date}</p>
               </div>
             </div>
-            <div
+            <FolderBody
+              style={styles[index]?.folderBody}
+              description={folder.description}
+              image={folder.image}
+            />
+            {/* <div
               className="folderBody"
               style={styles[index]?.folderBody} // Apply dynamic styles to folderBody
             >
@@ -227,7 +250,7 @@ const AetaLearningCenterSection = () => {
                   />
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         ))}
       </div>
