@@ -2,8 +2,15 @@ import "./FoldersUIPackage.css";
 import { brightenColor } from "@utils/color";
 import { useState } from "react";
 
-export const FoldersContainer = ({ children }) => {
-  return <div className="foldersContainer">{children}</div>;
+export const FoldersContainer = ({ children, withSpaceAbove = true }) => {
+  return (
+    <div
+      className="foldersContainer"
+      style={withSpaceAbove ? { marginTop: "75vh" } : { marginTop: "70px" }}
+    >
+      {children}
+    </div>
+  );
 };
 
 export const Folder = ({ children, folderIndex, style }) => {
@@ -49,6 +56,28 @@ export const FolderBody = ({ children, folderBodyIndex, style }) => {
     >
       {children}
     </div>
+  );
+};
+
+export const StaticFolderContainer = ({ children, color, withSpaceAbove }) => {
+  const colorIndex = {
+    yellow: 1,
+    orange: 2,
+    green: 3,
+    redOrange: 4,
+    blue: 5,
+    purple: 5,
+  };
+
+  return (
+    <FoldersContainer withSpaceAbove={withSpaceAbove}>
+      <Folder folderIndex={colorIndex[color]}>
+        <FolderHeader>
+          <FolderNotch folderNotchIndex={colorIndex[color]}></FolderNotch>
+        </FolderHeader>
+        <FolderBody folderBodyIndex={colorIndex[color]}>{children}</FolderBody>
+      </Folder>
+    </FoldersContainer>
   );
 };
 
@@ -194,7 +223,7 @@ export const InteractiveFolders = ({ IFoldersData }) => {
           key={index}
           style={{
             transform: switches[index]
-              ? "translateY(-65vh)"
+              ? "translateY(-70vh)"
               : "translateY(0px)",
             transition:
               "transform 0.5s, border-top 0.3s, background-color 0.1s",
