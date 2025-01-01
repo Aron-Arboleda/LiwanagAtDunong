@@ -1,4 +1,6 @@
+import { InlineImageAndTextLayout } from "@components/Layouts/Layouts";
 import "./Footer.css";
+import { MontserratTextInfo } from "@components/PageTitles/PageTitles";
 
 const Footer = () => {
   return (
@@ -106,6 +108,12 @@ const Footer = () => {
             </div>
           </div>
         </div>
+        <InlineImageAndTextLayout>
+          <MontserratTextInfo
+            text="© 2025 Liwanag at Dunong Project. All rights reserved."
+            color="#fffbe6"
+          />
+        </InlineImageAndTextLayout>
       </div>
     </footer>
   );

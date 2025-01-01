@@ -127,6 +127,13 @@
   margin: 0;
 }
 
+.montserratTextInfo {
+  font-family: "Montserrat";
+  font-size: 0.7rem;
+  text-align: center;
+  padding: 0px 30px;
+}
+
 @media (min-width: 625px) {
   .brownCircle {
     max-width: 350px;
@@ -141,6 +148,11 @@
   #adultLiteracyProgramTitle {
     left: -3rem;
     font-size: 2.5rem;
+  }
+
+  .montserratTextInfo {
+    font-family: "Montserrat";
+    font-size: 1rem;
   }
 }
 

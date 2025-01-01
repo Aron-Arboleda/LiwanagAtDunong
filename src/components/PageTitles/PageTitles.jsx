@@ -39,6 +39,14 @@ export const MontserratCardInfo = ({ text }) => {
   return <p className="montserratCardInfo">{text}</p>;
 };
 
+export const MontserratTextInfo = ({ text, color = "black" }) => {
+  return (
+    <p className="montserratTextInfo" style={{ color: color }}>
+      {text}
+    </p>
+  );
+};
+
 export const WhiteChunkFiveTitle = ({ text = "Title" }) => {
   return <h1 className="pageTitleH1 whiteChunkFiveTitle">{text}</h1>;
 };
