@@ -6,8 +6,6 @@ import {
 import { PageDivider } from "@components/CustomComponents/CustomComponents";
 import {
   CardLargeContainer,
-  FolderLargeContainer,
-  GridFoldersContainer,
   MainContainer,
 } from "@components/LargeContainers/LargeContainers";
 import {
