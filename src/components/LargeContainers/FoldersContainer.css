@@ -1,4 +1,4 @@
-#foldersContainer {
+/* #foldersContainer {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
@@ -148,4 +148,4 @@
   #folder6 {
     position: static;
   }
-}
+} */

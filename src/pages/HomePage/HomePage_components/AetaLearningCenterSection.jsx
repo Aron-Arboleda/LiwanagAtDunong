@@ -1,23 +1,195 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import "../HomePage_styles/AetaLearningCenterSection.css";
 import { brightenColor } from "@utils/color";
 import { BrownCircleTitle } from "@components/PageTitles/PageTitles";
 
-const FolderBody = ({ style, description, image }) => {
+// export const FolderBody = ({ style, description, image }) => {
+//   return (
+//     <div className="folderBody" style={style}>
+//       <div className="ALCContentContainer">
+//         <div className="progressInfoContainer flex-center-alignCenter">
+//           <p className="progressInfoText">{description}</p>
+//         </div>
+//         <div className="progressImageContainer flex-center-alignCenter">
+//           <div className="progressTitle flex-center-alignCenter">
+//             Progress Check:
+//           </div>
+//           <img src={image} alt="Progress" className="progressImage" />
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+export const FoldersContainerModule = {
+  FoldersContainer: ({ children }) => {
+    return <div className="foldersContainer">{children}</div>;
+  },
+};
+
+export const FoldersContainer = ({ children }) => {
+  return <div className="foldersContainer">{children}</div>;
+};
+
+export const Folder = ({ children, folderIndex, style }) => {
   return (
-    <div className="folderBody" style={style}>
-      <div className="ALCContentContainer">
-        <div className="progressInfoContainer flex-center-alignCenter">
-          <p className="progressInfoText">{description}</p>
-        </div>
-        <div className="progressImageContainer flex-center-alignCenter">
-          <div className="progressTitle flex-center-alignCenter">
-            Progress Check:
-          </div>
-          <img src={image} alt="Progress" className="progressImage" />
-        </div>
-      </div>
+    <div className={`folder folder${folderIndex}`} style={style}>
+      {children}
     </div>
+  );
+};
+
+export const FolderHeader = ({ children }) => {
+  return <div className="folderHeader">{children}</div>;
+};
+
+export const FolderNotch = ({
+  children,
+  folderNotchIndex,
+  onMouseEnter,
+  onMouseLeave,
+  onClick,
+  style,
+}) => {
+  return (
+    <div
+      className={`folderNotch folderNotch${folderNotchIndex} flex-center`}
+      style={style}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+      onClick={onClick}
+    >
+      {children}
+    </div>
+  );
+};
+
+export const FolderBody = ({ children, folderBodyIndex, style }) => {
+  return (
+    <div
+      className={`folderBody ${
+        folderBodyIndex ? `folderBody${folderBodyIndex}` : ""
+      }`}
+      style={style}
+    >
+      {children}
+    </div>
+  );
+};
+
+export const InteractiveFolders = ({ IFoldersData }) => {
+  const [switches, setSwitches] = useState(IFoldersData.switchesData);
+  const [currentFolderShowedIndex, setCurrentFolderShowedIndex] =
+    useState(null);
+  const [styles, setStyles] = useState(IFoldersData.stylesData);
+
+  const handleTabMouseEnter = (index, originalColor) => {
+    setStyles((prevStyles) => ({
+      ...prevStyles,
+      [index]: {
+        folderNotch: {
+          borderTop: "3px solid black",
+          borderLeft: "3px solid black",
+          borderRight: "3px solid black",
+          backgroundColor: brightenColor(originalColor, 20),
+        },
+        folderBody: {
+          backgroundColor: brightenColor(originalColor, 20), // Brighten folder body as well
+        },
+      },
+    }));
+  };
+
+  const handleTabMouseLeave = (index, originalColor) => {
+    setStyles((prevStyles) => ({
+      ...prevStyles,
+      [index]: {
+        folderNotch: {
+          borderTop: "2px solid black",
+          borderLeft: "2px solid black",
+          borderRight: "2px solid black",
+          backgroundColor: originalColor,
+        },
+        folderBody: {
+          backgroundColor: originalColor, // Reset folder body color
+        },
+      },
+    }));
+  };
+
+  const handleTabClick = (tabIndex) => {
+    const newSwitches = [...switches];
+    let newCurrentFolderShowedIndex = currentFolderShowedIndex;
+
+    if (!newSwitches[tabIndex]) {
+      newCurrentFolderShowedIndex = tabIndex;
+      newSwitches[tabIndex] = true;
+    } else {
+      if (newCurrentFolderShowedIndex === tabIndex) {
+        newSwitches[tabIndex] = false;
+        newCurrentFolderShowedIndex = tabIndex + 1;
+      } else {
+        newCurrentFolderShowedIndex = tabIndex;
+      }
+    }
+
+    for (let i = 0; i < tabIndex; i++) {
+      if (newSwitches[i]) {
+        newSwitches[i] = false;
+      }
+    }
+
+    for (let i = tabIndex + 1; i < switches.length; i++) {
+      newSwitches[i] = true;
+    }
+
+    setSwitches(newSwitches);
+    setCurrentFolderShowedIndex(newCurrentFolderShowedIndex);
+  };
+
+  return (
+    <FoldersContainer>
+      <Folder folderIndex={1}>
+        <FolderHeader>
+          <FolderNotch folderNotchIndex={1}></FolderNotch>
+        </FolderHeader>
+        <FolderBody folderBodyIndex={1}>
+          {IFoldersData.frontFolderData}
+        </FolderBody>
+      </Folder>
+      {IFoldersData.interactiveFoldersData.map((folder, index) => (
+        <Folder
+          folderIndex={index + 2}
+          key={index}
+          style={{
+            transform: switches[index]
+              ? "translateY(-65vh)"
+              : "translateY(0px)",
+            transition:
+              "transform 0.5s, border-top 0.3s, background-color 0.1s",
+          }}
+        >
+          <FolderHeader>
+            <FolderNotch
+              folderNotchIndex={index + 2}
+              style={styles[index]?.folderNotch}
+              onMouseEnter={() =>
+                handleTabMouseEnter(index, folder.originalColor)
+              }
+              onMouseLeave={() =>
+                handleTabMouseLeave(index, folder.originalColor)
+              }
+              onClick={() => handleTabClick(index)}
+            >
+              {folder.notchChildren}
+            </FolderNotch>
+          </FolderHeader>
+          <FolderBody style={styles[index]?.folderBody}>
+            {folder.children}
+          </FolderBody>
+        </Folder>
+      ))}
+    </FoldersContainer>
   );
 };
 
@@ -34,7 +206,7 @@ const AetaLearningCenterSection = () => {
         backgroundColor: "rgb(255, 160, 72)", // Default color for folder 1
       },
       folderBody: {
-        backgroundColor: "rgb(255, 160, 72)", // Default color for folder 1 body
+        backgroundColor: "rgb(186, 167, 149)", // Default color for folder 1 body
       },
     },
     1: {
@@ -150,12 +322,12 @@ const AetaLearningCenterSection = () => {
   return (
     <div id="aetaLearningCenterPage">
       <BrownCircleTitle title="Aeta Learning Center" />
-      <div id="foldersContainer">
-        <div className="folder" id="folder1">
-          <div className="folderHeader">
-            <div className="folderNotch" id="folderNotch1"></div>
-          </div>
-          <div className="folderBody" id="folderBody1">
+      <FoldersContainer>
+        <Folder folderIndex={1}>
+          <FolderHeader>
+            <FolderNotch folderNotchIndex={1}></FolderNotch>
+          </FolderHeader>
+          <FolderBody folderBodyIndex={1}>
             <div id="socmedHalf">
               <div id="postsContainer">
                 <a
@@ -195,12 +367,11 @@ const AetaLearningCenterSection = () => {
                 id="curveSectionSVG"
               />
             </div>
-          </div>
-        </div>
+          </FolderBody>
+        </Folder>
         {foldersData.map((folder, index) => (
-          <div
-            className="folder"
-            id={`folder${index + 2}`}
+          <Folder
+            folderIndex={index + 2}
             key={index}
             style={{
               transform: switches[index]
@@ -210,10 +381,10 @@ const AetaLearningCenterSection = () => {
                 "transform 0.5s, border-top 0.3s, background-color 0.1s",
             }}
           >
-            <div className="folderHeader">
-              <div
-                className="folderNotch flex-center"
-                id={`folderNotch${index + 2}`}
+            <FolderHeader>
+              <FolderNotch
+                folderNotchIndex={index + 2}
+                style={styles[index]?.folderNotch}
                 onMouseEnter={() =>
                   handleTabMouseEnter(index, folder.originalColor)
                 }
@@ -221,20 +392,11 @@ const AetaLearningCenterSection = () => {
                   handleTabMouseLeave(index, folder.originalColor)
                 }
                 onClick={() => handleTabClick(index)}
-                style={styles[index]?.folderNotch} // Apply dynamic styles to folderNotch
               >
                 <p className="folderDateText">{folder.date}</p>
-              </div>
-            </div>
-            <FolderBody
-              style={styles[index]?.folderBody}
-              description={folder.description}
-              image={folder.image}
-            />
-            {/* <div
-              className="folderBody"
-              style={styles[index]?.folderBody} // Apply dynamic styles to folderBody
-            >
+              </FolderNotch>
+            </FolderHeader>
+            <FolderBody style={styles[index]?.folderBody}>
               <div className="ALCContentContainer">
                 <div className="progressInfoContainer flex-center-alignCenter">
                   <p className="progressInfoText">{folder.description}</p>
@@ -250,10 +412,10 @@ const AetaLearningCenterSection = () => {
                   />
                 </div>
               </div>
-            </div> */}
-          </div>
+            </FolderBody>
+          </Folder>
         ))}
-      </div>
+      </FoldersContainer>
     </div>
   );
 };
