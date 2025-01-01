@@ -1,426 +1,7 @@
-import React, { useState } from "react";
+import { InteractiveFolders } from "@components/LargeContainers/FoldersUIPackage";
 import "../HomePage_styles/AetaLearningCenterSection.css";
-import { brightenColor } from "@utils/color";
+
 import { BrownCircleTitle } from "@components/PageTitles/PageTitles";
-
-// export const FolderBody = ({ style, description, image }) => {
-//   return (
-//     <div className="folderBody" style={style}>
-//       <div className="ALCContentContainer">
-//         <div className="progressInfoContainer flex-center-alignCenter">
-//           <p className="progressInfoText">{description}</p>
-//         </div>
-//         <div className="progressImageContainer flex-center-alignCenter">
-//           <div className="progressTitle flex-center-alignCenter">
-//             Progress Check:
-//           </div>
-//           <img src={image} alt="Progress" className="progressImage" />
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-export const FoldersContainerModule = {
-  FoldersContainer: ({ children }) => {
-    return <div className="foldersContainer">{children}</div>;
-  },
-};
-
-export const FoldersContainer = ({ children }) => {
-  return <div className="foldersContainer">{children}</div>;
-};
-
-export const Folder = ({ children, folderIndex, style }) => {
-  return (
-    <div className={`folder folder${folderIndex}`} style={style}>
-      {children}
-    </div>
-  );
-};
-
-export const FolderHeader = ({ children }) => {
-  return <div className="folderHeader">{children}</div>;
-};
-
-export const FolderNotch = ({
-  children,
-  folderNotchIndex,
-  onMouseEnter,
-  onMouseLeave,
-  onClick,
-  style,
-}) => {
-  return (
-    <div
-      className={`folderNotch folderNotch${folderNotchIndex} flex-center`}
-      style={style}
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
-      onClick={onClick}
-    >
-      {children}
-    </div>
-  );
-};
-
-export const FolderBody = ({ children, folderBodyIndex, style }) => {
-  return (
-    <div
-      className={`folderBody ${
-        folderBodyIndex ? `folderBody${folderBodyIndex}` : ""
-      }`}
-      style={style}
-    >
-      {children}
-    </div>
-  );
-};
-
-export const InteractiveFolders = ({ IFoldersData }) => {
-  const [switches, setSwitches] = useState(IFoldersData.switchesData);
-  const [currentFolderShowedIndex, setCurrentFolderShowedIndex] =
-    useState(null);
-  const [styles, setStyles] = useState(IFoldersData.stylesData);
-
-  const handleTabMouseEnter = (index, originalColor) => {
-    setStyles((prevStyles) => ({
-      ...prevStyles,
-      [index]: {
-        folderNotch: {
-          borderTop: "3px solid black",
-          borderLeft: "3px solid black",
-          borderRight: "3px solid black",
-          backgroundColor: brightenColor(originalColor, 20),
-        },
-        folderBody: {
-          backgroundColor: brightenColor(originalColor, 20), // Brighten folder body as well
-        },
-      },
-    }));
-  };
-
-  const handleTabMouseLeave = (index, originalColor) => {
-    setStyles((prevStyles) => ({
-      ...prevStyles,
-      [index]: {
-        folderNotch: {
-          borderTop: "2px solid black",
-          borderLeft: "2px solid black",
-          borderRight: "2px solid black",
-          backgroundColor: originalColor,
-        },
-        folderBody: {
-          backgroundColor: originalColor, // Reset folder body color
-        },
-      },
-    }));
-  };
-
-  const handleTabClick = (tabIndex) => {
-    const newSwitches = [...switches];
-    let newCurrentFolderShowedIndex = currentFolderShowedIndex;
-
-    if (!newSwitches[tabIndex]) {
-      newCurrentFolderShowedIndex = tabIndex;
-      newSwitches[tabIndex] = true;
-    } else {
-      if (newCurrentFolderShowedIndex === tabIndex) {
-        newSwitches[tabIndex] = false;
-        newCurrentFolderShowedIndex = tabIndex + 1;
-      } else {
-        newCurrentFolderShowedIndex = tabIndex;
-      }
-    }
-
-    for (let i = 0; i < tabIndex; i++) {
-      if (newSwitches[i]) {
-        newSwitches[i] = false;
-      }
-    }
-
-    for (let i = tabIndex + 1; i < switches.length; i++) {
-      newSwitches[i] = true;
-    }
-
-    setSwitches(newSwitches);
-    setCurrentFolderShowedIndex(newCurrentFolderShowedIndex);
-  };
-
-  return (
-    <FoldersContainer>
-      <Folder folderIndex={1}>
-        <FolderHeader>
-          <FolderNotch folderNotchIndex={1}></FolderNotch>
-        </FolderHeader>
-        <FolderBody folderBodyIndex={1}>
-          {IFoldersData.frontFolderData}
-        </FolderBody>
-      </Folder>
-      {IFoldersData.interactiveFoldersData.map((folder, index) => (
-        <Folder
-          folderIndex={index + 2}
-          key={index}
-          style={{
-            transform: switches[index]
-              ? "translateY(-65vh)"
-              : "translateY(0px)",
-            transition:
-              "transform 0.5s, border-top 0.3s, background-color 0.1s",
-          }}
-        >
-          <FolderHeader>
-            <FolderNotch
-              folderNotchIndex={index + 2}
-              style={styles[index]?.folderNotch}
-              onMouseEnter={() =>
-                handleTabMouseEnter(index, folder.originalColor)
-              }
-              onMouseLeave={() =>
-                handleTabMouseLeave(index, folder.originalColor)
-              }
-              onClick={() => handleTabClick(index)}
-            >
-              {folder.notchChildren}
-            </FolderNotch>
-          </FolderHeader>
-          <FolderBody style={styles[index]?.folderBody}>
-            {folder.children}
-          </FolderBody>
-        </Folder>
-      ))}
-    </FoldersContainer>
-  );
-};
-
-const AetaLearningCenterSection = () => {
-  const [switches, setSwitches] = useState([false, false, false, false, false]);
-  const [currentFolderShowedIndex, setCurrentFolderShowedIndex] =
-    useState(null);
-  const [styles, setStyles] = useState({
-    0: {
-      folderNotch: {
-        borderTop: "2px solid black",
-        borderLeft: "2px solid black",
-        borderRight: "2px solid black",
-        backgroundColor: "rgb(255, 160, 72)", // Default color for folder 1
-      },
-      folderBody: {
-        backgroundColor: "rgb(186, 167, 149)", // Default color for folder 1 body
-      },
-    },
-    1: {
-      folderNotch: {
-        borderTop: "2px solid black",
-        borderLeft: "2px solid black",
-        borderRight: "2px solid black",
-        backgroundColor: "rgb(52, 121, 40)", // Default color for folder 2
-      },
-      folderBody: {
-        backgroundColor: "rgb(52, 121, 40)", // Default color for folder 2 body
-      },
-    },
-    2: {
-      folderNotch: {
-        borderTop: "2px solid black",
-        borderLeft: "2px solid black",
-        borderRight: "2px solid black",
-        backgroundColor: "rgb(255, 64, 38)", // Default color for folder 3
-      },
-      folderBody: {
-        backgroundColor: "rgb(255, 64, 38)", // Default color for folder 3 body
-      },
-    },
-    3: {
-      folderNotch: {
-        borderTop: "2px solid black",
-        borderLeft: "2px solid black",
-        borderRight: "2px solid black",
-        backgroundColor: "rgb(123, 152, 255)", // Default color for folder 4
-      },
-      folderBody: {
-        backgroundColor: "rgb(123, 152, 255)", // Default color for folder 4 body
-      },
-    },
-    4: {
-      folderNotch: {
-        borderTop: "2px solid black",
-        borderLeft: "2px solid black",
-        borderRight: "2px solid black",
-        backgroundColor: "rgb(193, 72, 235)", // Default color for folder 5
-      },
-      folderBody: {
-        backgroundColor: "rgb(193, 72, 235)", // Default color for folder 5 body
-      },
-    },
-  });
-
-  const handleTabMouseEnter = (index, originalColor) => {
-    setStyles((prevStyles) => ({
-      ...prevStyles,
-      [index]: {
-        folderNotch: {
-          borderTop: "3px solid black",
-          borderLeft: "3px solid black",
-          borderRight: "3px solid black",
-          backgroundColor: brightenColor(originalColor, 20),
-        },
-        folderBody: {
-          backgroundColor: brightenColor(originalColor, 20), // Brighten folder body as well
-        },
-      },
-    }));
-  };
-
-  const handleTabMouseLeave = (index, originalColor) => {
-    setStyles((prevStyles) => ({
-      ...prevStyles,
-      [index]: {
-        folderNotch: {
-          borderTop: "2px solid black",
-          borderLeft: "2px solid black",
-          borderRight: "2px solid black",
-          backgroundColor: originalColor,
-        },
-        folderBody: {
-          backgroundColor: originalColor, // Reset folder body color
-        },
-      },
-    }));
-  };
-
-  const handleTabClick = (tabIndex) => {
-    const newSwitches = [...switches];
-    let newCurrentFolderShowedIndex = currentFolderShowedIndex;
-
-    if (!newSwitches[tabIndex]) {
-      newCurrentFolderShowedIndex = tabIndex;
-      newSwitches[tabIndex] = true;
-    } else {
-      if (newCurrentFolderShowedIndex === tabIndex) {
-        newSwitches[tabIndex] = false;
-        newCurrentFolderShowedIndex = tabIndex + 1;
-      } else {
-        newCurrentFolderShowedIndex = tabIndex;
-      }
-    }
-
-    for (let i = 0; i < tabIndex; i++) {
-      if (newSwitches[i]) {
-        newSwitches[i] = false;
-      }
-    }
-
-    for (let i = tabIndex + 1; i < switches.length; i++) {
-      newSwitches[i] = true;
-    }
-
-    setSwitches(newSwitches);
-    setCurrentFolderShowedIndex(newCurrentFolderShowedIndex);
-  };
-
-  return (
-    <div id="aetaLearningCenterPage">
-      <BrownCircleTitle title="Aeta Learning Center" />
-      <FoldersContainer>
-        <Folder folderIndex={1}>
-          <FolderHeader>
-            <FolderNotch folderNotchIndex={1}></FolderNotch>
-          </FolderHeader>
-          <FolderBody folderBodyIndex={1}>
-            <div id="socmedHalf">
-              <div id="postsContainer">
-                <a
-                  href="https://www.instagram.com/liwanagatdunong/"
-                  target="_blank"
-                >
-                  <img
-                    src="/images/PageImages/HomePage/AetaLearningCenterSection/SocialMediaPosts/igPost.jpg"
-                    alt="Instagram Post"
-                    className="socmedPost"
-                    id="igPost"
-                  />
-                </a>
-                <a
-                  href="https://www.facebook.com/LiwanagAtDunongProject"
-                  target="_blank"
-                >
-                  <img
-                    src="/images/PageImages/HomePage/AetaLearningCenterSection/SocialMediaPosts/facebookPost.png"
-                    alt="Facebook Post"
-                    className="socmedPost"
-                    id="facebookPost"
-                  />
-                </a>
-                <a href="https://x.com/liwanagatdunong" target="_blank">
-                  <img
-                    src="/images/PageImages/HomePage/AetaLearningCenterSection/SocialMediaPosts/twitterPost.png"
-                    alt="Twitter Post"
-                    className="socmedPost"
-                    id="twitterPost"
-                  />
-                </a>
-              </div>
-              <img
-                src="/images/Graphics/WEBSITE_Graphics/Sprites/curveSection.svg"
-                alt="curve"
-                id="curveSectionSVG"
-              />
-            </div>
-          </FolderBody>
-        </Folder>
-        {foldersData.map((folder, index) => (
-          <Folder
-            folderIndex={index + 2}
-            key={index}
-            style={{
-              transform: switches[index]
-                ? "translateY(-65vh)"
-                : "translateY(0px)",
-              transition:
-                "transform 0.5s, border-top 0.3s, background-color 0.1s",
-            }}
-          >
-            <FolderHeader>
-              <FolderNotch
-                folderNotchIndex={index + 2}
-                style={styles[index]?.folderNotch}
-                onMouseEnter={() =>
-                  handleTabMouseEnter(index, folder.originalColor)
-                }
-                onMouseLeave={() =>
-                  handleTabMouseLeave(index, folder.originalColor)
-                }
-                onClick={() => handleTabClick(index)}
-              >
-                <p className="folderDateText">{folder.date}</p>
-              </FolderNotch>
-            </FolderHeader>
-            <FolderBody style={styles[index]?.folderBody}>
-              <div className="ALCContentContainer">
-                <div className="progressInfoContainer flex-center-alignCenter">
-                  <p className="progressInfoText">{folder.description}</p>
-                </div>
-                <div className="progressImageContainer flex-center-alignCenter">
-                  <div className="progressTitle flex-center-alignCenter">
-                    Progress Check:
-                  </div>
-                  <img
-                    src={folder.image}
-                    alt="Progress"
-                    className="progressImage"
-                  />
-                </div>
-              </div>
-            </FolderBody>
-          </Folder>
-        ))}
-      </FoldersContainer>
-    </div>
-  );
-};
-
-export default AetaLearningCenterSection;
 
 const foldersData = [
   {
@@ -464,3 +45,130 @@ const foldersData = [
     originalColor: "rgb(193, 72, 235)",
   },
 ];
+
+const AetaLearningCenterSection = () => {
+  const IFoldersData = {
+    switchesData: [false, false, false, false, false],
+    stylesData: {
+      0: {
+        folderNotch: {
+          borderTop: "2px solid black",
+          borderLeft: "2px solid black",
+          borderRight: "2px solid black",
+          backgroundColor: "rgb(255, 160, 72)", // Default color for folder 1
+        },
+        folderBody: {
+          backgroundColor: "rgb(186, 167, 149)", // Default color for folder 1 body
+        },
+      },
+      1: {
+        folderNotch: {
+          borderTop: "2px solid black",
+          borderLeft: "2px solid black",
+          borderRight: "2px solid black",
+          backgroundColor: "rgb(52, 121, 40)", // Default color for folder 2
+        },
+        folderBody: {
+          backgroundColor: "rgb(52, 121, 40)", // Default color for folder 2 body
+        },
+      },
+      2: {
+        folderNotch: {
+          borderTop: "2px solid black",
+          borderLeft: "2px solid black",
+          borderRight: "2px solid black",
+          backgroundColor: "rgb(255, 64, 38)", // Default color for folder 3
+        },
+        folderBody: {
+          backgroundColor: "rgb(255, 64, 38)", // Default color for folder 3 body
+        },
+      },
+      3: {
+        folderNotch: {
+          borderTop: "2px solid black",
+          borderLeft: "2px solid black",
+          borderRight: "2px solid black",
+          backgroundColor: "rgb(123, 152, 255)", // Default color for folder 4
+        },
+        folderBody: {
+          backgroundColor: "rgb(123, 152, 255)", // Default color for folder 4 body
+        },
+      },
+      4: {
+        folderNotch: {
+          borderTop: "2px solid black",
+          borderLeft: "2px solid black",
+          borderRight: "2px solid black",
+          backgroundColor: "rgb(193, 72, 235)", // Default color for folder 5
+        },
+        folderBody: {
+          backgroundColor: "rgb(193, 72, 235)", // Default color for folder 5 body
+        },
+      },
+    },
+    frontFolderData: (
+      <div id="socmedHalf">
+        <div id="postsContainer">
+          <a href="https://www.instagram.com/liwanagatdunong/" target="_blank">
+            <img
+              src="/images/PageImages/HomePage/AetaLearningCenterSection/SocialMediaPosts/igPost.jpg"
+              alt="Instagram Post"
+              className="socmedPost"
+              id="igPost"
+            />
+          </a>
+          <a
+            href="https://www.facebook.com/LiwanagAtDunongProject"
+            target="_blank"
+          >
+            <img
+              src="/images/PageImages/HomePage/AetaLearningCenterSection/SocialMediaPosts/facebookPost.png"
+              alt="Facebook Post"
+              className="socmedPost"
+              id="facebookPost"
+            />
+          </a>
+          <a href="https://x.com/liwanagatdunong" target="_blank">
+            <img
+              src="/images/PageImages/HomePage/AetaLearningCenterSection/SocialMediaPosts/twitterPost.png"
+              alt="Twitter Post"
+              className="socmedPost"
+              id="twitterPost"
+            />
+          </a>
+        </div>
+        <img
+          src="/images/Graphics/WEBSITE_Graphics/Sprites/curveSection.svg"
+          alt="curve"
+          id="curveSectionSVG"
+        />
+      </div>
+    ),
+    interactiveFoldersData: foldersData.map((folder, index) => ({
+      notchChildren: <p className="folderDateText">{folder.date}</p>,
+      children: (
+        <div className="ALCContentContainer">
+          <div className="progressInfoContainer flex-center-alignCenter">
+            <p className="progressInfoText">{folder.description}</p>
+          </div>
+          <div className="progressImageContainer flex-center-alignCenter">
+            <div className="progressTitle flex-center-alignCenter">
+              Progress Check:
+            </div>
+            <img src={folder.image} alt="Progress" className="progressImage" />
+          </div>
+        </div>
+      ),
+      originalColor: folder.originalColor,
+    })),
+  };
+
+  return (
+    <div id="aetaLearningCenterPage">
+      <BrownCircleTitle title="Aeta Learning Center" />
+      <InteractiveFolders IFoldersData={IFoldersData} />
+    </div>
+  );
+};
+
+export default AetaLearningCenterSection;

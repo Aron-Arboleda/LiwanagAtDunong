@@ -1,11 +1,12 @@
-/* #aetaLearningCenterPage {
+#aetaLearningCenterPage {
   background-color: var(--pallete-lightGreen);
   padding-top: 50px;
   margin: 0;
   display: block;
   z-index: 1;
   position: relative;
-} 
+  /* height:auto; width: auto */
+}
 
 #aetaHeaderContainer {
   display: flex;
@@ -38,7 +39,7 @@
   transform: scale(1.2);
 }
 
-#foldersContainer {
+.foldersContainer {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
@@ -48,29 +49,28 @@
 .folder {
   grid-area: 1 / 1;
   pointer-events: none;
-  position: relative;
 }
 
-#folder1 {
+.folder1 {
   z-index: 10;
 }
-#folder2 {
+.folder2 {
   z-index: 9;
 }
-#folder3 {
+.folder3 {
   z-index: 8;
 }
-#folder4 {
+.folder4 {
   z-index: 7;
   position: relative;
   bottom: 30px;
 }
-#folder5 {
+.folder5 {
   z-index: 6;
   position: relative;
   bottom: 30px;
 }
-#folder6 {
+.folder6 {
   z-index: 5;
   position: relative;
   bottom: 30px;
@@ -128,60 +128,60 @@
   font-size: 0.5rem;
 }
 
-#folderNotch1 {
+.folderNotch1 {
   background-color: var(--pallete-yellow);
   grid-area: 1 / 1;
 }
 
-#folderBody1 {
+.folderBody1 {
   display: flex;
   height: auto;
   background-color: var(--pallete-yellow);
   padding: 0px;
 }
 
-#folderNotch2 {
+.folderNotch2 {
   background-color: var(--pallete-lightOrangeBackgroundColor);
   grid-area: 1 / 2;
 }
 
-#folderBody2 {
+.folderBody2 {
   background-color: var(--pallete-lightOrangeBackgroundColor);
 }
 
-#folderNotch3 {
+.folderNotch3 {
   background-color: var(--pallete-green);
   grid-area: 1 / 3;
 }
 
-#folderBody3 {
+.folderBody3 {
   background-color: var(--pallete-green);
 }
 
-#folderNotch4 {
+.folderNotch4 {
   background-color: var(--pallete-redOrangeBackgroundColor);
   grid-area: 1 / 1;
 }
 
-#folderBody4 {
+.folderBody4 {
   background-color: var(--pallete-redOrangeBackgroundColor);
 }
 
-#folderNotch5 {
+.folderNotch5 {
   background-color: var(--pallete-lightBlue);
   grid-area: 1 / 2;
 }
 
-#folderBody5 {
+.folderBody5 {
   background-color: var(--pallete-lightBlue);
 }
 
-#folderNotch6 {
+.folderNotch6 {
   background-color: var(--pallete-purple);
   grid-area: 1 / 3;
 }
 
-#folderBody6 {
+.folderBody6 {
   background-color: var(--pallete-purple);
 }
 
@@ -212,6 +212,7 @@
 }
 
 .progressImageContainer {
+  /* padding: 2rem 1rem 7rem 1rem; */
   flex-direction: column;
   gap: 20px;
   pointer-events: all;
@@ -234,7 +235,7 @@
     grid-template-columns: 50% 50%;
     gap: clamp(4vw, 5vw, 6vw);
     padding: 6vh 7vw 30vh 11vw;
-    overflow: visible;
+    overflow: hidden;
     min-height: 40vh;
   }
 
@@ -242,15 +243,15 @@
     height: 40px;
   }
 
-  #folderNotch4 {
+  .folderNotch4 {
     grid-area: 1 / 4;
   }
 
-  #folderNotch5 {
+  .folderNotch5 {
     grid-area: 1 / 5;
   }
 
-  #folderNotch6 {
+  .folderNotch6 {
     grid-area: 1 / 6;
   }
 
@@ -265,9 +266,9 @@
     font-size: 1rem;
   }
 
-  #folder4,
-  #folder5,
-  #folder6 {
+  .folder4,
+  .folder5,
+  .folder6 {
     position: static;
   }
 
@@ -299,6 +300,10 @@
 
   .folderDateText {
     font-size: 1.2vw;
+  }
+
+  .folderBody {
+    overflow: hidden;
   }
 }
 
@@ -345,7 +350,9 @@
   .folderDateText {
     margin: 0px 30px;
   }
-} 
+}
+
+/* SOCMED SECTION */
 
 #socmedHalf {
   display: grid;
@@ -393,4 +400,4 @@
 #facebookPost,
 #twitterPost {
   max-width: 300px;
-} */
+}
