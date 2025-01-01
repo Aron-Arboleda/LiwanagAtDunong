@@ -90,7 +90,7 @@
   border-bottom: none;
   position: relative;
   top: 2px;
-  height: 40px;
+  height: 30px;
   align-items: center;
   z-index: 2;
   pointer-events: auto;
@@ -118,12 +118,12 @@
   background-color: var(--pallete-brightWhite);
   height: auto;
   width: 100%;
-  padding: 5px;
+  padding: 5px 3px;
   border-radius: 5px;
   border: 1px solid black;
-  margin: 0px 10px;
+  margin: 0px 5px;
   text-align: center;
-  font-size: 0.7rem;
+  font-size: 0.5rem;
 }
 
 #folderNotch1 {
@@ -280,9 +280,13 @@
   #twitterPost {
     max-width: 383px;
   }
+
+  .folderDateText {
+    font-size: 1.2vw;
+  }
 }
 
-@media (min-width: 1077px) {
+@media (min-width: 1095px) {
   .progressTitle {
     padding: clamp(5px, 0.5vw, 10px) clamp(10px, 1vw, 20px);
     font-size: 1.2rem;
@@ -301,6 +305,8 @@
   }
 
   .folderDateText {
+    padding: 5px;
+    margin: 0px 10px;
     font-size: 1rem;
   }
 }
@@ -323,7 +329,7 @@
   }
 }
 
-@media (min-width: 1303px) {
+@media (min-width: 1335px) {
   .folderDateText {
     margin: 0px 30px;
   }
