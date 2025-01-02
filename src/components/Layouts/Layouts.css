@@ -22,7 +22,6 @@
   display: grid;
   justify-content: center;
   text-align: center;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 20px;
   margin: 2rem 0;
 }
@@ -47,6 +46,12 @@
 
 .inlineImageAndTextContainer img {
   width: 40px;
+}
+
+@media (max-width: 460px) {
+  .card-grid-container {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)) !important;
+  }
 }
 
 @media (max-width: 768px) {
