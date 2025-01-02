@@ -59,19 +59,24 @@
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   position: absolute;
-  transform: translateX(-42%) translateY(-105%);
-  width: 250px;
+  transform: translateX(-63%) translateY(-110%);
+  width: 220px;
   min-height: 137px;
   font-family: "Fuzzy Bubbles";
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   background-image: none;
   background-color: var(--pallete-brightWhite);
   border-radius: 5px;
   border: 1px solid black;
   background-size: contain;
-  padding: 30px 20px;
+  padding: 20px 20px;
   background-repeat: no-repeat;
   color: var(--pallete-shadowColor);
+}
+
+#dialogThemedInfoText {
+  font-size: 0.7rem;
+  text-align: left;
 }
 
 #btnVolunteerAbout {
@@ -130,12 +135,20 @@
   #iButtonInfoContainer {
     width: 450px;
     height: 167px;
-    transform: translateX(-42%);
+    transform: translateX(-42%) translateY(-10px);
     font-size: 0.85rem;
     background-image: url("/images/Graphics/WEBSITE_Graphics/Sprites/dialogThemedPlaceholder.svg");
+    background-position: center;
     background-color: transparent;
     border-radius: none;
     bottom: 30px;
     border: none;
+  }
+
+  #dialogThemedInfoText {
+    font-family: "Montserrat";
+    font-size: 0.75rem;
+    margin: 5px 20px;
+    text-align: justify;
   }
 }

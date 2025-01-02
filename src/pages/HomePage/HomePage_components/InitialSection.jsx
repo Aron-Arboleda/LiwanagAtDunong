@@ -20,6 +20,7 @@ const InitialSection = () => {
           className="cartoonyComponentShadow"
           onMouseEnter={() => setInfoVisible(true)}
           onMouseLeave={() => setInfoVisible(false)}
+          onClick={() => setInfoVisible(!isInfoVisible)}
         >
           {isInfoVisible && (
             <div id="iButtonInfoContainer">
