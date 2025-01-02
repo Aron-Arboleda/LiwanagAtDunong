@@ -16,14 +16,6 @@
   height: auto;
 }
 
-#mainContainer h1 {
-  font-family: "ChunkFive";
-  color: var(--pallete-brownTextColor);
-  font-size: 3rem;
-  text-align: center;
-  margin-top: 0px;
-}
-
 #goalsContainer {
   display: flex;
   width: 100%;

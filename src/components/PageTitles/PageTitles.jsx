@@ -23,8 +23,12 @@ export const SharpBrightWhiteShadowTitle = ({ title = "Title" }) => {
   return <h1 className="pageTitleH1 pageTitleH1-style3">{title}</h1>;
 };
 
-export const StandardChunkFiveTitle = ({ title = "Title" }) => {
-  return <h1 className="pageTitleH1 pageTitleH1-style1">{title}</h1>;
+export const StandardChunkFiveTitle = ({ children, title = "Title" }) => {
+  return children ? (
+    <h1 className="pageTitleH1 pageTitleH1-style1">{children}</h1>
+  ) : (
+    <h1 className="pageTitleH1 pageTitleH1-style1">{title}</h1>
+  );
 };
 
 export const StandardChunkFiveSubTitleH2 = ({ title = "Title" }) => {

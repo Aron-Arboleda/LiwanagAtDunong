@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import "../HomePage_styles/GoalsSection.css";
+import { StandardChunkFiveTitle } from "@components/PageTitles/PageTitles";
 
 const GoalsSection = () => {
   useEffect(() => {
@@ -40,11 +41,11 @@ const GoalsSection = () => {
   return (
     <div id="goalsPage">
       <div id="mainContainer">
-        <h1>
+        <StandardChunkFiveTitle>
           PROJECT <span className="textGreen">LIWANAG </span>
           <span className="textYellow">AT </span>
           <span className="textGreen">DUNONG</span> ALSO AIMS TO:
-        </h1>
+        </StandardChunkFiveTitle>
         <div id="goalsContainer">
           <div className="goalRow">
             <img
