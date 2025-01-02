@@ -75,7 +75,7 @@
 #noteContainer {
   display: flex;
   justify-content: center;
-  padding: 50px;
+  padding: 0px;
 }
 
 @media (min-width: 830px) {
@@ -85,6 +85,10 @@
 
   .noteMessage {
     padding: 30px 100px;
+  }
+
+  #noteContainer {
+    padding: 50px;
   }
 }
 
