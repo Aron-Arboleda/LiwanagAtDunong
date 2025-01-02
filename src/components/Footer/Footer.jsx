@@ -88,15 +88,19 @@ const Footer = () => {
           <div>
             <h2 className="footerh2">Contact Information</h2>
             <div className="footerIconTextGridLayout">
-              <img
-                src="/images/Graphics/WEBSITE_Graphics/IconsAndVectors/homeLogo.svg"
-                alt="Home Icon"
-              />
+              <a href="/">
+                <img
+                  src="/images/Graphics/WEBSITE_Graphics/IconsAndVectors/homeLogo.svg"
+                  alt="Home Icon"
+                />
+              </a>
               <p>Liwanag at Dunong Project</p>
-              <img
-                src="/images/Graphics/WEBSITE_Graphics/IconsAndVectors/telephoneLogo.svg"
-                alt="Telephone Icon"
-              />
+              <a href="tel:+639068366000" target="_blank">
+                <img
+                  src="/images/Graphics/WEBSITE_Graphics/IconsAndVectors/telephoneLogo.svg"
+                  alt="Telephone Icon"
+                />
+              </a>
               <p>(+63) 906-836-6000</p>
               <a href="mailto:liwanag.at.dunong@gmail.com" target="_blank">
                 <img

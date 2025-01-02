@@ -70,6 +70,10 @@ footer {
   #footerMainContainer {
     padding: 0px 5px;
   }
+
+  .footerIconTextGridLayout {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (min-width: 420px) {
