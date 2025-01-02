@@ -73,6 +73,68 @@
   font-size: 0.5rem;
 }
 
+#socmedHalf {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  align-items: flex-end;
+  background-color: var(--pallete-yellow);
+  margin-top: 400px;
+}
+
+#postsContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 3rem;
+  grid-area: 1 / 1;
+  z-index: 6;
+  position: relative;
+  bottom: 170px;
+  pointer-events: initial;
+}
+
+#postsContainer a {
+  cursor: auto;
+}
+
+#curveSectionSVG {
+  width: 100%;
+  grid-area: 1 / 1;
+  z-index: 5;
+}
+
+.socmedPost {
+  border-radius: 15px;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.422);
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+.socmedPost:hover {
+  transform: translateY(-20px);
+}
+
+#igPost,
+#facebookPost,
+#twitterPost {
+  max-width: 100%;
+}
+
+@media (min-width: 380px) {
+  #igPost {
+    max-width: 300px;
+  }
+
+  #facebookPost {
+    max-width: 313px;
+  }
+
+  #twitterPost {
+    max-width: 383px;
+  }
+}
+
 @media (min-width: 625px) {
   .ALCContentContainer {
     display: grid;
@@ -90,18 +152,6 @@
 
   #postsContainer {
     margin: 0px 50px;
-  }
-
-  #igPost {
-    max-width: 300px;
-  }
-
-  #facebookPost {
-    max-width: 313px;
-  }
-
-  #twitterPost {
-    max-width: 383px;
   }
 
   .folderDateText {
@@ -152,52 +202,4 @@
   .folderDateText {
     margin: 0px 30px;
   }
-}
-
-#socmedHalf {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
-  align-items: flex-end;
-  background-color: var(--pallete-yellow);
-  margin-top: 400px;
-}
-
-#postsContainer {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 3rem;
-  grid-area: 1 / 1;
-  z-index: 6;
-  position: relative;
-  bottom: 170px;
-  pointer-events: initial;
-}
-
-#postsContainer a {
-  cursor: auto;
-}
-
-#curveSectionSVG {
-  width: 100%;
-  grid-area: 1 / 1;
-  z-index: 5;
-}
-
-.socmedPost {
-  border-radius: 15px;
-  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.422);
-  transition: transform 0.3s;
-  cursor: pointer;
-}
-
-.socmedPost:hover {
-  transform: translateY(-20px);
-}
-
-#igPost,
-#facebookPost,
-#twitterPost {
-  max-width: 300px;
 }

@@ -4,10 +4,11 @@
   justify-content: center;
   height: auto;
   background-color: var(--pallete-lightGreen);
+  width: 100%;
 }
 
 #supportMainContainer {
-  max-width: 80vw;
+  width: 100%;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -26,10 +27,11 @@
 }
 
 #supportPubmatsContainer {
-  display: grid;
-  grid-template-rows: auto auto auto;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 30px;
+  width: 100%;
 }
 
 .supportPubmatColumn {
@@ -38,6 +40,7 @@
   justify-content: center;
   align-items: center;
   gap: 20px;
+  width: 100%;
 }
 
 #supportGCashColumn {
@@ -56,13 +59,12 @@
 }
 
 #supportGCashColumn img {
-  width: 20rem;
+  width: 100%;
   height: fit-content;
 }
 
 .pubmatImage {
-  min-width: 200px;
-  max-width: 20rem;
+  width: 100%;
   border-radius: 15px;
   box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.358);
   transition: transform 0.3s;
@@ -76,6 +78,35 @@
   display: flex;
   justify-content: center;
   padding: 0px;
+}
+
+@media (min-width: 350px) {
+  #supportPage {
+    width: auto;
+  }
+
+  #supportMainContainer {
+    max-width: 80vw;
+  }
+
+  #supportPubmatsContainer {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    width: auto;
+  }
+
+  .supportPubmatColumn {
+    width: auto;
+  }
+
+  .pubmatImage {
+    min-width: 200px;
+    max-width: 20rem;
+  }
+
+  #supportGCashColumn img {
+    width: 20rem;
+  }
 }
 
 @media (min-width: 830px) {

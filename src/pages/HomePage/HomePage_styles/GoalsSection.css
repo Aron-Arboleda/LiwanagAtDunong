@@ -12,7 +12,7 @@
 
 #mainContainer {
   max-width: 1000px;
-  margin: 120px 100px;
+  margin: 120px 30px;
   height: auto;
 }
 
@@ -39,7 +39,7 @@
 }
 
 .goalsImage {
-  max-width: 300px;
+  max-width: 100%;
   border-radius: 10px;
   border: 1px solid black;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.489);
@@ -75,6 +75,18 @@
   text-align: center;
   font-size: 1rem;
   color: var(--pallete-brownTextColor);
+}
+
+@media (min-width: 520px) {
+  .goalsImage {
+    max-width: 300px;
+  }
+}
+
+@media (min-width: 768px) {
+  #mainContainer {
+    margin: 120px 100px;
+  }
 }
 
 @media (min-width: 868px) {
