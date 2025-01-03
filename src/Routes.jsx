@@ -5,6 +5,7 @@ import FAQsPage from "@pages/FAQsPage/FAQsPage";
 import LiteracyPage from "@pages/LiteracyPage/LiteracyPage";
 import NetworkPage from "@pages/NetworkPage/NetworkPage";
 import SupportPage from "@pages/SupportPage/SupportPage";
+import VolunteerFormPage from "@pages/VolunteerFormPage/VolunteerFormPage";
 
 const AppRoutes = () => {
   return (
@@ -15,6 +16,7 @@ const AppRoutes = () => {
       <Route path="/literacy" element={<LiteracyPage />} />
       <Route path="/network" element={<NetworkPage />} />
       <Route path="/support" element={<SupportPage />} />
+      <Route path="/volunteer" element={<VolunteerFormPage />} />
     </Routes>
   );
 };

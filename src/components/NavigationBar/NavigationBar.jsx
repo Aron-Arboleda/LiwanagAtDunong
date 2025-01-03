@@ -96,8 +96,18 @@ const NavigationBar = () => {
               FAQs
             </a>
           </li>
-          <li id="volunteerLi">
+          <li
+            id="volunteerLi"
+            className={isActive("/volunteer") ? "center-active" : ""}
+          >
             <a
+              href="/volunteer"
+              id="volunteer"
+              className="lightTextBorder navLinks"
+            >
+              VOLUNTEER
+            </a>
+            {/* <a
               rel="noopener"
               target="_blank"
               href="https://docs.google.com/forms/d/e/1FAIpQLSfQ0HulrO3VvR5c18WbKwIbCMm9ObSySxA86AQMdetsaMeHcA/viewform"
@@ -105,7 +115,7 @@ const NavigationBar = () => {
               className="lightTextBorder navLinks"
             >
               VOLUNTEER
-            </a>
+            </a> */}
           </li>
           <li className={isActive("/literacy") ? "active" : ""}>
             <a href="/literacy" className="navLinks">

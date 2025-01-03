@@ -95,6 +95,11 @@ header svg {
   color: var(--pallete-brownTextColor); /* Highlight color */
 }
 
+#ulNav .center-active a {
+  background-color: var(--pallete-brightWhite);
+  color: var(--pallete-yellow); /* Highlight color */
+}
+
 #check:checked ~ #ulNav {
   display: grid;
 }
