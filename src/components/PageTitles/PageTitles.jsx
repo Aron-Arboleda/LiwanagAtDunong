@@ -35,10 +35,7 @@ export const StandardChunkFiveSubTitleH2 = ({ title = "Title" }) => {
   return <h2 className="pageSubTitleH2">{title}</h2>;
 };
 
-export const StandardChunkFiveSubTitleH3 = ({ title = "Title", color }) => {
-  const style = {
-    color: color,
-  };
+export const StandardChunkFiveSubTitleH3 = ({ title = "Title", style }) => {
   return (
     <h3 className="pageSubTitleH3" style={style}>
       {title}

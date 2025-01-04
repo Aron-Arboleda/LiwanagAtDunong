@@ -17,8 +17,12 @@ export const FlexLayout = ({ children }) => {
   return <div className="flex-container">{children}</div>;
 };
 
-export const FlexLayoutColumn = ({ children }) => {
-  return <div className="flex-container-column">{children}</div>;
+export const FlexLayoutColumn = ({ children, style }) => {
+  return (
+    <div className="flex-container-column" style={style}>
+      {children}
+    </div>
+  );
 };
 
 export const GridLayout = ({ children }) => {
@@ -29,9 +33,14 @@ export const GridLayout3Column = ({ children }) => {
   return <div className="grid-container-3">{children}</div>;
 };
 
-export const CardGridLayout = ({ children, sizeOfCard = "200px" }) => {
+export const CardGridLayout = ({
+  children,
+  sizeOfCard = "200px",
+  margin = "2rem 0",
+}) => {
   const style = {
     gridTemplateColumns: `repeat(auto-fill, minmax(${sizeOfCard}, 1fr))`,
+    margin: margin,
   };
   return (
     <div style={style} className="card-grid-container">

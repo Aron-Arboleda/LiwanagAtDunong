@@ -1,6 +1,8 @@
 export const sections = [
   {
     sectionName: "Personal Information",
+    sectionDescription:
+      "This section contains all the necessary personal information of the volunteer. Please fill out the following fields. ",
     fields: [
       {
         name: "completeName",
@@ -125,6 +127,8 @@ export const sections = [
   },
   {
     sectionName: "Date availablity",
+    sectionDescription:
+      "Please share your available dates (for up to 3 Sundays!) when you can commit to visiting the community. Our team will get in touch with you to confirm your attendance.",
     fields: [
       {
         name: "availabilityDate1",

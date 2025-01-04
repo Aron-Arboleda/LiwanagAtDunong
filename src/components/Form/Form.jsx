@@ -5,6 +5,7 @@ import "./Form.css";
 import { Callout } from "@components/CustomComponents/CustomComponents";
 import { yellow } from "@mui/material/colors";
 import { StandardChunkFiveSubTitleH3 } from "@components/PageTitles/PageTitles";
+import { CardGridLayout, FlexLayoutColumn } from "@components/Layouts/Layouts";
 
 const SubmitButton = styled(Button)(({ theme }) => ({
   color: "black",
@@ -20,6 +21,7 @@ const SubmitButton = styled(Button)(({ theme }) => ({
   borderRadius: "10px",
   border: "2px solid black",
   boxShadow: "2px 2px 0px rgba(0, 0, 0, 0.84)",
+  margin: "3rem 0 2rem 0",
 }));
 
 const CustomTextField = styled(TextField)(({ theme }) => ({
@@ -63,63 +65,72 @@ const Form = ({ sections, disclaimerText, children }) => {
       <Callout variant="note">
         <strong>Notice:</strong> {disclaimerText}
       </Callout>
-      <Grid2 container spacing={2} marginTop={4} marginBottom={4}>
+      <Grid2 container spacing={4} marginTop={4} marginBottom={4}>
         {sections.map((section, index) => (
-          <>
-            <StandardChunkFiveSubTitleH3 title={section.sectionName} />
-            {section.fields.map((field, index) => (
-              <Grid2 size={12} key={index}>
-                <CustomTextField
-                  label={field.label}
-                  variant="outlined"
-                  fullWidth
-                  type={field.type || "text"}
-                  multiline={field.multiline || false}
-                  rows={field.rows || 1}
-                  placeholder={field.placeholder || ""}
-                  slotProps={
-                    field.type === "date"
-                      ? {
-                          inputLabel: {
-                            shrink: true,
-                          },
-                        }
-                      : {}
-                  }
-                  {...register(field.name, {
-                    required: field.required
-                      ? `${field.label} is required`
-                      : false,
-                    maxLength: field.maxLength
-                      ? {
-                          value: field.maxLength.value,
-                          message: field.maxLength.message,
-                        }
-                      : undefined,
-                    min: field.min
-                      ? { value: field.min.value, message: field.min.message }
-                      : undefined,
-                    max: field.max
-                      ? { value: field.max.value, message: field.max.message }
-                      : undefined,
-                    pattern: field.pattern
-                      ? {
-                          value: field.pattern.value,
-                          message: field.pattern.message,
-                        }
-                      : undefined,
-                    validate: field.validate,
-                  })}
-                  error={!!errors[field.name]}
-                  helperText={
-                    errors[field.name]
-                      ? errors[field.name].message
-                      : field.description
-                  }
-                />
-              </Grid2>
-            ))}
-          </>
+          <Grid2 container spacing={2} key={index}>
+            <FlexLayoutColumn style={{ gap: "10px", marginBottom: "1rem" }}>
+              <StandardChunkFiveSubTitleH3
+                title={section.sectionName}
+                style={{ marginTop: "0rem", marginBottom: "0px" }}
+              />
+              <p className="pageParagP">{section.sectionDescription}</p>
+            </FlexLayoutColumn>
+            <CardGridLayout sizeOfCard="280px" margin="0px">
+              {section.fields.map((field, index) => (
+                <Grid2 size={12} key={index}>
+                  <CustomTextField
+                    label={field.label}
+                    variant="outlined"
+                    fullWidth
+                    type={field.type || "text"}
+                    onWheel={(e) => field.type === "number" && e.target.blur()}
+                    multiline={field.multiline || false}
+                    rows={field.rows || 1}
+                    placeholder={field.placeholder || ""}
+                    slotProps={
+                      field.type === "date"
+                        ? {
+                            inputLabel: {
+                              shrink: true,
+                            },
+                          }
+                        : {}
+                    }
+                    {...register(field.name, {
+                      required: field.required
+                        ? `${field.label} is required`
+                        : false,
+                      maxLength: field.maxLength
+                        ? {
+                            value: field.maxLength.value,
+                            message: field.maxLength.message,
+                          }
+                        : undefined,
+                      min: field.min
+                        ? { value: field.min.value, message: field.min.message }
+                        : undefined,
+                      max: field.max
+                        ? { value: field.max.value, message: field.max.message }
+                        : undefined,
+                      pattern: field.pattern
+                        ? {
+                            value: field.pattern.value,
+                            message: field.pattern.message,
+                          }
+                        : undefined,
+                      validate: field.validate,
+                    })}
+                    error={!!errors[field.name]}
+                    helperText={
+                      errors[field.name]
+                        ? errors[field.name].message
+                        : field.description
+                    }
+                  />
+                </Grid2>
+              ))}
+            </CardGridLayout>
+          </Grid2>
         ))}
       </Grid2>
 
