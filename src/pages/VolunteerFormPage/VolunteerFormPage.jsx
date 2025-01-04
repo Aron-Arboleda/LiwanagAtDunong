@@ -1,12 +1,23 @@
-import { StandardLayout } from "@components/Layouts/Layouts";
+import {
+  FlexLayoutColumn,
+  GridLayout,
+  StandardLayout,
+} from "@components/Layouts/Layouts";
 import React from "react";
 import Section from "@components/Section/Section";
 import {
   MainContainer,
   TransparentLargeContainer,
 } from "@components/LargeContainers/LargeContainers";
-import { PageDivider } from "@components/CustomComponents/CustomComponents";
+import {
+  Callout,
+  PageDivider,
+} from "@components/CustomComponents/CustomComponents";
 import Form from "@components/Form/Form";
+import {
+  StandardChunkFiveSubTitleH2,
+  StandardChunkFiveTitle,
+} from "@components/PageTitles/PageTitles";
 
 const VolunteerFormPage = () => {
   return (
@@ -15,7 +26,107 @@ const VolunteerFormPage = () => {
         <Section backgroundColor="#fffbe6">
           <div className="headerSpace"></div>
           <TransparentLargeContainer>
-            <Form />
+            <StandardChunkFiveTitle>Volunteer Form</StandardChunkFiveTitle>
+            <FlexLayoutColumn>
+              <p className="pageParagP">Hello, Advocates! 👋</p>
+              <p className="pageParagP">
+                We want to start by sending a big thank you for your unwavering
+                dedication and support for our Aeta brothers and sisters' right
+                to education. We're just getting started, and it's an exciting
+                journey ahead! 🎉
+              </p>
+              <p className="pageParagP">
+                To get involved and volunteer with us, please take a moment to
+                fill out the form.If you have any questions or simply want to
+                chat, feel free to reach out through our{" "}
+                <a
+                  href="https://www.facebook.com/LiwanagAtDunongProject"
+                  target="_blank"
+                >
+                  Facebook page
+                </a>
+                . We're here to help!
+              </p>
+              <p className="pageParagP">
+                Thank you once again, and we can't wait to see you very, very
+                soon! ✨
+              </p>
+            </FlexLayoutColumn>
+            <StandardChunkFiveSubTitleH2 title="Sample Itinerary" />
+            <FlexLayoutColumn>
+              <GridLayout>
+                <img
+                  src="/images/PageImages/VolunteerFormPage/SampleItinerary1.jpg"
+                  alt="Liwanag at Dunong: Sample Itinerary Morning"
+                  className="pageImage-auto"
+                />
+                <img
+                  src="/images/PageImages/VolunteerFormPage/SampleItinerary2.jpg"
+                  alt="Liwanag at Dunong: Sample Itinerary Afternoon"
+                  className="pageImage-auto"
+                />
+              </GridLayout>
+            </FlexLayoutColumn>
+            <StandardChunkFiveSubTitleH2 title="Frequently Asked Questions" />
+            <FlexLayoutColumn>
+              <ol className="pageOrderedList">
+                <li>
+                  <strong>Where is the community located?</strong>
+                </li>
+                <p>
+                  Our partner-community is in Barangay CutCut II, Capas, Tarlac.
+                </p>
+                <li>
+                  <strong>How do the volunteers go to the community?</strong>
+                </li>
+                <p>
+                  Our volunteers either bring their own transportation, commute,
+                  or join us in a van coming from Manila.
+                </p>
+                <li>
+                  <strong>What is the route of the Manila Van?</strong>
+                </li>
+                <p>
+                  We set a meeting place and pick up the volunteers from these
+                  points:
+                </p>
+                <p>
+                  LP cityhall - Jollibee Zapote - Baclaran/Heritage - Roxas Blvd
+                  - Cityhall/Lawton - Quiapo/Morayta/Espana/UST - Welcome
+                  Rotonda - Mayon - A. bonifacio - Cloverleaf Ayala - NLex - San
+                  Fernando - Bamban
+                </p>
+                <li>
+                  <strong>Is there any fee to pay to be able to join?</strong>
+                </li>
+                <p>
+                  None, except for those who'd be joining us in the van coming
+                  from Manila. Although we deeply wish to cover all expenses for
+                  the weekly learning sessions, we are still falling short when
+                  it comes to transportation. To rent a van, each volunteer
+                  joining will contribute P800, which includes gas, tolls, and
+                  food for the driver. However, the option for the volunteer to
+                  bring their own transpo or commute is still open.
+                </p>
+                <li>
+                  <strong>I am from Tarlac and I want to join!</strong>
+                </li>
+                <p>
+                  Awesome! We have Team Tarlac who meets every 7:00 am at DCT.
+                  They rent their own transpo going to the community and
+                  depending on the number of volunteers, they usually contribute
+                  P100-P200 for their transpo.
+                </p>
+              </ol>
+            </FlexLayoutColumn>
+            <Callout variant="note">
+              <strong>Notice:</strong> By submitting this form, you consent to
+              the use of your data for organizing volunteer activities and
+              understand that your data won't be shared without your consent,
+              except as required by law. You can contact us to access or correct
+              your data or withdraw consent at any time.
+            </Callout>
+            {/* <Form /> */}
           </TransparentLargeContainer>
         </Section>
         <PageDivider />

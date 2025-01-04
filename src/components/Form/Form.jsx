@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { TextField, Button, Grid, Typography } from "@mui/material";
+import { TextField, Button, Grid2, Typography } from "@mui/material";
 
 function Form() {
   const {
@@ -16,13 +16,13 @@ function Form() {
 
   return (
     <div>
-      <Typography variant="h4" gutterBottom>
+      <Typography variant="h5" gutterBottom>
         React Hook Form with MUI
       </Typography>
 
       <form onSubmit={handleSubmit(onSubmit)}>
-        <Grid container spacing={2}>
-          <Grid item xs={12}>
+        <Grid2 container spacing={2}>
+          <Grid2 item xs={12}>
             <TextField
               label="First Name"
               variant="outlined"
@@ -37,9 +37,9 @@ function Form() {
               error={!!errors.firstName}
               helperText={errors.firstName ? errors.firstName.message : ""}
             />
-          </Grid>
+          </Grid2>
 
-          <Grid item xs={12}>
+          <Grid2 item xs={12}>
             <TextField
               label="Email"
               variant="outlined"
@@ -54,14 +54,14 @@ function Form() {
               error={!!errors.email}
               helperText={errors.email ? errors.email.message : ""}
             />
-          </Grid>
+          </Grid2>
 
-          <Grid item xs={12}>
+          <Grid2 item xs={12}>
             <Button type="submit" variant="contained" color="primary" fullWidth>
               Submit
             </Button>
-          </Grid>
-        </Grid>
+          </Grid2>
+        </Grid2>
       </form>
     </div>
   );

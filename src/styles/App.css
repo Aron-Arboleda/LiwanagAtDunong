@@ -19,6 +19,19 @@ h2 {
   font-family: "ChunkFive";
 }
 
+a {
+  color: var(--pallete-darkGreen);
+  font-weight: 600;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:active {
+  color: var(--pallete-green);
+}
+
 .tableContainer {
   display: flex;
   justify-content: center;
@@ -152,6 +165,10 @@ th:nth-child(n + 2) {
   width: 100%;
   height: 300px;
   object-fit: cover;
+}
+
+.pageImage-auto {
+  width: 100%;
 }
 
 .pageOrderedList {
