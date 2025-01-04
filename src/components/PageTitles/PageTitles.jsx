@@ -35,6 +35,17 @@ export const StandardChunkFiveSubTitleH2 = ({ title = "Title" }) => {
   return <h2 className="pageSubTitleH2">{title}</h2>;
 };
 
+export const StandardChunkFiveSubTitleH3 = ({ title = "Title", color }) => {
+  const style = {
+    color: color,
+  };
+  return (
+    <h3 className="pageSubTitleH3" style={style}>
+      {title}
+    </h3>
+  );
+};
+
 export const MontserratCardTitle = ({ text }) => {
   return <h3 className="montserratCardTitle">{text}</h3>;
 };

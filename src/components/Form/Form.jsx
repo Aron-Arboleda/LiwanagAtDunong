@@ -4,6 +4,7 @@ import { TextField, Button, Grid2, styled } from "@mui/material";
 import "./Form.css";
 import { Callout } from "@components/CustomComponents/CustomComponents";
 import { yellow } from "@mui/material/colors";
+import { StandardChunkFiveSubTitleH3 } from "@components/PageTitles/PageTitles";
 
 const SubmitButton = styled(Button)(({ theme }) => ({
   color: "black",
@@ -45,7 +46,7 @@ const CustomTextField = styled(TextField)(({ theme }) => ({
   },
 }));
 
-const Form = ({ fields, disclaimerText, children }) => {
+const Form = ({ sections, disclaimerText, children }) => {
   const {
     register,
     handleSubmit,
@@ -63,55 +64,62 @@ const Form = ({ fields, disclaimerText, children }) => {
         <strong>Notice:</strong> {disclaimerText}
       </Callout>
       <Grid2 container spacing={2} marginTop={4} marginBottom={4}>
-        {fields.map((field, index) => (
-          <Grid2 size={12} key={index}>
-            <CustomTextField
-              label={field.label}
-              variant="outlined"
-              fullWidth
-              type={field.type || "text"}
-              multiline={field.multiline || false}
-              rows={field.rows || 1}
-              placeholder={field.placeholder || ""}
-              slotProps={
-                field.type === "date"
-                  ? {
-                      inputLabel: {
-                        shrink: true,
-                      },
-                    }
-                  : {}
-              }
-              {...register(field.name, {
-                required: field.required ? `${field.label} is required` : false,
-                maxLength: field.maxLength
-                  ? {
-                      value: field.maxLength.value,
-                      message: field.maxLength.message,
-                    }
-                  : undefined,
-                min: field.min
-                  ? { value: field.min.value, message: field.min.message }
-                  : undefined,
-                max: field.max
-                  ? { value: field.max.value, message: field.max.message }
-                  : undefined,
-                pattern: field.pattern
-                  ? {
-                      value: field.pattern.value,
-                      message: field.pattern.message,
-                    }
-                  : undefined,
-                validate: field.validate,
-              })}
-              error={!!errors[field.name]}
-              helperText={
-                errors[field.name]
-                  ? errors[field.name].message
-                  : field.description
-              }
-            />
-          </Grid2>
+        {sections.map((section, index) => (
+          <>
+            <StandardChunkFiveSubTitleH3 title={section.sectionName} />
+            {section.fields.map((field, index) => (
+              <Grid2 size={12} key={index}>
+                <CustomTextField
+                  label={field.label}
+                  variant="outlined"
+                  fullWidth
+                  type={field.type || "text"}
+                  multiline={field.multiline || false}
+                  rows={field.rows || 1}
+                  placeholder={field.placeholder || ""}
+                  slotProps={
+                    field.type === "date"
+                      ? {
+                          inputLabel: {
+                            shrink: true,
+                          },
+                        }
+                      : {}
+                  }
+                  {...register(field.name, {
+                    required: field.required
+                      ? `${field.label} is required`
+                      : false,
+                    maxLength: field.maxLength
+                      ? {
+                          value: field.maxLength.value,
+                          message: field.maxLength.message,
+                        }
+                      : undefined,
+                    min: field.min
+                      ? { value: field.min.value, message: field.min.message }
+                      : undefined,
+                    max: field.max
+                      ? { value: field.max.value, message: field.max.message }
+                      : undefined,
+                    pattern: field.pattern
+                      ? {
+                          value: field.pattern.value,
+                          message: field.pattern.message,
+                        }
+                      : undefined,
+                    validate: field.validate,
+                  })}
+                  error={!!errors[field.name]}
+                  helperText={
+                    errors[field.name]
+                      ? errors[field.name].message
+                      : field.description
+                  }
+                />
+              </Grid2>
+            ))}
+          </>
         ))}
       </Grid2>
 

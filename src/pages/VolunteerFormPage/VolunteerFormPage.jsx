@@ -18,7 +18,7 @@ import {
   StandardChunkFiveSubTitleH2,
   StandardChunkFiveTitle,
 } from "@components/PageTitles/PageTitles";
-import { fields } from "./fields";
+import { sections } from "./sections";
 
 const VolunteerFormPage = () => {
   return (
@@ -122,7 +122,7 @@ const VolunteerFormPage = () => {
             </FlexLayoutColumn>
             <StandardChunkFiveSubTitleH2 title="Volunteer Form" />
             <Form
-              fields={fields}
+              sections={sections}
               disclaimerText="By submitting this form, you consent to the use
         of your data for organizing volunteer activities and understand that
         your data won't be shared without your consent, except as required by
@@ -134,8 +134,9 @@ const VolunteerFormPage = () => {
                   <strong>No last-minute cancellation, please.</strong>
                 </Callout>
                 <p className="pageParagP">
-                  The Manila Van can accommodate only 12 to 14 volunteers. Once
-                  you confirm your attendance, we will reserve a slot for you.
+                  For the volunteers who will come from Manila, the van can
+                  accommodate only 12 to 14 volunteers. Once you confirm your
+                  attendance, we will reserve a slot for you.
                 </p>
                 <p className="pageParagP">
                   Last-minute cancellations hinder us from offering
