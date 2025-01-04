@@ -175,10 +175,15 @@ th:nth-child(n + 2) {
   font-family: "Montserrat";
   color: var(--pallete-black);
   padding-left: 10px;
+  margin-top: 0;
 }
 
 .pageOrderedList li {
   padding-top: 20px;
+}
+
+.pageOrderedList li:nth-child(1) {
+  padding-top: 10px;
 }
 
 .lightCartoonyBorder {
@@ -260,6 +265,9 @@ th:nth-child(n + 2) {
   .brownCircle {
     max-width: 350px;
     max-height: 100px;
+  }
+  .pageOrderedList {
+    padding-left: 40px;
   }
 
   .pageTitleH1-style2-2 {

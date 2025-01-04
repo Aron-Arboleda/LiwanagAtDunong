@@ -35,14 +35,12 @@
 }
 
 .callout {
-  width: 100%;
   display: flex;
   align-items: center;
   gap: 1rem;
   border: 2px solid black;
   border-radius: 10px;
   padding: 1rem 1.3rem;
-  margin: 1rem 0;
   font-family: "Montserrat";
   box-shadow: 3px 3px 0px 0.5px rgba(0, 0, 0, 0.795);
 }

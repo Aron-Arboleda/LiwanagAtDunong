@@ -18,6 +18,7 @@ import {
   StandardChunkFiveSubTitleH2,
   StandardChunkFiveTitle,
 } from "@components/PageTitles/PageTitles";
+import { fields } from "./fields";
 
 const VolunteerFormPage = () => {
   return (
@@ -119,14 +120,44 @@ const VolunteerFormPage = () => {
                 </p>
               </ol>
             </FlexLayoutColumn>
-            <Callout variant="note">
-              <strong>Notice:</strong> By submitting this form, you consent to
-              the use of your data for organizing volunteer activities and
-              understand that your data won't be shared without your consent,
-              except as required by law. You can contact us to access or correct
-              your data or withdraw consent at any time.
-            </Callout>
-            {/* <Form /> */}
+            <StandardChunkFiveSubTitleH2 title="Volunteer Form" />
+            <Form
+              fields={fields}
+              disclaimerText="By submitting this form, you consent to the use
+        of your data for organizing volunteer activities and understand that
+        your data won't be shared without your consent, except as required by
+        law. You can contact us to access or correct your data or withdraw
+        consent at any time."
+            >
+              <FlexLayoutColumn>
+                <Callout variant="warning">
+                  <strong>No last-minute cancellation, please.</strong>
+                </Callout>
+                <p className="pageParagP">
+                  The Manila Van can accommodate only 12 to 14 volunteers. Once
+                  you confirm your attendance, we will reserve a slot for you.
+                </p>
+                <p className="pageParagP">
+                  Last-minute cancellations hinder us from offering
+                  opportunities to other volunteers who wish to join.
+                  Cancellations made on Friday or Saturday are particularly
+                  challenging, as potential volunteers often assume they cannot
+                  join on Sunday and make other plans. Consequently, Liwanag at
+                  Dunong must cover the transportation expenses for the canceled
+                  slot. Please note that Liwanag at Dunong operates on a very
+                  limited budget to sustain the weekly learning sessions in the
+                  community. We request that before committing to join, please
+                  make sure that you are all set and ready.
+                </p>
+                <p className="pageParagP">
+                  While we understand that the time and sacrifices involved in
+                  giving your whole-hearted service may not be the most
+                  convenient, we promise that your efforts will be deeply
+                  meaningful and rewarding.
+                </p>
+                <p className="pageParagP">Thank you and see you soon!</p>
+              </FlexLayoutColumn>
+            </Form>
           </TransparentLargeContainer>
         </Section>
         <PageDivider />
