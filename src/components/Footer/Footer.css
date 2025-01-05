@@ -1,12 +1,3 @@
-footer {
-  padding-top: 50px;
-  padding-bottom: 130px;
-  display: flex;
-  justify-content: center;
-  height: auto;
-  background: var(--pallete-green);
-}
-
 #footerLogo {
   width: 100px;
   border-radius: 50%;
@@ -22,79 +13,57 @@ footer {
   padding: 0px 20px;
 }
 
+.footerSectionTitle {
+  font-family: "Montserrat";
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--pallete-brightWhite);
+  margin-bottom: 0.5rem;
+  border-bottom: 3px solid var(--pallete-yellow);
+  padding-bottom: 0.5rem;
+  max-width: 120px;
+}
+
+.footerContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
 #footerInfoContainer {
   font-family: "Montserrat";
+  display: grid;
+  grid-template-columns: 30% 1fr;
+  gap: 70px;
+  color: var(--pallete-brightWhite);
+}
+
+.footerLinkContainer {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  column-gap: 70px;
-  justify-content: center;
-  color: var(--pallete-brightWhite);
+  flex-direction: column;
+  gap: 0.8rem;
+  text-align: left;
 }
 
-#footerInfoContainer div {
-  max-width: 350px;
-  font-size: 0.8rem;
-  text-align: center;
+.footerLink {
+  color: var(--pallete-brightWhite);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 400;
+  transition: color 0.3s;
 }
 
-#footerInfoContainer a {
-  color: var(--pallete-brightWhite);
-  text-decoration: underline;
+.footerLink:hover {
+  color: var(--pallete-yellow);
 }
 
 .footerh2 {
-  font-family: "Corben";
-  margin: 50px 0px;
-  text-align: center;
+  font-family: "Montserrat";
+  text-align: left;
 }
 
-.footerIconTextGridLayout {
-  display: grid;
-  grid-template-columns: 40px 1fr;
-  row-gap: 20px;
-  column-gap: 40px;
-  align-items: center;
-}
-
-.footerIconTextGridLayout img {
-  width: 40px;
-  transition: transform 0.3s;
-}
-
-.footerIconTextGridLayout img:hover {
-  transform: scale(1.2);
-}
-
-@media (max-width: 420px) {
-  #footerMainContainer {
-    padding: 0px 5px;
-  }
-
-  .footerIconTextGridLayout {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (min-width: 420px) {
-  #footerMainContainer {
-    padding: 0px 50px;
-  }
-}
-
-@media (min-width: 820px) {
-  #footerInfoContainer div {
-    max-width: 350px;
-    font-size: 1rem;
-  }
+@media screen and (max-width: 768px) {
   #footerInfoContainer {
-    justify-content: center;
-  }
-  .footerh2 {
-    margin: 50px 0px;
-    text-align: left;
-  }
-  #footerInfoContainer div {
-    text-align: left;
+    grid-template-columns: 1fr;
   }
 }

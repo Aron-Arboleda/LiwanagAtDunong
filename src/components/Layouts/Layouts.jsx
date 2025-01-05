@@ -49,6 +49,10 @@ export const CardGridLayout = ({
   );
 };
 
-export const InlineImageAndTextLayout = ({ children }) => {
-  return <div className="inlineImageAndTextContainer">{children}</div>;
+export const InlineImageAndTextLayout = ({ children, style }) => {
+  return (
+    <div className="inlineImageAndTextContainer" style={style}>
+      {children}
+    </div>
+  );
 };

@@ -32,6 +32,18 @@ export const PageDivider = () => {
   );
 };
 
+export const PageDividerThin = ({ color = "#fffbe6", margin }) => {
+  return (
+    <div
+      style={{
+        width: "100%",
+        borderBottom: `1px solid ${color}`,
+        margin: margin,
+      }}
+    ></div>
+  );
+};
+
 export const Callout = ({ variant = "note", children }) => {
   const variantLegend = {
     note: {
