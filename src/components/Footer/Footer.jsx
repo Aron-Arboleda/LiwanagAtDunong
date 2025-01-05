@@ -8,7 +8,7 @@ import { MontserratTextInfo } from "@components/PageTitles/PageTitles";
 import Section from "@components/Section/Section";
 import { TransparentLargeContainer } from "@components/LargeContainers/LargeContainers";
 import { FaFacebook, FaInstagram, FaYoutube, FaTiktok } from "react-icons/fa";
-import { TbBrandX } from "react-icons/tb"; // X logo from React Icons
+import { TbBrandX } from "react-icons/tb";
 import { useState } from "react";
 import { PageDividerThin } from "@components/CustomComponents/CustomComponents";
 
@@ -185,92 +185,3 @@ const Footer = () => {
 };
 
 export default Footer;
-
-{
-  /* <div>
-            <div>
-              <h2 className="footerh2">Liwanag at Dunong</h2>
-              <p>
-                Project Liwanag at Dunong aims to enhance indigenous peoples'
-                access to educational opportunities by establishing a learning
-                center that promotes culturally relevant literacy programs for
-                young and adult learners.
-              </p>
-            </div>
-          </div>
-          <div>
-            <h2 className="footerh2">Keep Connected</h2>
-            <div className="footerIconTextGridLayout">
-              <a
-                href="https://www.facebook.com/LiwanagAtDunongProject"
-                target="_blank"
-              >
-                <img
-                  src="/images/Graphics/WEBSITE_Graphics/IconsAndVectors/facebookIcon.svg"
-                  alt="Facebook Icon"
-                />
-              </a>
-              <p>Like us on Facebook</p>
-              <a
-                href="https://www.instagram.com/liwanagatdunong/"
-                target="_blank"
-              >
-                <img
-                  src="/images/Graphics/WEBSITE_Graphics/IconsAndVectors/instagramLogo.svg"
-                  alt="Instagram Icon"
-                />
-              </a>
-              <p>Follow us on Instagram</p>
-              <a href="https://www.tiktok.com/@liwanagatdunong" target="_blank">
-                <img
-                  src="/images/Graphics/WEBSITE_Graphics/IconsAndVectors/tiktokLogo.svg"
-                  alt="Tiktok Icon"
-                />
-              </a>
-              <p>Connect with us on Tiktok</p>
-              <a href="https://x.com/liwanagatdunong" target="_blank">
-                <img
-                  src="/images/Graphics/WEBSITE_Graphics/IconsAndVectors/xLogo.svg"
-                  alt="X Icon"
-                />
-              </a>
-              <p>Tweet with us on X</p>
-              <a
-                href="https://www.youtube.com/@LiwanagatDunong"
-                target="_blank"
-              >
-                <img
-                  src="/images/Graphics/WEBSITE_Graphics/IconsAndVectors/youtubeLogo.svg"
-                  alt="Youtube Icon"
-                />
-              </a>
-              <p>Subcribe on our Youtube</p>
-            </div>
-          </div>
-          <div>
-            <h2 className="footerh2">Contact Information</h2>
-            <div className="footerIconTextGridLayout">
-              <a href="/">
-                <img
-                  src="/images/Graphics/WEBSITE_Graphics/IconsAndVectors/homeLogo.svg"
-                  alt="Home Icon"
-                />
-              </a>
-              <p>Liwanag at Dunong Project</p>
-              <a href="tel:+639068366000" target="_blank">
-                <img
-                  src="/images/Graphics/WEBSITE_Graphics/IconsAndVectors/telephoneLogo.svg"
-                  alt="Telephone Icon"
-                />
-              </a>
-              <p>(+63) 906-836-6000</p>
-              <a href="mailto:liwanag.at.dunong@gmail.com" target="_blank">
-                <img
-                  src="/images/Graphics/WEBSITE_Graphics/IconsAndVectors/mailLogo.svg"
-                  alt="Mail Icon"
-                />
-              </a>
-              <p>liwanag.at.dunong@gmail.com</p>
-            </div>
-          </div> */
-}

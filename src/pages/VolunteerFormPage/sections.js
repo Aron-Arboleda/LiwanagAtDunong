@@ -137,45 +137,60 @@ export const sections = [
         type: "date",
         validate: (value) => {
           const selectedDate = new Date(value);
+          const today = new Date();
+          today.setHours(0, 0, 0, 0); // Set time to 00:00:00 for comparison
+
           if (selectedDate.getDay() !== 0) {
             return "Date must be a Sunday.";
+          }
+          if (selectedDate < today) {
+            return "Past dates are not valid.";
+          }
+          return true;
+        },
+        description: "Please select a Sunday you're available to volunteer",
+      },
+      {
+        name: "availabilityDate2",
+        label: "Availability Date 2 (Sunday) *",
+        required: true,
+        type: "date",
+        validate: (value) => {
+          const selectedDate = new Date(value);
+          const today = new Date();
+          today.setHours(0, 0, 0, 0); // Set time to 00:00:00 for comparison
+
+          if (selectedDate.getDay() !== 0) {
+            return "Date must be a Sunday.";
+          }
+          if (selectedDate < today) {
+            return "Past dates are not valid.";
           }
           return true;
         },
         description:
-          "Please select an availability date (Sunday) for the first field",
-      },
-      {
-        name: "availabilityDate2",
-        label: "Availability Date 2 (Sunday)",
-        required: false,
-        type: "date",
-        validate: (value) => {
-          if (value) {
-            const selectedDate = new Date(value);
-            if (selectedDate.getDay() !== 0) {
-              return "Date must be a Sunday.";
-            }
-          }
-          return true;
-        },
-        description: "Please select an optional availability date (Sunday)",
+          "(optional) Please select a 2nd Sunday you're available to volunteer",
       },
       {
         name: "availabilityDate3",
-        label: "Availability Date 3 (Sunday)",
-        required: false,
+        label: "Availability Date 3 (Sunday) *",
+        required: true,
         type: "date",
         validate: (value) => {
-          if (value) {
-            const selectedDate = new Date(value);
-            if (selectedDate.getDay() !== 0) {
-              return "Date must be a Sunday.";
-            }
+          const selectedDate = new Date(value);
+          const today = new Date();
+          today.setHours(0, 0, 0, 0); // Set time to 00:00:00 for comparison
+
+          if (selectedDate.getDay() !== 0) {
+            return "Date must be a Sunday.";
+          }
+          if (selectedDate < today) {
+            return "Past dates are not valid.";
           }
           return true;
         },
-        description: "Please select an optional availability date (Sunday)",
+        description:
+          "(optional) Please select a 3rd Sunday you're available to volunteer",
       },
       {
         name: "questions",
