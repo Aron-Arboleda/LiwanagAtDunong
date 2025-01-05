@@ -33,8 +33,7 @@ a:active {
 }
 
 .tableContainer {
-  display: flex;
-  justify-content: center;
+  width: 100%;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
 }
@@ -286,7 +285,7 @@ th:nth-child(n + 2) {
   }
 
   .longPageTable {
-    min-width: 450px;
+    min-width: 250px;
   }
 
   .pageImageLimited {
