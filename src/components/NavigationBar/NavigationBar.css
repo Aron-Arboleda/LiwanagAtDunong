@@ -61,11 +61,13 @@ nav ul li a:hover {
 }
 
 #volunteerLi {
-  display: none;
+  display: block;
 }
 
 #volunteer {
-  display: none;
+  display: block;
+  font-family: "Corben";
+  -webkit-text-stroke: 0.5px black;
 }
 
 #volunteer:hover {
@@ -176,5 +178,8 @@ header svg {
     color: white;
     border-radius: 1.2rem;
     transition: background-color 0.3s, color 0.3s;
+    text-shadow: 2px 0 #000000, -2px 0 #000000, 0 2px #000000, 0 -2px #000000,
+      1px 1px #000000, -1px -1px #000000, 1px -1px #000000, -1px 1px #000000;
+    -webkit-text-stroke: 0px;
   }
 }

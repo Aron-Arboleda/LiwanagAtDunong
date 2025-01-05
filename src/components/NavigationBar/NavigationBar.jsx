@@ -100,11 +100,7 @@ const NavigationBar = () => {
             id="volunteerLi"
             className={isActive("/volunteer") ? "center-active" : ""}
           >
-            <a
-              href="/volunteer"
-              id="volunteer"
-              className="lightTextBorder navLinks"
-            >
+            <a href="/volunteer" id="volunteer" className="navLinks">
               VOLUNTEER
             </a>
             {/* <a
