@@ -8,11 +8,7 @@ const InitialSection = () => {
   return (
     <div id="homePage">
       <div id="btnVolunteerAndAboutContainer">
-        <a
-          href="https://docs.google.com/forms/d/e/1FAIpQLSfQ0HulrO3VvR5c18WbKwIbCMm9ObSySxA86AQMdetsaMeHcA/viewform"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a href="/volunteer" rel="noopener noreferrer">
           <button id="btnVolunteer">VOLUNTEER</button>
         </a>
         <div
