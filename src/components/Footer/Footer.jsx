@@ -141,7 +141,11 @@ const Footer = () => {
                     target="_self"
                   />
                   <FooterLink text="Give help" href="/support" target="_self" />
-                  <FooterLink text="Shop" />
+                  <FooterLink
+                    text="Shop"
+                    href="https://form.jotform.com/243332716271452"
+                    target="_blank"
+                  />
                 </FooterLinkContainer>
                 <FooterLinkContainer>
                   <SectionTitle>Contacts</SectionTitle>

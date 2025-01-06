@@ -18,7 +18,7 @@ const SubmitButton = styled(Button)(({ theme }) => ({
   padding: "10px",
   fontSize: "1rem",
   maxWidth: "200px",
-  borderRadius: "10px",
+  borderRadius: "2rem",
   border: "2px solid black",
   boxShadow: "2px 2px 0px rgba(0, 0, 0, 0.84)",
   margin: "3rem 0 2rem 0",
