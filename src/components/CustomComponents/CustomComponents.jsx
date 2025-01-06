@@ -1,5 +1,7 @@
 import "./CustomComponents.css";
-import { Info, AlertTriangle, AlertCircle } from "lucide-react";
+import Info from "lucide-react/dist/esm/icons/info";
+import AlertTriangle from "lucide-react/dist/esm/icons/alert-triangle";
+import AlertCircle from "lucide-react/dist/esm/icons/alert-circle";
 
 export const AnnouncementBar = () => {
   return (

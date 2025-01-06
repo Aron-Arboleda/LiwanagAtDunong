@@ -1,11 +1,20 @@
 import React from "react";
+
+// Third-party library imports
 import { useForm } from "react-hook-form";
-import { TextField, Button, Grid2, styled } from "@mui/material";
-import "./Form.css";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+import styled from "@mui/material/styles/styled";
+import Grid2 from "@mui/material/Grid2";
+import yellow from "@mui/material/colors/yellow";
+
+// Local component imports
 import { Callout } from "@components/CustomComponents/CustomComponents";
-import { yellow } from "@mui/material/colors";
 import { StandardChunkFiveSubTitleH3 } from "@components/PageTitles/PageTitles";
 import { CardGridLayout, FlexLayoutColumn } from "@components/Layouts/Layouts";
+
+// CSS imports
+import "./Form.css";
 
 const SubmitButton = styled(Button)(({ theme }) => ({
   color: "black",
