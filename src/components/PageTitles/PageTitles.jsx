@@ -23,16 +23,28 @@ export const SharpBrightWhiteShadowTitle = ({ title = "Title" }) => {
   return <h1 className="pageTitleH1 pageTitleH1-style3">{title}</h1>;
 };
 
-export const StandardChunkFiveTitle = ({ children, title = "Title" }) => {
+export const StandardChunkFiveTitle = ({
+  children,
+  title = "Title",
+  style,
+}) => {
   return children ? (
-    <h1 className="pageTitleH1 pageTitleH1-style1">{children}</h1>
+    <h1 className="pageTitleH1 pageTitleH1-style1" style={style}>
+      {children}
+    </h1>
   ) : (
-    <h1 className="pageTitleH1 pageTitleH1-style1">{title}</h1>
+    <h1 className="pageTitleH1 pageTitleH1-style1" style={style}>
+      {title}
+    </h1>
   );
 };
 
-export const StandardChunkFiveSubTitleH2 = ({ title = "Title" }) => {
-  return <h2 className="pageSubTitleH2">{title}</h2>;
+export const StandardChunkFiveSubTitleH2 = ({ title = "Title", style }) => {
+  return (
+    <h2 className="pageSubTitleH2" style={style}>
+      {title}
+    </h2>
+  );
 };
 
 export const StandardChunkFiveSubTitleH3 = ({ title = "Title", style }) => {
@@ -85,8 +97,13 @@ export const MontserratBulletInfo = ({ children }) => {
   return <li className="montserratBulletInfo">{children}</li>;
 };
 
-export const MontserratUnorderedList = ({ context, list }) => {
-  return (
+export const MontserratUnorderedList = ({ context, list, children }) => {
+  return children ? (
+    <>
+      <MontserratCardInfoBiggerText text={context} />
+      <ul className="montserratUnorderedList">{children}</ul>
+    </>
+  ) : (
     <>
       <MontserratCardInfoBiggerText text={context} />
       <ul className="montserratUnorderedList">

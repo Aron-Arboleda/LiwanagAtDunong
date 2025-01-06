@@ -260,6 +260,16 @@ th:nth-child(n + 2) {
   color: var(--pallete-yellow);
 }
 
+code {
+  font-family: "Courier New";
+  font-size: 0.8rem;
+  background-color: rgb(255, 255, 255);
+  color: var(--pallete-brownTextColor);
+  padding: 2px 5px;
+  margin: 0px 5px 5px 5px;
+  border-radius: 4px;
+}
+
 @media (min-width: 625px) {
   .brownCircle {
     max-width: 350px;
