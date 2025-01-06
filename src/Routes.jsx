@@ -8,6 +8,7 @@ import SupportPage from "@pages/SupportPage/SupportPage";
 import VolunteerFormPage from "@pages/VolunteerFormPage/VolunteerFormPage";
 import NotFoundPage from "@pages/MorePages/NotFoundPage/NotFoundPage";
 import PrivacyPolicyPage from "@pages/MorePages/PrivacyPolicyPage/PrivacyPolicyPage";
+import TermsAndConditionsPage from "@pages/MorePages/TermsAndConditionsPage/TermsAndConditionsPage";
 
 const AppRoutes = () => {
   return (
@@ -20,6 +21,10 @@ const AppRoutes = () => {
       <Route path="/support" element={<SupportPage />} />
       <Route path="/volunteer" element={<VolunteerFormPage />} />
       <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+      <Route
+        path="/terms-and-conditions"
+        element={<TermsAndConditionsPage />}
+      />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );

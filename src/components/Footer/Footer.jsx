@@ -126,7 +126,11 @@ const Footer = () => {
                     href="/privacy-policy"
                     target="_self"
                   />
-                  <FooterLink text="Terms and Condition" />
+                  <FooterLink
+                    text="Terms and Condition"
+                    href="/terms-and-conditions"
+                    target="_self"
+                  />
                   <FooterLink text="FAQs" href="/faqs" target="_self" />
                 </FooterLinkContainer>
                 <FooterLinkContainer>
