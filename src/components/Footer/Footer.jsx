@@ -121,7 +121,11 @@ const Footer = () => {
                 <FooterLinkContainer>
                   <SectionTitle>Organization</SectionTitle>
                   <FooterLink text="About Us" href="/about" target="_self" />
-                  <FooterLink text="Privacy Policy" />
+                  <FooterLink
+                    text="Privacy Policy"
+                    href="/privacy-policy"
+                    target="_self"
+                  />
                   <FooterLink text="Terms and Condition" />
                   <FooterLink text="FAQs" href="/faqs" target="_self" />
                 </FooterLinkContainer>
