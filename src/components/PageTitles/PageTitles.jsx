@@ -41,7 +41,7 @@ export const StandardChunkFiveTitle = ({
 
 export const StandardChunkFiveSubTitleH2 = ({ title = "Title", style }) => {
   return (
-    <h2 className="pageSubTitleH2" style={style}>
+    <h2 className="pageSubTitle pageSubTitleH2" style={style}>
       {title}
     </h2>
   );
@@ -49,9 +49,17 @@ export const StandardChunkFiveSubTitleH2 = ({ title = "Title", style }) => {
 
 export const StandardChunkFiveSubTitleH3 = ({ title = "Title", style }) => {
   return (
-    <h3 className="pageSubTitleH3" style={style}>
+    <h3 className="pageSubTitle pageSubTitleH3" style={style}>
       {title}
     </h3>
+  );
+};
+
+export const StandardChunkFiveSubTitleH4 = ({ title = "Title", style }) => {
+  return (
+    <h4 className="pageSubTitle pageSubTitleH4" style={style}>
+      {title}
+    </h4>
   );
 };
 

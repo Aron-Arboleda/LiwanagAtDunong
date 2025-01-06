@@ -70,20 +70,24 @@
   line-height: 3rem;
 }
 
-.pageSubTitleH2 {
+.pageSubTitle {
   font-family: "ChunkFive";
-  font-size: clamp(1.5rem, 8vw, 2rem);
   margin: 2rem 0 1rem 0;
   padding: 0;
   color: var(--pallete-brownTextColor);
 }
 
+.pageSubTitleH2 {
+  font-size: clamp(1.5rem, 8vw, 2rem);
+}
+
 .pageSubTitleH3 {
-  font-family: "ChunkFive";
   font-size: clamp(1.2rem, 6vw, 1.8rem);
-  margin: 2rem 0 1rem 0;
-  padding: 0;
-  color: var(--pallete-brownTextColor);
+}
+
+.pageSubTitleH4 {
+  font-family: "Montserrat";
+  font-size: clamp(1rem, 5vw, 1.2rem);
 }
 
 .montserratCardTitle {

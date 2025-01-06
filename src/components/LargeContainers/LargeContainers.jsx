@@ -12,9 +12,12 @@ export const WhiteLargeContainer = ({ children }) => {
   return <div className="whitelargecontainer">{children}</div>;
 };
 
-export const CurvyLargeContainer = ({ children }) => {
+export const CurvyLargeContainer = ({ children, style }) => {
   return (
-    <div className="curvylargecontainer wrapper cartoonyBorder cartoonyComponentShadow">
+    <div
+      className="curvylargecontainer wrapper cartoonyBorder cartoonyComponentShadow"
+      style={style}
+    >
       {children}
     </div>
   );
