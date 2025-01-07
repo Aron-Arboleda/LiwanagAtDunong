@@ -39,15 +39,15 @@ export const sections = [
         description: "Please enter your age",
       },
       {
-        name: "birthday",
-        label: "Birthday *",
+        name: "birthdate",
+        label: "Birthdate *",
         required: true,
         type: "date",
         validate: (value) => {
           const today = new Date();
           const selectedDate = new Date(value);
           if (selectedDate > today) {
-            return "Birthday cannot be in the future.";
+            return "Birthdate cannot be in the future.";
           }
           return true;
         },
@@ -153,7 +153,7 @@ export const sections = [
       {
         name: "availabilityDate2",
         label: "Availability Date 2 (Sunday) *",
-        required: true,
+        required: false,
         type: "date",
         validate: (value) => {
           const selectedDate = new Date(value);
@@ -174,7 +174,7 @@ export const sections = [
       {
         name: "availabilityDate3",
         label: "Availability Date 3 (Sunday) *",
-        required: true,
+        required: false,
         type: "date",
         validate: (value) => {
           const selectedDate = new Date(value);
