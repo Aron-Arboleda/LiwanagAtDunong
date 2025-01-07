@@ -6,6 +6,7 @@ header {
   left: 0px;
   right: 0px;
   z-index: 9999;
+  width: 100%;
 }
 
 #menuToggleContainer {
@@ -109,6 +110,7 @@ header svg {
 @media (min-width: 1080px) {
   header {
     justify-content: center;
+    width: 100vw;
   }
 
   header svg {

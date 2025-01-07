@@ -28,7 +28,7 @@ if (json_last_error() !== JSON_ERROR_NONE) {
 // Validate required fields
 $requiredFields = [
     'complete_name', 'nick_name', 'age', 'birthdate', 'email', 'contact_number', 
-    'locality', 'occupation', 'facebook_link', 'availability_date1'
+    'locality', 'occupation', 'facebook_link', 'availability_date1', 'team'
 ];
 
 foreach ($requiredFields as $field) {
@@ -54,6 +54,7 @@ $availability_date1 = $conn->real_escape_string($data['availability_date1']);
 $availability_date2 = isset($data['availability_date2']) ? $conn->real_escape_string($data['availability_date2']) : null;
 $availability_date3 = isset($data['availability_date3']) ? $conn->real_escape_string($data['availability_date3']) : null;
 $questions = $conn->real_escape_string($data['questions']);
+$team = $conn->real_escape_string($data['team']); // New field for 'team'
 
 // Start a transaction
 $conn->begin_transaction();
@@ -63,11 +64,11 @@ try {
     $sql = "INSERT INTO volunteer_form_submissions (
                 complete_name, nick_name, age, birthdate, email, contact_number, locality, occupation, 
                 affiliation, facebook_link, availability_date1, availability_date2, availability_date3, 
-                questions
+                questions, team
             ) VALUES (
                 '$complete_name', '$nick_name', $age, '$birthdate', '$email', '$contact_number', '$locality', 
                 '$occupation', '$affiliation', '$facebook_link', '$availability_date1', '$availability_date2', 
-                '$availability_date3', '$questions'
+                '$availability_date3', '$questions', '$team'
             )";
 
     if (!$conn->query($sql)) {

@@ -88,6 +88,19 @@ export const sections = [
         description: "Please enter your city or municipality of residence",
       },
       {
+        name: "team",
+        label: "Select Your Team",
+        type: "select", // This makes it a dropdown
+        required: true,
+        placeholder: "Choose your team",
+        options: [
+          { value: "team_tarlac", label: "Team Tarlac" },
+          { value: "team_manila", label: "Team Manila" },
+          { value: "others", label: "Others" },
+        ],
+        description: "Please select your team",
+      },
+      {
         name: "occupation",
         label: "Occupation *",
         required: true,
