@@ -38,12 +38,15 @@ const VolunteerFormPage = () => {
       if (response.ok) {
         const result = await response.json();
         alert("Form submission successful", result);
+        return true;
       } else {
         const result = await response.json();
         console.error("Form submission failed", result.message);
+        return false;
       }
     } catch (error) {
       console.error("Error:", error.message);
+      return false;
     }
   };
 

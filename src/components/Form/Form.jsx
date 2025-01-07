@@ -61,12 +61,16 @@ const Form = ({ sections, disclaimerText, children, formSubmit }) => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
   // Submit handler
   const onSubmit = (data) => {
-    formSubmit(data);
+    const success = formSubmit(data);
+    if (success) {
+      reset();
+    }
   };
 
   return (
