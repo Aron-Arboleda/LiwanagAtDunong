@@ -19,8 +19,34 @@ import {
   StandardChunkFiveTitle,
 } from "@components/PageTitles/PageTitles";
 import { sections } from "./sections";
+import { CONFIG } from "../../config";
 
 const VolunteerFormPage = () => {
+  const formSubmit = async (data) => {
+    try {
+      const response = await fetch(
+        `${CONFIG.BACKEND_API}volunteer_form_submissions/create.php`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        }
+      );
+
+      if (response.ok) {
+        const result = await response.json();
+        alert("Form submission successful", result);
+      } else {
+        const result = await response.json();
+        console.error("Form submission failed", result.message);
+      }
+    } catch (error) {
+      console.error("Error:", error.message);
+    }
+  };
+
   return (
     <StandardLayout>
       <MainContainer>
@@ -129,6 +155,7 @@ const VolunteerFormPage = () => {
         your data won't be shared without your consent, except as required by
         law. You can contact us to access or correct your data or withdraw
         consent at any time."
+            formSubmit={formSubmit}
           >
             <FlexLayoutColumn>
               <Callout variant="warning">

@@ -57,7 +57,7 @@ const CustomTextField = styled(TextField)(({ theme }) => ({
   },
 }));
 
-const Form = ({ sections, disclaimerText, children }) => {
+const Form = ({ sections, disclaimerText, children, formSubmit }) => {
   const {
     register,
     handleSubmit,
@@ -66,7 +66,7 @@ const Form = ({ sections, disclaimerText, children }) => {
 
   // Submit handler
   const onSubmit = (data) => {
-    console.log("Form Data:", data);
+    formSubmit(data);
   };
 
   return (

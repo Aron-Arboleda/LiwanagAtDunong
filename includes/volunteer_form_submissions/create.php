@@ -20,7 +20,7 @@ $data = json_decode($rawData, true);
 
 // Check for JSON parsing errors
 if (json_last_error() !== JSON_ERROR_NONE) {
-    http_response_code(400); // Bad Request
+    http_response_code(401); // Bad Request
     echo json_encode(["message" => "Invalid JSON payload."]);
     exit;
 }
@@ -28,12 +28,12 @@ if (json_last_error() !== JSON_ERROR_NONE) {
 // Validate required fields
 $requiredFields = [
     'complete_name', 'nick_name', 'age', 'birthdate', 'email', 'contact_number', 
-    'locality', 'occupation', 'facebook_link', 'availability_date1', 'questions'
+    'locality', 'occupation', 'facebook_link', 'availability_date1'
 ];
 
 foreach ($requiredFields as $field) {
     if (empty($data[$field])) {
-        http_response_code(400); // Bad Request
+        http_response_code(402); // Bad Request
         echo json_encode(["message" => "Please provide all required fields."]);
         exit;
     }

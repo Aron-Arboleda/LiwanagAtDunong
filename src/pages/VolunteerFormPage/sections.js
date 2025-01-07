@@ -5,7 +5,7 @@ export const sections = [
       "This section contains all the necessary personal information of the volunteer. Please fill out the following fields. ",
     fields: [
       {
-        name: "completeName",
+        name: "complete_name",
         label: "Complete Name *",
         required: true,
         placeholder: "Juan D. Dela Cruz",
@@ -16,7 +16,7 @@ export const sections = [
         description: "First Name M.I. Last Name",
       },
       {
-        name: "nickName",
+        name: "nick_name",
         label: "Nickname *",
         required: true,
         placeholder: "Juan",
@@ -66,7 +66,7 @@ export const sections = [
         description: '(e.g "juandelacruz@gmail.com")',
       },
       {
-        name: "contactNumber",
+        name: "contact_number",
         label: "Contact Number *",
         required: true,
         type: "tel",
@@ -111,7 +111,7 @@ export const sections = [
           "Please enter your affiliation or organization name (optional)",
       },
       {
-        name: "facebookLink",
+        name: "facebook_link",
         label: "Facebook Account/Messenger Link *",
         required: true,
         placeholder: "https://www.facebook.com/juandelacruz",
@@ -131,7 +131,7 @@ export const sections = [
       "Please share your available dates (for up to 3 Sundays!) when you can commit to visiting the community. Our team will get in touch with you to confirm your attendance.",
     fields: [
       {
-        name: "availabilityDate1",
+        name: "availability_date1",
         label: "Availability Date 1 (Sunday) *",
         required: true,
         type: "date",
@@ -151,7 +151,7 @@ export const sections = [
         description: "Please select a Sunday you're available to volunteer",
       },
       {
-        name: "availabilityDate2",
+        name: "availability_date2",
         label: "Availability Date 2 (Sunday) *",
         required: false,
         type: "date",
@@ -172,7 +172,7 @@ export const sections = [
           "(optional) Please select a 2nd Sunday you're available to volunteer",
       },
       {
-        name: "availabilityDate3",
+        name: "availability_date3",
         label: "Availability Date 3 (Sunday) *",
         required: false,
         type: "date",
@@ -195,13 +195,13 @@ export const sections = [
       {
         name: "questions",
         label: "Questions *",
-        required: true,
+        required: false,
         maxLength: {
           value: 500,
           message: "Your question cannot exceed 500 characters.",
         },
         description:
-          "Feel free to reach out if you have any program-related questions; we're here to assist you! If you're interested in partnerships or collaborations, please get in touch with us via our Facebook page for the best response. 😊",
+          "(optional) Feel free to reach out if you have any program-related questions; we're here to assist you! If you're interested in partnerships or collaborations, please get in touch with us via our Facebook page for the best response. 😊",
         type: "text",
         multiline: true,
         rows: 4,
