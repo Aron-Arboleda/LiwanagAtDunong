@@ -202,7 +202,10 @@ const Form = ({ sections, disclaimerText, children, formSubmit }) => {
                       }
                     />
                   ) : (
-                    <FormControl sx={{ width: "100%" }}>
+                    <FormControl
+                      sx={{ width: "100%" }}
+                      error={!!errors[field.name]}
+                    >
                       <CustomInputLabel
                         id="demo-simple-select-helper-label"
                         sx={{ fontFamily: "Montserrat", fontSize: "0.85rem" }}
