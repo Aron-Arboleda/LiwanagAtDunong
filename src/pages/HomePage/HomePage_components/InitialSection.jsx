@@ -4,9 +4,16 @@ import "../HomePage_styles/InitialSection.css";
 const InitialSection = () => {
   // State to track the visibility of the info container
   const [isInfoVisible, setInfoVisible] = useState(false);
+  const backgroundImageUrl =
+    "/images/Graphics/WEBSITE_Graphics/Backgrounds/backgroundImage.png";
 
   return (
-    <div id="homePage">
+    <div
+      id="homePage"
+      style={{
+        backgroundImage: `url(${backgroundImageUrl})`,
+      }}
+    >
       <div id="btnVolunteerAndAboutContainer">
         <a href="/volunteer" rel="noopener noreferrer">
           <button id="btnVolunteer">VOLUNTEER</button>
