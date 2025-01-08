@@ -3,25 +3,40 @@ import {
   GridLayout,
   StandardLayout,
 } from "@components/Layouts/Layouts";
-import React from "react";
+import { useState } from "react";
 import Section from "@components/Section/Section";
 import {
+  DarkBackgroundContainer,
   MainContainer,
   TransparentLargeContainer,
 } from "@components/LargeContainers/LargeContainers";
-import {
+import XButton, {
   Callout,
   PageDivider,
 } from "@components/CustomComponents/CustomComponents";
 import Form from "@components/Form/Form";
 import {
   StandardChunkFiveSubTitleH2,
+  StandardChunkFiveSubTitleH3,
+  StandardChunkFiveSubTitleH4,
   StandardChunkFiveTitle,
 } from "@components/PageTitles/PageTitles";
 import { sections } from "./sections";
 import { CONFIG } from "../../config";
+import { CartoonyContainer } from "@components/CardContainers/CardContainers";
 
 const VolunteerFormPage = () => {
+  const [submission, setSubmission] = useState({
+    isSuccess: true,
+    errorMessage: "",
+  });
+  const [submissionMessageVisible, setSubmissionMessageVisible] =
+    useState(false);
+
+  const handleClose = () => {
+    setSubmissionMessageVisible(false);
+  };
+
   const formSubmit = async (data) => {
     try {
       const response = await fetch(
@@ -37,15 +52,27 @@ const VolunteerFormPage = () => {
 
       if (response.ok) {
         const result = await response.json();
-        alert("Form submission successful", result);
+        setSubmission({
+          isSuccess: true,
+          errorMessage: "",
+        });
+        setSubmissionMessageVisible(true);
         return true;
       } else {
         const result = await response.json();
-        console.error("Form submission failed", result.message);
+        setSubmission({
+          isSuccess: false,
+          errorMessage: result.message,
+        });
+        setSubmissionMessageVisible(true);
         return false;
       }
     } catch (error) {
-      console.error("Error:", error.message);
+      setSubmission({
+        isSuccess: false,
+        errorMessage: error.message,
+      });
+      setSubmissionMessageVisible(true);
       return false;
     }
   };
@@ -194,6 +221,69 @@ const VolunteerFormPage = () => {
           </Form>
         </Section>
         <PageDivider />
+        {submissionMessageVisible && (
+          <DarkBackgroundContainer>
+            <div>
+              <CartoonyContainer
+                style={{
+                  maxWidth: "500px",
+                  minHeight: "250px",
+                  margin: "0 1rem",
+                }}
+                handleClose={handleClose}
+              >
+                <XButton onClick={handleClose} />
+                <StandardChunkFiveSubTitleH3
+                  title={
+                    submission.isSuccess
+                      ? "Form submitted successfully"
+                      : "Form submission failed"
+                  }
+                  style={{ margin: "0" }}
+                />
+                <StandardChunkFiveSubTitleH4
+                  title={
+                    submission.isSuccess
+                      ? "Thank You for Volunteering with Liwanag at Dunong! 🌟"
+                      : "Oops! something must have gone wrong."
+                  }
+                ></StandardChunkFiveSubTitleH4>
+                <FlexLayoutColumn>
+                  {submission.isSuccess ? (
+                    <p className="pageParagP">
+                      If you have any questions or concerns, please feel free to
+                      reach out to us through our{" "}
+                      <a
+                        href="https://www.facebook.com/LiwanagAtDunongProject"
+                        target="_blank"
+                      >
+                        Facebook page
+                      </a>
+                      . We're here to help!
+                    </p>
+                  ) : (
+                    <>
+                      <p className="pageParagP">
+                        Error: {submission.errorMessage}
+                      </p>
+                      <p className="pageParagP">
+                        Please refresh the page and try again or reach out to us
+                        through our{" "}
+                        <a
+                          href="https://www.facebook.com/LiwanagAtDunongProject"
+                          target="_blank"
+                        >
+                          Facebook page
+                        </a>
+                        . We're here to help!
+                      </p>
+                    </>
+                  )}
+                </FlexLayoutColumn>
+              </CartoonyContainer>
+            </div>
+          </DarkBackgroundContainer>
+        )}
       </MainContainer>
     </StandardLayout>
   );

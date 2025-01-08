@@ -26,3 +26,7 @@ export const CurvyLargeContainer = ({ children, style }) => {
 export const CardLargeContainer = ({ children }) => {
   return <div className="cardlargecontainer">{children}</div>;
 };
+
+export const DarkBackgroundContainer = ({ children }) => {
+  return <div className="darkbackgroundcontainer">{children}</div>;
+};

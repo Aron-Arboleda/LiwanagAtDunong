@@ -1,3 +1,4 @@
+import XButton from "@components/CustomComponents/CustomComponents";
 import "./CardContainers.css";
 
 export const GreenCardContainer = ({ children, imgSrc }) => {
@@ -9,15 +10,25 @@ export const GreenCardContainer = ({ children, imgSrc }) => {
   );
 };
 
-export const SharpCardLightShadowContainer = ({
-  children,
-  backgroundColor = "#fffbe6",
-}) => {
-  const style = {
-    backgroundColor: backgroundColor,
-  };
+export const SharpCardLightShadowContainer = ({ children, style }) => {
   return (
     <div className="sharpCardLightShadowContainer" style={style}>
+      {children}
+    </div>
+  );
+};
+
+export const CartoonyContainer = ({ children, style, handleClose }) => {
+  return (
+    <div className="cartoonyContainer" style={style}>
+      {handleClose && (
+        <XButton
+          onClick={() => {
+            setClosed(true);
+            handleClose();
+          }}
+        />
+      )}
       {children}
     </div>
   );

@@ -50,6 +50,25 @@
   padding-bottom: 7px;
 }
 
+.x-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.x-button:hover {
+  transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+.x-button:focus {
+  outline: none; /* Remove default focus outline */
+}
+
 @media (max-width: 768px) {
   .callout {
     flex-direction: column;

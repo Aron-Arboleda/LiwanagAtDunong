@@ -104,7 +104,7 @@ const Footer = () => {
         <TransparentLargeContainer>
           <div className="footerContainer">
             <div id="footerLogoContainer" className="flex-center">
-              <img src="/LD_Logo.jpg" alt="" id="footerLogo" />
+              <img src="/LD_Logo.jpg" alt="" id="footerLogo" loading="lazy" />
             </div>
             <div id="footerInfoContainer">
               <FlexLayoutColumn>

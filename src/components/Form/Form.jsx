@@ -115,7 +115,7 @@ const Form = ({ sections, disclaimerText, children, formSubmit }) => {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm();
+  } = useForm(defaultValuesForTesting);
 
   // Submit handler
   const onSubmit = (data) => {

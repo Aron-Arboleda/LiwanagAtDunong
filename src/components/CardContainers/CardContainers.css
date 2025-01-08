@@ -30,3 +30,13 @@
   padding: 30px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.249);
 }
+
+.cartoonyContainer {
+  background-color: var(--pallete-brightWhite);
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 2rem;
+  font-family: "Montserrat";
+  box-shadow: 3px 3px 0px 0.5px rgba(0, 0, 0, 0.795);
+  position: relative;
+}

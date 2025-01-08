@@ -78,3 +78,15 @@ export const Callout = ({ variant = "note", children }) => {
     </div>
   );
 };
+
+import { AiOutlineClose } from "react-icons/ai";
+
+const XButton = ({ onClick, size = 24, color = "#000" }) => {
+  return (
+    <button className="x-button" onClick={onClick} aria-label="Close">
+      <AiOutlineClose size={size} color={color} />
+    </button>
+  );
+};
+
+export default XButton;
