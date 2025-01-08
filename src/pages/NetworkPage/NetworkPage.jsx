@@ -17,11 +17,11 @@ import Section from "@components/Section/Section";
 import React from "react";
 import PartnerCard from "./NetworkPageComponents/PartnerCard";
 
-import programData from "./programData.json";
+import { networkPageData } from "./programData.js";
 
 const NetworkPage = () => {
   const { programPartners_data, programDonors_data, volunteerImages } =
-    programData;
+    networkPageData;
 
   return (
     <StandardLayout>

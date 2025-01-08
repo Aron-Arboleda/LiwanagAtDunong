@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../HomePage_styles/InitialSection.css";
 
 const InitialSection = () => {
@@ -6,6 +6,16 @@ const InitialSection = () => {
   const [isInfoVisible, setInfoVisible] = useState(false);
   const backgroundImageUrl =
     "/images/Graphics/WEBSITE_Graphics/Backgrounds/backgroundImage.png";
+
+  useEffect(() => {
+    // Check if the page has already been reloaded
+    if (!sessionStorage.getItem("reloaded")) {
+      sessionStorage.setItem("reloaded", "true"); // Mark as reloaded
+      setTimeout(() => {
+        window.location.reload(); // Force a refresh
+      }, 4000); // Refresh after 4 seconds
+    }
+  }, []);
 
   return (
     <div
