@@ -37,24 +37,28 @@ const ReelsSection = () => {
             src="https://player.vimeo.com/video/1043403339?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&controls=0&loop=1"
             allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
             title="TeamDunongReel"
+            loading="lazy"
           ></iframe>
 
           <iframe
             src="https://player.vimeo.com/video/1043403367?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&controls=0&loop=1"
             allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
             title="UnboxingVideoReel"
+            loading="lazy"
           ></iframe>
 
           <iframe
             src="https://player.vimeo.com/video/1043403354?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&controls=0&loop=1"
             allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
             title="TeamKabataanReel"
+            loading="lazy"
           ></iframe>
         </div>
         <div id="edukParaSaLahatContainer">
           <img
             src="/images/Graphics/WEBSITE_Graphics/LD_Designs/EdukasyonParaSaLahat.png"
             alt="Edukasyon Para Sa Lahat Design"
+            loading="lazy"
           />
         </div>
       </div>
@@ -62,12 +66,14 @@ const ReelsSection = () => {
         <img
           src="/images/Graphics/WEBSITE_Graphics/Sprites/starsLeft.svg"
           alt="stars background design 1"
+          loading="lazy"
         />
       </div>
       <div id="starRight">
         <img
           src="/images/Graphics/WEBSITE_Graphics/Sprites/starsRight.svg"
           alt="stars background design 2"
+          loading="lazy"
         />
       </div>
     </div>

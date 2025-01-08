@@ -93,6 +93,7 @@ const AboutPage = () => {
                 src="/images/PageImages/AboutPage/LearningCenterWithKids.png"
                 alt="Aeta Learning Center with Kids"
                 className="pageImageLimited"
+                loading="lazy"
               />
             </FlexLayout>
             <StandardChunkFiveSubTitleH2 title="Project Site" />
@@ -101,6 +102,7 @@ const AboutPage = () => {
                 src="/images/PageImages/AboutPage/SitioGayamanMap.png"
                 alt="Aeta Learning Center with Kids"
                 className="pageImageLimited"
+                loading="lazy"
               />
               <div>
                 <p className="pageParagP">
@@ -148,11 +150,13 @@ const AboutPage = () => {
                   src="/images/PageImages/AboutPage/AetaOrientation.png"
                   alt="Liwanag at Dunong: Image of Aeta Orientation"
                   className="pageImage"
+                  loading="lazy"
                 />
                 <img
                   src="/images/PageImages/AboutPage/AetaPeopleRaisingHands.png"
                   alt="Liwanag at Dunong: Image of Aeta People Raising Hands"
                   className="pageImage"
+                  loading="lazy"
                 />
               </GridLayout>
               <p className="pageParagP">
@@ -285,11 +289,13 @@ const AboutPage = () => {
                   src="/images/PageImages/AboutPage/AetaKidsHoldingHands.png"
                   alt="Liwanag at Dunong: Aeta Kids Holding Hands"
                   className="pageImage"
+                  loading="lazy"
                 />
                 <img
                   src="/images/PageImages/AboutPage/AetaLearningCenterConstruction.png"
                   alt="Liwanag at Dunong: Image of Aeta Learning Center Construction"
                   className="pageImage"
+                  loading="lazy"
                 />
               </GridLayout>
               <p>
