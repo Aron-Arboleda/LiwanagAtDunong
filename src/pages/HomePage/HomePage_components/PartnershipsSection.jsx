@@ -54,6 +54,7 @@ const PartnershipsSection = () => {
               src="/images/Graphics/PartnersGraphics/Ecohumans-logo.png"
               alt=""
               className="pLogo"
+              loading="lazy"
             />
           </div>
           <div className="pLogoContainer">
@@ -61,6 +62,7 @@ const PartnershipsSection = () => {
               src="/images/Graphics/DonorsGraphics/Nawaya-logo.jpg"
               alt=""
               className="pLogo"
+              loading="lazy"
             />
           </div>
           <div className="pLogoContainer">
@@ -68,6 +70,7 @@ const PartnershipsSection = () => {
               src="/images/Graphics/DonorsGraphics/UnionOfVolunteers.png"
               alt=""
               className="pLogo"
+              loading="lazy"
             />
           </div>
           <div className="pLogoContainer">
@@ -75,6 +78,7 @@ const PartnershipsSection = () => {
               src="/images/Graphics/DonorsGraphics/PAGASA-logo.png"
               alt=""
               className="pLogo"
+              loading="lazy"
             />
           </div>
           <div className="pLogoContainer">
@@ -82,6 +86,7 @@ const PartnershipsSection = () => {
               src="/images/Graphics/DonorsGraphics/TeamLisaPH-logo.jpg"
               alt=""
               className="pLogo"
+              loading="lazy"
             />
           </div>
         </div>
@@ -92,6 +97,7 @@ const PartnershipsSection = () => {
                 src="/images/Graphics/DonorsGraphics/KunaNiShobe-logo.jpg"
                 alt=""
                 className="pLogo"
+                loading="lazy"
               />
             </div>
             <div className="pLogoContainer">
@@ -99,6 +105,7 @@ const PartnershipsSection = () => {
                 src="/images/Graphics/DonorsGraphics/ArtSolaceManila-logo.jpg"
                 alt=""
                 className="pLogo"
+                loading="lazy"
               />
             </div>
             <div className="pLogoContainer">
@@ -106,6 +113,7 @@ const PartnershipsSection = () => {
                 src="/images/Graphics/DonorsGraphics/BigBrew-logo.jpg"
                 alt=""
                 className="pLogo"
+                loading="lazy"
               />
             </div>
           </div>
@@ -120,6 +128,7 @@ const PartnershipsSection = () => {
                 src="/images/Graphics/DonorsGraphics/TulasalitaanPH-logo.png"
                 alt=""
                 className="pLogo"
+                loading="lazy"
               />
             </div>
             <div className="pLogoContainer">
@@ -127,6 +136,7 @@ const PartnershipsSection = () => {
                 src="/images/Graphics/PartnersGraphics/CHR-logo.png"
                 alt=""
                 className="pLogo"
+                loading="lazy"
               />
             </div>
             <div className="pLogoContainer">
@@ -134,6 +144,7 @@ const PartnershipsSection = () => {
                 src="/images/Graphics/DonorsGraphics/PHINMA-logo.png"
                 alt=""
                 className="pLogo"
+                loading="lazy"
               />
             </div>
           </div>
@@ -144,6 +155,7 @@ const PartnershipsSection = () => {
               src="/images/Graphics/DonorsGraphics/RPsycheS-logo.jpg"
               alt=""
               className="pLogo"
+              loading="lazy"
             />
           </div>
           <div className="pLogoContainer">
@@ -151,6 +163,7 @@ const PartnershipsSection = () => {
               src="/images/Graphics/DonorsGraphics/VibalFoundation-logo.png"
               alt=""
               className="pLogo"
+              loading="lazy"
             />
           </div>
           <div className="pLogoContainer">
@@ -158,6 +171,7 @@ const PartnershipsSection = () => {
               src="/images/Graphics/DonorsGraphics/StPatrickSchool-logo.png"
               alt=""
               className="pLogo"
+              loading="lazy"
             />
           </div>
           <div className="pLogoContainer">
@@ -165,6 +179,7 @@ const PartnershipsSection = () => {
               src="/images/Graphics/DonorsGraphics/IBISStudentCouncil-logo.jpg"
               alt=""
               className="pLogo"
+              loading="lazy"
             />
           </div>
           <div className="pLogoContainer">
@@ -172,6 +187,7 @@ const PartnershipsSection = () => {
               src="/images/Graphics/PartnersGraphics/ECEP-NESC-logo.jpg"
               alt=""
               className="pLogo"
+              loading="lazy"
             />
           </div>
           <div className="pLogoContainer">
@@ -179,6 +195,7 @@ const PartnershipsSection = () => {
               src="/images/Graphics/DonorsGraphics/FCC-logo.png"
               alt=""
               className="pLogo"
+              loading="lazy"
             />
           </div>
         </div>

@@ -52,6 +52,7 @@ const GoalsSection = () => {
               src="/images/PageImages/HomePage/GoalsSection/raiseAwarenessImg.jpg"
               alt="Raise Awareness Image"
               className="goalsImage"
+              loading="lazy"
             />
             <div className="goalsCard">
               <h2>Raise Awareness</h2>
@@ -83,6 +84,7 @@ const GoalsSection = () => {
               src="/images/PageImages/HomePage/GoalsSection/strongerSolidarityImg.JPG"
               alt="Raise Awareness Image"
               className="goalsImage"
+              loading="lazy"
             />
           </div>
           <div className="goalRow">
@@ -90,6 +92,7 @@ const GoalsSection = () => {
               src="/images/PageImages/HomePage/GoalsSection/empowermentImg.jpg"
               alt="Raise Awareness Image"
               className="goalsImage"
+              loading="lazy"
             />
             <div className="goalsCard">
               <h2>Empowerment of Aeta Communities</h2>

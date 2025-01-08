@@ -57,6 +57,7 @@ const AetaLearningCenterSection = () => {
               alt="Instagram Post"
               className="socmedPost"
               id="igPost"
+              loading="lazy"
             />
           </a>
           <a
@@ -68,6 +69,7 @@ const AetaLearningCenterSection = () => {
               alt="Facebook Post"
               className="socmedPost"
               id="facebookPost"
+              loading="lazy"
             />
           </a>
           <a href="https://x.com/liwanagatdunong" target="_blank">
@@ -76,6 +78,7 @@ const AetaLearningCenterSection = () => {
               alt="Twitter Post"
               className="socmedPost"
               id="twitterPost"
+              loading="lazy"
             />
           </a>
         </div>
@@ -83,6 +86,7 @@ const AetaLearningCenterSection = () => {
           src="/images/Graphics/WEBSITE_Graphics/Sprites/curveSection.svg"
           alt="curve"
           id="curveSectionSVG"
+          loading="lazy"
         />
       </div>
     ),
@@ -97,7 +101,12 @@ const AetaLearningCenterSection = () => {
             <div className="progressTitle flex-center-alignCenter">
               Progress Check:
             </div>
-            <img src={folder.image} alt="Progress" className="progressImage" />
+            <img
+              src={folder.image}
+              alt="Progress"
+              className="progressImage"
+              loading="lazy"
+            />
           </div>
         </div>
       ),

@@ -85,18 +85,21 @@ const LatestActivitiesSection = () => {
             alt="paper butterflies image"
             className="latestActivitiesImage"
             id="LA_image1"
+            loading="lazy"
           />
           <img
             src="/images/PageImages/HomePage/LatestActivitiesSection/medals.jpg"
             alt="paper butterflies image"
             className="latestActivitiesImage"
             id="LA_image2"
+            loading="lazy"
           />
           <img
             src="/images/PageImages/HomePage/LatestActivitiesSection/cert.jpg"
             alt="paper butterflies image"
             className="latestActivitiesImage"
             id="LA_image3"
+            loading="lazy"
           />
         </div>
       </div>
