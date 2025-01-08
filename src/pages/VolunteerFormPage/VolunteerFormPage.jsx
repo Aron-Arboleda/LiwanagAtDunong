@@ -39,6 +39,8 @@ const VolunteerFormPage = () => {
 
   const formSubmit = async (data) => {
     try {
+      console.log(JSON.stringify(data));
+
       const response = await fetch(
         `${CONFIG.BACKEND_API}volunteer_form_submissions/create.php`,
         {

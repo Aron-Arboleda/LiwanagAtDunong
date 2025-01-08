@@ -1,6 +1,4 @@
-import React from "react";
-
-// Third-party library imports
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
@@ -12,6 +10,7 @@ import InputLabel from "@mui/material/InputLabel";
 import styled from "@mui/material/styles/styled";
 import Grid2 from "@mui/material/Grid2";
 import yellow from "@mui/material/colors/yellow";
+import CircularProgress from "@mui/material/CircularProgress";
 
 // Local component imports
 import { Callout } from "@components/CustomComponents/CustomComponents";
@@ -65,25 +64,25 @@ const CustomTextField = styled(TextField)(({ theme }) => ({
 const CustomSelect = styled(Select)(({ theme }) => ({
   fontSize: "0.9rem",
   textAlign: "left",
-  color: "black", // Change text color
-  fontFamily: "Montserrat, sans-serif", // Change font family
+  color: "black",
+  fontFamily: "Montserrat, sans-serif",
   "& .MuiSelect-select": {
     padding: theme.spacing(2),
   },
   "& .MuiOutlinedInput-notchedOutline": {
-    borderColor: "black", // Change border color
+    borderColor: "black",
   },
   "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-    borderWidth: "2px", // Change border width when focused
-    borderColor: "#347928", // Change border color when focused
+    borderWidth: "2px",
+    borderColor: "#347928",
   },
 }));
 
 const CustomInputLabel = styled(InputLabel)(({ theme }) => ({
-  backgroundColor: "white", // Default background color
-  padding: "0 10px 0 0", // Default padding
+  backgroundColor: "white",
+  padding: "0 10px 0 0",
   "&.Mui-focused": {
-    color: "#347928", // Color when label is on top
+    color: "#347928",
   },
 }));
 
@@ -115,13 +114,24 @@ const Form = ({ sections, disclaimerText, children, formSubmit }) => {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm(defaultValuesForTesting);
+  } = useForm();
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   // Submit handler
-  const onSubmit = (data) => {
-    const success = formSubmit(data);
-    if (success) {
-      reset();
+  const onSubmit = async (data) => {
+    setIsSubmitting(true);
+
+    console.log(data);
+
+    try {
+      const success = await formSubmit(data);
+      if (success) {
+        reset();
+      }
+    } catch (error) {
+      console.error("Submission failed:", error);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -249,8 +259,23 @@ const Form = ({ sections, disclaimerText, children, formSubmit }) => {
       {/* Submit Button */}
       {children}
       <div className="flex-center">
-        <SubmitButton type="submit" variant="contained" fullWidth>
-          Submit
+        <SubmitButton
+          type="submit"
+          variant="contained"
+          fullWidth
+          disabled={isSubmitting}
+        >
+          {isSubmitting ? (
+            <>
+              <CircularProgress
+                size={20}
+                style={{ marginRight: "10px", color: "black" }}
+              />
+              Submitting...
+            </>
+          ) : (
+            "Submit"
+          )}
         </SubmitButton>
       </div>
     </form>

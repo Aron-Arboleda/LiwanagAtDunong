@@ -169,6 +169,7 @@ export const sections = [
         required: false,
         type: "date",
         validate: (value) => {
+          if (!value) return true;
           const selectedDate = new Date(value);
           const today = new Date();
           today.setHours(0, 0, 0, 0); // Set time to 00:00:00 for comparison
@@ -190,6 +191,7 @@ export const sections = [
         required: false,
         type: "date",
         validate: (value) => {
+          if (!value) return true;
           const selectedDate = new Date(value);
           const today = new Date();
           today.setHours(0, 0, 0, 0); // Set time to 00:00:00 for comparison
