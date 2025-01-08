@@ -89,11 +89,13 @@ const VolunteerFormPage = () => {
                   src="/images/PageImages/VolunteerFormPage/SampleItinerary1.jpg"
                   alt="Liwanag at Dunong: Sample Itinerary Morning"
                   className="pageImage-auto"
+                  loading="lazy"
                 />
                 <img
                   src="/images/PageImages/VolunteerFormPage/SampleItinerary2.jpg"
                   alt="Liwanag at Dunong: Sample Itinerary Afternoon"
                   className="pageImage-auto"
+                  loading="lazy"
                 />
               </GridLayout>
             </FlexLayoutColumn>

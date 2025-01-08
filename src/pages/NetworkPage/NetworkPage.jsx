@@ -75,6 +75,7 @@ const NetworkPage = () => {
                     src={image.src}
                     alt={image.alt}
                     className="pageImage"
+                    loading="lazy"
                   />
                 ))}
               </GridLayout3Column>

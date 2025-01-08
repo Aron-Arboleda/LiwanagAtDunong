@@ -84,11 +84,13 @@ const SupportPage = () => {
                   src="/images/PageImages/SupportPage/AetaPersonLearningInALC.png"
                   alt="Liwanag at Dunong: Image of an Aeta Person Learning in the ALC"
                   className="pageImage"
+                  loading="lazy"
                 />
                 <img
                   src="/images/PageImages/SupportPage/MaintenanceOfALC.png"
                   alt="Liwanag at Dunong: Image of the Maintenance of the ALC"
                   className="pageImage"
+                  loading="lazy"
                 />
               </GridLayout>
               <CardGridLayout sizeOfCard="400px">

@@ -91,16 +91,19 @@ const FAQsPage = () => {
                 src="/images/PageImages/FAQsPage/VolunteersTravelingByFoot.jpg"
                 alt="Liwanag at Dunong: Volunteers Traveling by Foot"
                 className="pageImage"
+                loading="lazy"
               />
               <img
                 src="/images/PageImages/FAQsPage/VolunteerTeaching.JPG"
                 alt="Liwanag at Dunong: Volunteer Teaching Aeta People"
                 className="pageImage"
+                loading="lazy"
               />
               <img
                 src="/images/PageImages/FAQsPage/VolunteerHavingFunWithAetaKids.jpg"
                 alt="Liwanag at Dunong: Volunteer Having Fun with Aeta Kids"
                 className="pageImage"
+                loading="lazy"
               />
             </GridLayout3Column>
             <InlineImageAndTextLayout>
@@ -111,6 +114,7 @@ const FAQsPage = () => {
                 <img
                   src="/images/Graphics/WEBSITE_Graphics/IconsAndVectors/BlackIcons/facebook.svg"
                   alt="Facebook Icon"
+                  loading="lazy"
                 />
               </a>
               <a
@@ -120,6 +124,7 @@ const FAQsPage = () => {
                 <img
                   src="/images/Graphics/WEBSITE_Graphics/IconsAndVectors/BlackIcons/instagram.svg"
                   alt="Instagram Icon"
+                  loading="lazy"
                 />
               </a>
               LiwanagAtDunongProject

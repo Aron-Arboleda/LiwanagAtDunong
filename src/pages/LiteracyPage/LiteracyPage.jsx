@@ -43,11 +43,13 @@ const LiteracyPage = () => {
                       src="/images/PageImages/LiteracyPage/NanayLindaSmiling.png"
                       alt="Liwanag at Dunong: Image of Nanay Linda Smiling"
                       className="pageImage"
+                      loading="lazy"
                     />
                     <img
                       src="/images/PageImages/LiteracyPage/VolunteerTeachingAnAeta.png"
                       alt="Liwanag at Dunong: Image of a Volunteer Teaching an Aeta"
                       className="pageImage"
+                      loading="lazy"
                     />
                   </GridLayout>
                   <p className="pageParagP">
@@ -94,21 +96,25 @@ const LiteracyPage = () => {
                       src="/images/PageImages/LiteracyPage/AetaALSGraduation.png"
                       alt="Liwanag at Dunong: Image of Nanay Linda Smiling"
                       className="pageImage"
+                      loading="lazy"
                     />
                     <img
                       src="/images/PageImages/LiteracyPage/AetaALSGraduation2.png"
                       alt="Liwanag at Dunong: Image of a Volunteer Teaching an Aeta"
                       className="pageImage"
+                      loading="lazy"
                     />
                     <img
                       src="/images/PageImages/LiteracyPage/AetaPeopleOnMuseum.png"
                       alt="Liwanag at Dunong: Image of Nanay Linda Smiling"
                       className="pageImage"
+                      loading="lazy"
                     />
                     <img
                       src="/images/PageImages/LiteracyPage/AetaPeopleOnRizalPark.png"
                       alt="Liwanag at Dunong: Image of a Volunteer Teaching an Aeta"
                       className="pageImage"
+                      loading="lazy"
                     />
                   </GridLayout>
                 </FlexLayoutColumn>

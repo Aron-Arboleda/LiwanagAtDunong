@@ -3,7 +3,7 @@ import "./CardContainers.css";
 export const GreenCardContainer = ({ children, imgSrc }) => {
   return (
     <div className="greencardcontainer">
-      {imgSrc && <img src={imgSrc} alt="Image Logo" />}
+      {imgSrc && <img src={imgSrc} alt="Image Logo" loading="lazy" />}
       {children}
     </div>
   );
