@@ -1,31 +1,10 @@
 import path from "path";
 import fs from "fs/promises";
-import crypto from "crypto";
 import imagemin from "imagemin";
 import imageminJpegoptim from "imagemin-jpegoptim";
 import imageminPngquant from "imagemin-pngquant";
 
-const distImagesDirectory = path.join(process.cwd(), "dist/assets");
-const hashCacheFile = path.join(process.cwd(), "image-cache.json");
-
-async function getFileHash(filePath) {
-  const data = await fs.readFile(filePath);
-  return crypto.createHash("md5").update(data).digest("hex");
-}
-
-async function loadHashCache() {
-  try {
-    const cache = await fs.readFile(hashCacheFile, "utf8");
-    return JSON.parse(cache);
-  } catch (err) {
-    return {}; // Return an empty cache if file doesn't exist
-  }
-}
-
-async function saveHashCache(hashCache) {
-  await fs.writeFile(hashCacheFile, JSON.stringify(hashCache, null, 2), "utf8");
-}
-
+// Helper function to get all image files from the specified directory
 async function getAllImageFiles(dir) {
   const entries = await fs.readdir(dir, { withFileTypes: true });
   const files = await Promise.all(
@@ -34,44 +13,54 @@ async function getAllImageFiles(dir) {
       return entry.isDirectory() ? getAllImageFiles(fullPath) : fullPath;
     })
   );
-  return files.flat().filter((file) => /\.(jpg|jpeg|png)$/i.test(file));
+  return files.flat().filter((file) => /\.(jpg|jpeg|png)$/i.test(file)); // Filter for image files
 }
 
-async function compressImages() {
-  const hashCache = await loadHashCache();
-  const newHashCache = {};
-  const imageFiles = await getAllImageFiles(distImagesDirectory);
+// Function to compress a single image file
+async function compressImage(imageFile) {
+  const normalizedImageFile = path.normalize(imageFile); // Normalize the path
 
-  await Promise.all(
-    imageFiles.map(async (imageFile) => {
-      const currentHash = await getFileHash(imageFile);
-      newHashCache[imageFile] = currentHash;
+  // Compress image using imagemin
+  const result = await imagemin([normalizedImageFile], {
+    destination: path.dirname(normalizedImageFile),
+    plugins: [
+      imageminJpegoptim({ progressive: true, max: 80 }), // JPEG compression
+      imageminPngquant({ quality: [0.65, 0.8], speed: 3 }), // PNG compression
+    ],
+  });
 
-      // Skip optimization if the hash hasn't changed
-      if (hashCache[imageFile] === currentHash) {
-        console.log(`Skipping unchanged file: ${imageFile}`);
-        return;
-      }
-
-      // Compress image using imagemin
-      const result = await imagemin([imageFile], {
-        destination: path.dirname(imageFile),
-        plugins: [
-          imageminJpegoptim({ progressive: true, max: 80 }), // JPEG compression
-          imageminPngquant({ quality: [0.65, 0.8], speed: 3 }), // PNG compression
-        ],
-      });
-
-      // Replace the original file with the compressed one
-      if (result.length > 0) {
-        await fs.rename(result[0].destinationPath, imageFile);
-        console.log(`Compressed and replaced: ${imageFile}`);
-      }
-    })
-  );
-
-  await saveHashCache(newHashCache);
+  // Replace the original file with the compressed one
+  if (result.length > 0) {
+    const compressedImage = result[0];
+    await fs.rename(compressedImage.destinationPath, normalizedImageFile); // Replace the original image with the compressed version
+    console.log(`Compressed and replaced: ${normalizedImageFile}`);
+  }
 }
 
-// Run the compression
-compressImages();
+// Function to compress images in the specified directory or single file
+async function compressImages(inputPath) {
+  const stat = await fs.stat(inputPath);
+
+  if (stat.isDirectory()) {
+    // If inputPath is a directory, compress all images in the directory
+    const imageFiles = await getAllImageFiles(inputPath);
+    await Promise.all(imageFiles.map(compressImage));
+  } else if (stat.isFile()) {
+    // If inputPath is a file, compress that single image
+    await compressImage(inputPath);
+  } else {
+    console.log("Invalid path provided.");
+  }
+}
+
+// Example usage:
+// To compress a folder:
+compressImages(
+  path.join(
+    process.cwd(),
+    "src/assets/images/PageImages/LiteracyPage/AetaPeopleOnMuseum.png"
+  )
+);
+
+// Or, to compress a single image file:
+// compressImages(path.join(process.cwd(), "src/assets/images/single-image.jpg"));
