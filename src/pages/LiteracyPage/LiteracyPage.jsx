@@ -16,6 +16,14 @@ import Section, { ContentArea } from "@components/Section/Section";
 
 import React from "react";
 import { StaticFolderContainer } from "@components/LargeContainers/FoldersUIPackage";
+import {
+  AetaALSGraduation,
+  AetaALSGraduation2,
+  AetaPeopleOnMuseum,
+  AetaPeopleOnRizalPark,
+  NanayLindaSmiling,
+  VolunteerTeachingAnAeta,
+} from "@images/PageImages/LiteracyPage";
 
 const LiteracyPage = () => {
   return (
@@ -40,13 +48,13 @@ const LiteracyPage = () => {
                   </p>
                   <GridLayout>
                     <img
-                      src="/images/PageImages/LiteracyPage/NanayLindaSmiling.png"
+                      src={NanayLindaSmiling}
                       alt="Liwanag at Dunong: Image of Nanay Linda Smiling"
                       className="pageImage"
                       loading="lazy"
                     />
                     <img
-                      src="/images/PageImages/LiteracyPage/VolunteerTeachingAnAeta.png"
+                      src={VolunteerTeachingAnAeta}
                       alt="Liwanag at Dunong: Image of a Volunteer Teaching an Aeta"
                       className="pageImage"
                       loading="lazy"
@@ -93,25 +101,25 @@ const LiteracyPage = () => {
                   </p>
                   <GridLayout>
                     <img
-                      src="/images/PageImages/LiteracyPage/AetaALSGraduation.png"
+                      src={AetaALSGraduation}
                       alt="Liwanag at Dunong: Image of Nanay Linda Smiling"
                       className="pageImage"
                       loading="lazy"
                     />
                     <img
-                      src="/images/PageImages/LiteracyPage/AetaALSGraduation2.png"
+                      src={AetaALSGraduation2}
                       alt="Liwanag at Dunong: Image of a Volunteer Teaching an Aeta"
                       className="pageImage"
                       loading="lazy"
                     />
                     <img
-                      src="/images/PageImages/LiteracyPage/AetaPeopleOnMuseum.png"
+                      src={AetaPeopleOnMuseum}
                       alt="Liwanag at Dunong: Image of Nanay Linda Smiling"
                       className="pageImage"
                       loading="lazy"
                     />
                     <img
-                      src="/images/PageImages/LiteracyPage/AetaPeopleOnRizalPark.png"
+                      src={AetaPeopleOnRizalPark}
                       alt="Liwanag at Dunong: Image of a Volunteer Teaching an Aeta"
                       className="pageImage"
                       loading="lazy"

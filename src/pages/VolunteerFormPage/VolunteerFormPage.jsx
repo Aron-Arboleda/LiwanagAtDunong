@@ -24,6 +24,10 @@ import {
 import { sections } from "./sections";
 import { CONFIG } from "../../config";
 import { CartoonyContainer } from "@components/CardContainers/CardContainers";
+import {
+  SampleItinerary1,
+  SampleItinerary2,
+} from "@images/PageImages/VolunteerFormPage";
 
 const VolunteerFormPage = () => {
   const [submission, setSubmission] = useState({
@@ -115,13 +119,13 @@ const VolunteerFormPage = () => {
             <FlexLayoutColumn>
               <GridLayout>
                 <img
-                  src="/images/PageImages/VolunteerFormPage/SampleItinerary1.jpg"
+                  src={SampleItinerary1}
                   alt="Liwanag at Dunong: Sample Itinerary Morning"
                   className="pageImage-auto"
                   loading="lazy"
                 />
                 <img
-                  src="/images/PageImages/VolunteerFormPage/SampleItinerary2.jpg"
+                  src={SampleItinerary2}
                   alt="Liwanag at Dunong: Sample Itinerary Afternoon"
                   className="pageImage-auto"
                   loading="lazy"

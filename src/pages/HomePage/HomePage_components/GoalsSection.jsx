@@ -1,6 +1,11 @@
 import React, { useEffect } from "react";
 import "../HomePage_styles/GoalsSection.css";
 import { StandardChunkFiveTitle } from "@components/PageTitles/PageTitles";
+import {
+  empowermentImg,
+  raiseAwarenessImg,
+  strongerSolidarityImg,
+} from "@images/PageImages/HomePage/GoalsSection";
 
 const GoalsSection = () => {
   useEffect(() => {
@@ -49,7 +54,7 @@ const GoalsSection = () => {
         <div id="goalsContainer">
           <div className="goalRow">
             <img
-              src="/images/PageImages/HomePage/GoalsSection/raiseAwarenessImg.jpg"
+              src={raiseAwarenessImg}
               alt="Raise Awareness Image"
               className="goalsImage"
               loading="lazy"
@@ -81,7 +86,7 @@ const GoalsSection = () => {
               </p>
             </div>
             <img
-              src="/images/PageImages/HomePage/GoalsSection/strongerSolidarityImg.JPG"
+              src={strongerSolidarityImg}
               alt="Raise Awareness Image"
               className="goalsImage"
               loading="lazy"
@@ -89,7 +94,7 @@ const GoalsSection = () => {
           </div>
           <div className="goalRow">
             <img
-              src="/images/PageImages/HomePage/GoalsSection/empowermentImg.jpg"
+              src={empowermentImg}
               alt="Raise Awareness Image"
               className="goalsImage"
               loading="lazy"

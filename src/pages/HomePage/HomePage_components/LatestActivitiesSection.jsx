@@ -1,5 +1,10 @@
 import React, { useEffect } from "react";
 import "../HomePage_styles/LatestActivitiesSection.css";
+import {
+  cert,
+  medals,
+  paperButterflies,
+} from "@images/PageImages/HomePage/LatestActivitiesSection";
 
 const LatestActivitiesSection = () => {
   useEffect(() => {
@@ -81,21 +86,21 @@ const LatestActivitiesSection = () => {
         </div>
         <div id="latestActivitiesImagesContainer">
           <img
-            src="/images/PageImages/HomePage/LatestActivitiesSection/paper_butterflies.jpg"
+            src={paperButterflies}
             alt="paper butterflies image"
             className="latestActivitiesImage"
             id="LA_image1"
             loading="lazy"
           />
           <img
-            src="/images/PageImages/HomePage/LatestActivitiesSection/medals.jpg"
+            src={medals}
             alt="paper butterflies image"
             className="latestActivitiesImage"
             id="LA_image2"
             loading="lazy"
           />
           <img
-            src="/images/PageImages/HomePage/LatestActivitiesSection/cert.jpg"
+            src={cert}
             alt="paper butterflies image"
             className="latestActivitiesImage"
             id="LA_image3"

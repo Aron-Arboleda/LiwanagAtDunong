@@ -18,6 +18,14 @@ import {
   WhiteLargeContainer,
 } from "@components/LargeContainers/LargeContainers";
 import { PageDivider } from "@components/CustomComponents/CustomComponents";
+import {
+  AetaKidsHoldingHands,
+  AetaLearningCenterConstruction,
+  AetaOrientation,
+  AetaPeopleRaisingHands,
+  LearningCenterWithKids,
+  SitioGayamanMap,
+} from "@images/PageImages/AboutPage";
 
 const communityCount_data = [
   { community: "Gayaman", households: 41, population: 212, children: 101 },
@@ -90,7 +98,7 @@ const AboutPage = () => {
                 </p>
               </FlexLayoutColumn>
               <img
-                src="/images/PageImages/AboutPage/LearningCenterWithKids.png"
+                src={LearningCenterWithKids}
                 alt="Aeta Learning Center with Kids"
                 className="pageImageLimited"
                 loading="lazy"
@@ -99,7 +107,7 @@ const AboutPage = () => {
             <StandardChunkFiveSubTitleH2 title="Project Site" />
             <FlexLayout>
               <img
-                src="/images/PageImages/AboutPage/SitioGayamanMap.png"
+                src={SitioGayamanMap}
                 alt="Aeta Learning Center with Kids"
                 className="pageImageLimited"
                 loading="lazy"
@@ -147,13 +155,13 @@ const AboutPage = () => {
               </p>
               <GridLayout>
                 <img
-                  src="/images/PageImages/AboutPage/AetaOrientation.png"
+                  src={AetaOrientation}
                   alt="Liwanag at Dunong: Image of Aeta Orientation"
                   className="pageImage"
                   loading="lazy"
                 />
                 <img
-                  src="/images/PageImages/AboutPage/AetaPeopleRaisingHands.png"
+                  src={AetaPeopleRaisingHands}
                   alt="Liwanag at Dunong: Image of Aeta People Raising Hands"
                   className="pageImage"
                   loading="lazy"
@@ -286,13 +294,13 @@ const AboutPage = () => {
               </p>
               <GridLayout>
                 <img
-                  src="/images/PageImages/AboutPage/AetaKidsHoldingHands.png"
+                  src={AetaKidsHoldingHands}
                   alt="Liwanag at Dunong: Aeta Kids Holding Hands"
                   className="pageImage"
                   loading="lazy"
                 />
                 <img
-                  src="/images/PageImages/AboutPage/AetaLearningCenterConstruction.png"
+                  src={AetaLearningCenterConstruction}
                   alt="Liwanag at Dunong: Image of Aeta Learning Center Construction"
                   className="pageImage"
                   loading="lazy"

@@ -16,6 +16,10 @@ import {
 import Section from "@components/Section/Section";
 import SharpLightShadowCard from "./SupportPageComponents/SharpLightShadowCard";
 import SupportSection from "@pages/HomePage/HomePage_components/SupportSection";
+import {
+  AetaPersonLearningInALC,
+  MaintenanceOfALC,
+} from "@images/PageImages/SupportPage";
 
 const supportNeeded_ALC_data = {
   title: "Aeta Learning Center Maintenance",
@@ -81,13 +85,13 @@ const SupportPage = () => {
               </CardGridLayout>
               <GridLayout>
                 <img
-                  src="/images/PageImages/SupportPage/AetaPersonLearningInALC.png"
+                  src={AetaPersonLearningInALC}
                   alt="Liwanag at Dunong: Image of an Aeta Person Learning in the ALC"
                   className="pageImage"
                   loading="lazy"
                 />
                 <img
-                  src="/images/PageImages/SupportPage/MaintenanceOfALC.png"
+                  src={MaintenanceOfALC}
                   alt="Liwanag at Dunong: Image of the Maintenance of the ALC"
                   className="pageImage"
                   loading="lazy"

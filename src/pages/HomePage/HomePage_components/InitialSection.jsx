@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import "../HomePage_styles/InitialSection.css";
 import backgroundImageUrl from "@images/Graphics/WEBSITE_Graphics/Backgrounds/backgroundImage.png";
-import { dialogThemedPlaceholder } from "@images/Graphics/WEBSITE_Graphics/Sprites";
 
 const InitialSection = () => {
   // State to track the visibility of the info container
@@ -36,10 +35,7 @@ const InitialSection = () => {
           onClick={() => setInfoVisible(!isInfoVisible)}
         >
           {isInfoVisible && (
-            <div
-              id="iButtonInfoContainer"
-              style={{ backgroundImage: `url(${dialogThemedPlaceholder})` }}
-            >
+            <div id="iButtonInfoContainer">
               <p id="dialogThemedInfoText">
                 Liwanag at Dunong is a non-governmental organization that seeks
                 to uplift the Aeta Indigenous People. We hope to raise and

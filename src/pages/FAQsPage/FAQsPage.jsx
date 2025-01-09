@@ -18,6 +18,11 @@ import { PageDivider } from "@components/CustomComponents/CustomComponents";
 
 import facebookSVG from "@images/Graphics/WEBSITE_Graphics/IconsAndVectors/BlackIcons/facebook.svg";
 import instagramSVG from "@images/Graphics/WEBSITE_Graphics/IconsAndVectors/BlackIcons/instagram.svg";
+import {
+  VolunteerHavingFunWithAetaKids,
+  VolunteersTravelingByFoot,
+  VolunteerTeaching,
+} from "@images/PageImages/FAQsPage";
 
 const FAQsPage = () => {
   return (
@@ -91,19 +96,19 @@ const FAQsPage = () => {
             <StandardChunkFiveTitle title="VOLUNTEER WITH US!" />
             <GridLayout3Column>
               <img
-                src="/images/PageImages/FAQsPage/VolunteersTravelingByFoot.jpg"
+                src={VolunteersTravelingByFoot}
                 alt="Liwanag at Dunong: Volunteers Traveling by Foot"
                 className="pageImage"
                 loading="lazy"
               />
               <img
-                src="/images/PageImages/FAQsPage/VolunteerTeaching.JPG"
+                src={VolunteerTeaching}
                 alt="Liwanag at Dunong: Volunteer Teaching Aeta People"
                 className="pageImage"
                 loading="lazy"
               />
               <img
-                src="/images/PageImages/FAQsPage/VolunteerHavingFunWithAetaKids.jpg"
+                src={VolunteerHavingFunWithAetaKids}
                 alt="Liwanag at Dunong: Volunteer Having Fun with Aeta Kids"
                 className="pageImage"
                 loading="lazy"

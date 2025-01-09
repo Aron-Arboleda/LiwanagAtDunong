@@ -1,5 +1,22 @@
 import React, { useEffect, useRef } from "react";
 import "../HomePage_styles/PartnershipsSection.css";
+import { CHR, ECEP_NESC, Ecohumans } from "@images/Graphics/PartnersGraphics";
+import {
+  ArtSolaceManila,
+  BigBrew,
+  FCC,
+  IBISStudentCouncil,
+  KunaNiShobe,
+  Nawaya,
+  PAGASA,
+  PHINMA,
+  RPsycheS,
+  StPatrickSchool,
+  TeamLisaPH,
+  Tulasalitaan,
+  UnionOfVolunteers,
+  VibalFoundation,
+} from "@images/Graphics/DonorsGraphics";
 
 const PartnershipsSection = () => {
   // Create a ref for the ptHeading element
@@ -50,71 +67,41 @@ const PartnershipsSection = () => {
       <div id="partnershipsContainer">
         <div id="partnershipsRow1">
           <div className="pLogoContainer">
+            <img src={Ecohumans} alt="" className="pLogo" loading="lazy" />
+          </div>
+          <div className="pLogoContainer">
+            <img src={Nawaya} alt="" className="pLogo" loading="lazy" />
+          </div>
+          <div className="pLogoContainer">
             <img
-              src="/images/Graphics/PartnersGraphics/Ecohumans-logo.png"
+              src={UnionOfVolunteers}
               alt=""
               className="pLogo"
               loading="lazy"
             />
           </div>
           <div className="pLogoContainer">
-            <img
-              src="/images/Graphics/DonorsGraphics/Nawaya-logo.jpg"
-              alt=""
-              className="pLogo"
-              loading="lazy"
-            />
+            <img src={PAGASA} alt="" className="pLogo" loading="lazy" />
           </div>
           <div className="pLogoContainer">
-            <img
-              src="/images/Graphics/DonorsGraphics/UnionOfVolunteers.png"
-              alt=""
-              className="pLogo"
-              loading="lazy"
-            />
-          </div>
-          <div className="pLogoContainer">
-            <img
-              src="/images/Graphics/DonorsGraphics/PAGASA-logo.png"
-              alt=""
-              className="pLogo"
-              loading="lazy"
-            />
-          </div>
-          <div className="pLogoContainer">
-            <img
-              src="/images/Graphics/DonorsGraphics/TeamLisaPH-logo.jpg"
-              alt=""
-              className="pLogo"
-              loading="lazy"
-            />
+            <img src={TeamLisaPH} alt="" className="pLogo" loading="lazy" />
           </div>
         </div>
         <div id="partnershipsRow2">
           <div id="pyramidGroup1" className="pyramidGroup">
             <div className="pLogoContainer">
+              <img src={KunaNiShobe} alt="" className="pLogo" loading="lazy" />
+            </div>
+            <div className="pLogoContainer">
               <img
-                src="/images/Graphics/DonorsGraphics/KunaNiShobe-logo.jpg"
+                src={ArtSolaceManila}
                 alt=""
                 className="pLogo"
                 loading="lazy"
               />
             </div>
             <div className="pLogoContainer">
-              <img
-                src="/images/Graphics/DonorsGraphics/ArtSolaceManila-logo.jpg"
-                alt=""
-                className="pLogo"
-                loading="lazy"
-              />
-            </div>
-            <div className="pLogoContainer">
-              <img
-                src="/images/Graphics/DonorsGraphics/BigBrew-logo.jpg"
-                alt=""
-                className="pLogo"
-                loading="lazy"
-              />
+              <img src={BigBrew} alt="" className="pLogo" loading="lazy" />
             </div>
           </div>
           <div className="flex-center">
@@ -124,35 +111,23 @@ const PartnershipsSection = () => {
           </div>
           <div id="pyramidGroup2" className="pyramidGroup">
             <div className="pLogoContainer">
-              <img
-                src="/images/Graphics/DonorsGraphics/TulasalitaanPH-logo.png"
-                alt=""
-                className="pLogo"
-                loading="lazy"
-              />
+              <img src={Tulasalitaan} alt="" className="pLogo" loading="lazy" />
             </div>
             <div className="pLogoContainer">
-              <img
-                src="/images/Graphics/PartnersGraphics/CHR-logo.png"
-                alt=""
-                className="pLogo"
-                loading="lazy"
-              />
+              <img src={CHR} alt="" className="pLogo" loading="lazy" />
             </div>
             <div className="pLogoContainer">
-              <img
-                src="/images/Graphics/DonorsGraphics/PHINMA-logo.png"
-                alt=""
-                className="pLogo"
-                loading="lazy"
-              />
+              <img src={PHINMA} alt="" className="pLogo" loading="lazy" />
             </div>
           </div>
         </div>
         <div id="partnershipsRow3">
           <div className="pLogoContainer">
+            <img src={RPsycheS} alt="" className="pLogo" loading="lazy" />
+          </div>
+          <div className="pLogoContainer">
             <img
-              src="/images/Graphics/DonorsGraphics/RPsycheS-logo.jpg"
+              src={VibalFoundation}
               alt=""
               className="pLogo"
               loading="lazy"
@@ -160,7 +135,7 @@ const PartnershipsSection = () => {
           </div>
           <div className="pLogoContainer">
             <img
-              src="/images/Graphics/DonorsGraphics/VibalFoundation-logo.png"
+              src={StPatrickSchool}
               alt=""
               className="pLogo"
               loading="lazy"
@@ -168,35 +143,17 @@ const PartnershipsSection = () => {
           </div>
           <div className="pLogoContainer">
             <img
-              src="/images/Graphics/DonorsGraphics/StPatrickSchool-logo.png"
+              src={IBISStudentCouncil}
               alt=""
               className="pLogo"
               loading="lazy"
             />
           </div>
           <div className="pLogoContainer">
-            <img
-              src="/images/Graphics/DonorsGraphics/IBISStudentCouncil-logo.jpg"
-              alt=""
-              className="pLogo"
-              loading="lazy"
-            />
+            <img src={ECEP_NESC} alt="" className="pLogo" loading="lazy" />
           </div>
           <div className="pLogoContainer">
-            <img
-              src="/images/Graphics/PartnersGraphics/ECEP-NESC-logo.jpg"
-              alt=""
-              className="pLogo"
-              loading="lazy"
-            />
-          </div>
-          <div className="pLogoContainer">
-            <img
-              src="/images/Graphics/DonorsGraphics/FCC-logo.png"
-              alt=""
-              className="pLogo"
-              loading="lazy"
-            />
+            <img src={FCC} alt="" className="pLogo" loading="lazy" />
           </div>
         </div>
       </div>

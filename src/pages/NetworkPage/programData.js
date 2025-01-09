@@ -28,6 +28,14 @@ import {
   MPSTA,
   UPLikas,
 } from "@images/Graphics/PartnersGraphics";
+import {
+  LDVolunteersGroupPictures1,
+  LDVolunteersGroupPictures2,
+  LDVolunteersGroupPictures3,
+  LDVolunteersGroupPictures4,
+  LDVolunteersGroupPictures5,
+  LDVolunteersGroupPictures6,
+} from "@images/PageImages/NetworkPage";
 
 export const networkPageData = {
   programPartners_data: [
@@ -168,27 +176,27 @@ export const networkPageData = {
   ],
   volunteerImages: [
     {
-      src: "/images/PageImages/NetworkPage/LDVolunteersGroupPictures1.jpg",
+      src: LDVolunteersGroupPictures1,
       alt: "Liwanag at Dunong: Group Picture with a product of Ate Neslyn",
     },
     {
-      src: "/images/PageImages/NetworkPage/LDVolunteersGroupPictures2.jpg",
+      src: LDVolunteersGroupPictures2,
       alt: "Liwanag at Dunong: Group Picture of Volunteers on Paskuhan 2024",
     },
     {
-      src: "/images/PageImages/NetworkPage/LDVolunteersGroupPictures3.jpg",
+      src: LDVolunteersGroupPictures3,
       alt: "Liwanag at Dunong: Literacy Program Team Dunong in Action",
     },
     {
-      src: "/images/PageImages/NetworkPage/LDVolunteersGroupPictures4.jpg",
+      src: LDVolunteersGroupPictures4,
       alt: "Liwanag at Dunong: Team Kabataan in Action",
     },
     {
-      src: "/images/PageImages/NetworkPage/LDVolunteersGroupPictures5.jpg",
+      src: LDVolunteersGroupPictures5,
       alt: "Liwanag at Dunong: Team Dunong having fun learning",
     },
     {
-      src: "/images/PageImages/NetworkPage/LDVolunteersGroupPictures6.jpg",
+      src: LDVolunteersGroupPictures6,
       alt: "Liwanag at Dunong: Team Kabataan Cheering",
     },
   ],
