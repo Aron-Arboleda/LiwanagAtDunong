@@ -136,7 +136,7 @@
     height: 167px;
     transform: translateX(-42%) translateY(-10px);
     font-size: 0.85rem;
-    background-image: url("/images/Graphics/WEBSITE_Graphics/Sprites/dialogThemedPlaceholder.svg");
+    /* background-image: url("/images/Graphics/WEBSITE_Graphics/Sprites/dialogThemedPlaceholder.svg"); */
     background-position: center;
     background-color: transparent;
     border-radius: none;

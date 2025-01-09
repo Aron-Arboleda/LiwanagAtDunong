@@ -2,6 +2,7 @@ import { InteractiveFolders } from "@components/LargeContainers/FoldersUIPackage
 import "../HomePage_styles/AetaLearningCenterSection.css";
 
 import { BrownCircleTitle } from "@components/PageTitles/PageTitles";
+import { curveSection } from "@images/Graphics/WEBSITE_Graphics/Sprites";
 
 const foldersData = [
   {
@@ -83,7 +84,7 @@ const AetaLearningCenterSection = () => {
           </a>
         </div>
         <img
-          src="/images/Graphics/WEBSITE_Graphics/Sprites/curveSection.svg"
+          src={curveSection}
           alt="curve"
           id="curveSectionSVG"
           loading="lazy"

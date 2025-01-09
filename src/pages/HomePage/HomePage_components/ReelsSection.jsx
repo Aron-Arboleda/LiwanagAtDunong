@@ -1,4 +1,9 @@
+import {
+  starsLeft,
+  starsRight,
+} from "@images/Graphics/WEBSITE_Graphics/Sprites";
 import "../HomePage_styles/ReelsSection.css";
+import EdukasyonParaSaLahat from "@images/Graphics/WEBSITE_Graphics/LD_Designs/EdukasyonParaSaLahat.png";
 
 const ReelsSection = () => {
   return (
@@ -56,25 +61,17 @@ const ReelsSection = () => {
         </div>
         <div id="edukParaSaLahatContainer">
           <img
-            src="/images/Graphics/WEBSITE_Graphics/LD_Designs/EdukasyonParaSaLahat.png"
+            src={EdukasyonParaSaLahat}
             alt="Edukasyon Para Sa Lahat Design"
             loading="lazy"
           />
         </div>
       </div>
       <div id="starLeft">
-        <img
-          src="/images/Graphics/WEBSITE_Graphics/Sprites/starsLeft.svg"
-          alt="stars background design 1"
-          loading="lazy"
-        />
+        <img src={starsLeft} alt="stars background design 1" loading="lazy" />
       </div>
       <div id="starRight">
-        <img
-          src="/images/Graphics/WEBSITE_Graphics/Sprites/starsRight.svg"
-          alt="stars background design 2"
-          loading="lazy"
-        />
+        <img src={starsRight} alt="stars background design 2" loading="lazy" />
       </div>
     </div>
   );

@@ -16,6 +16,9 @@ import {
 } from "@components/LargeContainers/LargeContainers";
 import { PageDivider } from "@components/CustomComponents/CustomComponents";
 
+import facebookSVG from "@images/Graphics/WEBSITE_Graphics/IconsAndVectors/BlackIcons/facebook.svg";
+import instagramSVG from "@images/Graphics/WEBSITE_Graphics/IconsAndVectors/BlackIcons/instagram.svg";
+
 const FAQsPage = () => {
   return (
     <StandardLayout>
@@ -111,21 +114,13 @@ const FAQsPage = () => {
                 href="https://www.facebook.com/LiwanagAtDunongProject"
                 target="_blank"
               >
-                <img
-                  src="/images/Graphics/WEBSITE_Graphics/IconsAndVectors/BlackIcons/facebook.svg"
-                  alt="Facebook Icon"
-                  loading="lazy"
-                />
+                <img src={facebookSVG} alt="Facebook Icon" loading="lazy" />
               </a>
               <a
                 href="https://www.instagram.com/liwanagatdunong/"
                 target="_blank"
               >
-                <img
-                  src="/images/Graphics/WEBSITE_Graphics/IconsAndVectors/BlackIcons/instagram.svg"
-                  alt="Instagram Icon"
-                  loading="lazy"
-                />
+                <img src={instagramSVG} alt="Instagram Icon" loading="lazy" />
               </a>
               LiwanagAtDunongProject
             </InlineImageAndTextLayout>

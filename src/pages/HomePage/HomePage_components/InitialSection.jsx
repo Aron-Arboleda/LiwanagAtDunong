@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import "../HomePage_styles/InitialSection.css";
+import backgroundImageUrl from "@images/Graphics/WEBSITE_Graphics/Backgrounds/backgroundImage.png";
+import { dialogThemedPlaceholder } from "@images/Graphics/WEBSITE_Graphics/Sprites";
 
 const InitialSection = () => {
   // State to track the visibility of the info container
   const [isInfoVisible, setInfoVisible] = useState(false);
-  const backgroundImageUrl =
-    "/images/Graphics/WEBSITE_Graphics/Backgrounds/backgroundImage.png";
 
   useEffect(() => {
     // Check if the page has already been reloaded
@@ -36,7 +36,10 @@ const InitialSection = () => {
           onClick={() => setInfoVisible(!isInfoVisible)}
         >
           {isInfoVisible && (
-            <div id="iButtonInfoContainer">
+            <div
+              id="iButtonInfoContainer"
+              style={{ backgroundImage: `url(${dialogThemedPlaceholder})` }}
+            >
               <p id="dialogThemedInfoText">
                 Liwanag at Dunong is a non-governmental organization that seeks
                 to uplift the Aeta Indigenous People. We hope to raise and

@@ -16,5 +16,4 @@ export {
   ECEP_NESC,
   Alunsina,
   UPLikas,
-  UPFair,
 };

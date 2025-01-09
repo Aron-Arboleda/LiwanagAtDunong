@@ -18,47 +18,57 @@ import {
   UPFair,
   VibalFoundation,
 } from "@images/Graphics/DonorsGraphics";
+import {
+  Alunsina,
+  CHR,
+  ECEP_NESC,
+  Ecohumans,
+  KatribuYouth,
+  LingapLeads,
+  MPSTA,
+  UPLikas,
+} from "@images/Graphics/PartnersGraphics";
 
 export const networkPageData = {
   programPartners_data: [
     {
-      imgSrc: "/images/Graphics/PartnersGraphics/Ecohumans-logo.png",
+      imgSrc: Ecohumans,
       title: "EcoHumans, Inc.",
       info: "EcoHumans, Inc. is a non-profit organization seeking to become builders of a better habitat for humanity.",
     },
     {
-      imgSrc: "/images/Graphics/PartnersGraphics/MPSTA-logo.jpg",
+      imgSrc: MPSTA,
       title: "Manila Public School Teachers Association (MPSTA)",
       info: "The Manila Public Teachers Association represents Manila Teachers, advocating reforms and earning trust from members and government officials.",
     },
     {
-      imgSrc: "/images/Graphics/PartnersGraphics/ECEP-NESC-logo.jpg",
+      imgSrc: ECEP_NESC,
       title:
         "Institute of Electronics Engineers of the Philippines - Nueva Ecija Student Chapter (IECEP-NESC)",
       info: "A student organization based in Cabanatuan City, Nueva Ecija, dedicated to uniting electronics engineering students for professional development and engagement in the field.",
     },
     {
-      imgSrc: "/images/Graphics/PartnersGraphics/Alunsina-logo.png",
+      imgSrc: Alunsina,
       title: "Alunsina - Ateneo de Manila University (ADMU) Senior High School",
       info: "Alunsina is a student organization within the Ateneo de Manila University Senior High School, dedicated to promoting Filipino culture and arts among students.",
     },
     {
-      imgSrc: "/images/Graphics/PartnersGraphics/UPLikas-logo.jpg",
+      imgSrc: UPLikas,
       title: "University of the Philippines (UP) LIKAS",
       info: "UP LIKAS is a University of the Philippines Diliman academic organization dedicated to promoting historical consciousness and contributing to historical scholarship.",
     },
     {
-      imgSrc: "/images/Graphics/PartnersGraphics/KatribuYouth-logo.png",
+      imgSrc: KatribuYouth,
       title: "Katribu Youth",
       info: "Katribu Youth advocates for the rights of IPs & Moro to their ancestral lands & self-determination.",
     },
     {
-      imgSrc: "/images/Graphics/PartnersGraphics/CHR-logo.png",
+      imgSrc: CHR,
       title: "Commission on Human Rights (CHR)",
       info: "The Commission on Human Rights (CHR) is an independent Philippine institution established in 1987, mandated to investigate human rights violations, particularly those involving civil and political rights.",
     },
     {
-      imgSrc: "/images/Graphics/PartnersGraphics/LingapLeads-logo.jpg",
+      imgSrc: LingapLeads,
       title: "Lingap Leads Foundation",
       info: "Lingap Leads Foundation is a non-profit organization in the Philippines dedicated to supporting farmers through initiatives like medical missions, training programs, and educational campaigns.",
     },
