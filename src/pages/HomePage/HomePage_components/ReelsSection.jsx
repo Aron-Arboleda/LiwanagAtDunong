@@ -4,7 +4,6 @@ import {
 } from "@images/Graphics/WEBSITE_Graphics/Sprites";
 import "../HomePage_styles/ReelsSection.css";
 import EdukasyonParaSaLahat from "@images/Graphics/WEBSITE_Graphics/LD_Designs/EdukasyonParaSaLahat.png";
-import { TeamDunong, TeamKabataan, UnboxingReel } from "@videos";
 
 const ReelsSection = () => {
   return (
@@ -29,7 +28,7 @@ const ReelsSection = () => {
           </a>
         </div>
         <div id="reelsContainer">
-          <video
+          {/* <video
             autoPlay
             muted
             loop
@@ -59,9 +58,9 @@ const ReelsSection = () => {
           >
             <source src={TeamKabataan} type="video/mp4" />
             Team Kabataan Video Reel
-          </video>
+          </video> */}
 
-          {/* <iframe
+          <iframe
             src="https://player.vimeo.com/video/1043403339?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&controls=0&loop=1"
             allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
             title="TeamDunongReel"
@@ -80,7 +79,7 @@ const ReelsSection = () => {
             allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
             title="TeamKabataanReel"
             loading="lazy"
-          ></iframe> */}
+          ></iframe>
         </div>
         <div id="edukParaSaLahatContainer">
           <img

@@ -5,8 +5,7 @@
       "@components/*": ["src/components/*"],
       "@pages/*": ["src/pages/*"],
       "@utils/*": ["src/utils/*"],
-      "@images/*": ["src/assets/images/*"],
-      "@videos/*": ["src/assets/videos/*"]
+      "@images/*": ["src/assets/images/*"]
     }
   },
   "include": ["src/**/*"] // Ensures it includes your source files

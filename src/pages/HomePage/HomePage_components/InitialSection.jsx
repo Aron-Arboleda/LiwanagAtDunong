@@ -6,16 +6,6 @@ const InitialSection = () => {
   // State to track the visibility of the info container
   const [isInfoVisible, setInfoVisible] = useState(false);
 
-  useEffect(() => {
-    // Check if the page has already been reloaded
-    if (!sessionStorage.getItem("reloaded")) {
-      sessionStorage.setItem("reloaded", "true"); // Mark as reloaded
-      setTimeout(() => {
-        window.location.reload(); // Force a refresh
-      }, 4000); // Refresh after 4 seconds
-    }
-  }, []);
-
   return (
     <div
       id="homePage"
