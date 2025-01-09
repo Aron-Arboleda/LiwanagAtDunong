@@ -4,6 +4,7 @@ import {
 } from "@images/Graphics/WEBSITE_Graphics/Sprites";
 import "../HomePage_styles/ReelsSection.css";
 import EdukasyonParaSaLahat from "@images/Graphics/WEBSITE_Graphics/LD_Designs/EdukasyonParaSaLahat.png";
+import { TeamDunong, TeamKabataan, UnboxingReel } from "@videos";
 
 const ReelsSection = () => {
   return (
@@ -28,17 +29,39 @@ const ReelsSection = () => {
           </a>
         </div>
         <div id="reelsContainer">
-          {/* <video autoPlay muted loop>
-            <source src="/videos/TeamDunongReel.mp4" type="video/mp4" />
+          <video
+            autoPlay
+            muted
+            loop
+            onError={(e) => console.error("Error loading video: TeamDunong", e)}
+          >
+            <source src={TeamDunong} type="video/mp4" />
+            Team Dunong Video Reel
           </video>
-          <video autoPlay muted loop>
-            <source src="/videos/UnboxingVideoReel.mp4" type="video/mp4" />
-          </video> */}
-          {/* <video autoPlay muted loop>
-            <source src="/videos/TeamKabataanReel.mp4" type="video/mp4" />
-          </video> */}
+          <video
+            autoPlay
+            muted
+            loop
+            onError={(e) =>
+              console.error("Error loading video: UnboxingReel", e)
+            }
+          >
+            <source src={UnboxingReel} type="video/mp4" />
+            Unboxing Video Reel
+          </video>
+          <video
+            autoPlay
+            muted
+            loop
+            onError={(e) =>
+              console.error("Error loading video: TeamKabataan", e)
+            }
+          >
+            <source src={TeamKabataan} type="video/mp4" />
+            Team Kabataan Video Reel
+          </video>
 
-          <iframe
+          {/* <iframe
             src="https://player.vimeo.com/video/1043403339?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&controls=0&loop=1"
             allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
             title="TeamDunongReel"
@@ -57,7 +80,7 @@ const ReelsSection = () => {
             allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
             title="TeamKabataanReel"
             loading="lazy"
-          ></iframe>
+          ></iframe> */}
         </div>
         <div id="edukParaSaLahatContainer">
           <img
