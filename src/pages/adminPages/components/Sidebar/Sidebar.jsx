@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./Sidebar.css";
 import { LDLogo } from "@images/Graphics/WEBSITE_Graphics/IconsAndVectors";
+import { FileSpreadsheet, House } from "lucide-react";
 
 const Sidebar = () => {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
@@ -32,11 +33,13 @@ const Sidebar = () => {
         <ul className="sidebarList">
           <li className={isActive("/admin") ? "active" : ""}>
             <a href="/admin" className="navLinks">
+              <House size={24} className="icon" />
               Home
             </a>
           </li>
           <li className={isActive("/admin/submissions") ? "active" : ""}>
             <a href="/admin/submissions" className="navLinks">
+              <FileSpreadsheet size={24} className="icon" />
               Submissions
             </a>
           </li>
