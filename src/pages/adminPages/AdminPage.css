@@ -1,4 +1,10 @@
 .adminPageContainer {
-  display: grid;
-  grid-template-columns: auto 1fr;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .adminPageContainer {
+    flex-direction: row;
+  }
 }

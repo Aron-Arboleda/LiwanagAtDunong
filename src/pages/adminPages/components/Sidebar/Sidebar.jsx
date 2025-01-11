@@ -80,6 +80,7 @@ const Sidebar = () => {
         </div>
       </div>
       <div className={`sidebarOverlay ${isMenuOpen ? "open" : "closed"}`}></div>
+      <div className="sidebarSpace"></div>
     </>
   );
 };
