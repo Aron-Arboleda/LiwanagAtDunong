@@ -96,6 +96,8 @@ const socialMediaLinks = [
   },
 ];
 
+const currentYear = new Date().getFullYear();
+
 const Footer = () => {
   return (
     <footer>
@@ -185,7 +187,7 @@ const Footer = () => {
           <PageDividerThin color="#fffbe6" margin="50px 0 30px 0" />
           <InlineImageAndTextLayout>
             <MontserratTextInfo
-              text="© 2025 Liwanag at Dunong Project. All rights reserved."
+              text={`© ${currentYear} Liwanag at Dunong Project. All rights reserved.`}
               color="#fffbe6"
               fontSize="0.8rem"
             />

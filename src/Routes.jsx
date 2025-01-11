@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React, { Suspense } from "react";
-import LoadingPage from "@pages/MorePages/LoadingPage/LoadingPage";
+import LoadingPage from "@pages/morePages/LoadingPage/LoadingPage";
+import AdminPage from "@pages/adminPages/AdminPage";
 
 // Lazy-loaded components
 const HomePage = React.lazy(() => import("./pages/HomePage/HomePage"));
@@ -15,13 +16,13 @@ const VolunteerFormPage = React.lazy(() =>
   import("@pages/VolunteerFormPage/VolunteerFormPage")
 );
 const NotFoundPage = React.lazy(() =>
-  import("@pages/MorePages/NotFoundPage/NotFoundPage")
+  import("@pages/morePages/NotFoundPage/NotFoundPage")
 );
 const PrivacyPolicyPage = React.lazy(() =>
-  import("@pages/MorePages/PrivacyPolicyPage/PrivacyPolicyPage")
+  import("@pages/morePages/PrivacyPolicyPage/PrivacyPolicyPage")
 );
 const TermsAndConditionsPage = React.lazy(() =>
-  import("@pages/MorePages/TermsAndConditionsPage/TermsAndConditionsPage")
+  import("@pages/morePages/TermsAndConditionsPage/TermsAndConditionsPage")
 );
 
 const AppRoutes = () => {
@@ -40,6 +41,7 @@ const AppRoutes = () => {
           path="/terms-and-conditions"
           element={<TermsAndConditionsPage />}
         />
+        <Route path="/admin" element={<AdminPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Suspense>
