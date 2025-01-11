@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React, { Suspense } from "react";
 import LoadingPage from "@pages/morePages/LoadingPage/LoadingPage";
 import AdminPage from "@pages/adminPages/AdminPage";
+import AdminSubmissionsPage from "@pages/adminPages/AdminSubmissionsPage/AdminSubmissionsPage";
 
 // Lazy-loaded components
 const HomePage = React.lazy(() => import("./pages/HomePage/HomePage"));
@@ -42,6 +43,10 @@ const AppRoutes = () => {
           element={<TermsAndConditionsPage />}
         />
         <Route path="/admin" element={<AdminPage />} />
+        <Route
+          path="/admin/submissions"
+          element={<AdminPage Page={AdminSubmissionsPage} />}
+        />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Suspense>
