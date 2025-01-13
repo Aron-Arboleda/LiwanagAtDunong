@@ -24,8 +24,6 @@
 //   }
 // };
 
-import { CONFIG } from "../config.js";
-
 export const fetchFacebookData = async () => {
   // const response = await fetch(
   //   "https://facebook-scraper3.p.rapidapi.com/page/details?url=https%3A%2F%2Fwww.facebook.com%2FLiwanagAtDunongProject",
@@ -163,7 +161,7 @@ export const updateFollowers = async () => {
     }
 
     const response = await fetch(
-      `${CONFIG.BACKEND_API}admin/update_all_followers_count.php`,
+      `http://liwanagatdunong.ct.ws/includes/admin/update_all_followers_count.php`,
       {
         method: "PUT", // Use PUT for updates
         headers: {
@@ -186,6 +184,6 @@ export const updateFollowers = async () => {
   }
 };
 
-await updateFollowers();
-// const facebookData = await fetchFacebookData();
-// console.log(facebookData?.followers);
+// await updateFollowers();
+// // const facebookData = await fetchFacebookData();
+// // console.log(facebookData?.followers);
