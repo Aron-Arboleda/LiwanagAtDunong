@@ -1,7 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import "./Sidebar.css";
 import { LDLogo } from "@images/Graphics/WEBSITE_Graphics/IconsAndVectors";
-import { FileSpreadsheet, House, LayoutDashboard, Menu } from "lucide-react";
+
+import FileSpreadsheet from "lucide-react/dist/esm/icons/file-spreadsheet";
+import House from "lucide-react/dist/esm/icons/house";
+import LayoutDashboard from "lucide-react/dist/esm/icons/layout-dashboard";
+import Menu from "lucide-react/dist/esm/icons/menu";
 
 const Sidebar = () => {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
