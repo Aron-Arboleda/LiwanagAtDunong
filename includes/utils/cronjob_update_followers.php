@@ -1,4 +1,5 @@
 <?php
+
 // Define the function to fetch Facebook data
 function fetchFacebookData() {
     $url = "https://api.apify.com/v2/datasets/IZwRHjih25iv2AymE/items?token=apify_api_kHxoLYM4jB4oX8x9vRLc5vrNodVDWa46dQgj";
@@ -116,12 +117,14 @@ function fetchYoutubeData() {
 // Update followers function
 function updateFollowers() {
     try {
+        // Fetch data from all APIs
         $facebookData = fetchFacebookData();
         $instagramData = fetchInstagramData();
         $twitterData = fetchTwitterData();
         $tiktokData = fetchTiktokData();
         $youtubeData = fetchYoutubeData();
 
+        // Prepare updates array
         $updates = [
             ['id' => 1, 'followers_count' => $facebookData['followers'] ?? null],
             ['id' => 2, 'followers_count' => $instagramData['follower_count'] ?? null],
@@ -130,6 +133,7 @@ function updateFollowers() {
             ['id' => 5, 'followers_count' => $youtubeData['subscriberCount'] ?? null],
         ];
 
+        // Validate followers data
         foreach ($updates as $update) {
             if (!$update['followers_count']) {
                 throw new Exception("Invalid followers count for id {$update['id']}");
@@ -149,23 +153,29 @@ function updateFollowers() {
         $context = stream_context_create($options);
         $response = file_get_contents($url, false, $context);
 
+        // Check if PUT request was successful
         if ($response === FALSE) {
             throw new Exception("Error updating the followers count");
         }
 
         $data = json_decode($response, true);
-        
+
+        // Return success message
         if (isset($data['message'])) {
             echo "Successfully updated the followers count in the database.";
             echo $data['message']; // Success message
+            exit(0); // Indicate success
         } else {
             echo "Error: " . $data['error'];
+            exit(1); // Indicate failure
         }
     } catch (Exception $e) {
+        // Catch any exceptions and return an error message
         echo "Fetch error: " . $e->getMessage();
+        exit(1); // Indicate failure
     }
 }
 
-// Call the function
+// Call the function to update followers
 updateFollowers();
 ?>
