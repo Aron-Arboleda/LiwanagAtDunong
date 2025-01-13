@@ -3,13 +3,7 @@ import FollowersCountCard from "../components/FollowersCountCard/FollowersCountC
 import { FaFacebook, FaInstagram, FaYoutube, FaTiktok } from "react-icons/fa";
 import { TbBrandX } from "react-icons/tb";
 import { CardGridLayout } from "@components/Layouts/Layouts";
-import {
-  fetchFacebookData,
-  fetchInstagramData,
-  fetchTiktokData,
-  fetchTwitterData,
-  fetchYoutubeData,
-} from "@utils/gettingFollowersCount";
+import { CONFIG } from "../../../config";
 
 const AdminHomePage = () => {
   const [data, setData] = useState({
@@ -21,43 +15,58 @@ const AdminHomePage = () => {
   });
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchFollowers = async () => {
       try {
-        const facebook = await fetchFacebookData();
-        const instagram = await fetchInstagramData();
-        const tiktok = await fetchTiktokData();
-        const twitter = await fetchTwitterData();
-        const youtube = await fetchYoutubeData();
-        console.log("Facebook:", facebook);
+        const response = await fetch(
+          `${CONFIG.BACKEND_API}admin/get_all_followers_count.php`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
 
-        setData({
-          facebook: {
-            followers: facebook?.followers || "N/A",
-            loading: false,
-          },
-          instagram: {
-            followers: instagram?.follower_count || "N/A",
-            loading: false,
-          },
-          tiktok: {
-            followers: tiktok?.stats?.followerCount || "N/A",
-            loading: false,
-          },
-          twitter: {
-            followers: twitter?.sub_count || "N/A",
-            loading: false,
-          },
-          youtube: {
-            followers: youtube?.subscriberCount || "N/A",
-            loading: false,
-          },
-        });
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        if (data.message === "Follower data retrieved successfully.") {
+          const socmedFollowersData = data.data;
+          setData({
+            facebook: {
+              followers: socmedFollowersData[0]?.followers_count || "N/A",
+              loading: false,
+            },
+            instagram: {
+              followers: socmedFollowersData[1]?.followers_count || "N/A",
+              loading: false,
+            },
+            tiktok: {
+              followers: socmedFollowersData[3]?.followers_count || "N/A",
+              loading: false,
+            },
+            twitter: {
+              followers: socmedFollowersData[2]?.followers_count || "N/A",
+              loading: false,
+            },
+            youtube: {
+              followers: socmedFollowersData[4]?.followers_count || "N/A",
+              loading: false,
+            },
+          });
+        } else {
+          console.error(data.message);
+        }
       } catch (error) {
-        console.error("Error fetching data:", error);
+        console.error("Error fetching followers:", error);
       }
     };
 
-    fetchData();
+    // Call the function
+    fetchFollowers();
   }, []);
 
   return (
