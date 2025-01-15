@@ -51,7 +51,7 @@ export const sections = [
           }
           return true;
         },
-        description: '(e.g "26/07/2000" for July 26, 2000)',
+        description: "Please enter your birthdate.",
       },
       {
         name: "email",
@@ -130,7 +130,7 @@ export const sections = [
         placeholder: "https://www.facebook.com/juandelacruz",
         pattern: {
           value:
-            /^(https?:\/\/)?(www\.)?(facebook|fb)\.com\/[A-Za-z0-9._%+-]+\/?$/,
+            /^(N\/A|https?:\/\/(www\.)?(facebook|fb)\.com\/[A-Za-z0-9._%+-]+\/?)$/,
           message:
             "Invalid Facebook/Messenger link. Please provide a valid URL.",
         },

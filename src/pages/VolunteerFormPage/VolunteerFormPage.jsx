@@ -33,6 +33,7 @@ const VolunteerFormPage = () => {
   const [submission, setSubmission] = useState({
     isSuccess: true,
     errorMessage: "",
+    errorError: "",
   });
   const [submissionMessageVisible, setSubmissionMessageVisible] =
     useState(false);
@@ -61,6 +62,7 @@ const VolunteerFormPage = () => {
         setSubmission({
           isSuccess: true,
           errorMessage: "",
+          errorError: "",
         });
         setSubmissionMessageVisible(true);
         return true;
@@ -69,6 +71,7 @@ const VolunteerFormPage = () => {
         setSubmission({
           isSuccess: false,
           errorMessage: result.message,
+          errorError: result.error,
         });
         setSubmissionMessageVisible(true);
         return false;
@@ -77,6 +80,7 @@ const VolunteerFormPage = () => {
       setSubmission({
         isSuccess: false,
         errorMessage: error.message,
+        errorError: error.error,
       });
       setSubmissionMessageVisible(true);
       return false;
@@ -269,9 +273,14 @@ const VolunteerFormPage = () => {
                     </p>
                   ) : (
                     <>
-                      <p className="pageParagP">
-                        Error: {submission.errorMessage}
-                      </p>
+                      <div>
+                        <p className="pageParagP">
+                          Message: {submission.errorMessage}
+                        </p>
+                        <p className="pageParagP">
+                          Error: {submission.errorError}
+                        </p>
+                      </div>
                       <p className="pageParagP">
                         Please refresh the page and try again or reach out to us
                         through our{" "}

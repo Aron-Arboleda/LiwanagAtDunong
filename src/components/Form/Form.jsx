@@ -100,11 +100,10 @@ const defaultValuesForTesting = {
     occupation: "Student",
     affiliation: "Tarlac Volunteer Group",
     facebook_link: "https://www.facebook.com/juandelacruz",
-    availability_date1: "2025-01-12", // Next available Sunday
-    availability_date2: "2025-01-19", // Optional 2nd Sunday
-    availability_date3: "2025-01-26", // Optional 3rd Sunday
-    questions:
-      "How can I contribute to the community activities more effectively?",
+    availability_date1: "2025-01-19", // Next available Sunday
+    availability_date2: "", // Optional 2nd Sunday
+    availability_date3: "", // Optional 3rd Sunday
+    questions: "",
   },
 };
 

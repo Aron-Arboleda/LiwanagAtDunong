@@ -4,6 +4,7 @@ import { FaFacebook, FaInstagram, FaYoutube, FaTiktok } from "react-icons/fa";
 import { TbBrandX } from "react-icons/tb";
 import { CardGridLayout } from "@components/Layouts/Layouts";
 import { CONFIG } from "../../../config";
+import { StandardChunkFiveSubTitleH4 } from "@components/PageTitles/PageTitles";
 
 const AdminHomePage = () => {
   const [data, setData] = useState({
@@ -72,7 +73,11 @@ const AdminHomePage = () => {
   return (
     <>
       <h1>Home</h1>
-      <CardGridLayout sizeOfCard="290px">
+      <StandardChunkFiveSubTitleH4
+        title="Social Media Followers Tracker"
+        style={{ color: "black", margin: "0" }}
+      />
+      <CardGridLayout sizeOfCard="290px" margin="1rem 0">
         <FollowersCountCard
           title="Facebook"
           count={
