@@ -5,10 +5,6 @@ import DataTable from "../components/DataTable/DataTable";
 
 const AdminSubmissionsPage = () => {
   const [tableData, setTableData] = useState([]);
-  const [archivedData, setArchivedData] = useState([]);
-  const [tarlacTeamData, setTarlacTeamData] = useState([]);
-  const [manilaTeamData, setManilaTeamData] = useState([]);
-
   // Define the columns manually
   const columns = [
     { label: "Complete Name", key: "complete_name" },
@@ -48,25 +44,8 @@ const AdminSubmissionsPage = () => {
 
         const data = await response.json();
         const records = data.records || [];
-        console.log("records", records);
 
-        // Filter the records based on the required conditions
-        const archived = records.filter((record) => record.is_archived === "1");
-        const notArchived = records.filter(
-          (record) => record.is_archived === "0"
-        );
-        const tarlacTeam = records.filter(
-          (record) => record.team === "team_tarlac"
-        );
-        const manilaTeam = records.filter(
-          (record) => record.team === "team_manila"
-        );
-
-        // Set the state for each filtered array
-        setArchivedData(archived);
-        setTarlacTeamData(tarlacTeam);
-        setManilaTeamData(manilaTeam);
-        setTableData(notArchived); // Initially showing non-archived records
+        setTableData(records);
       } catch (error) {
         console.error("Error fetching volunteer form submissions:", error);
       }
@@ -79,25 +58,11 @@ const AdminSubmissionsPage = () => {
     <>
       <h1>Submissions</h1>
       <StandardChunkFiveSubTitleH4
-        title="Volunteer Form Submissions"
+        title="Volunteer Form - All Submissions"
         style={{ color: "black", margin: "0" }}
       />
 
-      {/* DataTable for non-archived records */}
-      <h2>Non-Archived Submissions</h2>
       <DataTable data={tableData} columns={columns} />
-
-      {/* DataTable for archived records */}
-      <h2>Archived Submissions</h2>
-      <DataTable data={archivedData} columns={columns} />
-
-      {/* DataTable for Tarlac Team */}
-      <h2>Tarlac Team Submissions</h2>
-      <DataTable data={tarlacTeamData} columns={columns} />
-
-      {/* DataTable for Manila Team */}
-      <h2>Manila Team Submissions</h2>
-      <DataTable data={manilaTeamData} columns={columns} />
     </>
   );
 };

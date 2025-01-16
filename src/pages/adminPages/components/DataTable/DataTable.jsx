@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./DataTable.css";
 
 const DataTable = ({ data, columns }) => {
   const [searchValue, setSearchValue] = useState("");
@@ -35,27 +36,19 @@ const DataTable = ({ data, columns }) => {
   });
 
   return (
-    <div style={{ padding: "20px" }}>
+    <div className="dataTable">
       <input
         type="text"
         placeholder="Search"
         value={searchValue}
         onChange={handleFilterChange}
-        style={{ marginBottom: "10px", padding: "5px", width: "100%" }}
+        className="searchInput"
       />
-      <table style={{ width: "100%", borderCollapse: "collapse" }}>
+      <table className="adminTable">
         <thead>
           <tr>
             {columns.map((column) => (
-              <th
-                key={column.key}
-                onClick={() => handleSort(column.key)}
-                style={{
-                  cursor: "pointer",
-                  borderBottom: "2px solid #ddd",
-                  padding: "10px",
-                }}
-              >
+              <th key={column.key} onClick={() => handleSort(column.key)}>
                 {column.label}{" "}
                 {sortColumn === column.key &&
                   (sortDirection === "asc" ? "\u2191" : "\u2193")}
@@ -65,11 +58,9 @@ const DataTable = ({ data, columns }) => {
         </thead>
         <tbody>
           {sortedData.map((row, rowIndex) => (
-            <tr key={rowIndex} style={{ borderBottom: "1px solid #ddd" }}>
+            <tr key={rowIndex}>
               {columns.map((column) => (
-                <td key={column.key} style={{ padding: "10px" }}>
-                  {row[column.key]}
-                </td>
+                <td key={column.key}>{row[column.key]}</td>
               ))}
             </tr>
           ))}

@@ -54,20 +54,20 @@ a:active {
   min-width: 500px;
 }
 
-th {
+.pageTable th {
   background-color: var(--pallete-lightYellow);
   color: var(--pallete-black);
 }
-tr:nth-last-child(1) {
+.pageTable tr:nth-last-child(1) {
   font-weight: bold;
 }
 
-td:nth-child(1) {
+.pageTable td:nth-child(1) {
   background-color: #fff8d5;
 }
 
-td:nth-child(n + 2),
-th:nth-child(n + 2) {
+.pageTable td:nth-child(n + 2),
+.pageTable th:nth-child(n + 2) {
   text-align: center;
 }
 
