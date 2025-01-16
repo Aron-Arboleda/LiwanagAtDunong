@@ -3,6 +3,79 @@ import { useEffect, useState } from "react";
 import { CONFIG } from "../../../config";
 import DataTable from "../components/DataTable/DataTable";
 
+const deleteRecord = async (recordId) => {
+  try {
+    const response = await fetch(
+      `${CONFIG.BACKEND_API}volunteer_form_submissions/delete.php`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: `id=${recordId}`,
+      }
+    );
+
+    const data = await response.json();
+    if (response.ok) {
+      console.log(data.message); // Success message
+    } else {
+      console.error(data.message); // Error message
+    }
+  } catch (error) {
+    console.error("Error:", error);
+  }
+};
+
+const updateRecord = async (recordId, column, newValue) => {
+  try {
+    const response = await fetch(
+      `${CONFIG.BACKEND_API}volunteer_form_submissions/update.php`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: `id=${recordId}&column=${column}&value=${newValue}`,
+      }
+    );
+
+    const data = await response.json();
+    if (response.ok) {
+      console.log(data.message); // Success message
+    } else {
+      console.error(data.message); // Error message
+    }
+  } catch (error) {
+    console.error("Error:", error);
+  }
+};
+
+const fetchFormSubmissions = async (setTableData) => {
+  try {
+    const response = await fetch(
+      `${CONFIG.BACKEND_API}volunteer_form_submissions/read.php`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    const records = data.records || [];
+
+    setTableData(records);
+  } catch (error) {
+    console.error("Error fetching volunteer form submissions:", error);
+  }
+};
+
 const AdminSubmissionsPage = () => {
   const [tableData, setTableData] = useState([]);
   // Define the columns manually
@@ -26,32 +99,7 @@ const AdminSubmissionsPage = () => {
   ];
 
   useEffect(() => {
-    const fetchFormSubmissions = async () => {
-      try {
-        const response = await fetch(
-          `${CONFIG.BACKEND_API}volunteer_form_submissions/read.php`,
-          {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
-
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        const data = await response.json();
-        const records = data.records || [];
-
-        setTableData(records);
-      } catch (error) {
-        console.error("Error fetching volunteer form submissions:", error);
-      }
-    };
-
-    fetchFormSubmissions();
+    fetchFormSubmissions(setTableData);
   }, []);
 
   return (
@@ -62,7 +110,12 @@ const AdminSubmissionsPage = () => {
         style={{ color: "black", margin: "0" }}
       />
 
-      <DataTable data={tableData} columns={columns} />
+      <DataTable
+        data={tableData}
+        columns={columns}
+        // deleteRowApi={deleteRecord}
+        // updateRowApi={updateRecord}
+      />
     </>
   );
 };
