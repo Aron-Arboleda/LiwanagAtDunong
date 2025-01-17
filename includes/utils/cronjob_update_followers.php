@@ -1,22 +1,40 @@
 <?php
 
-// Define the function to fetch Facebook data
+// function fetchFacebookData() {
+//     $url = "https://api.apify.com/v2/datasets/IZwRHjih25iv2AymE/items?token=apify_api_kHxoLYM4jB4oX8x9vRLc5vrNodVDWa46dQgj";
+    
+//     $response = file_get_contents($url);
+    
+//     if ($response === FALSE) {
+//         throw new Exception("Failed fetching the Facebook API followers count");
+//     }
+
+//     $data = json_decode($response, true);
+//     return $data[0]; // Returning the fetched data
+// }
+
 function fetchFacebookData() {
     $url = "https://api.apify.com/v2/datasets/IZwRHjih25iv2AymE/items?token=apify_api_kHxoLYM4jB4oX8x9vRLc5vrNodVDWa46dQgj";
-    
-    $response = file_get_contents($url);
-    
-    if ($response === FALSE) {
-        throw new Exception("Failed fetching the Facebook API followers count");
+
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // Disable SSL verification (use only if necessary)
+
+    $response = curl_exec($ch);
+    if ($response === false) {
+        throw new Exception("cURL Error: " . curl_error($ch));
     }
 
+    curl_close($ch);
     $data = json_decode($response, true);
-    return $data[0]; // Returning the fetched data
+    return $data[0] ?? null; // Return fetched data or null if empty
 }
+
 
 // Define the function to fetch Instagram data
 function fetchInstagramData() {
-    $url = "https://instagram-scraper-api2.p.rapidapi.com/v1/info?username_or_id_or_url=https%3A%2F%2Fwww.instagram.com%2Fliwanagatdunong";
+    $url = "https://instagram-scraper-api2.p.rapidapi.com/v1/info?username_or_id_or_url=liwanagatdunong";
     $headers = [
         "x-rapidapi-key: a77516da66msh527c0a3be893d86p154fbbjsn2b4681c7a26a",
         "x-rapidapi-host: instagram-scraper-api2.p.rapidapi.com"
@@ -141,7 +159,9 @@ function updateFollowers() {
         }
 
         // Prepare data for PUT request
+
         $url = "http://liwanagatdunong.ct.ws/includes/admin/update_all_followers_count.php";
+        // $url = "http://localhost/liwanagatdunong/includes/admin/update_all_followers_count.php";
         $options = [
             "http" => [
                 "header" => "Content-Type: application/json\r\n",
@@ -159,6 +179,7 @@ function updateFollowers() {
         }
 
         $data = json_decode($response, true);
+        echo $data;
 
         // Return success message
         if (isset($data['message'])) {
