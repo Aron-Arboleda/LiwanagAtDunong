@@ -24,8 +24,7 @@ const Sidebar = () => {
 
     const handleClickOutside = (event) => {
       if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
-        setIsMenuOpen(false); // Close sidebar if clicked outside
-        console.log("Clicked outside");
+        setIsMenuOpen(false);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);

@@ -2,11 +2,16 @@ import React, { useState } from "react";
 import "./DataTable.css";
 import { checkNull } from "@utils/functions";
 import Search from "lucide-react/dist/esm/icons/search";
+import Checkbox from "@mui/material/Checkbox/Checkbox";
+import { StandardButton } from "@components/Buttons/Buttons";
+import Trash2 from "lucide-react/dist/esm/icons/trash-2";
+import Pencil from "lucide-react/dist/esm/icons/pencil";
 
-const DataTable = ({ data, columns }) => {
+const DataTable = ({ data, columns, onDelete, onEdit }) => {
   const [searchValue, setSearchValue] = useState("");
   const [sortColumn, setSortColumn] = useState(null);
   const [sortDirection, setSortDirection] = useState("asc");
+  const [selectedRows, setSelectedRows] = useState([]);
 
   const handleFilterChange = (e) => {
     setSearchValue(e.target.value.toLowerCase());
@@ -21,11 +26,30 @@ const DataTable = ({ data, columns }) => {
     }
   };
 
+  const handleRowSelect = (rowId) => {
+    setSelectedRows((prevSelected) =>
+      prevSelected.includes(rowId)
+        ? prevSelected.filter((id) => id !== rowId)
+        : [...prevSelected, rowId]
+    );
+  };
+
+  const handleDeleteSelected = () => {
+    console.log(selectedRows);
+    //setSelectedRows([]);
+  };
+
+  const handleEditSelected = () => {
+    // if (selectedRows.length === 1) {
+    //   onEdit(selectedRows[0]);
+    // }
+    console.log(selectedRows[0]);
+  };
+
   const formatDate = (value) => {
     const filteredValue = checkNull(value);
     if (filteredValue === "--") return filteredValue;
 
-    // Check if the value is a date-only string (YYYY-MM-DD format)
     const dateOnlyRegex = /^\d{4}-\d{2}-\d{2}$/;
     if (typeof value === "string" && dateOnlyRegex.test(value)) {
       const date = new Date(value);
@@ -35,7 +59,6 @@ const DataTable = ({ data, columns }) => {
         : new Intl.DateTimeFormat("en-US", options).format(date);
     }
 
-    // Parse and format full date-time values
     const date = new Date(value);
     const options = {
       year: "numeric",
@@ -63,12 +86,12 @@ const DataTable = ({ data, columns }) => {
 
     if (aValue < bValue) return sortDirection === "asc" ? -1 : 1;
     if (aValue > bValue) return sortDirection === "asc" ? 1 : -1;
+
     return 0;
   });
 
   return (
     <div className="dataTable">
-      {/* Search Input with Button */}
       <div className="searchContainer">
         <input
           type="text"
@@ -86,7 +109,7 @@ const DataTable = ({ data, columns }) => {
             cursor: "pointer",
           }}
         >
-          <Search size={20} style={{ paddingBottom: "9px" }} />
+          <Search size={20} style={{ paddingTop: "5px" }} />
         </span>
       </div>
 
@@ -94,6 +117,23 @@ const DataTable = ({ data, columns }) => {
         <table className="adminTable">
           <thead>
             <tr>
+              <th>
+                <Checkbox
+                  onChange={(e) =>
+                    setSelectedRows(
+                      e.target.checked
+                        ? sortedData.map(
+                            (row) => row.volunteer_form_submission_id
+                          )
+                        : []
+                    )
+                  }
+                  checked={
+                    selectedRows.length > 0 &&
+                    selectedRows.length === sortedData.length
+                  }
+                />
+              </th>
               {columns.map((column) => (
                 <th key={column.key} onClick={() => handleSort(column.key)}>
                   {column.label}{" "}
@@ -105,10 +145,28 @@ const DataTable = ({ data, columns }) => {
           </thead>
           <tbody>
             {sortedData.map((row, rowIndex) => (
-              <tr key={rowIndex}>
+              <tr
+                key={rowIndex}
+                style={{
+                  backgroundColor: selectedRows.includes(
+                    row.volunteer_form_submission_id
+                  )
+                    ? "lightblue"
+                    : "",
+                }}
+              >
+                <td>
+                  <Checkbox
+                    checked={selectedRows.includes(
+                      row.volunteer_form_submission_id
+                    )}
+                    onChange={() =>
+                      handleRowSelect(row.volunteer_form_submission_id)
+                    }
+                  />
+                </td>
                 {columns.map((column) => (
                   <td key={column.key}>
-                    {/* Check if the value is a date and format it */}
                     {column.format === "date" || column.format === "datetime"
                       ? formatDate(row[column.key])
                       : checkNull(row[column.key])}
@@ -119,6 +177,27 @@ const DataTable = ({ data, columns }) => {
           </tbody>
         </table>
       </div>
+
+      {selectedRows.length > 0 && (
+        <div className="actionButtons">
+          <StandardButton
+            buttonText="Delete"
+            onClick={handleDeleteSelected}
+            variant="critical"
+            Icon={Trash2}
+          />
+          {/* <button className="deleteButton" onClick={handleDeleteSelected}>
+            Delete Selected
+          </button> */}
+          {selectedRows.length === 1 && (
+            <StandardButton
+              buttonText="Edit"
+              onClick={handleEditSelected}
+              Icon={Pencil}
+            />
+          )}
+        </div>
+      )}
     </div>
   );
 };

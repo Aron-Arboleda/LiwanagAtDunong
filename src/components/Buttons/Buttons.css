@@ -1,0 +1,23 @@
+.standardButton {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 13px 5px 10px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: "Montserrat";
+  border: 1px solid black;
+  background-color: white;
+}
+
+.normalButton:hover {
+  background-color: var(--pallete-lightYellow);
+}
+
+.criticalButton:hover {
+  background-color: var(--pallete-redOrangeBackgroundColor);
+  color: var(--pallete-brightWhite);
+}
