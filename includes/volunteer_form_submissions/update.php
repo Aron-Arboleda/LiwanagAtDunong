@@ -1,47 +1,46 @@
 <?php
-// Include the database connection
-include '../config.php';
+include '../config.php'; // Include database connection
 
-// Error handling
+// Enable error reporting for debugging
 ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-// Check if the request method is POST (for updating records)
+// Check if request method is POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Get POST data
-    $submissionId = $_POST['id'] ?? null;
-    $column = $_POST['column'] ?? null;
-    $newValue = $_POST['value'] ?? null;
+    $data = json_decode(file_get_contents('php://input'), true);
 
-    // Validate input
-    if (is_null($submissionId) || is_null($column) || is_null($newValue)) {
+    // Ensure required parameters exist
+    if (!isset($data['id']) || empty($data['updates']) || !is_array($data['updates'])) {
         http_response_code(400);
-        echo json_encode(["message" => "Missing required parameters."]);
+        echo json_encode(["message" => "Invalid request data."]);
         exit;
     }
 
-    // Update query
-    $updateSql = "UPDATE volunteer_form_submissions SET $column = ? WHERE volunteer_form_submission_id = ?";
-    if ($stmt = $conn->prepare($updateSql)) {
-        $stmt->bind_param('si', $newValue, $submissionId);
-        if ($stmt->execute()) {
-            echo json_encode(["message" => "Record updated successfully."]);
-        } else {
-            http_response_code(500);
-            echo json_encode(["message" => "Error updating record."]);
-        }
+    $submissionId = $data['id'];
+    $updates = $data['updates'];
+
+    // Build SQL query dynamically
+    $columns = array_keys($updates);
+    $placeholders = implode(" = ?, ", $columns) . " = ?";
+    $values = array_values($updates);
+    $values[] = $submissionId; // Append ID at the end
+
+    $sql = "UPDATE volunteer_form_submissions SET $placeholders WHERE volunteer_form_submission_id = ?";
+
+    $stmt = $conn->prepare($sql);
+    if ($stmt) {
+        $stmt->bind_param(str_repeat('s', count($updates)) . 'i', ...$values);
+        $stmt->execute();
+        echo json_encode(["message" => "Record updated successfully."]);
         $stmt->close();
     } else {
         http_response_code(500);
         echo json_encode(["message" => "Failed to prepare statement."]);
     }
 } else {
-    // Method not allowed
     http_response_code(405);
-    echo json_encode(["message" => "Invalid request method. Use POST for updating."]);
+    echo json_encode(["message" => "Invalid request method."]);
 }
 
-// Close the database connection
 $conn->close();
 ?>

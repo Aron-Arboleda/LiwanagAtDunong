@@ -27,6 +27,10 @@ export const CardLargeContainer = ({ children }) => {
   return <div className="cardlargecontainer">{children}</div>;
 };
 
-export const DarkBackgroundContainer = ({ children }) => {
-  return <div className="darkbackgroundcontainer">{children}</div>;
+export const DarkBackgroundContainer = ({ children, style }) => {
+  return (
+    <div className="darkbackgroundcontainer" style={style}>
+      {children}
+    </div>
+  );
 };

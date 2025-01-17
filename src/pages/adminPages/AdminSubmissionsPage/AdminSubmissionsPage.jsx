@@ -1,5 +1,4 @@
 import { StandardChunkFiveSubTitleH4 } from "@components/PageTitles/PageTitles";
-import { useEffect, useState } from "react";
 import { CONFIG } from "../../../config";
 import DataTable from "../components/DataTable/DataTable";
 
@@ -16,7 +15,6 @@ const deleteRecords = async (recordIds) => {
         body: JSON.stringify({ ids: recordIds }),
       }
     );
-    console.log("Response:", response);
 
     const data = await response.json();
     if (response.ok) {
@@ -29,27 +27,34 @@ const deleteRecords = async (recordIds) => {
   }
 };
 
-const updateRecord = async (recordId, column, newValue) => {
+const updateRecord = async (editId, updates) => {
   try {
+    const requestData = {
+      id: editId, // Match PHP's expected "id"
+      updates: updates, // Ensure updates is an object with column-value pairs
+    };
+
+    console.log("Sending update request:", requestData);
+
     const response = await fetch(
       `${CONFIG.BACKEND_API}volunteer_form_submissions/update.php`,
       {
         method: "POST",
         headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
+          "Content-Type": "application/json",
         },
-        body: `id=${recordId}&column=${column}&value=${newValue}`,
+        body: JSON.stringify(requestData), // Convert to JSON format
       }
     );
 
-    const data = await response.json();
+    const responseData = await response.json();
     if (response.ok) {
-      console.log(data.message); // Success message
+      console.log("Success:", responseData.message); // Success message
     } else {
-      console.error(data.message); // Error message
+      console.error("Error:", responseData.message); // Error message
     }
   } catch (error) {
-    console.error("Error:", error);
+    console.error("updateRecord error:", error);
   }
 };
 
@@ -79,7 +84,6 @@ const fetchFormSubmissions = async () => {
 };
 
 const AdminSubmissionsPage = () => {
-  const [tableData, setTableData] = useState([]);
   // Define the columns manually
   const columns = [
     { label: "Complete Name", key: "complete_name" },
@@ -112,8 +116,7 @@ const AdminSubmissionsPage = () => {
         fetchData={fetchFormSubmissions}
         columns={columns}
         onDelete={deleteRecords}
-        // deleteRowApi={deleteRecord}
-        // updateRowApi={updateRecord}
+        onEdit={updateRecord}
       />
     </>
   );

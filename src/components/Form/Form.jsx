@@ -107,13 +107,20 @@ const defaultValuesForTesting = {
   },
 };
 
-const Form = ({ sections, disclaimerText, children, formSubmit }) => {
+const Form = ({
+  sections,
+  disclaimerText,
+  children,
+  formSubmit,
+  defaultValues,
+  editId,
+}) => {
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm(defaultValuesForTesting);
+  } = useForm(defaultValues ? defaultValues : {}); // defaultValues
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   // Submit handler
@@ -123,7 +130,9 @@ const Form = ({ sections, disclaimerText, children, formSubmit }) => {
     console.log(data);
 
     try {
-      const success = await formSubmit(data);
+      const success = editId
+        ? await formSubmit(editId, data)
+        : await formSubmit(data);
       if (success) {
         reset();
       }
@@ -225,8 +234,13 @@ const Form = ({ sections, disclaimerText, children, formSubmit }) => {
                         labelId="demo-simple-select-helper-label"
                         id="demo-simple-select-helper"
                         fullWidth
-                        defaultValue=""
+                        //defaultValue=""
                         //defaultValue={field.options[0].value || ""}
+                        defaultValue={
+                          defaultValues
+                            ? defaultValues.defaultValues[field.name]
+                            : ""
+                        }
                         {...register(field.name, {
                           required: field.required
                             ? `${field.label} is required`
