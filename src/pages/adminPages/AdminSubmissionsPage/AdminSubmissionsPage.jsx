@@ -58,6 +58,30 @@ const updateRecord = async (editId, updates) => {
   }
 };
 
+const createRecord = async (data) => {
+  try {
+    const response = await fetch(
+      `${CONFIG.BACKEND_API}volunteer_form_submissions/create.php`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    );
+
+    const responseData = await response.json();
+    if (response.ok) {
+      console.log("Success:", responseData.message); // Success message
+    } else {
+      console.error("Error:", responseData.message); // Error message
+    }
+  } catch (error) {
+    console.error("updateRecord error:", error);
+  }
+};
+
 const fetchFormSubmissions = async () => {
   try {
     const response = await fetch(
@@ -117,6 +141,7 @@ const AdminSubmissionsPage = () => {
         columns={columns}
         onDelete={deleteRecords}
         onEdit={updateRecord}
+        onCreate={createRecord}
       />
     </>
   );

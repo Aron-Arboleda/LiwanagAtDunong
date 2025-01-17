@@ -11,14 +11,16 @@ import { CartoonyContainer } from "@components/CardContainers/CardContainers";
 import Form from "@components/Form/Form";
 import { sections } from "@pages/VolunteerFormPage/sections";
 import XButton from "@components/CustomComponents/CustomComponents";
+import Plus from "lucide-react/dist/esm/icons/plus";
 
-const DataTable = ({ fetchData, columns, onDelete, onEdit }) => {
+const DataTable = ({ fetchData, columns, onDelete, onEdit, onCreate }) => {
   const [data, setData] = useState([]);
   const [searchValue, setSearchValue] = useState("");
   const [sortColumn, setSortColumn] = useState(null);
   const [sortDirection, setSortDirection] = useState("asc");
   const [selectedRows, setSelectedRows] = useState([]);
   const [editPanel, setEditPanel] = useState(false);
+  const [editing, setEditing] = useState(false);
 
   const handleClose = () => {
     setEditPanel(false);
@@ -58,6 +60,7 @@ const DataTable = ({ fetchData, columns, onDelete, onEdit }) => {
 
   const handleEditSelected = () => {
     if (selectedRows.length === 1) {
+      setEditing(true);
       setEditPanel(true);
     }
     console.log(selectedRows[0]);
@@ -123,6 +126,18 @@ const DataTable = ({ fetchData, columns, onDelete, onEdit }) => {
     };
 
     return valuesToEdit;
+  };
+
+  const handleAddNewSubmission = () => {
+    setEditing(false);
+    setEditPanel(true);
+  };
+
+  const createFormSubmit = (formData) => {
+    onCreate(formData).then(() => {
+      refreshData();
+      setEditPanel(false);
+    });
   };
 
   useEffect(() => {
@@ -225,6 +240,20 @@ const DataTable = ({ fetchData, columns, onDelete, onEdit }) => {
                 ))}
               </tr>
             ))}
+            <tr>
+              <td
+                colSpan={data[0] ? Object.keys(data[0]).length : 1}
+                onClick={handleAddNewSubmission}
+              >
+                <div>
+                  <Plus
+                    size={20}
+                    style={{ marginRight: "5px", cursor: "pointer" }}
+                  />
+                  Add new submission
+                </div>
+              </td>
+            </tr>
           </tbody>
         </table>
       </div>
@@ -267,9 +296,13 @@ const DataTable = ({ fetchData, columns, onDelete, onEdit }) => {
 
               <Form
                 sections={sections}
-                disclaimerText="Please fill out the form below to edit the selected submission."
-                formSubmit={editFormSubmit}
-                defaultValues={getValuesToEdit()}
+                disclaimerText={
+                  editing
+                    ? "Please fill out the form below to edit the selected submission."
+                    : "Please fill out the form below to add a new submission."
+                }
+                formSubmit={editing ? editFormSubmit : createFormSubmit}
+                defaultValues={editing ? getValuesToEdit() : null}
               />
             </CartoonyContainer>
           </div>

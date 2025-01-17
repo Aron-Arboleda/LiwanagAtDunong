@@ -43,7 +43,17 @@
 }
 
 .adminTable tr:nth-last-child(1) {
-  border-bottom: 2px solid rgb(125, 87, 46);
+  border-top: 2px solid rgb(125, 87, 46);
+}
+
+.adminTable tr:nth-last-child(1) td div {
+  display: flex;
+  align-items: center;
+  gap: 2.4rem;
+  column-span: all;
+
+  padding: 10px 10px 10px 11px;
+  cursor: pointer;
 }
 
 .adminTable td:hover {
