@@ -9,25 +9,31 @@ error_reporting(E_ALL);
 
 // Check if the request method is POST (for deleting records)
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Get POST data
-    $submissionId = $_POST['id'] ?? null;
+    // Get POST data and decode JSON
+    $data = json_decode(file_get_contents('php://input'), true);
+    $submissionIds = $data['ids'] ?? [];
 
     // Validate input
-    if (is_null($submissionId)) {
+    if (empty($submissionIds) || !is_array($submissionIds)) {
         http_response_code(400);
-        echo json_encode(["message" => "Missing required parameters."]);
+        echo json_encode(["message" => "Invalid or missing required parameters."]);
         exit;
     }
 
-    // Delete query
-    $deleteSql = "DELETE FROM volunteer_form_submissions WHERE volunteer_form_submission_id = ?";
+    // Create placeholders for prepared statement
+    $placeholders = implode(',', array_fill(0, count($submissionIds), '?'));
+    $deleteSql = "DELETE FROM volunteer_form_submissions WHERE volunteer_form_submission_id IN ($placeholders)";
+
     if ($stmt = $conn->prepare($deleteSql)) {
-        $stmt->bind_param('i', $submissionId);
+        // Bind parameters dynamically
+        $types = str_repeat('i', count($submissionIds)); // 'i' for integer
+        $stmt->bind_param($types, ...$submissionIds);
+
         if ($stmt->execute()) {
-            echo json_encode(["message" => "Record deleted successfully."]);
+            echo json_encode(["message" => "Records deleted successfully."]);
         } else {
             http_response_code(500);
-            echo json_encode(["message" => "Error deleting record."]);
+            echo json_encode(["message" => "Error deleting records."]);
         }
         $stmt->close();
     } else {

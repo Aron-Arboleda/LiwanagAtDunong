@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./DataTable.css";
 import { checkNull } from "@utils/functions";
 import Search from "lucide-react/dist/esm/icons/search";
@@ -7,11 +7,20 @@ import { StandardButton } from "@components/Buttons/Buttons";
 import Trash2 from "lucide-react/dist/esm/icons/trash-2";
 import Pencil from "lucide-react/dist/esm/icons/pencil";
 
-const DataTable = ({ data, columns, onDelete, onEdit }) => {
+const DataTable = ({ fetchData, columns, onDelete, onEdit }) => {
+  const [data, setData] = useState([]);
   const [searchValue, setSearchValue] = useState("");
   const [sortColumn, setSortColumn] = useState(null);
   const [sortDirection, setSortDirection] = useState("asc");
   const [selectedRows, setSelectedRows] = useState([]);
+
+  const refreshData = () => {
+    fetchData().then((data) => setData(data));
+  };
+
+  useEffect(() => {
+    refreshData();
+  });
 
   const handleFilterChange = (e) => {
     setSearchValue(e.target.value.toLowerCase());
@@ -35,8 +44,10 @@ const DataTable = ({ data, columns, onDelete, onEdit }) => {
   };
 
   const handleDeleteSelected = () => {
-    console.log(selectedRows);
-    //setSelectedRows([]);
+    onDelete(selectedRows.map((x) => parseInt(x))).then(
+      setSelectedRows([]),
+      refreshData()
+    );
   };
 
   const handleEditSelected = () => {
@@ -89,6 +100,20 @@ const DataTable = ({ data, columns, onDelete, onEdit }) => {
 
     return 0;
   });
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === "Delete" && selectedRows.length > 0) {
+        handleDeleteSelected();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [selectedRows]);
 
   return (
     <div className="dataTable">

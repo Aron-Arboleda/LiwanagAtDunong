@@ -3,8 +3,9 @@ import { useEffect, useState } from "react";
 import { CONFIG } from "../../../config";
 import DataTable from "../components/DataTable/DataTable";
 
-const deleteRecord = async (recordId) => {
+const deleteRecords = async (recordIds) => {
   try {
+    console.log("Deleting records with IDs:", recordIds);
     const response = await fetch(
       `${CONFIG.BACKEND_API}volunteer_form_submissions/delete.php`,
       {
@@ -12,9 +13,10 @@ const deleteRecord = async (recordId) => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: `id=${recordId}`,
+        body: JSON.stringify({ ids: recordIds }),
       }
     );
+    console.log("Response:", response);
 
     const data = await response.json();
     if (response.ok) {
@@ -23,7 +25,7 @@ const deleteRecord = async (recordId) => {
       console.error(data.message); // Error message
     }
   } catch (error) {
-    console.error("Error:", error);
+    console.error("deleteRecords error:", error);
   }
 };
 
@@ -51,7 +53,7 @@ const updateRecord = async (recordId, column, newValue) => {
   }
 };
 
-const fetchFormSubmissions = async (setTableData) => {
+const fetchFormSubmissions = async () => {
   try {
     const response = await fetch(
       `${CONFIG.BACKEND_API}volunteer_form_submissions/read.php`,
@@ -70,7 +72,7 @@ const fetchFormSubmissions = async (setTableData) => {
     const data = await response.json();
     const records = data.records || [];
 
-    setTableData(records);
+    return records;
   } catch (error) {
     console.error("Error fetching volunteer form submissions:", error);
   }
@@ -98,10 +100,6 @@ const AdminSubmissionsPage = () => {
     { label: "Submitted At", key: "submitted_at", format: "datetime" },
   ];
 
-  useEffect(() => {
-    fetchFormSubmissions(setTableData);
-  }, []);
-
   return (
     <>
       <h1>Submissions</h1>
@@ -111,8 +109,9 @@ const AdminSubmissionsPage = () => {
       />
 
       <DataTable
-        data={tableData}
+        fetchData={fetchFormSubmissions}
         columns={columns}
+        onDelete={deleteRecords}
         // deleteRowApi={deleteRecord}
         // updateRowApi={updateRecord}
       />
