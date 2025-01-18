@@ -1,6 +1,7 @@
 import { StandardChunkFiveSubTitleH4 } from "@components/PageTitles/PageTitles";
 import DataTable from "../components/DataTable/DataTable";
 import {
+  archiveRecords,
   columns,
   createRecord,
   deleteRecords,
@@ -18,11 +19,14 @@ const AdminSubmissionsPage = () => {
       />
 
       <DataTable
-        fetchData={fetchLatestSubmissions}
         columns={columns}
-        onDelete={deleteRecords}
-        onEdit={updateRecord}
-        onCreate={createRecord}
+        controllers={{
+          fetchData: fetchLatestSubmissions,
+          onCreate: createRecord,
+          onUpdate: updateRecord,
+          onDelete: deleteRecords,
+          onArchive: archiveRecords,
+        }}
       />
     </>
   );

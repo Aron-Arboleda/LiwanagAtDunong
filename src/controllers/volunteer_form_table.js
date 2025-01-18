@@ -1,8 +1,55 @@
 import { CONFIG } from "./config";
 
+export const archiveRecords = async (recordIds) => {
+  try {
+    const response = await fetch(
+      `${CONFIG.BACKEND_API}volunteer_form_submissions/archive.php`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ ids: recordIds }),
+      }
+    );
+
+    const data = await response.json();
+    if (response.ok) {
+      console.log(data.message); // Success message
+    } else {
+      console.error(data.message); // Error message
+    }
+  } catch (error) {
+    console.error("archiving records error:", error);
+  }
+};
+
+export const unarchiveRecords = async (recordIds) => {
+  try {
+    const response = await fetch(
+      `${CONFIG.BACKEND_API}volunteer_form_submissions/unarchive.php`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ ids: recordIds }),
+      }
+    );
+
+    const data = await response.json();
+    if (response.ok) {
+      console.log(data.message); // Success message
+    } else {
+      console.error(data.message); // Error message
+    }
+  } catch (error) {
+    console.error("unarchiving records error:", error);
+  }
+};
+
 export const deleteRecords = async (recordIds) => {
   try {
-    console.log("Deleting records with IDs:", recordIds);
     const response = await fetch(
       `${CONFIG.BACKEND_API}volunteer_form_submissions/delete.php`,
       {

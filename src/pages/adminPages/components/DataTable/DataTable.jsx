@@ -13,6 +13,8 @@ import { sections } from "@pages/VolunteerFormPage/sections";
 import XButton from "@components/CustomComponents/CustomComponents";
 import Plus from "lucide-react/dist/esm/icons/plus";
 import { toast, ToastContainer } from "react-toastify";
+import Archive from "lucide-react/dist/esm/icons/archive";
+import Unarchive from "lucide-react/dist/esm/icons/archive-restore";
 
 const showActionDoneMessage = (message) => {
   toast.success(message, {
@@ -24,7 +26,29 @@ const showActionDoneMessage = (message) => {
   });
 };
 
-const DataTable = ({ fetchData, columns, onDelete, onEdit, onCreate }) => {
+const defaultToggles = {
+  archive: true,
+  unarchive: false,
+  delete: true,
+  edit: true,
+  create: true,
+  newSubmission: true,
+};
+
+const defaultControllers = {
+  fetchData: () => {},
+  onDelete: () => {},
+  onEdit: () => {},
+  onCreate: () => {},
+  onArchive: () => {},
+  onUnarchive: () => {},
+};
+
+const DataTable = ({
+  columns,
+  toggles = defaultToggles,
+  controllers = defaultControllers,
+}) => {
   const [data, setData] = useState([]);
   const [searchValue, setSearchValue] = useState("");
   const [sortColumn, setSortColumn] = useState(null);
@@ -38,7 +62,7 @@ const DataTable = ({ fetchData, columns, onDelete, onEdit, onCreate }) => {
   };
 
   const refreshData = () => {
-    fetchData().then((data) => setData(data));
+    controllers.fetchData().then((data) => setData(data));
   };
 
   const handleFilterChange = (e) => {
@@ -68,12 +92,34 @@ const DataTable = ({ fetchData, columns, onDelete, onEdit, onCreate }) => {
     )[prop];
   };
 
+  const handleArchiveSelected = () => {
+    controllers
+      .onArchive(selectedRows.map((x) => parseInt(x)))
+      .then(
+        setSelectedRows([]),
+        refreshData(),
+        showActionDoneMessage("Successfully archived selected submissions.")
+      );
+  };
+
+  const handleUnarchiveSelected = () => {
+    controllers
+      .onUnarchive(selectedRows.map((x) => parseInt(x)))
+      .then(
+        setSelectedRows([]),
+        refreshData(),
+        showActionDoneMessage("Successfully unarchived selected submissions.")
+      );
+  };
+
   const handleDeleteSelected = () => {
-    onDelete(selectedRows.map((x) => parseInt(x))).then(
-      setSelectedRows([]),
-      refreshData(),
-      showActionDoneMessage("Successfully deleted selected submissions.")
-    );
+    controllers
+      .onDelete(selectedRows.map((x) => parseInt(x)))
+      .then(
+        setSelectedRows([]),
+        refreshData(),
+        showActionDoneMessage("Successfully deleted selected submissions.")
+      );
   };
 
   const handleEditSelected = () => {
@@ -85,7 +131,7 @@ const DataTable = ({ fetchData, columns, onDelete, onEdit, onCreate }) => {
 
   const editFormSubmit = (formData) => {
     const savedDataID = selectedRows[0];
-    onEdit(selectedRows[0], formData).then(() => {
+    controllers.onEdit(selectedRows[0], formData).then(() => {
       refreshData();
       setEditPanel(false);
       showActionDoneMessage(
@@ -158,7 +204,7 @@ const DataTable = ({ fetchData, columns, onDelete, onEdit, onCreate }) => {
   };
 
   const createFormSubmit = (formData) => {
-    onCreate(formData).then(() => {
+    controllers.onCreate(formData).then(() => {
       refreshData();
       setEditPanel(false);
       showActionDoneMessage(
@@ -267,33 +313,63 @@ const DataTable = ({ fetchData, columns, onDelete, onEdit, onCreate }) => {
                 ))}
               </tr>
             ))}
-            <tr>
-              <td colSpan={columns.length + 1} onClick={handleAddNewSubmission}>
-                <div>
-                  <Plus
-                    size={20}
-                    style={{ marginRight: "5px", cursor: "pointer" }}
-                  />
-                  Add new submission
-                </div>
-              </td>
-            </tr>
+
+            {toggles.newSubmission && (
+              <tr>
+                <td
+                  colSpan={columns.length + 1}
+                  onClick={handleAddNewSubmission}
+                >
+                  <div>
+                    <Plus
+                      size={20}
+                      style={{ marginRight: "5px", cursor: "pointer" }}
+                    />
+                    Add new submission
+                  </div>
+                </td>
+              </tr>
+            )}
+
+            {sortedData.length === 0 && (
+              <tr>
+                <td colSpan={columns.length + 1}>
+                  <div style={{ cursor: "default" }}>No data found.</div>
+                </td>
+              </tr>
+            )}
           </tbody>
         </table>
       </div>
 
       {selectedRows.length > 0 && (
         <div className="actionButtons">
-          <StandardButton
-            buttonText="Delete"
-            onClick={handleDeleteSelected}
-            variant="critical"
-            Icon={Trash2}
-          />
-          {/* <button className="deleteButton" onClick={handleDeleteSelected}>
-            Delete Selected
-          </button> */}
-          {selectedRows.length === 1 && (
+          {toggles.archive && (
+            <StandardButton
+              buttonText="Archive"
+              onClick={handleArchiveSelected}
+              Icon={Archive}
+            />
+          )}
+
+          {toggles.unarchive && (
+            <StandardButton
+              buttonText="Unarchive"
+              onClick={handleUnarchiveSelected}
+              Icon={Unarchive}
+            />
+          )}
+
+          {toggles.delete && (
+            <StandardButton
+              buttonText="Delete"
+              onClick={handleDeleteSelected}
+              variant="critical"
+              Icon={Trash2}
+            />
+          )}
+
+          {toggles.edit && selectedRows.length === 1 && (
             <StandardButton
               buttonText="Edit"
               onClick={handleEditSelected}

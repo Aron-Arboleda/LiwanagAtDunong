@@ -5,6 +5,7 @@ import {
   createRecord,
   deleteRecords,
   fetchArchivedSubmissions,
+  unarchiveRecords,
   updateRecord,
 } from "@controllers/volunteer_form_table";
 
@@ -18,11 +19,22 @@ const AdminArchivedPage = () => {
       />
 
       <DataTable
-        fetchData={fetchArchivedSubmissions}
         columns={columns}
-        onDelete={deleteRecords}
-        onEdit={updateRecord}
-        onCreate={createRecord}
+        controllers={{
+          fetchData: fetchArchivedSubmissions,
+          onCreate: createRecord,
+          onUpdate: updateRecord,
+          onDelete: deleteRecords,
+          onUnarchive: unarchiveRecords,
+        }}
+        toggles={{
+          archive: false,
+          unarchive: true,
+          delete: true,
+          edit: true,
+          create: true,
+          newSubmission: false,
+        }}
       />
     </>
   );
