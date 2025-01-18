@@ -10,7 +10,6 @@ import { DarkBackgroundContainer } from "@components/LargeContainers/LargeContai
 import { CartoonyContainer } from "@components/CardContainers/CardContainers";
 import Form from "@components/Form/Form";
 import { sections } from "@pages/VolunteerFormPage/sections";
-import XButton from "@components/CustomComponents/CustomComponents";
 import Plus from "lucide-react/dist/esm/icons/plus";
 import { toast, ToastContainer } from "react-toastify";
 import Archive from "lucide-react/dist/esm/icons/archive";
@@ -37,12 +36,12 @@ const defaultToggles = {
 };
 
 const defaultControllers = {
-  fetchData: () => {},
-  onDelete: () => {},
-  onEdit: () => {},
-  onCreate: () => {},
-  onArchive: () => {},
-  onUnarchive: () => {},
+  fetchData: async () => {},
+  onDelete: async () => {},
+  onEdit: async () => {},
+  onCreate: async () => {},
+  onArchive: async () => {},
+  onUnarchive: async () => {},
 };
 
 const DataTable = ({
@@ -63,8 +62,9 @@ const DataTable = ({
     setEditPanel(false);
   };
 
-  const refreshData = () => {
-    controllers.fetchData().then((data) => setData(data));
+  const refreshData = async () => {
+    const data = await controllers.fetchData();
+    setData(data);
   };
 
   const handleFilterChange = (e) => {
@@ -94,34 +94,25 @@ const DataTable = ({
     )[prop];
   };
 
-  const handleArchiveSelected = () => {
-    controllers
-      .onArchive(selectedRows.map((x) => parseInt(x)))
-      .then(
-        setSelectedRows([]),
-        refreshData(),
-        showActionDoneMessage("Successfully archived selected submissions.")
-      );
+  const handleArchiveSelected = async () => {
+    await controllers.onArchive(selectedRows.map((x) => parseInt(x)));
+    setSelectedRows([]);
+    await refreshData();
+    showActionDoneMessage("Successfully archived selected submissions.");
   };
 
-  const handleUnarchiveSelected = () => {
-    controllers
-      .onUnarchive(selectedRows.map((x) => parseInt(x)))
-      .then(
-        setSelectedRows([]),
-        refreshData(),
-        showActionDoneMessage("Successfully unarchived selected submissions.")
-      );
+  const handleUnarchiveSelected = async () => {
+    await controllers.onUnarchive(selectedRows.map((x) => parseInt(x)));
+    setSelectedRows([]);
+    await refreshData();
+    showActionDoneMessage("Successfully unarchived selected submissions.");
   };
 
-  const handleDeleteSelected = () => {
-    controllers
-      .onDelete(selectedRows.map((x) => parseInt(x)))
-      .then(
-        setSelectedRows([]),
-        refreshData(),
-        showActionDoneMessage("Successfully deleted selected submissions.")
-      );
+  const handleDeleteSelected = async () => {
+    await controllers.onDelete(selectedRows.map((x) => parseInt(x)));
+    setSelectedRows([]);
+    await refreshData();
+    showActionDoneMessage("Successfully deleted selected submissions.");
   };
 
   const handleEditSelected = () => {
@@ -131,18 +122,18 @@ const DataTable = ({
     }
   };
 
-  const editFormSubmit = (formData) => {
+  const editFormSubmit = async (formData) => {
     const savedDataID = selectedRows[0];
-    controllers.onEdit(selectedRows[0], formData).then(() => {
-      refreshData();
-      setEditPanel(false);
-      showActionDoneMessage(
-        `Successfully updated submission of "${getData(
-          savedDataID,
-          "nick_name"
-        )}".`
-      );
-    });
+    await controllers.onEdit(selectedRows[0], formData);
+    setSelectedRows([]);
+    await refreshData();
+    setEditPanel(false);
+    showActionDoneMessage(
+      `Successfully updated submission of "${getData(
+        savedDataID,
+        "nick_name"
+      )}".`
+    );
   };
 
   const formatDate = (value) => {
@@ -205,14 +196,13 @@ const DataTable = ({
     setEditPanel(true);
   };
 
-  const createFormSubmit = (formData) => {
-    controllers.onCreate(formData).then(() => {
-      refreshData();
-      setEditPanel(false);
-      showActionDoneMessage(
-        `Successfully added a new submission for "${formData.nick_name}".`
-      );
-    });
+  const createFormSubmit = async (formData) => {
+    await controllers.onCreate(formData);
+    await refreshData();
+    setEditPanel(false);
+    showActionDoneMessage(
+      `Successfully added a new submission for "${formData.nick_name}".`
+    );
   };
 
   useEffect(() => {
@@ -220,7 +210,7 @@ const DataTable = ({
 
     const handleKeyDown = (event) => {
       if (event.key === "Delete" && selectedRows.length > 0) {
-        handleDeleteSelected();
+        setConfirmationOpen(true);
       }
     };
 
@@ -255,7 +245,11 @@ const DataTable = ({
       </div>
 
       <div className="adminTableContainer">
-        <table className="adminTable">
+        <table
+          className={`adminTable ${
+            toggles.newSubmission ? "" : "withBorderBottom"
+          }`}
+        >
           <thead>
             <tr>
               <th>
@@ -317,7 +311,7 @@ const DataTable = ({
             ))}
 
             {toggles.newSubmission && (
-              <tr>
+              <tr style={{ borderTop: "2px solid rgb(125, 87, 46)" }}>
                 <td
                   colSpan={columns.length + 1}
                   onClick={handleAddNewSubmission}

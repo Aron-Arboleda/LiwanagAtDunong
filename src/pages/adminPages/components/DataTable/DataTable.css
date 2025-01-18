@@ -42,10 +42,6 @@
   background-color: rgb(125, 87, 46);
 }
 
-.adminTable tr:nth-last-child(1) {
-  border-top: 2px solid rgb(125, 87, 46);
-}
-
 .adminTable tr:nth-last-child(1) td div {
   display: flex;
   align-items: center;
@@ -54,6 +50,10 @@
 
   padding: 10px 10px 10px 11px;
   cursor: pointer;
+}
+
+.withBorderBottom tr:nth-last-child(1) {
+  border-bottom: 2px solid rgb(125, 87, 46);
 }
 
 .adminTable td:hover {
