@@ -15,6 +15,7 @@ import Plus from "lucide-react/dist/esm/icons/plus";
 import { toast, ToastContainer } from "react-toastify";
 import Archive from "lucide-react/dist/esm/icons/archive";
 import Unarchive from "lucide-react/dist/esm/icons/archive-restore";
+import ConfirmationPanel from "../ConfirmationPanel/ConfirmationPanel";
 
 const showActionDoneMessage = (message) => {
   toast.success(message, {
@@ -56,6 +57,7 @@ const DataTable = ({
   const [selectedRows, setSelectedRows] = useState([]);
   const [editPanel, setEditPanel] = useState(false);
   const [editing, setEditing] = useState(false);
+  const [confirmationOpen, setConfirmationOpen] = useState(false);
 
   const handleClose = () => {
     setEditPanel(false);
@@ -363,7 +365,7 @@ const DataTable = ({
           {toggles.delete && (
             <StandardButton
               buttonText="Delete"
-              onClick={handleDeleteSelected}
+              onClick={() => setConfirmationOpen(true)}
               variant="critical"
               Icon={Trash2}
             />
@@ -392,8 +394,6 @@ const DataTable = ({
               }}
               handleClose={handleClose}
             >
-              <XButton onClick={handleClose} />
-
               <Form
                 sections={sections}
                 disclaimerText={
@@ -407,6 +407,16 @@ const DataTable = ({
             </CartoonyContainer>
           </div>
         </DarkBackgroundContainer>
+      )}
+
+      {confirmationOpen && (
+        <ConfirmationPanel
+          confirmationTitle="Are you sure you want to delete the selected submissions?"
+          confirmationDescription={`You are about to delete ${selectedRows.length} submissions. This action cannot be undone.`}
+          onConfirm={handleDeleteSelected}
+          onCancel={() => setConfirmationOpen(false)}
+          variant="critical"
+        />
       )}
       <ToastContainer />
     </div>

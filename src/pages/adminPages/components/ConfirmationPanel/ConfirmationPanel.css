@@ -1,0 +1,8 @@
+.confirmationButtons {
+  display: flex;
+  justify-content: right;
+  gap: 0.7rem;
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+}

@@ -24,7 +24,6 @@ export const CartoonyContainer = ({ children, style, handleClose }) => {
       {handleClose && (
         <XButton
           onClick={() => {
-            setClosed(true);
             handleClose();
           }}
         />
