@@ -3,7 +3,7 @@ import FollowersCountCard from "../components/FollowersCountCard/FollowersCountC
 import { FaFacebook, FaInstagram, FaYoutube, FaTiktok } from "react-icons/fa";
 import { TbBrandX } from "react-icons/tb";
 import { CardGridLayout } from "@components/Layouts/Layouts";
-import { CONFIG } from "../../../config";
+import { CONFIG } from "@controllers/config";
 import { StandardChunkFiveSubTitleH4 } from "@components/PageTitles/PageTitles";
 
 const AdminHomePage = () => {

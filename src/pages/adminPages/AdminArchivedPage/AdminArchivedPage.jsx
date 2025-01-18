@@ -4,21 +4,21 @@ import {
   columns,
   createRecord,
   deleteRecords,
-  fetchLatestSubmissions,
+  fetchArchivedSubmissions,
   updateRecord,
 } from "@controllers/volunteer_form_table";
 
-const AdminSubmissionsPage = () => {
+const AdminArchivedPage = () => {
   return (
     <>
-      <h1>Submissions</h1>
+      <h1>Archive</h1>
       <StandardChunkFiveSubTitleH4
-        title="Volunteer Form - All Submissions"
+        title="Volunteer Form - Archived Submissions"
         style={{ color: "black", margin: "0" }}
       />
 
       <DataTable
-        fetchData={fetchLatestSubmissions}
+        fetchData={fetchArchivedSubmissions}
         columns={columns}
         onDelete={deleteRecords}
         onEdit={updateRecord}
@@ -28,4 +28,4 @@ const AdminSubmissionsPage = () => {
   );
 };
 
-export default AdminSubmissionsPage;
+export default AdminArchivedPage;

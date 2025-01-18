@@ -42,6 +42,7 @@ export default defineConfig({
       "@pages": path.resolve(__dirname, "./src/pages"),
       "@utils": path.resolve(__dirname, "./src/utils"),
       "@images": path.resolve(__dirname, "./src/assets/images"),
+      "@controllers": path.resolve(__dirname, "./src/controllers"),
     },
   },
   build: {

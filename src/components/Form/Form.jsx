@@ -120,14 +120,12 @@ const Form = ({
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm(defaultValues ? defaultValues : {}); // defaultValues
+  } = useForm(defaultValues ? defaultValues : {}); // defaultValues ? defaultValues : {}
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   // Submit handler
   const onSubmit = async (data) => {
     setIsSubmitting(true);
-
-    console.log(data);
 
     try {
       const success = editId

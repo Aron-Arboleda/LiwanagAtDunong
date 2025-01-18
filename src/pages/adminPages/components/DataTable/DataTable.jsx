@@ -12,6 +12,17 @@ import Form from "@components/Form/Form";
 import { sections } from "@pages/VolunteerFormPage/sections";
 import XButton from "@components/CustomComponents/CustomComponents";
 import Plus from "lucide-react/dist/esm/icons/plus";
+import { toast, ToastContainer } from "react-toastify";
+
+const showActionDoneMessage = (message) => {
+  toast.success(message, {
+    style: {
+      fontFamily: "Montserrat",
+      fontSize: "0.9rem",
+      paddingRight: "2rem",
+    },
+  });
+};
 
 const DataTable = ({ fetchData, columns, onDelete, onEdit, onCreate }) => {
   const [data, setData] = useState([]);
@@ -51,10 +62,17 @@ const DataTable = ({ fetchData, columns, onDelete, onEdit, onCreate }) => {
     );
   };
 
+  const getData = (id, prop) => {
+    return data.find(
+      (row) => parseInt(row.volunteer_form_submission_id) === parseInt(id)
+    )[prop];
+  };
+
   const handleDeleteSelected = () => {
     onDelete(selectedRows.map((x) => parseInt(x))).then(
       setSelectedRows([]),
-      refreshData()
+      refreshData(),
+      showActionDoneMessage("Successfully deleted selected submissions.")
     );
   };
 
@@ -63,13 +81,19 @@ const DataTable = ({ fetchData, columns, onDelete, onEdit, onCreate }) => {
       setEditing(true);
       setEditPanel(true);
     }
-    console.log(selectedRows[0]);
   };
 
   const editFormSubmit = (formData) => {
+    const savedDataID = selectedRows[0];
     onEdit(selectedRows[0], formData).then(() => {
       refreshData();
       setEditPanel(false);
+      showActionDoneMessage(
+        `Successfully updated submission of "${getData(
+          savedDataID,
+          "nick_name"
+        )}".`
+      );
     });
   };
 
@@ -137,6 +161,9 @@ const DataTable = ({ fetchData, columns, onDelete, onEdit, onCreate }) => {
     onCreate(formData).then(() => {
       refreshData();
       setEditPanel(false);
+      showActionDoneMessage(
+        `Successfully added a new submission for "${formData.nick_name}".`
+      );
     });
   };
 
@@ -241,10 +268,7 @@ const DataTable = ({ fetchData, columns, onDelete, onEdit, onCreate }) => {
               </tr>
             ))}
             <tr>
-              <td
-                colSpan={data[0] ? Object.keys(data[0]).length : 1}
-                onClick={handleAddNewSubmission}
-              >
+              <td colSpan={columns.length + 1} onClick={handleAddNewSubmission}>
                 <div>
                   <Plus
                     size={20}
@@ -308,6 +332,7 @@ const DataTable = ({ fetchData, columns, onDelete, onEdit, onCreate }) => {
           </div>
         </DarkBackgroundContainer>
       )}
+      <ToastContainer />
     </div>
   );
 };

@@ -14,13 +14,14 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
     exit;
 }
 
-// Database name and table name
-$tableName = 'volunteer_form_submissions'; // The table for which we want the records
+// Database table name
+$tableName = 'volunteer_form_submissions';
 
-// Fetch all records (no filtering by is_archived)
+// Fetch only unarchived records (is_archived = FALSE)
 $sqlRecords = "
     SELECT * 
     FROM $tableName
+    WHERE is_archived = FALSE
 ";
 $recordsResult = $conn->query($sqlRecords);
 $records = [];

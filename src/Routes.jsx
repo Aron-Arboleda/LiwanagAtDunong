@@ -3,6 +3,7 @@ import React, { Suspense } from "react";
 import LoadingPage from "@pages/morePages/LoadingPage/LoadingPage";
 import AdminPage from "@pages/adminPages/AdminPage";
 import AdminSubmissionsPage from "@pages/adminPages/AdminSubmissionsPage/AdminSubmissionsPage";
+import AdminArchivedPage from "@pages/adminPages/AdminArchivedPage/AdminArchivedPage";
 
 // Lazy-loaded components
 const HomePage = React.lazy(() => import("./pages/HomePage/HomePage"));
@@ -47,6 +48,11 @@ const AppRoutes = () => {
           path="/admin/submissions"
           element={<AdminPage Page={AdminSubmissionsPage} />}
         />
+        <Route
+          path="/admin/archive"
+          element={<AdminPage Page={AdminArchivedPage} />}
+        />
+
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Suspense>

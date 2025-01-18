@@ -22,12 +22,12 @@ import {
   StandardChunkFiveTitle,
 } from "@components/PageTitles/PageTitles";
 import { sections } from "./sections";
-import { CONFIG } from "../../config";
 import { CartoonyContainer } from "@components/CardContainers/CardContainers";
 import {
   SampleItinerary1,
   SampleItinerary2,
 } from "@images/PageImages/VolunteerFormPage";
+import { CONFIG } from "@controllers/config";
 
 const VolunteerFormPage = () => {
   const [submission, setSubmission] = useState({

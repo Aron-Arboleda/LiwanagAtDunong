@@ -6,6 +6,7 @@ import FileSpreadsheet from "lucide-react/dist/esm/icons/file-spreadsheet";
 import House from "lucide-react/dist/esm/icons/house";
 import LayoutDashboard from "lucide-react/dist/esm/icons/layout-dashboard";
 import Menu from "lucide-react/dist/esm/icons/menu";
+import Archive from "lucide-react/dist/esm/icons/archive";
 
 const Sidebar = () => {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
@@ -77,6 +78,12 @@ const Sidebar = () => {
               <a href="/admin/submissions" className="navLinks">
                 <FileSpreadsheet size={20} className="icon" />
                 <span>Submissions</span>
+              </a>
+            </li>
+            <li className={isActive("/admin/archive") ? "active" : ""}>
+              <a href="/admin/archive" className="navLinks">
+                <Archive size={20} className="icon" />
+                <span>Archive</span>
               </a>
             </li>
           </ul>
