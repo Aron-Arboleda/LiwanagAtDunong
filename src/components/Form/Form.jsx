@@ -20,21 +20,21 @@ import { CardGridLayout, FlexLayoutColumn } from "@components/Layouts/Layouts";
 // CSS imports
 import "./Form.css";
 
-export const SubmitButton = styled(Button)(({ theme }) => ({
-  color: "black",
-  backgroundColor: yellow[200],
+export const SubmitButton = styled(Button)(({ theme, customstyle }) => ({
+  color: customstyle?.color || "black",
+  backgroundColor: customstyle?.backgroundColor || yellow[200],
   "&:hover": {
-    backgroundColor: yellow[400],
+    backgroundColor: customstyle?.hoverBackgroundColor || yellow[400],
   },
-  textTransform: "capitalize",
-  fontFamily: "Montserrat",
-  padding: "10px",
-  fontSize: "1rem",
-  maxWidth: "200px",
-  borderRadius: "2rem",
-  border: "2px solid black",
-  boxShadow: "2px 2px 0px rgba(0, 0, 0, 0.84)",
-  margin: "3rem 0 2rem 0",
+  textTransform: customstyle?.textTransform || "capitalize",
+  fontFamily: customstyle?.fontFamily || "Montserrat",
+  padding: customstyle?.padding || "10px",
+  fontSize: customstyle?.fontSize || "1rem",
+  maxWidth: customstyle?.maxWidth || "200px",
+  borderRadius: customstyle?.borderRadius || "2rem",
+  border: customstyle?.border || "2px solid black",
+  boxShadow: customstyle?.boxShadow || "2px 2px 0px rgba(0, 0, 0, 0.84)",
+  margin: customstyle?.margin || "3rem 0 2rem 0",
 }));
 
 export const CustomTextField = styled(TextField)(({ theme }) => ({

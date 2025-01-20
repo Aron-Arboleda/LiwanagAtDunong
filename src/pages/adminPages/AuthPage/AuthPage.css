@@ -1,0 +1,19 @@
+.authTitle {
+  font-size: 2rem;
+  text-align: center;
+  margin: 0;
+}
+
+.authForm {
+  background-color: transparent;
+  box-shadow: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+@media (min-width: 480px) {
+  .authTitle {
+    font-size: 2.5rem;
+  }
+}

@@ -3,6 +3,9 @@ import { CustomTextField, SubmitButton } from "@components/Form/Form";
 import CircularProgress from "@mui/material/CircularProgress";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import IconButton from "@mui/material/IconButton";
+import Eye from "lucide-react/dist/esm/icons/eye";
+import EyeOff from "lucide-react/dist/esm/icons/eye-off";
 
 const AuthForm = ({ fields, formSubmit, children }) => {
   const {
@@ -12,6 +15,7 @@ const AuthForm = ({ fields, formSubmit, children }) => {
     formState: { errors },
   } = useForm();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
 
   const onSubmit = async (data) => {
     setIsSubmitting(true);
@@ -31,28 +35,35 @@ const AuthForm = ({ fields, formSubmit, children }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <Grid2 container spacing={4} marginTop={4} marginBottom={4}>
+    <form onSubmit={handleSubmit(onSubmit)} className="authForm">
+      <Grid2 container spacing={2} marginTop={4} marginBottom={4}>
         {fields.map((field, index) => (
           <Grid2 size={12} key={index}>
             <CustomTextField
               label={field.label}
               variant="outlined"
               fullWidth
-              type={field.type || "text"}
+              type={
+                field.type === "password" && !showPassword ? "password" : "text"
+              } // Toggle type based on showPassword
               onWheel={(e) => field.type === "number" && e.target.blur()}
               multiline={field.multiline || false}
               rows={field.rows || 1}
               placeholder={field.placeholder || ""}
-              slotProps={
-                field.type === "date"
-                  ? {
-                      inputLabel: {
-                        shrink: true,
-                      },
-                    }
-                  : {}
-              }
+              slotProps={{
+                inputLabel:
+                  field.type === "date" ? { shrink: true } : undefined,
+                input: {
+                  endAdornment: field.type === "password" && ( // Show toggle only for password fields
+                    <IconButton
+                      onClick={() => setShowPassword(!showPassword)}
+                      edge="end"
+                    >
+                      {showPassword ? <EyeOff /> : <Eye />}
+                    </IconButton>
+                  ),
+                },
+              }}
               {...register(field.name, {
                 required: field.required ? `${field.label} is required` : false,
                 maxLength: field.maxLength
@@ -92,13 +103,13 @@ const AuthForm = ({ fields, formSubmit, children }) => {
         ))}
       </Grid2>
       {/* Submit Button */}
-
       <div className="flex-center">
         <SubmitButton
           type="submit"
           variant="contained"
           fullWidth
           disabled={isSubmitting}
+          customstyle={{ margin: "0" }}
         >
           {isSubmitting ? (
             <>
