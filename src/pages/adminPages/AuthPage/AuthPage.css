@@ -12,6 +12,21 @@
   margin: 0;
 }
 
+.linksContainer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 2rem;
+}
+
+.linksContainer a {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
 @media (min-width: 480px) {
   .authTitle {
     font-size: 2.5rem;

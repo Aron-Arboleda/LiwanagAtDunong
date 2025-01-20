@@ -8,6 +8,7 @@ import AuthContext from "@contexts/AuthContext";
 import { useContext } from "react";
 import { showActionDoneMessage } from "../components/DataTable/DataTable";
 import { ToastContainer } from "react-toastify";
+import LogOut from "lucide-react/dist/esm/icons/log-out";
 
 const AuthPage = () => {
   const { login } = useContext(AuthContext);
@@ -36,6 +37,11 @@ const AuthPage = () => {
         >
           <h1 className="authTitle">Admin Login</h1>
           <AuthForm fields={fields} formSubmit={formSubmit} />
+          <div className="linksContainer">
+            <a href="/">
+              Go to Website <LogOut size={20} className="icon" />{" "}
+            </a>
+          </div>
         </CartoonyContainer>
       </div>
       <ToastContainer />

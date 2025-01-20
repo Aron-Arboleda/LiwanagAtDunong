@@ -142,9 +142,9 @@
   flex-direction: column;
   gap: 10px;
   position: absolute;
-  bottom: 2rem;
-  left: 2rem;
-  right: 2rem;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
 }
 
 .adminProfileContainer {
@@ -170,6 +170,7 @@
 }
 
 .adminUsername {
+  display: block;
   font-size: 0.9rem;
   font-weight: 600;
 }
@@ -178,7 +179,7 @@
   width: 1fr;
   display: flex;
   flex-direction: column;
-  background-color: transparent;
+  background-color: rgb(255, 255, 227);
   border: 2px solid black;
   border-radius: 10px;
   padding: 5px;
@@ -209,6 +210,22 @@
 }
 
 @media (min-width: 768px) {
+  .settingsContainer {
+    width: 170px;
+    padding: 5px;
+    transform: translate(65px, 50px);
+  }
+
+  .adminUsername {
+    display: none;
+  }
+
+  .sidebarFooter {
+    bottom: 5px;
+    left: 5px;
+    right: 5px;
+  }
+
   .sidebar {
     top: 0;
     left: 0;
@@ -235,6 +252,22 @@
 }
 
 @media (min-width: 1264px) {
+  .settingsContainer {
+    width: 170px;
+    padding: 5px;
+    transform: none;
+  }
+
+  .adminUsername {
+    display: block;
+  }
+
+  .sidebarFooter {
+    bottom: 2rem;
+    left: 2rem;
+    right: 2rem;
+  }
+
   .sidebarList li a span {
     display: inline-block;
   }
