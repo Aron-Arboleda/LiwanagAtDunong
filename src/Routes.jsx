@@ -51,41 +51,37 @@ const AppRoutes = () => {
 
         <Route
           path="/admin"
-          // element={
-          //   <ProtectedAdminRoute>
-          //     <AdminPage />
-          //   </ProtectedAdminRoute>
-          // }
-          element={<AdminPage />}
+          element={
+            <ProtectedAdminRoute>
+              <AdminPage />
+            </ProtectedAdminRoute>
+          }
         />
 
         <Route
           path="/admin/submissions"
-          // element={
-          //   <ProtectedAdminRoute>
-          //     <AdminPage Page={AdminSubmissionsPage} />
-          //   </ProtectedAdminRoute>
-          // }
-          element={<AdminPage Page={AdminSubmissionsPage} />}
+          element={
+            <ProtectedAdminRoute>
+              <AdminPage Page={AdminSubmissionsPage} />
+            </ProtectedAdminRoute>
+          }
         />
         <Route
           path="/admin/archive"
-          // element={
-          //   <ProtectedAdminRoute>
-          //     <AdminPage Page={AdminArchivedPage} />
-          //   </ProtectedAdminRoute>
-          // }
-          element={<AdminPage Page={AdminArchivedPage} />}
+          element={
+            <ProtectedAdminRoute>
+              <AdminPage Page={AdminArchivedPage} />
+            </ProtectedAdminRoute>
+          }
         />
 
         <Route
           path="/admin/admins"
-          // element={
-          //   <ProtectedAdminRoute>
-          //     <AdminPage Page={AdminAdminsPage} />
-          //   </ProtectedAdminRoute>
-          // }
-          element={<AdminPage Page={AdminAdminsPage} />}
+          element={
+            <ProtectedAdminRoute>
+              <AdminPage Page={AdminAdminsPage} />
+            </ProtectedAdminRoute>
+          }
         />
 
         <Route path="/admin-auth" element={<AuthPage />} />

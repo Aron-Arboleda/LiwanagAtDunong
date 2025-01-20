@@ -137,6 +137,77 @@
   font-family: "Montserrat";
 }
 
+.sidebarFooter {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  right: 2rem;
+}
+
+.adminProfileContainer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-top: 1px solid var(--pallete-lightBrown);
+  margin-top: auto;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: all 0.2s ease-in-out;
+}
+
+.adminProfileContainer:hover {
+  background-color: var(--pallete-lightYellow);
+}
+
+.adminProfileImage {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.adminUsername {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.settingsContainer {
+  width: 1fr;
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.settingsItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: transparent;
+  border: none;
+  text-align: left;
+  font-family: "Montserrat";
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  font-weight: 600;
+  border-radius: 5px;
+  padding: 7px 10px;
+}
+
+.settingsContainer a {
+  text-decoration: none;
+}
+
+.settingsItem:hover {
+  background-color: var(--pallete-lightYellow);
+}
+
 @media (min-width: 768px) {
   .sidebar {
     top: 0;

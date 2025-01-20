@@ -20,23 +20,23 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 $data = json_decode(file_get_contents('php://input'), true);
 
 // Validate required fields
-if (empty($data['user_email']) || empty($data['user_password'])) {
+if (empty($data['username']) || empty($data['password'])) {
     http_response_code(400); // Bad Request
-    echo json_encode(["message" => "Please provide email and password."]);
+    echo json_encode(["message" => "Please provide username and password."]);
     exit;
 }
 
 // Sanitize input
-$email = $conn->real_escape_string($data['user_email']);
-$password = $data['user_password']; // Do not hash yet, as we are verifying against stored hashed password
+$username = $conn->real_escape_string($data['username']); // Using 'username' from the payload
+$password = $data['password']; // Do not hash yet, as we are verifying against stored hashed password
 
-// Query to find the user by email
+// Query to find the user by username
 $sql = "SELECT admin_id, username, password, role, account_status FROM admins WHERE username = ?";
 
 try {
     // Prepare statement
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("s", $email);
+    $stmt->bind_param("s", $username);
     $stmt->execute();
     $result = $stmt->get_result();
 
@@ -52,11 +52,10 @@ try {
 
                 // Store user details in the session
                 $_SESSION['user_id'] = $user['admin_id'];
-                $_SESSION['user_email'] = $email;
                 $_SESSION['user_username'] = $user['username'];
                 $_SESSION['user_role'] = $user['role'];
 
-                // Update last login time
+                // Update last login time to now
                 $last_login = date('Y-m-d H:i:s');
                 $update_sql = "UPDATE admins SET last_login = ? WHERE admin_id = ?";
                 $update_stmt = $conn->prepare($update_sql);

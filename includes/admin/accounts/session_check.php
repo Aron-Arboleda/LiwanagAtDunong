@@ -5,7 +5,8 @@ include '../../config.php';
 ini_set('session.cookie_lifetime', 259200); // 3 days 
 ini_set('session.gc_maxlifetime', 259200);
 ini_set('session.cookie_path', '/'); // Makes session cookies accessible site-wide
-
+// ini_set('session.cookie_samesite', 'None');
+// ini_set('session.cookie_secure', true); // Only if using HTTPS
 // Start session
 session_start();
 
@@ -16,9 +17,11 @@ if (isset($_SESSION['user_id'])) {
 
     // Query to get the user details from the admins table
     $sql = "SELECT admin_id, username, role, account_status, last_login FROM admins WHERE admin_id = ?";
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute([$user_id]);
-    $user = $stmt->fetch();
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $user_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $user = $result->fetch_assoc();
 
     if ($user) {
         // Check if account is active

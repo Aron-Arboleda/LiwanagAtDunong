@@ -98,6 +98,40 @@ export const fetchAdmins = async () => {
   }
 };
 
+export const loginUser = async (data) => {
+  try {
+    // Send the POST request to the login PHP script
+    const response = await fetch(
+      `${CONFIG.BACKEND_API}admin/accounts/login.php`, // Update this with your actual PHP endpoint
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json", // Specify that we are sending JSON
+        },
+        body: JSON.stringify(data), // Send the username and password as JSON
+        credentials: "include",
+      }
+    );
+
+    const responseData = await response.json(); // Parse the JSON response
+
+    if (response.ok) {
+      // If response is OK, return the success message and user data
+      return {
+        message: responseData.message,
+        success: true,
+        user: responseData.data.user,
+      };
+    } else {
+      // If there is an error (non-2xx status), return the error message
+      return { message: responseData.message, success: false };
+    }
+  } catch (error) {
+    // Catch and handle any errors that occur during the fetch
+    return { message: "Error: Login failed, " + error, success: false };
+  }
+};
+
 export const adminsColumns = [
   { label: "Username", key: "username" },
   { label: "Role", key: "role" },

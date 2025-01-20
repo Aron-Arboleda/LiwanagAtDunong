@@ -21,7 +21,7 @@ const toastStyle = {
   paddingRight: "2rem",
 };
 
-const showActionDoneMessage = (message, success = true) => {
+export const showActionDoneMessage = (message, success = true) => {
   if (success) {
     toast.success(message, {
       style: toastStyle,

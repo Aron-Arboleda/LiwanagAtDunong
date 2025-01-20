@@ -18,6 +18,7 @@ const ProtectedAdminRoute = ({ children }) => {
           }
         );
         const data = await response.json();
+        console.log("Session check response:", data);
 
         if (data.loggedIn === true) {
           console.log("Checked session. User is logged in");
@@ -29,7 +30,6 @@ const ProtectedAdminRoute = ({ children }) => {
       } catch (error) {
         console.error("Session check failed:", error);
         setUser(null);
-        //navigate("/"); // Redirect to login on error
       }
     };
 

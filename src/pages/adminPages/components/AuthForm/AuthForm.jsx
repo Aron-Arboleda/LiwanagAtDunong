@@ -21,9 +21,7 @@ const AuthForm = ({ fields, formSubmit, children }) => {
     setIsSubmitting(true);
 
     try {
-      const success = editId
-        ? await formSubmit(editId, data)
-        : await formSubmit(data);
+      const success = await formSubmit(data);
       if (success) {
         reset();
       }

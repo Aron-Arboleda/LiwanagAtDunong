@@ -3,11 +3,26 @@ import { DarkBackgroundContainer } from "@components/LargeContainers/LargeContai
 import AuthForm from "../components/AuthForm/AuthForm";
 import { fields } from "./fields";
 import "./AuthPage.css";
+import { loginUser } from "@controllers/admins";
+import AuthContext from "@contexts/AuthContext";
+import { useContext } from "react";
+import { showActionDoneMessage } from "../components/DataTable/DataTable";
+import { ToastContainer } from "react-toastify";
 
 const AuthPage = () => {
+  const { login } = useContext(AuthContext);
+
   const formSubmit = async (data) => {
-    console.log("Form submitted:", data);
-    return true;
+    const result = await loginUser(data);
+    if (result.success) {
+      login(result.user);
+      console.log("Message: ", result.message);
+      showActionDoneMessage(result.message, result.success);
+      return true;
+    } else {
+      showActionDoneMessage(result.message, result.success);
+      return false;
+    }
   };
 
   return (
@@ -23,6 +38,7 @@ const AuthPage = () => {
           <AuthForm fields={fields} formSubmit={formSubmit} />
         </CartoonyContainer>
       </div>
+      <ToastContainer />
     </DarkBackgroundContainer>
   );
 };
