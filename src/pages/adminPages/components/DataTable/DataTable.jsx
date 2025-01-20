@@ -133,17 +133,29 @@ const DataTable = ({
   };
 
   const handleArchiveSelected = async () => {
-    await controllers.onArchive(selectedRows.map((x) => parseInt(x)));
+    const result = await controllers.onArchive(
+      selectedRows.map((index) => sortedData[index])
+    );
+    if (!result.success) {
+      showActionDoneMessage(result.message, result.success);
+      return;
+    }
     setSelectedRows([]);
     await refreshData();
-    showActionDoneMessage("Successfully archived selected records.");
+    showActionDoneMessage(result.message, result.success);
   };
 
   const handleUnarchiveSelected = async () => {
-    await controllers.onUnarchive(selectedRows.map((x) => parseInt(x)));
+    const result = await controllers.onUnarchive(
+      selectedRows.map((index) => sortedData[index])
+    );
+    if (!result.success) {
+      showActionDoneMessage(result.message, result.success);
+      return;
+    }
     setSelectedRows([]);
     await refreshData();
-    showActionDoneMessage("Successfully unarchived selected records.");
+    showActionDoneMessage(result.message, result.success);
   };
 
   const handleDeleteSelected = async () => {

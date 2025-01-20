@@ -1,7 +1,10 @@
 import { CONFIG } from "./config";
 
-export const archiveRecords = async (recordIds) => {
+export const archiveRecords = async (records) => {
   try {
+    const recordIds = records.map(
+      (record) => record.volunteer_form_submission_id
+    );
     const response = await fetch(
       `${CONFIG.BACKEND_API}volunteer_form_submissions/archive.php`,
       {
@@ -15,17 +18,20 @@ export const archiveRecords = async (recordIds) => {
 
     const data = await response.json();
     if (response.ok) {
-      console.log(data.message); // Success message
+      return { message: data.message, success: true };
     } else {
-      console.error(data.message); // Error message
+      return { message: data.message, success: false };
     }
   } catch (error) {
-    console.error("archiving records error:", error);
+    return { message: "Error: Archiving failed " + error, success: false };
   }
 };
 
-export const unarchiveRecords = async (recordIds) => {
+export const unarchiveRecords = async (records) => {
   try {
+    const recordIds = records.map(
+      (record) => record.volunteer_form_submission_id
+    );
     const response = await fetch(
       `${CONFIG.BACKEND_API}volunteer_form_submissions/unarchive.php`,
       {
@@ -39,12 +45,12 @@ export const unarchiveRecords = async (recordIds) => {
 
     const data = await response.json();
     if (response.ok) {
-      console.log(data.message); // Success message
+      return { message: data.message, success: true };
     } else {
-      console.error(data.message); // Error message
+      return { message: data.message, success: false };
     }
   } catch (error) {
-    console.error("unarchiving records error:", error);
+    return { message: "Error: Unarchiving failed " + error, success: false };
   }
 };
 
@@ -66,24 +72,17 @@ export const deleteRecords = async (records) => {
 
     const data = await response.json();
     if (response.ok) {
-      console.log(data.message); // Success message
+      return { message: data.message, success: true };
     } else {
-      console.error(data.message); // Error message
+      return { message: data.message, success: false };
     }
   } catch (error) {
-    console.error("deleteRecords error:", error);
+    return { message: "Error: Deleting failed " + error, success: false };
   }
 };
 
-export const updateRecord = async (editId, updates) => {
+export const updateRecord = async (data) => {
   try {
-    const requestData = {
-      id: editId, // Match PHP's expected "id"
-      updates: updates, // Ensure updates is an object with column-value pairs
-    };
-
-    console.log("Sending update request:", requestData);
-
     const response = await fetch(
       `${CONFIG.BACKEND_API}volunteer_form_submissions/update.php`,
       {
@@ -91,18 +90,18 @@ export const updateRecord = async (editId, updates) => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(requestData), // Convert to JSON format
+        body: JSON.stringify(data), // Convert to JSON format
       }
     );
 
     const responseData = await response.json();
     if (response.ok) {
-      console.log("Success:", responseData.message); // Success message
+      return { message: responseData.message, success: true };
     } else {
-      console.error("Error:", responseData.message); // Error message
+      return { message: responseData.message, success: false };
     }
   } catch (error) {
-    console.error("updateRecord error:", error);
+    return { message: "Error: Updating failed " + error, success: false };
   }
 };
 
@@ -121,12 +120,12 @@ export const createRecord = async (data) => {
 
     const responseData = await response.json();
     if (response.ok) {
-      console.log("Success:", responseData.message); // Success message
+      return { message: responseData.message, success: true };
     } else {
-      console.error("Error:", responseData.message); // Error message
+      return { message: responseData.message, success: false };
     }
   } catch (error) {
-    console.error("updateRecord error:", error);
+    return { message: "Error: Creating failed " + error, success: false };
   }
 };
 
