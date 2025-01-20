@@ -7,6 +7,7 @@ export const adminFields = [
       {
         name: "username",
         label: "Username *",
+        type: "text",
         required: true,
         placeholder: "admin_username",
         minLength: {

@@ -23,7 +23,7 @@ const AdminAdminsPage = () => {
         controllers={{
           fetchData: fetchAdmins,
           onCreate: createAdmin,
-          onUpdate: updateAdmin,
+          onEdit: updateAdmin,
           onDelete: deleteAdmins,
         }}
         formFields={adminFields}

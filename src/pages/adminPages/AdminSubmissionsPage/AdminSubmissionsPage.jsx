@@ -24,7 +24,7 @@ const AdminSubmissionsPage = () => {
         controllers={{
           fetchData: fetchLatestSubmissions,
           onCreate: createRecord,
-          onUpdate: updateRecord,
+          onEdit: updateRecord,
           onDelete: deleteRecords,
           onArchive: archiveRecords,
         }}

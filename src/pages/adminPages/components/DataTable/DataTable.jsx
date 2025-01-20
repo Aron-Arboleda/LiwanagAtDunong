@@ -33,6 +33,15 @@ const showActionDoneMessage = (message, success = true) => {
   }
 };
 
+const removePasswordField = (fields) => {
+  const newFields = fields.map((section) => ({
+    ...section,
+    fields: section.fields.filter((field) => field.name !== "password"),
+  }));
+  console.log("newFields", newFields);
+  return newFields;
+};
+
 const defaultToggles = {
   archive: true,
   unarchive: false,
@@ -159,13 +168,15 @@ const DataTable = ({
 
   const editFormSubmit = async (formData) => {
     const wholeData = { ...sortedData[selectedRows[0]], ...formData };
-    console.log("wholeData", wholeData);
-
-    // await controllers.onEdit(selectedRows[0], formData);
-    // setSelectedRows([]);
-    // await refreshData();
-    // setEditPanel(false);
-    // showActionDoneMessage("Successfully updated record");
+    const result = await controllers.onEdit(wholeData);
+    if (!result.success) {
+      showActionDoneMessage(result.message, result.success);
+      return;
+    }
+    setSelectedRows([]);
+    await refreshData();
+    setEditPanel(false);
+    showActionDoneMessage(result.message, result.success);
   };
 
   const filteredData = data.filter((row) =>
@@ -386,14 +397,18 @@ const DataTable = ({
               handleClose={handleClose}
             >
               <Form
-                sections={formFields}
+                sections={
+                  editing ? removePasswordField(formFields) : formFields
+                }
                 disclaimerText={
                   editing
                     ? "Please fill out the form below to edit the selected record."
                     : "Please fill out the form below to add a new record."
                 }
                 formSubmit={editing ? editFormSubmit : createFormSubmit}
-                defaultValues={editing ? getValuesToEdit() : null}
+                defaultValues={
+                  editing ? getValuesToEdit() : { defaultValues: {} }
+                }
               />
             </CartoonyContainer>
           </div>

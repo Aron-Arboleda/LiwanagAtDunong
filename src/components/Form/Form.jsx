@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
@@ -116,7 +116,6 @@ const Form = ({
   children,
   formSubmit,
   defaultValues,
-  editId,
 }) => {
   const {
     register,
@@ -130,11 +129,10 @@ const Form = ({
   // Submit handler
   const onSubmit = async (data) => {
     setIsSubmitting(true);
+    console.log("data", data);
 
     try {
-      const success = editId
-        ? await formSubmit(editId, data)
-        : await formSubmit(data);
+      const success = await formSubmit(data);
       if (success) {
         reset();
       }
@@ -144,6 +142,12 @@ const Form = ({
       setIsSubmitting(false);
     }
   };
+
+  // useEffect(() => {
+  //   if (defaultValues) {
+  //     reset(defaultValues); // Reset the form values when defaultValues changes
+  //   }
+  // }, [defaultValues, reset]);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -169,7 +173,9 @@ const Form = ({
                       variant="outlined"
                       fullWidth
                       type={
-                        field.type === "password" && !showPassword
+                        field.type === "date"
+                          ? "date"
+                          : field.type === "password" && !showPassword
                           ? "password"
                           : "text"
                       }
@@ -248,8 +254,8 @@ const Form = ({
                         //defaultValue=""
                         //defaultValue={field.options[0].value || ""}
                         defaultValue={
-                          defaultValues
-                            ? defaultValues.defaultValues[field.name]
+                          defaultValues?.defaultValues
+                            ? defaultValues.defaultValues[field.name] ?? ""
                             : ""
                         }
                         {...register(field.name, {
