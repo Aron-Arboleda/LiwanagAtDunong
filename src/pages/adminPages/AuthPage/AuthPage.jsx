@@ -17,7 +17,6 @@ const AuthPage = () => {
           style={{
             maxWidth: "500px",
             minHeight: "200px",
-            padding: "3rem 2rem",
           }}
         >
           <h1 className="authTitle">Admin Login</h1>

@@ -8,6 +8,7 @@ import {
   fetchLatestSubmissions,
   updateRecord,
 } from "@controllers/volunteer_form_table";
+import { sections } from "@pages/VolunteerFormPage/sections";
 
 const AdminSubmissionsPage = () => {
   return (
@@ -27,6 +28,7 @@ const AdminSubmissionsPage = () => {
           onDelete: deleteRecords,
           onArchive: archiveRecords,
         }}
+        formFields={sections}
       />
     </>
   );

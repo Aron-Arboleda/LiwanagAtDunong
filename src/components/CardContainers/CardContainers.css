@@ -35,8 +35,14 @@
   background-color: var(--pallete-brightWhite);
   border: 2px solid black;
   border-radius: 10px;
-  padding: 2rem;
+  padding: 2rem 1rem;
   font-family: "Montserrat";
   box-shadow: 3px 3px 0px 0.5px rgba(0, 0, 0, 0.795);
   position: relative;
+}
+
+@media (min-width: 480px) {
+  .cartoonyContainer {
+    padding: 2rem;
+  }
 }

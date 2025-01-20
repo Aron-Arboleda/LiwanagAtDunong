@@ -48,8 +48,11 @@ export const unarchiveRecords = async (recordIds) => {
   }
 };
 
-export const deleteRecords = async (recordIds) => {
+export const deleteRecords = async (records) => {
   try {
+    const recordIds = records.map(
+      (record) => record.volunteer_form_submission_id
+    );
     const response = await fetch(
       `${CONFIG.BACKEND_API}volunteer_form_submissions/delete.php`,
       {

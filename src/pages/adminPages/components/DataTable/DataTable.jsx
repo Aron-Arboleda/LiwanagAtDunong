@@ -9,21 +9,28 @@ import Pencil from "lucide-react/dist/esm/icons/pencil";
 import { DarkBackgroundContainer } from "@components/LargeContainers/LargeContainers";
 import { CartoonyContainer } from "@components/CardContainers/CardContainers";
 import Form from "@components/Form/Form";
-import { sections } from "@pages/VolunteerFormPage/sections";
 import Plus from "lucide-react/dist/esm/icons/plus";
 import { toast, ToastContainer } from "react-toastify";
 import Archive from "lucide-react/dist/esm/icons/archive";
 import Unarchive from "lucide-react/dist/esm/icons/archive-restore";
 import ConfirmationPanel from "../ConfirmationPanel/ConfirmationPanel";
 
-const showActionDoneMessage = (message) => {
-  toast.success(message, {
-    style: {
-      fontFamily: "Montserrat",
-      fontSize: "0.9rem",
-      paddingRight: "2rem",
-    },
-  });
+const toastStyle = {
+  fontFamily: "Montserrat",
+  fontSize: "0.9rem",
+  paddingRight: "2rem",
+};
+
+const showActionDoneMessage = (message, success = true) => {
+  if (success) {
+    toast.success(message, {
+      style: toastStyle,
+    });
+  } else {
+    toast.error(message, {
+      style: toastStyle,
+    });
+  }
 };
 
 const defaultToggles = {
@@ -44,10 +51,38 @@ const defaultControllers = {
   onUnarchive: async () => {},
 };
 
+const formatDate = (value) => {
+  const filteredValue = checkNull(value);
+  if (filteredValue === "--") return filteredValue;
+
+  const dateOnlyRegex = /^\d{4}-\d{2}-\d{2}$/;
+  if (typeof value === "string" && dateOnlyRegex.test(value)) {
+    const date = new Date(value);
+    const options = { year: "numeric", month: "short", day: "numeric" };
+    return isNaN(date)
+      ? value
+      : new Intl.DateTimeFormat("en-US", options).format(date);
+  }
+
+  const date = new Date(value);
+  const options = {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+    hour12: true,
+  };
+  return isNaN(date)
+    ? value
+    : new Intl.DateTimeFormat("en-US", options).format(date);
+};
+
 const DataTable = ({
   columns,
   toggles = defaultToggles,
   controllers = defaultControllers,
+  formFields,
 }) => {
   const [data, setData] = useState([]);
   const [searchValue, setSearchValue] = useState("");
@@ -80,39 +115,39 @@ const DataTable = ({
     }
   };
 
-  const handleRowSelect = (rowId) => {
+  const handleRowSelect = (rowIndex) => {
     setSelectedRows((prevSelected) =>
-      prevSelected.includes(rowId)
-        ? prevSelected.filter((id) => id !== rowId)
-        : [...prevSelected, rowId]
+      prevSelected.includes(rowIndex)
+        ? prevSelected.filter((id) => id !== rowIndex)
+        : [...prevSelected, rowIndex]
     );
-  };
-
-  const getData = (id, prop) => {
-    return data.find(
-      (row) => parseInt(row.volunteer_form_submission_id) === parseInt(id)
-    )[prop];
   };
 
   const handleArchiveSelected = async () => {
     await controllers.onArchive(selectedRows.map((x) => parseInt(x)));
     setSelectedRows([]);
     await refreshData();
-    showActionDoneMessage("Successfully archived selected submissions.");
+    showActionDoneMessage("Successfully archived selected records.");
   };
 
   const handleUnarchiveSelected = async () => {
     await controllers.onUnarchive(selectedRows.map((x) => parseInt(x)));
     setSelectedRows([]);
     await refreshData();
-    showActionDoneMessage("Successfully unarchived selected submissions.");
+    showActionDoneMessage("Successfully unarchived selected records.");
   };
 
   const handleDeleteSelected = async () => {
-    await controllers.onDelete(selectedRows.map((x) => parseInt(x)));
+    const result = await controllers.onDelete(
+      selectedRows.map((index) => sortedData[index])
+    );
+    if (!result.success) {
+      showActionDoneMessage(result.message, result.success);
+      return;
+    }
     setSelectedRows([]);
     await refreshData();
-    showActionDoneMessage("Successfully deleted selected submissions.");
+    showActionDoneMessage(result.message, result.success);
   };
 
   const handleEditSelected = () => {
@@ -123,44 +158,14 @@ const DataTable = ({
   };
 
   const editFormSubmit = async (formData) => {
-    const savedDataID = selectedRows[0];
-    await controllers.onEdit(selectedRows[0], formData);
-    setSelectedRows([]);
-    await refreshData();
-    setEditPanel(false);
-    showActionDoneMessage(
-      `Successfully updated submission of "${getData(
-        savedDataID,
-        "nick_name"
-      )}".`
-    );
-  };
+    const wholeData = { ...sortedData[selectedRows[0]], ...formData };
+    console.log("wholeData", wholeData);
 
-  const formatDate = (value) => {
-    const filteredValue = checkNull(value);
-    if (filteredValue === "--") return filteredValue;
-
-    const dateOnlyRegex = /^\d{4}-\d{2}-\d{2}$/;
-    if (typeof value === "string" && dateOnlyRegex.test(value)) {
-      const date = new Date(value);
-      const options = { year: "numeric", month: "short", day: "numeric" };
-      return isNaN(date)
-        ? value
-        : new Intl.DateTimeFormat("en-US", options).format(date);
-    }
-
-    const date = new Date(value);
-    const options = {
-      year: "numeric",
-      month: "short",
-      day: "numeric",
-      hour: "numeric",
-      minute: "numeric",
-      hour12: true,
-    };
-    return isNaN(date)
-      ? value
-      : new Intl.DateTimeFormat("en-US", options).format(date);
+    // await controllers.onEdit(selectedRows[0], formData);
+    // setSelectedRows([]);
+    // await refreshData();
+    // setEditPanel(false);
+    // showActionDoneMessage("Successfully updated record");
   };
 
   const filteredData = data.filter((row) =>
@@ -181,9 +186,7 @@ const DataTable = ({
   });
 
   const getValuesToEdit = () => {
-    const row = sortedData.find(
-      (row) => row.volunteer_form_submission_id === selectedRows[0]
-    );
+    const row = sortedData[selectedRows[0]];
     const valuesToEdit = {
       defaultValues: row,
     };
@@ -197,12 +200,14 @@ const DataTable = ({
   };
 
   const createFormSubmit = async (formData) => {
-    await controllers.onCreate(formData);
+    const result = await controllers.onCreate(formData);
+    if (!result.success) {
+      showActionDoneMessage(result.message, result.success);
+      return;
+    }
     await refreshData();
     setEditPanel(false);
-    showActionDoneMessage(
-      `Successfully added a new submission for "${formData.nick_name}".`
-    );
+    showActionDoneMessage(result.message, result.success);
   };
 
   useEffect(() => {
@@ -257,9 +262,7 @@ const DataTable = ({
                   onChange={(e) =>
                     setSelectedRows(
                       e.target.checked
-                        ? sortedData.map(
-                            (row) => row.volunteer_form_submission_id
-                          )
+                        ? sortedData.map((row, index) => index)
                         : []
                     )
                   }
@@ -283,21 +286,15 @@ const DataTable = ({
               <tr
                 key={rowIndex}
                 style={{
-                  backgroundColor: selectedRows.includes(
-                    row.volunteer_form_submission_id
-                  )
+                  backgroundColor: selectedRows.includes(rowIndex)
                     ? "lightblue"
                     : "",
                 }}
               >
                 <td>
                   <Checkbox
-                    checked={selectedRows.includes(
-                      row.volunteer_form_submission_id
-                    )}
-                    onChange={() =>
-                      handleRowSelect(row.volunteer_form_submission_id)
-                    }
+                    checked={selectedRows.includes(rowIndex)}
+                    onChange={() => handleRowSelect(rowIndex)}
                   />
                 </td>
                 {columns.map((column) => (
@@ -310,6 +307,14 @@ const DataTable = ({
               </tr>
             ))}
 
+            {sortedData.length === 0 && (
+              <tr>
+                <td colSpan={columns.length + 1}>
+                  <div style={{ cursor: "default" }}>No data found.</div>
+                </td>
+              </tr>
+            )}
+
             {toggles.newSubmission && (
               <tr style={{ borderTop: "2px solid rgb(125, 87, 46)" }}>
                 <td
@@ -321,16 +326,8 @@ const DataTable = ({
                       size={20}
                       style={{ marginRight: "5px", cursor: "pointer" }}
                     />
-                    Add new submission
+                    Add new record
                   </div>
-                </td>
-              </tr>
-            )}
-
-            {sortedData.length === 0 && (
-              <tr>
-                <td colSpan={columns.length + 1}>
-                  <div style={{ cursor: "default" }}>No data found.</div>
                 </td>
               </tr>
             )}
@@ -389,11 +386,11 @@ const DataTable = ({
               handleClose={handleClose}
             >
               <Form
-                sections={sections}
+                sections={formFields}
                 disclaimerText={
                   editing
-                    ? "Please fill out the form below to edit the selected submission."
-                    : "Please fill out the form below to add a new submission."
+                    ? "Please fill out the form below to edit the selected record."
+                    : "Please fill out the form below to add a new record."
                 }
                 formSubmit={editing ? editFormSubmit : createFormSubmit}
                 defaultValues={editing ? getValuesToEdit() : null}
@@ -405,8 +402,8 @@ const DataTable = ({
 
       {confirmationOpen && (
         <ConfirmationPanel
-          confirmationTitle="Are you sure you want to delete the selected submissions?"
-          confirmationDescription={`You are about to delete ${selectedRows.length} submissions. This action cannot be undone.`}
+          confirmationTitle="Are you sure you want to delete the selected records?"
+          confirmationDescription={`You are about to delete ${selectedRows.length} records. This action cannot be undone.`}
           onConfirm={handleDeleteSelected}
           onCancel={() => setConfirmationOpen(false)}
           variant="critical"

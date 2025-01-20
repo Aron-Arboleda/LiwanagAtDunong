@@ -7,6 +7,7 @@ import House from "lucide-react/dist/esm/icons/house";
 import LayoutDashboard from "lucide-react/dist/esm/icons/layout-dashboard";
 import Menu from "lucide-react/dist/esm/icons/menu";
 import Archive from "lucide-react/dist/esm/icons/archive";
+import UserRoundCog from "lucide-react/dist/esm/icons/user-round-cog";
 
 const Sidebar = () => {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
@@ -84,6 +85,12 @@ const Sidebar = () => {
               <a href="/admin/archive" className="navLinks">
                 <Archive size={20} className="icon" />
                 <span>Archive</span>
+              </a>
+            </li>
+            <li className={isActive("/admin/admins") ? "active" : ""}>
+              <a href="/admin/admins" className="navLinks">
+                <UserRoundCog size={20} className="icon" />
+                <span>Admins</span>
               </a>
             </li>
           </ul>

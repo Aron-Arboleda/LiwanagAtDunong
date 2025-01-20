@@ -8,6 +8,7 @@ import {
   unarchiveRecords,
   updateRecord,
 } from "@controllers/volunteer_form_table";
+import { sections } from "@pages/VolunteerFormPage/sections";
 
 const AdminArchivedPage = () => {
   return (
@@ -35,6 +36,7 @@ const AdminArchivedPage = () => {
           create: true,
           newSubmission: false,
         }}
+        formFields={sections}
       />
     </>
   );

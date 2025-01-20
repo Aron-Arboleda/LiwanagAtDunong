@@ -11,6 +11,9 @@ import styled from "@mui/material/styles/styled";
 import Grid2 from "@mui/material/Grid2";
 import yellow from "@mui/material/colors/yellow";
 import CircularProgress from "@mui/material/CircularProgress";
+import IconButton from "@mui/material/IconButton";
+import Eye from "lucide-react/dist/esm/icons/eye";
+import EyeOff from "lucide-react/dist/esm/icons/eye-off";
 
 // Local component imports
 import { Callout } from "@components/CustomComponents/CustomComponents";
@@ -122,6 +125,7 @@ const Form = ({
     formState: { errors },
   } = useForm(defaultValues ? defaultValues : {}); // defaultValues ? defaultValues : {}
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   // Submit handler
   const onSubmit = async (data) => {
@@ -164,22 +168,31 @@ const Form = ({
                       label={field.label}
                       variant="outlined"
                       fullWidth
-                      type={field.type || "text"}
+                      type={
+                        field.type === "password" && !showPassword
+                          ? "password"
+                          : "text"
+                      }
                       onWheel={(e) =>
                         field.type === "number" && e.target.blur()
                       }
                       multiline={field.multiline || false}
                       rows={field.rows || 1}
                       placeholder={field.placeholder || ""}
-                      slotProps={
-                        field.type === "date"
-                          ? {
-                              inputLabel: {
-                                shrink: true,
-                              },
-                            }
-                          : {}
-                      }
+                      slotProps={{
+                        inputLabel:
+                          field.type === "date" ? { shrink: true } : undefined,
+                        input: {
+                          endAdornment: field.type === "password" && ( // Show toggle only for password fields
+                            <IconButton
+                              onClick={() => setShowPassword(!showPassword)}
+                              edge="end"
+                            >
+                              {showPassword ? <EyeOff /> : <Eye />}
+                            </IconButton>
+                          ),
+                        },
+                      }}
                       {...register(field.name, {
                         required: field.required
                           ? `${field.label} is required`

@@ -6,6 +6,7 @@ import AdminSubmissionsPage from "@pages/adminPages/AdminSubmissionsPage/AdminSu
 import AdminArchivedPage from "@pages/adminPages/AdminArchivedPage/AdminArchivedPage";
 import AuthPage from "@pages/adminPages/AuthPage/AuthPage";
 import ProtectedAdminRoute from "@pages/adminPages/ProtectedAdminRoute";
+import AdminAdminsPage from "@pages/adminPages/AdminAdminsPage/AdminAdminsPage";
 
 // Lazy-loaded components
 const HomePage = React.lazy(() => import("./pages/HomePage/HomePage"));
@@ -50,29 +51,43 @@ const AppRoutes = () => {
 
         <Route
           path="/admin"
-          element={
-            <ProtectedAdminRoute>
-              <AdminPage />
-            </ProtectedAdminRoute>
-          }
+          // element={
+          //   <ProtectedAdminRoute>
+          //     <AdminPage />
+          //   </ProtectedAdminRoute>
+          // }
+          element={<AdminPage />}
         />
 
         <Route
           path="/admin/submissions"
-          element={
-            <ProtectedAdminRoute>
-              <AdminPage Page={AdminSubmissionsPage} />
-            </ProtectedAdminRoute>
-          }
+          // element={
+          //   <ProtectedAdminRoute>
+          //     <AdminPage Page={AdminSubmissionsPage} />
+          //   </ProtectedAdminRoute>
+          // }
+          element={<AdminPage Page={AdminSubmissionsPage} />}
         />
         <Route
           path="/admin/archive"
-          element={
-            <ProtectedAdminRoute>
-              <AdminPage Page={AdminArchivedPage} />
-            </ProtectedAdminRoute>
-          }
+          // element={
+          //   <ProtectedAdminRoute>
+          //     <AdminPage Page={AdminArchivedPage} />
+          //   </ProtectedAdminRoute>
+          // }
+          element={<AdminPage Page={AdminArchivedPage} />}
         />
+
+        <Route
+          path="/admin/admins"
+          // element={
+          //   <ProtectedAdminRoute>
+          //     <AdminPage Page={AdminAdminsPage} />
+          //   </ProtectedAdminRoute>
+          // }
+          element={<AdminPage Page={AdminAdminsPage} />}
+        />
+
         <Route path="/admin-auth" element={<AuthPage />} />
 
         {/* 404 Route */}
