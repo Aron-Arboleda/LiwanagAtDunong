@@ -14,14 +14,18 @@ import UserRoundCog from "lucide-react/dist/esm/icons/user-round-cog";
 import AuthContext from "@contexts/AuthContext";
 import LogOut from "lucide-react/dist/esm/icons/log-out";
 import School from "lucide-react/dist/esm/icons/school";
-import { useNavigate } from "react-router-dom";
+import ConfirmationPanel from "../ConfirmationPanel/ConfirmationPanel";
+import { ToastContainer } from "react-toastify";
+import { showActionDoneMessage } from "../DataTable/DataTable";
 
 const Sidebar = () => {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
-  const { user } = useContext(AuthContext);
-  const navigate = useNavigate();
+  const [isLogoutConfirmationOpen, setIsLogoutConfirmationOpen] =
+    useState(false);
+  const [logoutLoading, setLogoutLoading] = useState(false);
+  const { user, logout } = useContext(AuthContext);
 
   const sidebarRef = useRef(null);
 
@@ -33,10 +37,19 @@ const Sidebar = () => {
     setIsSettingsOpen(!isSettingsOpen);
   };
 
-  const handleLogout = () => {};
+  const handleLogout = () => {
+    setIsLogoutConfirmationOpen(true);
+  };
 
-  const handleGoToWebsite = () => {
-    navigate("/");
+  const logoutConfirm = async () => {
+    try {
+      setLogoutLoading(true);
+      await logout();
+    } catch (error) {
+      showActionDoneMessage("Error: " + error, false);
+    } finally {
+      setLogoutLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -114,8 +127,12 @@ const Sidebar = () => {
           <div className="sidebarFooter">
             {isSettingsOpen && (
               <div className="settingsContainer">
-                <button className="settingsItem" onClick={handleLogout}>
-                  Log out
+                <button
+                  className="settingsItem"
+                  onClick={handleLogout}
+                  disabled={logoutLoading}
+                >
+                  {logoutLoading ? "Logging out..." : "Log out"}
                   <LogOut size={20} className="icon" />
                 </button>
                 <a className="settingsItem" href="/">
@@ -136,9 +153,20 @@ const Sidebar = () => {
             </div>
           </div>
         </div>
+        <ToastContainer />
       </div>
       <div className={`sidebarOverlay ${isMenuOpen ? "open" : "closed"}`}></div>
       <div className="sidebarSpace"></div>
+
+      {isLogoutConfirmationOpen && (
+        <ConfirmationPanel
+          confirmationTitle="Are you sure you want to logout?"
+          confirmationDescription={`You are about to logout from the admin panel and end your session. Do you want to proceed?`}
+          onConfirm={logoutConfirm}
+          onCancel={() => setIsLogoutConfirmationOpen(false)}
+          variant="critical"
+        />
+      )}
     </>
   );
 };
