@@ -4,6 +4,8 @@ import LoadingPage from "@pages/morePages/LoadingPage/LoadingPage";
 import AdminPage from "@pages/adminPages/AdminPage";
 import AdminSubmissionsPage from "@pages/adminPages/AdminSubmissionsPage/AdminSubmissionsPage";
 import AdminArchivedPage from "@pages/adminPages/AdminArchivedPage/AdminArchivedPage";
+import AuthPage from "@pages/adminPages/AuthPage/AuthPage";
+import ProtectedAdminRoute from "@pages/adminPages/ProtectedAdminRoute";
 
 // Lazy-loaded components
 const HomePage = React.lazy(() => import("./pages/HomePage/HomePage"));
@@ -43,15 +45,37 @@ const AppRoutes = () => {
           path="/terms-and-conditions"
           element={<TermsAndConditionsPage />}
         />
-        <Route path="/admin" element={<AdminPage />} />
+
+        {/* Admin Routes */}
+
+        <Route
+          path="/admin"
+          element={
+            <ProtectedAdminRoute>
+              <AdminPage />
+            </ProtectedAdminRoute>
+          }
+        />
+
         <Route
           path="/admin/submissions"
-          element={<AdminPage Page={AdminSubmissionsPage} />}
+          element={
+            <ProtectedAdminRoute>
+              <AdminPage Page={AdminSubmissionsPage} />
+            </ProtectedAdminRoute>
+          }
         />
         <Route
           path="/admin/archive"
-          element={<AdminPage Page={AdminArchivedPage} />}
+          element={
+            <ProtectedAdminRoute>
+              <AdminPage Page={AdminArchivedPage} />
+            </ProtectedAdminRoute>
+          }
         />
+        <Route path="/admin-auth" element={<AuthPage />} />
+
+        {/* 404 Route */}
 
         <Route path="*" element={<NotFoundPage />} />
       </Routes>

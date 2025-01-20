@@ -6,7 +6,8 @@
       "@pages/*": ["src/pages/*"],
       "@utils/*": ["src/utils/*"],
       "@images/*": ["src/assets/images/*"],
-      "@controllers/*": ["src/controllers/*"]
+      "@controllers/*": ["src/controllers/*"],
+      "@contexts/*": ["src/contexts/*"]
     }
   },
   "include": ["src/**/*"] // Ensures it includes your source files

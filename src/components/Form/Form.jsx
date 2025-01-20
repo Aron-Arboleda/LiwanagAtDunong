@@ -20,7 +20,7 @@ import { CardGridLayout, FlexLayoutColumn } from "@components/Layouts/Layouts";
 // CSS imports
 import "./Form.css";
 
-const SubmitButton = styled(Button)(({ theme }) => ({
+export const SubmitButton = styled(Button)(({ theme }) => ({
   color: "black",
   backgroundColor: yellow[200],
   "&:hover": {
@@ -37,7 +37,7 @@ const SubmitButton = styled(Button)(({ theme }) => ({
   margin: "3rem 0 2rem 0",
 }));
 
-const CustomTextField = styled(TextField)(({ theme }) => ({
+export const CustomTextField = styled(TextField)(({ theme }) => ({
   "& label.Mui-focused": {
     color: "#347928",
   },
@@ -120,7 +120,7 @@ const Form = ({
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm(defaultValuesForTesting); // defaultValues ? defaultValues : {}
+  } = useForm(defaultValues ? defaultValues : {}); // defaultValues ? defaultValues : {}
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   // Submit handler
