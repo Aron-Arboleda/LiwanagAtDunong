@@ -9,8 +9,31 @@ import {
   updateRecord,
 } from "@controllers/volunteer_form_table";
 import { sections } from "@pages/VolunteerFormPage/sections";
+import AuthContext from "@contexts/AuthContext";
+import { useContext } from "react";
 
 const AdminArchivedPage = () => {
+  const { user } = useContext(AuthContext);
+  const editorArchiveToggles = {
+    archive: false,
+    unarchive: true,
+    delete: true,
+    edit: true,
+    create: true,
+    checkboxes: true,
+    newSubmission: false,
+  };
+
+  const viewerArchiveToggles = {
+    archive: false,
+    unarchive: false,
+    delete: false,
+    edit: false,
+    create: false,
+    checkboxes: false,
+    newSubmission: false,
+  };
+
   return (
     <>
       <h1>Archive</h1>
@@ -28,14 +51,13 @@ const AdminArchivedPage = () => {
           onDelete: deleteRecords,
           onUnarchive: unarchiveRecords,
         }}
-        toggles={{
-          archive: false,
-          unarchive: true,
-          delete: true,
-          edit: true,
-          create: true,
-          newSubmission: false,
-        }}
+        toggles={
+          user
+            ? user.user_role === "viewer"
+              ? viewerArchiveToggles
+              : editorArchiveToggles
+            : editorArchiveToggles
+        }
         formFields={sections}
       />
     </>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./DataTable.css";
-import { checkNull } from "@utils/functions";
+import { checkNull, formatDate } from "@utils/helpers";
 import Search from "lucide-react/dist/esm/icons/search";
 import Checkbox from "@mui/material/Checkbox/Checkbox";
 import { StandardButton } from "@components/Buttons/Buttons";
@@ -48,6 +48,7 @@ const defaultToggles = {
   delete: true,
   edit: true,
   create: true,
+  checkboxes: true,
   newSubmission: true,
 };
 
@@ -58,33 +59,6 @@ const defaultControllers = {
   onCreate: async () => {},
   onArchive: async () => {},
   onUnarchive: async () => {},
-};
-
-const formatDate = (value) => {
-  const filteredValue = checkNull(value);
-  if (filteredValue === "--") return filteredValue;
-
-  const dateOnlyRegex = /^\d{4}-\d{2}-\d{2}$/;
-  if (typeof value === "string" && dateOnlyRegex.test(value)) {
-    const date = new Date(value);
-    const options = { year: "numeric", month: "short", day: "numeric" };
-    return isNaN(date)
-      ? value
-      : new Intl.DateTimeFormat("en-US", options).format(date);
-  }
-
-  const date = new Date(value);
-  const options = {
-    year: "numeric",
-    month: "short",
-    day: "numeric",
-    hour: "numeric",
-    minute: "numeric",
-    hour12: true,
-  };
-  return isNaN(date)
-    ? value
-    : new Intl.DateTimeFormat("en-US", options).format(date);
 };
 
 const DataTable = ({
@@ -280,21 +254,23 @@ const DataTable = ({
         >
           <thead>
             <tr>
-              <th>
-                <Checkbox
-                  onChange={(e) =>
-                    setSelectedRows(
-                      e.target.checked
-                        ? sortedData.map((row, index) => index)
-                        : []
-                    )
-                  }
-                  checked={
-                    selectedRows.length > 0 &&
-                    selectedRows.length === sortedData.length
-                  }
-                />
-              </th>
+              {toggles.checkboxes && (
+                <th>
+                  <Checkbox
+                    onChange={(e) =>
+                      setSelectedRows(
+                        e.target.checked
+                          ? sortedData.map((row, index) => index)
+                          : []
+                      )
+                    }
+                    checked={
+                      selectedRows.length > 0 &&
+                      selectedRows.length === sortedData.length
+                    }
+                  />
+                </th>
+              )}
               {columns.map((column) => (
                 <th key={column.key} onClick={() => handleSort(column.key)}>
                   {column.label}{" "}
@@ -314,14 +290,23 @@ const DataTable = ({
                     : "",
                 }}
               >
-                <td>
-                  <Checkbox
-                    checked={selectedRows.includes(rowIndex)}
-                    onChange={() => handleRowSelect(rowIndex)}
-                  />
-                </td>
+                {toggles.checkboxes && (
+                  <td>
+                    <Checkbox
+                      checked={selectedRows.includes(rowIndex)}
+                      onChange={() => handleRowSelect(rowIndex)}
+                    />
+                  </td>
+                )}
                 {columns.map((column) => (
-                  <td key={column.key}>
+                  <td
+                    key={column.key}
+                    style={
+                      toggles.checkboxes === false
+                        ? { padding: "0.5rem 1rem" }
+                        : {}
+                    }
+                  >
                     {column.format === "date" || column.format === "datetime"
                       ? formatDate(row[column.key])
                       : checkNull(row[column.key])}

@@ -34,6 +34,7 @@ const AdminAdminsPage = () => {
           edit: true,
           create: true,
           newSubmission: true,
+          checkboxes: true,
         }}
       />
     </>

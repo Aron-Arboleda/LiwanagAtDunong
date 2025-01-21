@@ -1,12 +1,7 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import React, { Suspense } from "react";
 import LoadingPage from "@pages/morePages/LoadingPage/LoadingPage";
-import AdminPage from "@pages/adminPages/AdminPage";
-import AdminSubmissionsPage from "@pages/adminPages/AdminSubmissionsPage/AdminSubmissionsPage";
-import AdminArchivedPage from "@pages/adminPages/AdminArchivedPage/AdminArchivedPage";
-import AuthPage from "@pages/adminPages/AuthPage/AuthPage";
 import ProtectedAdminRoute from "@pages/adminPages/ProtectedAdminRoute";
-import AdminAdminsPage from "@pages/adminPages/AdminAdminsPage/AdminAdminsPage";
 
 // Lazy-loaded components
 const HomePage = React.lazy(() => import("./pages/HomePage/HomePage"));
@@ -28,6 +23,19 @@ const PrivacyPolicyPage = React.lazy(() =>
 );
 const TermsAndConditionsPage = React.lazy(() =>
   import("@pages/morePages/TermsAndConditionsPage/TermsAndConditionsPage")
+);
+const AdminPage = React.lazy(() => import("@pages/adminPages/AdminPage"));
+const AdminSubmissionsPage = React.lazy(() =>
+  import("@pages/adminPages/AdminSubmissionsPage/AdminSubmissionsPage")
+);
+const AdminArchivedPage = React.lazy(() =>
+  import("@pages/adminPages/AdminArchivedPage/AdminArchivedPage")
+);
+const AuthPage = React.lazy(() =>
+  import("@pages/adminPages/AuthPage/AuthPage")
+);
+const AdminAdminsPage = React.lazy(() =>
+  import("@pages/adminPages/AdminAdminsPage/AdminAdminsPage")
 );
 
 const AppRoutes = () => {

@@ -116,12 +116,20 @@ const Sidebar = () => {
                   <span>Archive</span>
                 </a>
               </li>
-              <li className={isActive("/admin/admins") ? "active" : ""}>
-                <a href="/admin/admins" className="navLinks">
-                  <UserRoundCog size={20} className="icon" />
-                  <span>Admins</span>
-                </a>
-              </li>
+              {user ? (
+                user.user_role === "super_admin" ? (
+                  <li className={isActive("/admin/admins") ? "active" : ""}>
+                    <a href="/admin/admins" className="navLinks">
+                      <UserRoundCog size={20} className="icon" />
+                      <span>Admins</span>
+                    </a>
+                  </li>
+                ) : (
+                  <></>
+                )
+              ) : (
+                <></>
+              )}
             </ul>
           </div>
           <div className="sidebarFooter">

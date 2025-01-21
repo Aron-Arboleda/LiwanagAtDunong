@@ -9,8 +9,31 @@ import {
   updateRecord,
 } from "@controllers/volunteer_form_table";
 import { sections } from "@pages/VolunteerFormPage/sections";
+import AuthContext from "@contexts/AuthContext";
+import { useContext } from "react";
 
 const AdminSubmissionsPage = () => {
+  const { user } = useContext(AuthContext);
+  const editorToggles = {
+    archive: true,
+    unarchive: false,
+    delete: true,
+    edit: true,
+    create: true,
+    checkboxes: true,
+    newSubmission: true,
+  };
+
+  const viewerToggles = {
+    archive: false,
+    unarchive: false,
+    delete: false,
+    edit: false,
+    create: false,
+    checkboxes: false,
+    newSubmission: false,
+  };
+
   return (
     <>
       <h1>Submissions</h1>
@@ -29,6 +52,13 @@ const AdminSubmissionsPage = () => {
           onArchive: archiveRecords,
         }}
         formFields={sections}
+        toggles={
+          user
+            ? user.user_role === "viewer"
+              ? viewerToggles
+              : editorToggles
+            : editorToggles
+        }
       />
     </>
   );
