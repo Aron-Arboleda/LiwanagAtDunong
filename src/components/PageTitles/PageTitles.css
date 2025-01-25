@@ -90,6 +90,11 @@
   font-size: clamp(1rem, 5vw, 1.2rem);
 }
 
+.pageSubTitleH5 {
+  font-family: "Montserrat";
+  font-size: clamp(0.9rem, 4vw, 1rem);
+}
+
 .montserratCardTitle {
   font-family: "Montserrat";
   font-size: 1rem;

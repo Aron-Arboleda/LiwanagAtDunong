@@ -20,7 +20,9 @@ const FollowersCountCard = ({
           <Icon color="#347928" size={36} />
         </div>
       </div>
-      <a href={socmedLink}>{username}</a>
+      <a href={socmedLink} target="_blank">
+        {username}
+      </a>
     </div>
   );
 };

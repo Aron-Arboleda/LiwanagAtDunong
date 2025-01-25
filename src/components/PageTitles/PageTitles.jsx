@@ -63,6 +63,14 @@ export const StandardChunkFiveSubTitleH4 = ({ title = "Title", style }) => {
   );
 };
 
+export const StandardChunkFiveSubTitleH5 = ({ title = "Title", style }) => {
+  return (
+    <h5 className="pageSubTitle pageSubTitleH5" style={style}>
+      {title}
+    </h5>
+  );
+};
+
 export const MontserratCardTitle = ({ text }) => {
   return <h3 className="montserratCardTitle">{text}</h3>;
 };
@@ -107,18 +115,18 @@ export const MontserratBulletInfo = ({ children }) => {
 
 export const MontserratUnorderedList = ({ context, list, children }) => {
   return children ? (
-    <>
+    <div>
       <MontserratCardInfoBiggerText text={context} />
       <ul className="montserratUnorderedList">{children}</ul>
-    </>
+    </div>
   ) : (
-    <>
+    <div>
       <MontserratCardInfoBiggerText text={context} />
       <ul className="montserratUnorderedList">
         {list.map((list, index) => (
           <MontserratBulletInfo key={index}>{list}</MontserratBulletInfo>
         ))}
       </ul>
-    </>
+    </div>
   );
 };
