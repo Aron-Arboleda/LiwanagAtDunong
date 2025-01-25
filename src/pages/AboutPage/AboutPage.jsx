@@ -26,7 +26,7 @@ import {
   LearningCenterWithKids,
   SitioGayamanMap,
 } from "@images/PageImages/AboutPage";
-import { recordPageView } from "@controllers/page_views";
+import { recordInitialPageLoadStatistics } from "@controllers/analytics";
 
 const communityCount_data = [
   { community: "Gayaman", households: 41, population: 212, children: 101 },
@@ -73,7 +73,7 @@ const baguinganChildrenEducationTally_data = [
 
 const AboutPage = () => {
   useEffect(() => {
-    recordPageView();
+    recordInitialPageLoadStatistics();
   }, []);
 
   return (

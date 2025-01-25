@@ -12,11 +12,11 @@ import {
 } from "@components/CustomComponents/CustomComponents";
 import { StandardLayout } from "@components/Layouts/Layouts";
 import { useEffect } from "react";
-import { recordPageView } from "@controllers/page_views";
+import { recordInitialPageLoadStatistics } from "@controllers/analytics";
 
 const HomePage = () => {
   useEffect(() => {
-    recordPageView();
+    recordInitialPageLoadStatistics();
   }, []);
 
   return (

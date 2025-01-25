@@ -28,7 +28,7 @@ import {
   SampleItinerary2,
 } from "@images/PageImages/VolunteerFormPage";
 import { CONFIG } from "@controllers/config";
-import { recordPageView } from "@controllers/page_views";
+import { recordInitialPageLoadStatistics } from "@controllers/analytics";
 
 const VolunteerFormPage = () => {
   const [submission, setSubmission] = useState({
@@ -89,7 +89,7 @@ const VolunteerFormPage = () => {
   };
 
   useEffect(() => {
-    recordPageView();
+    recordInitialPageLoadStatistics();
   }, []);
 
   return (

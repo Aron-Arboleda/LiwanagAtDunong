@@ -24,11 +24,11 @@ import {
   VolunteerTeaching,
 } from "@images/PageImages/FAQsPage";
 import { useEffect } from "react";
-import { recordPageView } from "@controllers/page_views";
+import { recordInitialPageLoadStatistics } from "@controllers/analytics";
 
 const FAQsPage = () => {
   useEffect(() => {
-    recordPageView();
+    recordInitialPageLoadStatistics();
   }, []);
 
   return (

@@ -24,11 +24,11 @@ import {
   NanayLindaSmiling,
   VolunteerTeachingAnAeta,
 } from "@images/PageImages/LiteracyPage";
-import { recordPageView } from "@controllers/page_views";
+import { recordInitialPageLoadStatistics } from "@controllers/analytics";
 
 const LiteracyPage = () => {
   useEffect(() => {
-    recordPageView();
+    recordInitialPageLoadStatistics();
   }, []);
 
   return (

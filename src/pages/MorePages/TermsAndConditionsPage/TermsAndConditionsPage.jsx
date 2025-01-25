@@ -18,11 +18,11 @@ import {
   PageDivider,
   PageDividerThin,
 } from "@components/CustomComponents/CustomComponents";
-import { recordPageView } from "@controllers/page_views";
+import { recordInitialPageLoadStatistics } from "@controllers/analytics";
 
 const TermsAndConditionsPage = () => {
   useEffect(() => {
-    recordPageView();
+    recordInitialPageLoadStatistics();
   }, []);
 
   return (

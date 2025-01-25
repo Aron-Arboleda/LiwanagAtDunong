@@ -18,14 +18,14 @@ import React, { useEffect } from "react";
 import PartnerCard from "./NetworkPageComponents/PartnerCard";
 
 import { networkPageData } from "./programData.js";
-import { recordPageView } from "@controllers/page_views";
+import { recordInitialPageLoadStatistics } from "@controllers/analytics";
 
 const NetworkPage = () => {
   const { programPartners_data, programDonors_data, volunteerImages } =
     networkPageData;
 
   useEffect(() => {
-    recordPageView();
+    recordInitialPageLoadStatistics();
   }, []);
 
   return (
