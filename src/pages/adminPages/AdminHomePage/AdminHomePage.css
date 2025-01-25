@@ -1,3 +1,50 @@
 .adminHomePageSubSection {
   margin-bottom: 1rem;
 }
+
+.chart-container {
+  padding: 15px;
+  border: 2px solid black;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.534);
+}
+
+.chart-title {
+  font-family: "Montserrat";
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.chart-wrapper {
+  height: 300px; /* Adjust height as needed */
+}
+
+.loading-text {
+  text-align: center;
+  font-size: 1rem;
+  color: #555;
+}
+
+.error-text {
+  text-align: center;
+  font-size: 1rem;
+  color: red;
+}
+
+.total-views {
+  font-family: "ChunkFive";
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.total-views {
+  font-family: "ChunkFive";
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.total-views-description {
+  font-size: 0.8rem;
+  margin-bottom: 10px;
+}

@@ -1,3 +1,5 @@
+import numeral from "numeral";
+
 export const checkNull = (value, fallback = "--") => {
   return value === null || value === undefined ? fallback : value;
 };
@@ -34,4 +36,8 @@ export const formatMonth = (yearMonth) => {
   const date = new Date(yearMonth + "-01"); // Convert to a valid date format
   const options = { month: "short", year: "numeric" }; // Include both abbreviated month and full year
   return new Intl.DateTimeFormat("en-US", options).format(date);
+};
+
+export const formatCompressWithLetters = (views) => {
+  return numeral(views).format("0a"); // Formats the number in short form (e.g., 1K, 1.3M)
 };

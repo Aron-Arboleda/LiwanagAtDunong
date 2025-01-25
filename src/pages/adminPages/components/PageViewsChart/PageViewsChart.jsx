@@ -9,14 +9,8 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
-import "./PageViewsChart.css"; // Import your CSS file
 import { fetchPageViews } from "@controllers/analytics";
-import { formatMonth } from "@utils/helpers";
-import numeral from "numeral";
-
-export const formatPageViews = (views) => {
-  return numeral(views).format("0a"); // Formats the number in short form (e.g., 1K, 1.3M)
-};
+import { formatCompressWithLetters, formatMonth } from "@utils/helpers";
 
 // Register Chart.js components
 ChartJS.register(
@@ -74,7 +68,9 @@ const PageViewsChart = () => {
   return (
     <div className="chart-container">
       <h2 className="chart-title">Website Page Views</h2>
-      <p className="total-views">{formatPageViews(totalViews)}</p>{" "}
+      <p className="total-views">
+        {formatCompressWithLetters(totalViews)}
+      </p>{" "}
       <p className="total-views-description">
         Page views and downloads for the last 4 months
       </p>{" "}

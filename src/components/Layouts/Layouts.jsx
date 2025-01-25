@@ -37,9 +37,11 @@ export const CardGridLayout = ({
   children,
   sizeOfCard = "200px",
   margin = "2rem 0",
+  textAlign = "center",
 }) => {
   const style = {
     gridTemplateColumns: `repeat(auto-fill, minmax(${sizeOfCard}, 1fr))`,
+    textAlign: textAlign,
     margin: margin,
   };
   return (

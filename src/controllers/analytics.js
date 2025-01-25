@@ -71,6 +71,29 @@ export const callRecordVisitor = async () => {
   }
 };
 
+export const fetchDailyVisitors = async () => {
+  try {
+    const response = await fetch(
+      `${CONFIG.BACKEND_API}analytics/visitors/read.php`
+    );
+    const data = await response.json();
+
+    if (response.ok) {
+      return {
+        success: true,
+        data: data.data, // Array of daily visitor trends
+        totalVisitors: data.total_visitors, // Total visitors count
+      };
+    } else {
+      console.error("Error fetching daily visitors:", data.message);
+      return { success: false, error: data.message };
+    }
+  } catch (error) {
+    console.error("Error fetching daily visitors:", error);
+    return { success: false, error: error.message };
+  }
+};
+
 // Automation
 
 export const recordInitialPageLoadStatistics = async () => {

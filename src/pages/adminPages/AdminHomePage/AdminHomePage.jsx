@@ -6,6 +6,7 @@ import SocialMediaFollowersTracker from "../components/SocialMediaFollowersTrack
 import "./AdminHomePage.css";
 import { CardGridLayout } from "@components/Layouts/Layouts";
 import PageViewsChart from "../components/PageViewsChart/PageViewsChart";
+import DailyVisitorsChart from "../components/DailyVisitorsChart/DailyVisitorsChart";
 
 const AdminHomePageSubSection = ({ title, children }) => {
   return (
@@ -130,7 +131,10 @@ const AdminHomePage = () => {
       <h1>Home</h1>
       <AdminHomePageSubSection title="Statistics">
         {/* <CardGridLayout sizeOfCard="290px" margin="1rem 0"></CardGridLayout> */}
-        <PageViewsChart />
+        <CardGridLayout sizeOfCard="400px" margin="1rem 0" textAlign="left">
+          <PageViewsChart />
+          <DailyVisitorsChart />
+        </CardGridLayout>
       </AdminHomePageSubSection>
       <AdminHomePageSubSection title="Links">
         <CardGridLayout sizeOfCard="290px" margin="1rem 0">
