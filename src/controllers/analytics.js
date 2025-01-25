@@ -8,34 +8,22 @@ export const recordPageView = () => {
   });
 };
 
-export const fetchWebsiteStats = async () => {
+export const fetchPageViews = async () => {
   try {
     const response = await fetch(
-      `${CONFIG.BACKEND_API}admin/stats/get_stats.php`,
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
+      `${CONFIG.BACKEND_API}analytics/page_views/read.php`
     );
+    const data = await response.json();
 
-    const responseData = await response.json();
-
-    if (response.ok) {
-      return {
-        data: responseData.data,
-        message: responseData.message,
-        success: true,
-      };
-    } else {
-      return {
-        message: responseData.message || "Failed to fetch website stats.",
-        success: false,
-      };
+    if (!response.ok) {
+      throw new Error(data.message || "Failed to fetch page views.");
     }
+    console.log("data", data.data);
+
+    return { success: true, data: data.data };
   } catch (error) {
-    return { message: "Error: Server error, " + error, success: false };
+    console.error("Error fetching page views:", error);
+    return { success: false, error: error.message };
   }
 };
 

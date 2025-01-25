@@ -1,11 +1,11 @@
 import {
   MontserratUnorderedList,
   StandardChunkFiveSubTitleH4,
-  StandardChunkFiveSubTitleH5,
 } from "@components/PageTitles/PageTitles";
 import SocialMediaFollowersTracker from "../components/SocialMediaFollowersTracker/SocialMediaFollowersTracker";
 import "./AdminHomePage.css";
 import { CardGridLayout } from "@components/Layouts/Layouts";
+import PageViewsChart from "../components/PageViewsChart/PageViewsChart";
 
 const AdminHomePageSubSection = ({ title, children }) => {
   return (
@@ -128,18 +128,9 @@ const AdminHomePage = () => {
   return (
     <>
       <h1>Home</h1>
-      <AdminHomePageSubSection title="Links">
-        <CardGridLayout sizeOfCard="290px" margin="1rem 0">
-          <MontserratUnorderedList context={"Canva Links"} list={CanvaLinks} />
-          <MontserratUnorderedList
-            context={"Google Drive Links"}
-            list={GDriveLinks}
-          />
-          <MontserratUnorderedList
-            context={"Volunteer Guides"}
-            list={GuidesLinks}
-          />
-        </CardGridLayout>
+      <AdminHomePageSubSection title="Statistics">
+        {/* <CardGridLayout sizeOfCard="290px" margin="1rem 0"></CardGridLayout> */}
+        <PageViewsChart />
       </AdminHomePageSubSection>
       <AdminHomePageSubSection title="Links">
         <CardGridLayout sizeOfCard="290px" margin="1rem 0">

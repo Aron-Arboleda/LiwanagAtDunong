@@ -28,3 +28,10 @@ export const formatDate = (value) => {
     ? value
     : new Intl.DateTimeFormat("en-US", options).format(date);
 };
+
+// Helper function to format the month (YYYY-MM -> Jan 2024)
+export const formatMonth = (yearMonth) => {
+  const date = new Date(yearMonth + "-01"); // Convert to a valid date format
+  const options = { month: "short", year: "numeric" }; // Include both abbreviated month and full year
+  return new Intl.DateTimeFormat("en-US", options).format(date);
+};
