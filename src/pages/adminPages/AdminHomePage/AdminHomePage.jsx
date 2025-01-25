@@ -3,9 +3,8 @@ import FollowersCountCard from "../components/FollowersCountCard/FollowersCountC
 import { FaFacebook, FaInstagram, FaYoutube, FaTiktok } from "react-icons/fa";
 import { TbBrandX } from "react-icons/tb";
 import { CardGridLayout } from "@components/Layouts/Layouts";
-import { CONFIG } from "@controllers/config";
 import { StandardChunkFiveSubTitleH4 } from "@components/PageTitles/PageTitles";
-
+import { fetchFollowers } from "@controllers/social_platforms";
 const AdminHomePage = () => {
   const [data, setData] = useState({
     facebook: { followers: null, loading: true },
@@ -16,58 +15,31 @@ const AdminHomePage = () => {
   });
 
   useEffect(() => {
-    const fetchFollowers = async () => {
-      try {
-        const response = await fetch(
-          `${CONFIG.BACKEND_API}admin/get_all_followers_count.php`,
-          {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
-
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        const data = await response.json();
-
-        if (data.message === "Follower data retrieved successfully.") {
-          const socmedFollowersData = data.data;
-          setData({
-            facebook: {
-              followers: socmedFollowersData[0]?.followers_count || "N/A",
-              loading: false,
-            },
-            instagram: {
-              followers: socmedFollowersData[1]?.followers_count || "N/A",
-              loading: false,
-            },
-            tiktok: {
-              followers: socmedFollowersData[3]?.followers_count || "N/A",
-              loading: false,
-            },
-            twitter: {
-              followers: socmedFollowersData[2]?.followers_count || "N/A",
-              loading: false,
-            },
-            youtube: {
-              followers: socmedFollowersData[4]?.followers_count || "N/A",
-              loading: false,
-            },
-          });
-        } else {
-          console.error(data.message);
-        }
-      } catch (error) {
-        console.error("Error fetching followers:", error);
-      }
-    };
-
-    // Call the function
-    fetchFollowers();
+    fetchFollowers().then((response) => {
+      const socmedFollowersData = response.data;
+      setData({
+        facebook: {
+          followers: socmedFollowersData[0]?.followers_count || "N/A",
+          loading: false,
+        },
+        instagram: {
+          followers: socmedFollowersData[1]?.followers_count || "N/A",
+          loading: false,
+        },
+        tiktok: {
+          followers: socmedFollowersData[3]?.followers_count || "N/A",
+          loading: false,
+        },
+        twitter: {
+          followers: socmedFollowersData[2]?.followers_count || "N/A",
+          loading: false,
+        },
+        youtube: {
+          followers: socmedFollowersData[4]?.followers_count || "N/A",
+          loading: false,
+        },
+      });
+    });
   }, []);
 
   return (
