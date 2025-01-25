@@ -14,7 +14,7 @@ import {
 } from "@components/PageTitles/PageTitles";
 import Section, { ContentArea } from "@components/Section/Section";
 
-import React from "react";
+import React, { useEffect } from "react";
 import { StaticFolderContainer } from "@components/LargeContainers/FoldersUIPackage";
 import {
   AetaALSGraduation,
@@ -24,8 +24,13 @@ import {
   NanayLindaSmiling,
   VolunteerTeachingAnAeta,
 } from "@images/PageImages/LiteracyPage";
+import { recordPageView } from "@controllers/page_views";
 
 const LiteracyPage = () => {
+  useEffect(() => {
+    recordPageView();
+  }, []);
+
   return (
     <StandardLayout>
       <MainContainer>

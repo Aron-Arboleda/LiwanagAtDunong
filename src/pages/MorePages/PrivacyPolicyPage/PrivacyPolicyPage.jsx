@@ -1,5 +1,5 @@
 import { FlexLayoutColumn, StandardLayout } from "@components/Layouts/Layouts";
-import React from "react";
+import React, { useEffect } from "react";
 import Section from "@components/Section/Section";
 import {
   StandardChunkFiveTitle,
@@ -18,8 +18,13 @@ import {
   PageDivider,
   PageDividerThin,
 } from "@components/CustomComponents/CustomComponents";
+import { recordPageView } from "@controllers/page_views";
 
 const PrivacyPolicyPage = () => {
+  useEffect(() => {
+    recordPageView();
+  }, []);
+
   return (
     <StandardLayout>
       <MainContainer>

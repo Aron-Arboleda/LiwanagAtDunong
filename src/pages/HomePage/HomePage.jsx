@@ -11,8 +11,14 @@ import {
   PageDivider,
 } from "@components/CustomComponents/CustomComponents";
 import { StandardLayout } from "@components/Layouts/Layouts";
+import { useEffect } from "react";
+import { recordPageView } from "@controllers/page_views";
 
 const HomePage = () => {
+  useEffect(() => {
+    recordPageView();
+  }, []);
+
   return (
     <StandardLayout>
       <InitialSection />

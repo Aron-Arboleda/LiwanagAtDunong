@@ -3,7 +3,7 @@ import {
   GridLayout,
   StandardLayout,
 } from "@components/Layouts/Layouts";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Section from "@components/Section/Section";
 import {
   DarkBackgroundContainer,
@@ -28,6 +28,7 @@ import {
   SampleItinerary2,
 } from "@images/PageImages/VolunteerFormPage";
 import { CONFIG } from "@controllers/config";
+import { recordPageView } from "@controllers/page_views";
 
 const VolunteerFormPage = () => {
   const [submission, setSubmission] = useState({
@@ -86,6 +87,10 @@ const VolunteerFormPage = () => {
       return false;
     }
   };
+
+  useEffect(() => {
+    recordPageView();
+  }, []);
 
   return (
     <StandardLayout>

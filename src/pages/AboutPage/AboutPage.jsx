@@ -4,7 +4,7 @@ import {
   GridLayout,
   StandardLayout,
 } from "@components/Layouts/Layouts";
-import React from "react";
+import React, { useEffect } from "react";
 import Section from "@components/Section/Section";
 import {
   CorbenWhiteCurvyTitle,
@@ -26,6 +26,7 @@ import {
   LearningCenterWithKids,
   SitioGayamanMap,
 } from "@images/PageImages/AboutPage";
+import { recordPageView } from "@controllers/page_views";
 
 const communityCount_data = [
   { community: "Gayaman", households: 41, population: 212, children: 101 },
@@ -71,6 +72,10 @@ const baguinganChildrenEducationTally_data = [
 ];
 
 const AboutPage = () => {
+  useEffect(() => {
+    recordPageView();
+  }, []);
+
   return (
     <StandardLayout>
       <MainContainer>

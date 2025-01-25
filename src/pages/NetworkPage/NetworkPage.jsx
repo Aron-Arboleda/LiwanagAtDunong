@@ -14,14 +14,19 @@ import {
   StandardChunkFiveTitle,
 } from "@components/PageTitles/PageTitles";
 import Section from "@components/Section/Section";
-import React from "react";
+import React, { useEffect } from "react";
 import PartnerCard from "./NetworkPageComponents/PartnerCard";
 
 import { networkPageData } from "./programData.js";
+import { recordPageView } from "@controllers/page_views";
 
 const NetworkPage = () => {
   const { programPartners_data, programDonors_data, volunteerImages } =
     networkPageData;
+
+  useEffect(() => {
+    recordPageView();
+  }, []);
 
   return (
     <StandardLayout>

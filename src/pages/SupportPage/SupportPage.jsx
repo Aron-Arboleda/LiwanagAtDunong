@@ -20,6 +20,8 @@ import {
   AetaPersonLearningInALC,
   MaintenanceOfALC,
 } from "@images/PageImages/SupportPage";
+import { useEffect } from "react";
+import { recordPageView } from "@controllers/page_views";
 
 const supportNeeded_ALC_data = {
   title: "Aeta Learning Center Maintenance",
@@ -63,6 +65,10 @@ const improvementTasks = [
 ];
 
 const SupportPage = () => {
+  useEffect(() => {
+    recordPageView();
+  }, []);
+
   return (
     <StandardLayout>
       <MainContainer>
