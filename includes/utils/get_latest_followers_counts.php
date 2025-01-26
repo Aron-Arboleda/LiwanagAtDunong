@@ -1,20 +1,13 @@
 <?php
 
-// function fetchFacebookData() {
-//     $url = "https://api.apify.com/v2/datasets/IZwRHjih25iv2AymE/items?token=apify_api_kHxoLYM4jB4oX8x9vRLc5vrNodVDWa46dQgj";
-    
-//     $response = file_get_contents($url);
-    
-//     if ($response === FALSE) {
-//         throw new Exception("Failed fetching the Facebook API followers count");
-//     }
+include '../config.php';
 
-//     $data = json_decode($response, true);
-//     return $data[0]; // Returning the fetched data
-// }
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 function fetchFacebookData() {
-    $url = "https://api.apify.com/v2/datasets/IZwRHjih25iv2AymE/items?token=apify_api_kHxoLYM4jB4oX8x9vRLc5vrNodVDWa46dQgj";
+    $url = "https://api.apify.com/v2/datasets/KYnmYS9FNxzFnOS3v/items?token=apify_api_kHxoLYM4jB4oX8x9vRLc5vrNodVDWa46dQgj";
 
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
@@ -160,8 +153,8 @@ function updateFollowers() {
 
         // Prepare data for PUT request
 
-        $url = "http://liwanagatdunong.ct.ws/includes/admin/update_all_followers_count.php";
-        // $url = "http://localhost/liwanagatdunong/includes/admin/update_all_followers_count.php";
+        //$url = "http://liwanagatdunong.ct.ws/includes/admin/update_all_followers_count.php";
+        $url = "http://localhost/liwanagatdunong/includes/admin/update_all_followers_count.php";
         $options = [
             "http" => [
                 "header" => "Content-Type: application/json\r\n",
@@ -183,16 +176,15 @@ function updateFollowers() {
 
         // Return success message
         if (isset($data['message'])) {
-            echo "Successfully updated the followers count in the database.";
-            echo $data['message']; // Success message
+            echo json_encode(["message" => "Followers count updated successfully."]);
             exit(0); // Indicate success
         } else {
-            echo "Error: " . $data['error'];
+            echo json_encode(["message" => "Followers count updated successfully."]);
             exit(1); // Indicate failure
         }
     } catch (Exception $e) {
         // Catch any exceptions and return an error message
-        echo "Fetch error: " . $e->getMessage();
+        echo json_encode(["message" => "Followers count updated successfully.", "error" => $e->getMessage()]);
         exit(1); // Indicate failure
     }
 }

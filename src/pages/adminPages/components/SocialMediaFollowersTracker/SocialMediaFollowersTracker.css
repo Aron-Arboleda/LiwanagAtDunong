@@ -1,0 +1,8 @@
+.updateFollowersContainer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 20px;
+  font-family: "Montserrat";
+  font-size: 0.9rem;
+}

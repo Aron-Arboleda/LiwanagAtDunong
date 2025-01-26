@@ -1,13 +1,23 @@
 import { CardGridLayout } from "@components/Layouts/Layouts";
 import { StandardChunkFiveSubTitleH4 } from "@components/PageTitles/PageTitles";
-import React from "react";
+import React, { useContext } from "react";
 import FollowersCountCard from "../FollowersCountCard/FollowersCountCard";
 import { FaFacebook, FaInstagram, FaYoutube, FaTiktok } from "react-icons/fa";
 import { TbBrandX } from "react-icons/tb";
 import { useState, useEffect } from "react";
 import { fetchFollowers } from "@controllers/social_platforms";
+import AuthContext from "@contexts/AuthContext";
+import { StandardButton } from "@components/Buttons/Buttons";
+import { updateFollowersCounts } from "@controllers/utils";
+import RefreshCCW from "lucide-react/dist/esm/icons/refresh-ccw-dot";
+import "./SocialMediaFollowersTracker.css";
+import { ToastContainer } from "react-toastify";
+import { showActionDoneMessage } from "../DataTable/DataTable";
 
 const SocialMediaFollowersTracker = () => {
+  const { user } = useContext(AuthContext);
+  const [loading, setLoading] = useState(false);
+
   const [data, setData] = useState({
     facebook: { followers: null, loading: true },
     instagram: { followers: null, loading: true },
@@ -16,7 +26,7 @@ const SocialMediaFollowersTracker = () => {
     youtube: { followers: null, loading: true },
   });
 
-  useEffect(() => {
+  const loadFollowers = () => {
     fetchFollowers().then((response) => {
       const socmedFollowersData = response.data;
       setData({
@@ -42,6 +52,29 @@ const SocialMediaFollowersTracker = () => {
         },
       });
     });
+  };
+
+  const handleUpdateFollowers = () => {
+    setLoading(true);
+    setData({
+      facebook: { followers: null, loading: true },
+      instagram: { followers: null, loading: true },
+      tiktok: { followers: null, loading: true },
+      twitter: { followers: null, loading: true },
+      youtube: { followers: null, loading: true },
+    });
+
+    updateFollowersCounts().then((response) => {
+      loadFollowers();
+      if (response.success) {
+        setLoading(false);
+        showActionDoneMessage("Followers count updated successfully.", true);
+      }
+    });
+  };
+
+  useEffect(() => {
+    loadFollowers();
   }, []);
 
   return (
@@ -50,6 +83,21 @@ const SocialMediaFollowersTracker = () => {
         title="Social Media Followers Tracker"
         style={{ color: "black", margin: "0" }}
       />
+      {user && user.user_role === "super_admin" && (
+        <div className="updateFollowersContainer">
+          <StandardButton
+            onClick={handleUpdateFollowers}
+            buttonText={loading ? "Fetching.." : "Update"}
+            Icon={RefreshCCW}
+            disabled={loading ? true : false}
+          />
+          <span>
+            Only click this button once per day to avoid hitting the API rate
+            limit.
+          </span>
+        </div>
+      )}
+
       <CardGridLayout sizeOfCard="290px" margin="1rem 0">
         <FollowersCountCard
           title="Facebook"
@@ -95,6 +143,7 @@ const SocialMediaFollowersTracker = () => {
           socmedLink="https://www.youtube.com/@LiwanagatDunong"
         />
       </CardGridLayout>
+      <ToastContainer />
     </>
   );
 };

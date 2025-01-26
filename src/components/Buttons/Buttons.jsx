@@ -5,6 +5,7 @@ export const StandardButton = ({
   Icon,
   onClick,
   variant = "normal",
+  disabled = false,
 }) => {
   const variants = {
     normal: "normalButton",
@@ -12,7 +13,11 @@ export const StandardButton = ({
   };
 
   return (
-    <button className={`standardButton ${variants[variant]}`} onClick={onClick}>
+    <button
+      className={`standardButton ${variants[variant]}`}
+      onClick={onClick}
+      disabled={disabled}
+    >
       {Icon && <Icon size={18} />}
       {buttonText}
     </button>
