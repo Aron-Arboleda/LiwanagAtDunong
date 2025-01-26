@@ -13,11 +13,29 @@
   background-color: white;
 }
 
-.normalButton:hover {
+.normalButton:active {
   background-color: var(--pallete-lightYellow);
 }
 
-.criticalButton:hover {
+.criticalButton:active {
   background-color: var(--pallete-redOrangeBackgroundColor);
   color: var(--pallete-brightWhite);
+}
+
+@media (max-width: 768px) {
+  .standardButton {
+    padding: 5px 10px 5px 5px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .normalButton:hover {
+    background-color: var(--pallete-lightYellow);
+  }
+
+  .criticalButton:hover {
+    background-color: var(--pallete-redOrangeBackgroundColor);
+    color: var(--pallete-brightWhite);
+  }
 }

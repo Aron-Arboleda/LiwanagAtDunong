@@ -10,6 +10,7 @@
   max-width: 100%;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
 .adminTable {
@@ -19,7 +20,6 @@
   overflow: hidden;
   min-width: 300px;
   width: 100%;
-  box-shadow: 0px 0px 1rem rgba(39, 39, 39, 0.24);
 }
 
 .adminTable th {
@@ -39,10 +39,6 @@
   white-space: nowrap;
 }
 
-.adminTable th:hover {
-  background-color: rgb(125, 87, 46);
-}
-
 .adminTable tr:nth-last-child(1) td div {
   display: flex;
   align-items: center;
@@ -55,10 +51,6 @@
 
 .withBorderBottom tr:nth-last-child(1) {
   border-bottom: 2px solid rgb(125, 87, 46);
-}
-
-.adminTable td:hover {
-  background-color: var(--pallete-brightWhite);
 }
 
 .searchInput {
@@ -99,4 +91,37 @@
 .pagination-buttons {
   display: flex;
   gap: 0.2rem;
+}
+
+@media (max-width: 768px) {
+  .adminTable {
+    font-size: 0.8rem;
+  }
+
+  .adminTable th {
+    font-size: 0.8rem;
+  }
+
+  .adminTable td {
+    font-size: 0.7rem;
+  }
+
+  .pagination-controls {
+    font-size: 0.8rem;
+  }
+
+  .actionsContainer {
+    gap: 1rem;
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 768px) {
+  .adminTable th:hover {
+    background-color: rgb(125, 87, 46);
+  }
+
+  .adminTable td:hover {
+    background-color: var(--pallete-brightWhite);
+  }
 }

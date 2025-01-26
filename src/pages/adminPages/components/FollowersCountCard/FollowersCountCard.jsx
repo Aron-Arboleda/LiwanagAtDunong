@@ -14,15 +14,17 @@ const FollowersCountCard = ({
       <div className="followersCountContainer-row1">
         <div>
           <h2>{title}</h2>
-          <p>{count}</p>
+          <p className="followersCountNumber">{count}</p>
         </div>
         <div className="followersCountIcon">
           <Icon color="#347928" size={36} />
         </div>
       </div>
-      <a href={socmedLink} target="_blank">
-        {username}
-      </a>
+      <p>
+        <a href={socmedLink} target="_blank">
+          {username}
+        </a>
+      </p>
     </div>
   );
 };

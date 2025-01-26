@@ -156,9 +156,6 @@ export const sections = [
           if (selectedDate.getDay() !== 0) {
             return "Date must be a Sunday.";
           }
-          if (selectedDate < today) {
-            return "Past dates are not valid.";
-          }
           return true;
         },
         description: "Please select a Sunday you're available to volunteer",

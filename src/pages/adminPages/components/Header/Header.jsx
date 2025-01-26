@@ -49,7 +49,7 @@ const Header = () => {
         <Icon size={24} />
         {adminRole}
       </div>
-      <div className="headerItem">
+      <div className="headerItem headerDate">
         <Calendar size={24} />
         {formatDate(currentDate)}
       </div>

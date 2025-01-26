@@ -51,11 +51,15 @@
   bottom: 0;
   z-index: 1100;
   overflow: auto;
+  padding: 1rem 0;
 }
 
 @media (min-width: 720px) {
   .curvylargecontainer {
     width: auto;
+  }
+  .darkbackgroundcontainer {
+    padding: 2rem;
   }
 }
 

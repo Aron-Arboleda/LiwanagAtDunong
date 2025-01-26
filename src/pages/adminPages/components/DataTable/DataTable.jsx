@@ -432,15 +432,11 @@ const DataTable = ({
       </div>
 
       {editPanel && (
-        <DarkBackgroundContainer
-          style={{ alignItems: "flex-start", padding: "2rem" }}
-        >
+        <DarkBackgroundContainer style={{ alignItems: "flex-start" }}>
           <div>
             <CartoonyContainer
               style={{
-                maxWidth: "80vw",
                 minHeight: "250px",
-                margin: "0 1rem",
               }}
               handleClose={handleClose}
             >

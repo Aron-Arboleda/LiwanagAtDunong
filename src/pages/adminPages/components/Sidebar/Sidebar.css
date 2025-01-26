@@ -101,6 +101,7 @@
   right: 0;
   background: var(--pallete-brightWhite);
   border-bottom: 1px solid var(--pallete-lightBrown);
+  z-index: 499; /* Ensure it is above the sidebar */
 }
 
 .sidebarHeader a {

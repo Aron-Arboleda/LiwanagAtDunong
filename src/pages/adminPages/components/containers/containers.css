@@ -1,6 +1,12 @@
 .pageContainer {
   display: flex;
   flex-direction: column;
-  padding: 2rem;
+  padding: 1rem;
   overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .pageContainer {
+    padding: 2rem;
+  }
 }

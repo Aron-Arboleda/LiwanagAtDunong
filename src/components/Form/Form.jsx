@@ -122,7 +122,7 @@ const Form = ({
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm(defaultValuesForTesting); // defaultValues ? defaultValues : {}
+  } = useForm(defaultValues ? defaultValues : {}); // defaultValues ? defaultValues : {}
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 

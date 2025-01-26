@@ -19,15 +19,14 @@ const ConfirmationPanel = ({
   return (
     <>
       {open && (
-        <DarkBackgroundContainer
-          style={{ alignItems: "center", padding: "2rem" }}
-        >
+        <DarkBackgroundContainer style={{ alignItems: "center" }}>
           <div>
             <CartoonyContainer
               style={{
                 maxWidth: "500px",
-                minHeight: "200px",
+                minHeight: "100px",
                 margin: "0 1rem",
+                padding: "1rem",
               }}
               handleClose={onCancel}
             >
