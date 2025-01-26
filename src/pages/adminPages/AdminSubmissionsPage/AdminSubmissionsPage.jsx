@@ -12,27 +12,38 @@ import { sections } from "@pages/VolunteerFormPage/sections";
 import AuthContext from "@contexts/AuthContext";
 import { useContext } from "react";
 
+const superAdminToggles = {
+  archive: true,
+  unarchive: false,
+  delete: true,
+  edit: true,
+  create: true,
+  checkboxes: true,
+  newSubmission: true,
+};
+
+const editorToggles = {
+  archive: true,
+  unarchive: false,
+  delete: false,
+  edit: true,
+  create: true,
+  checkboxes: true,
+  newSubmission: true,
+};
+
+const viewerToggles = {
+  archive: false,
+  unarchive: false,
+  delete: false,
+  edit: false,
+  create: false,
+  checkboxes: false,
+  newSubmission: false,
+};
+
 const AdminSubmissionsPage = () => {
   const { user } = useContext(AuthContext);
-  const editorToggles = {
-    archive: true,
-    unarchive: false,
-    delete: true,
-    edit: true,
-    create: true,
-    checkboxes: true,
-    newSubmission: true,
-  };
-
-  const viewerToggles = {
-    archive: false,
-    unarchive: false,
-    delete: false,
-    edit: false,
-    create: false,
-    checkboxes: false,
-    newSubmission: false,
-  };
 
   return (
     <>
@@ -54,10 +65,12 @@ const AdminSubmissionsPage = () => {
         formFields={sections}
         toggles={
           user
-            ? user.user_role === "viewer"
-              ? viewerToggles
-              : editorToggles
-            : editorToggles
+            ? user.user_role === "super_admin"
+              ? superAdminToggles
+              : user.user_role === "editor"
+              ? editorToggles
+              : viewerToggles
+            : viewerToggles
         }
       />
     </>
