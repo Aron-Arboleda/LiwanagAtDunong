@@ -14,6 +14,8 @@ import { toast, ToastContainer } from "react-toastify";
 import Archive from "lucide-react/dist/esm/icons/archive";
 import Unarchive from "lucide-react/dist/esm/icons/archive-restore";
 import ConfirmationPanel from "../ConfirmationPanel/ConfirmationPanel";
+import ChevronLeft from "lucide-react/dist/esm/icons/chevron-left";
+import ChevronRight from "lucide-react/dist/esm/icons/chevron-right";
 
 const toastStyle = {
   fontFamily: "Montserrat",
@@ -38,7 +40,6 @@ const removePasswordField = (fields) => {
     ...section,
     fields: section.fields.filter((field) => field.name !== "password"),
   }));
-  console.log("newFields", newFields);
   return newFields;
 };
 
@@ -66,6 +67,7 @@ const DataTable = ({
   toggles = defaultToggles,
   controllers = defaultControllers,
   formFields,
+  rowsPerPage = 10, // Default to 10 rows per page
 }) => {
   const [data, setData] = useState([]);
   const [searchValue, setSearchValue] = useState("");
@@ -76,6 +78,9 @@ const DataTable = ({
   const [editing, setEditing] = useState(false);
   const [confirmationOpen, setConfirmationOpen] = useState(false);
 
+  // Pagination state
+  const [currentPage, setCurrentPage] = useState(1);
+
   const handleClose = () => {
     setEditPanel(false);
   };
@@ -83,10 +88,14 @@ const DataTable = ({
   const refreshData = async () => {
     const data = await controllers.fetchData();
     setData(data);
+    // Reset to first page when data refreshes
+    setCurrentPage(1);
   };
 
   const handleFilterChange = (e) => {
     setSearchValue(e.target.value.toLowerCase());
+    // Reset to first page when search changes
+    setCurrentPage(1);
   };
 
   const handleSort = (columnKey) => {
@@ -96,6 +105,8 @@ const DataTable = ({
       setSortColumn(columnKey);
       setSortDirection("asc");
     }
+    // Reset to first page when sorting changes
+    setCurrentPage(1);
   };
 
   const handleRowSelect = (rowIndex) => {
@@ -182,6 +193,21 @@ const DataTable = ({
     return 0;
   });
 
+  // Pagination calculations
+  const totalPages = Math.ceil(sortedData.length / rowsPerPage);
+  const startIndex = (currentPage - 1) * rowsPerPage;
+  const endIndex = startIndex + rowsPerPage;
+  const paginatedData = sortedData.slice(startIndex, endIndex);
+
+  const handlePageChange = (newPage) => {
+    // Prevent going before first page or after last page
+    if (newPage >= 1 && newPage <= totalPages) {
+      setCurrentPage(newPage);
+      // Deselect rows when changing pages
+      setSelectedRows([]);
+    }
+  };
+
   const getValuesToEdit = () => {
     const row = sortedData[selectedRows[0]];
     const valuesToEdit = {
@@ -221,7 +247,7 @@ const DataTable = ({
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [selectedRows]);
+  }, []);
 
   return (
     <div className="dataTable">
@@ -260,13 +286,15 @@ const DataTable = ({
                     onChange={(e) =>
                       setSelectedRows(
                         e.target.checked
-                          ? sortedData.map((row, index) => index)
+                          ? paginatedData.map(
+                              (row, index) => startIndex + index
+                            )
                           : []
                       )
                     }
                     checked={
                       selectedRows.length > 0 &&
-                      selectedRows.length === sortedData.length
+                      selectedRows.length === paginatedData.length
                     }
                   />
                 </th>
@@ -281,11 +309,11 @@ const DataTable = ({
             </tr>
           </thead>
           <tbody>
-            {sortedData.map((row, rowIndex) => (
+            {paginatedData.map((row, rowIndex) => (
               <tr
                 key={rowIndex}
                 style={{
-                  backgroundColor: selectedRows.includes(rowIndex)
+                  backgroundColor: selectedRows.includes(startIndex + rowIndex)
                     ? "lightblue"
                     : "",
                 }}
@@ -293,8 +321,8 @@ const DataTable = ({
                 {toggles.checkboxes && (
                   <td>
                     <Checkbox
-                      checked={selectedRows.includes(rowIndex)}
-                      onChange={() => handleRowSelect(rowIndex)}
+                      checked={selectedRows.includes(startIndex + rowIndex)}
+                      onChange={() => handleRowSelect(startIndex + rowIndex)}
                     />
                   </td>
                 )}
@@ -315,7 +343,7 @@ const DataTable = ({
               </tr>
             ))}
 
-            {sortedData.length === 0 && (
+            {paginatedData.length === 0 && (
               <tr>
                 <td colSpan={columns.length + 1}>
                   <div style={{ cursor: "default" }}>No data found.</div>
@@ -342,43 +370,66 @@ const DataTable = ({
           </tbody>
         </table>
       </div>
-
-      {selectedRows.length > 0 && (
-        <div className="actionButtons">
-          {toggles.archive && (
+      <div className="actionsContainer">
+        <div className="pagination-controls">
+          <div className="pagination-buttons">
             <StandardButton
-              buttonText="Archive"
-              onClick={handleArchiveSelected}
-              Icon={Archive}
+              buttonText=""
+              Icon={ChevronLeft}
+              onClick={() => handlePageChange(currentPage - 1)}
+              disabled={currentPage === 1}
+              style={{ margin: "0 0.5rem" }}
             />
-          )}
-
-          {toggles.unarchive && (
             <StandardButton
-              buttonText="Unarchive"
-              onClick={handleUnarchiveSelected}
-              Icon={Unarchive}
+              buttonText=""
+              Icon={ChevronRight}
+              onClick={() => handlePageChange(currentPage + 1)}
+              disabled={currentPage === totalPages}
+              style={{ margin: "0 0.5rem" }}
             />
-          )}
-
-          {toggles.delete && (
-            <StandardButton
-              buttonText="Delete"
-              onClick={() => setConfirmationOpen(true)}
-              variant="critical"
-              Icon={Trash2}
-            />
-          )}
-
-          {toggles.edit && selectedRows.length === 1 && (
-            <StandardButton
-              buttonText="Edit"
-              onClick={handleEditSelected}
-              Icon={Pencil}
-            />
-          )}
+          </div>
+          <span>
+            Page {currentPage} of {totalPages}
+          </span>
         </div>
-      )}
+
+        {selectedRows.length > 0 && (
+          <div className="actionButtons">
+            {toggles.archive && (
+              <StandardButton
+                buttonText="Archive"
+                onClick={handleArchiveSelected}
+                Icon={Archive}
+              />
+            )}
+
+            {toggles.unarchive && (
+              <StandardButton
+                buttonText="Unarchive"
+                onClick={handleUnarchiveSelected}
+                Icon={Unarchive}
+              />
+            )}
+
+            {toggles.delete && (
+              <StandardButton
+                buttonText="Delete"
+                onClick={() => setConfirmationOpen(true)}
+                variant="critical"
+                Icon={Trash2}
+              />
+            )}
+
+            {toggles.edit && selectedRows.length === 1 && (
+              <StandardButton
+                buttonText="Edit"
+                onClick={handleEditSelected}
+                Icon={Pencil}
+              />
+            )}
+          </div>
+        )}
+      </div>
 
       {editPanel && (
         <DarkBackgroundContainer

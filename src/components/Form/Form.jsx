@@ -103,7 +103,7 @@ const defaultValuesForTesting = {
     occupation: "Student",
     affiliation: "Tarlac Volunteer Group",
     facebook_link: "https://www.facebook.com/juandelacruz",
-    availability_date1: "2025-01-19", // Next available Sunday
+    availability_date1: "2025-02-02", // Next available Sunday
     availability_date2: "", // Optional 2nd Sunday
     availability_date3: "", // Optional 3rd Sunday
     questions: "",
@@ -122,7 +122,7 @@ const Form = ({
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm(defaultValues ? defaultValues : {}); // defaultValues ? defaultValues : {}
+  } = useForm(defaultValuesForTesting); // defaultValues ? defaultValues : {}
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
