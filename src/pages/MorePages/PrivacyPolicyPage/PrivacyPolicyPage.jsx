@@ -40,7 +40,7 @@ const PrivacyPolicyPage = () => {
               Liwanag at Dunong is committed to protecting your privacy. This
               Privacy Policy explains how we collect, use, disclose, and
               safeguard your information when you visit our website{" "}
-              <a href="http://liwanagatdunong.ct.ws">liwanagatdunong.ct.ws</a>.
+              <a href="https://liwanagatdunong.com">liwanagatdunong.com</a>.
               Please read this policy carefully to understand our practices
               regarding your personal information.
             </p>
