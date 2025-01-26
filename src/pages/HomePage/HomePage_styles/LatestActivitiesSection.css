@@ -77,7 +77,7 @@
     1px 1px #000000, -1px -1px #000000, 1px -1px #000000, -1px 1px #000000;
 }
 
-#latestActivities p {
+#latestActivitiesText {
   margin: 50px 0px;
   font-family: "Montserrat";
   font-size: 1rem;

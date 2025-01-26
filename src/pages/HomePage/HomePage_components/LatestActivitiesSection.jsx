@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
 import "../HomePage_styles/LatestActivitiesSection.css";
 import {
-  cert,
-  medals,
-  paperButterflies,
+  act1,
+  act2,
+  act3,
 } from "@images/PageImages/HomePage/LatestActivitiesSection";
+import { FlexLayoutColumn } from "@components/Layouts/Layouts";
 
 const LatestActivitiesSection = () => {
   useEffect(() => {
@@ -47,20 +48,27 @@ const LatestActivitiesSection = () => {
             LATEST ACTIVITIES
           </h1>
           <h2 className="lightTextBorderWithShadow">
-            “WHAT DO WE HAVE TO OFFER”
+            “PAGBABALIK SA KOMUNIDAD”
           </h2>
-          <p>
-            Our hands, to make things beautiful and clean. <br />
-            Our creativity, to make things meaningful and impactful. <br />
-            Our time, to make things possible. <br />
-            Our sensitivity, to see what more we can do. <br />
-            <br />
-            Whatever gifts we hold, we offer them for a greater purpose. And
-            these simple, yet powerful, acts are what it takes to empower the
-            community. <br />
-            <br />A special thanks to our dear volunteers for offering all that
-            you can, with all your hearts!
-          </p>
+          <FlexLayoutColumn style={{ marginBottom: "1rem" }}>
+            <p className="latestActivitiesText">
+              J.M. Barrie's quote, "Those who bring sunshine into the lives of
+              others cannot keep it from themselves," beautifully captures the
+              essence of the Liwanag at Dunong boluntirs. These individuals
+              dedicate their time, talents, and hearts to bring light and
+              knowledge to others, embodying both compassion and selflessness.
+            </p>
+            <p className="latestActivitiesText">
+              Through their efforts, they illuminate lives with hope, education,
+              and inspiration, spreading a ripple of positive change. In doing
+              so, they not only empower others but also experience the profound
+              joy and fulfillment that comes from making a difference. Like the
+              sunshine they bring, their kindness warms their own hearts,
+              proving that service to others is a gift that enriches everyone
+              involved.
+            </p>
+            <p>Boluntir with us!</p>
+          </FlexLayoutColumn>
           <div>
             <a
               href="https://www.facebook.com/LiwanagAtDunongProject"
@@ -86,22 +94,22 @@ const LatestActivitiesSection = () => {
         </div>
         <div id="latestActivitiesImagesContainer">
           <img
-            src={paperButterflies}
-            alt="paper butterflies image"
+            src={act1}
+            alt="activity image 1"
             className="latestActivitiesImage"
             id="LA_image1"
             loading="lazy"
           />
           <img
-            src={medals}
-            alt="paper butterflies image"
+            src={act2}
+            alt="activity image 2"
             className="latestActivitiesImage"
             id="LA_image2"
             loading="lazy"
           />
           <img
-            src={cert}
-            alt="paper butterflies image"
+            src={act3}
+            alt="activity image 3"
             className="latestActivitiesImage"
             id="LA_image3"
             loading="lazy"
