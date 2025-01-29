@@ -30,6 +30,7 @@ import {
 } from "@images/PageImages/VolunteerFormPage";
 import { CONFIG } from "@controllers/config";
 import { recordInitialPageLoadStatistics } from "@controllers/analytics";
+import { createRecord } from "@controllers/volunteer_form_table";
 
 const VolunteerFormPage = () => {
   const [submission, setSubmission] = useState({
@@ -46,46 +47,35 @@ const VolunteerFormPage = () => {
 
   const formSubmit = async (data) => {
     try {
-      console.log(JSON.stringify(data));
+      console.log(data);
 
-      const response = await fetch(
-        `${CONFIG.BACKEND_API}volunteer_form_submissions/create.php`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-        }
-      );
-
-      if (response.ok) {
-        const result = await response.json();
+      const result = await createRecord(data);
+      if (result.success) {
         setSubmission({
           isSuccess: true,
           errorMessage: "",
           errorError: "",
         });
         setSubmissionMessageVisible(true);
-        return true;
+        return { message: "Form submitted successfully", success: true };
       } else {
-        const result = await response.json();
         setSubmission({
           isSuccess: false,
           errorMessage: result.message,
-          errorError: result.error,
+          errorError: "Error",
         });
         setSubmissionMessageVisible(true);
-        return false;
+        return { message: "Form submission failed", success: false };
       }
     } catch (error) {
+      console.error(error);
       setSubmission({
         isSuccess: false,
         errorMessage: error.message,
         errorError: error.error,
       });
       setSubmissionMessageVisible(true);
-      return false;
+      return { message: "Form submission failed", success: false };
     }
   };
 

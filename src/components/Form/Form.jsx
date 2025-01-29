@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 
 import "./Form.css";
@@ -12,24 +12,33 @@ import SelectDropdownControl from "./components/SelectDropdownControl";
 import RadioButtonsControl from "./components/RadioButtonsControl";
 import TextFieldControl from "./components/TextFieldControl";
 import SubmitControl from "./components/SubmitControl";
+import { getNextSundayDate } from "@utils/helpers";
 
 const initialDefaultValues = {
   defaultValues: {
+    liwanag_at_dunong_agreement: true,
+    goals_and_objectives_agreement: true,
+    tasks_activities_agreement: true,
+    transportation_agreement: true,
+    itinerary_agreement: true,
+    no_cancellation_agreement: true,
+    transpo_contribution_agreement: true,
     complete_name: "Juan D. Dela Cruz",
     nick_name: "Juan",
-    age: 25,
     birthdate: "1998-07-26",
     email: "juandelacruz@gmail.com",
     contact_number: "09123456789",
-    locality: "Tarlac City",
+    current_address: "Tarlac City",
     team: "team_tarlac",
-    occupation: "Student",
-    affiliation: "Tarlac Volunteer Group",
+    transportation: "manila_van",
+    manila_pickup_place: "lawton",
+    other_pickup_location: "",
+    occupation: "Student (BS Computer Science, 3rd Year, Tarlac University)",
+    allergies: "",
+    medical_conditions: "",
+    affiliations: "Tarlac Volunteer Group",
     facebook_link: "https://www.facebook.com/juandelacruz",
-    availability_date1: "2025-02-02", // Next available Sunday
-    availability_date2: "", // Optional 2nd Sunday
-    availability_date3: "", // Optional 3rd Sunday
-    questions: "",
+    date_available: getNextSundayDate(),
   },
 };
 
@@ -56,8 +65,8 @@ const Form = ({
     console.log("data", data);
 
     try {
-      const success = await formSubmit(data);
-      if (success) {
+      const result = await formSubmit(data);
+      if (result.success) {
         reset();
       }
     } catch (error) {
@@ -103,30 +112,36 @@ const Form = ({
                 dependentFieldValue === field.valueDependentOn;
 
               return (
-                <Grid2 size={12} key={fieldIndex}>
+                <React.Fragment key={fieldIndex}>
                   {shouldRenderField &&
                     (field.type === "select" ? (
-                      <SelectDropdownControl
-                        field={field}
-                        errors={errors}
-                        defaultValues={defaultValues}
-                        register={register}
-                      />
+                      <Grid2 size={12} key={fieldIndex}>
+                        <SelectDropdownControl
+                          field={field}
+                          errors={errors}
+                          defaultValues={defaultValues}
+                          register={register}
+                        />
+                      </Grid2>
                     ) : field.type === "radio" ? (
-                      <RadioButtonsControl
-                        field={field}
-                        errors={errors}
-                        isSubmitted={isSubmitted}
-                        register={register}
-                      />
+                      <Grid2 size={12} key={fieldIndex}>
+                        <RadioButtonsControl
+                          field={field}
+                          errors={errors}
+                          isSubmitted={isSubmitted}
+                          register={register}
+                        />
+                      </Grid2>
                     ) : (
-                      <TextFieldControl
-                        field={field}
-                        errors={errors}
-                        register={register}
-                      />
+                      <Grid2 size={12} key={fieldIndex}>
+                        <TextFieldControl
+                          field={field}
+                          errors={errors}
+                          register={register}
+                        />
+                      </Grid2>
                     ))}
-                </Grid2>
+                </React.Fragment>
               );
             })}
           </Grid2>

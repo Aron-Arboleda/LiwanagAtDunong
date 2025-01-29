@@ -6,43 +6,43 @@ export const agreementsCheckboxes = {
     "By agreeing to the following statements, you confirm that you have read and understood the Liwanag at Dunong Manual and agree to the terms and conditions set forth by the organization.",
   items: [
     {
-      name: "liwanag_at_dunong",
+      name: "liwanag_at_dunong_agreement",
       label: "Liwanag at Dunong agreement",
       text: "I have read the Liwanag at Dunong Manual.",
       required: true,
     },
     {
-      name: "goals_and_objectives",
+      name: "goals_and_objectives_agreement",
       label: "Goals and Objectives agreement",
       text: "I have read Liwanag at Dunong's goals and objectives.",
       required: true,
     },
     {
-      name: "tasks_activities",
+      name: "tasks_activities_agreement",
       label: "Tasks and Activities agreement",
       text: "I have noted the tasks, activities, and things to bring.",
       required: true,
     },
     {
-      name: "transportation",
+      name: "transportation_agreement",
       label: "Transportation agreement",
       text: "I understand the ways to get to the community, pick up location, and meeting place.",
       required: true,
     },
     {
-      name: "itinerary",
+      name: "itinerary_agreement",
       label: "Itinerary agreement",
       text: "I have read the sample itinerary and I commit on being on time.",
       required: true,
     },
     {
-      name: "no_cancellation",
+      name: "no_cancellation_agreement",
       label: "No Cancellation agreement",
       text: "I agree to no-cancellation as I understand that the organization truly values sincere sign-ups, as the program thrives on genuine dedication and respect for the community we serve.",
       required: true,
     },
     {
-      name: "transpo_contribution",
+      name: "transpo_contribution_agreement",
       label: "Transportation Contribution agreement",
       text: "I understand that Liwanag at Dunong doesn't have its own transportation yet. I understand the transpo contribution mentioned in the Manual.",
       required: true,
@@ -116,7 +116,8 @@ export const sections = [
           value: /^09\d{9}$/,
           message: "Invalid contact number format. Use 09XXXXXXXXX.",
         },
-        description: "Follow the format 09XXXXXXXXX",
+        description:
+          "(We will confirm your registration via text message. Once you received the confirmation, please respond. No response means you are withdrawing your registration.)",
       },
       {
         name: "current_address",
@@ -263,13 +264,13 @@ export const sections = [
           "Please indicate if you have any medical conditions. Leave blank if none.",
       },
       {
-        name: "affiliation",
-        label: "Affiliation/Organization",
+        name: "affiliations",
+        label: "Organizations or Affiliations",
         required: false,
         maxLength: {
           value: 150,
           message:
-            "Affiliation/Organization name cannot exceed 150 characters.",
+            "Organizations or Affiliations cannot exceed 150 characters.",
         },
         description:
           "Please enter your affiliation or organization name. Leave blank if none.",

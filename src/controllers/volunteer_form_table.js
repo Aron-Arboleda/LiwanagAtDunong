@@ -118,13 +118,17 @@ export const createRecord = async (data) => {
       }
     );
 
-    const responseData = await response.json();
+    const responseData = response;
+
     if (response.ok) {
       return { message: responseData.message, success: true };
     } else {
+      console.error(responseData);
+
       return { message: responseData.message, success: false };
     }
   } catch (error) {
+    console.error(error);
     return { message: "Error: Creating failed " + error, success: false };
   }
 };
