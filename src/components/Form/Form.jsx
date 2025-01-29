@@ -6,6 +6,8 @@ import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import FormHelperText from "@mui/material/FormHelperText";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import FormGroup from "@mui/material/FormGroup";
 import InputLabel from "@mui/material/InputLabel";
 import styled from "@mui/material/styles/styled";
 import Grid2 from "@mui/material/Grid2";
@@ -14,6 +16,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 import IconButton from "@mui/material/IconButton";
 import Eye from "lucide-react/dist/esm/icons/eye";
 import EyeOff from "lucide-react/dist/esm/icons/eye-off";
+import Checkbox from "@mui/material/Checkbox/Checkbox";
 
 // Local component imports
 import { Callout } from "@components/CustomComponents/CustomComponents";
@@ -39,6 +42,31 @@ export const SubmitButton = styled(Button)(({ theme, customstyle }) => ({
   boxShadow: customstyle?.boxShadow || "2px 2px 0px rgba(0, 0, 0, 0.84)",
   margin: customstyle?.margin || "3rem 0 2rem 0",
 }));
+
+export const CustomCheckbox = styled(Checkbox)(({ theme, error }) => ({
+  color: error ? "#d32f2f" : "#347928",
+  "&.Mui-checked": {
+    color: "#347928",
+  },
+}));
+
+export const CustomFormControlLabel = styled(FormControlLabel)(
+  ({ theme, error }) => ({
+    "& .MuiTypography-root": {
+      fontFamily: "Montserrat, sans-serif",
+      fontSize: "0.9rem",
+      color: error ? "#d32f2f" : "inherit",
+    },
+  })
+);
+
+const ErrorMessage = styled("p")({
+  color: "#d32f2f",
+  fontSize: "0.75rem",
+  marginTop: "3px",
+  marginLeft: "14px",
+  fontFamily: "Montserrat, sans-serif",
+});
 
 export const CustomTextField = styled(TextField)(({ theme }) => ({
   "& label.Mui-focused": {
@@ -111,6 +139,7 @@ const defaultValuesForTesting = {
 };
 
 const Form = ({
+  agreements,
   sections,
   disclaimerText,
   children,
@@ -121,7 +150,7 @@ const Form = ({
     register,
     handleSubmit,
     reset,
-    formState: { errors },
+    formState: { errors, isSubmitted },
   } = useForm(defaultValues ? defaultValues : {}); // defaultValues ? defaultValues : {}
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
@@ -151,6 +180,42 @@ const Form = ({
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
+      {agreements && (
+        <div>
+          <FormControl
+            component="fieldset"
+            error={!!errors.agreements}
+            sx={{ width: "100%", marginBottom: "1rem" }}
+          >
+            <FormGroup>
+              <Callout variant="note">
+                <strong>Notice:</strong> {agreements.disclaimerText}
+              </Callout>
+              {agreements.items.map((item, index) => (
+                <div key={index}>
+                  <CustomFormControlLabel
+                    error={isSubmitted ? errors[item.name] : undefined}
+                    control={
+                      <CustomCheckbox
+                        {...register(item.name, {
+                          required: item.required
+                            ? `${item.label} is required`
+                            : false,
+                        })}
+                        error={isSubmitted ? errors[item.name] : undefined}
+                      />
+                    }
+                    label={item.text}
+                  />
+                  {isSubmitted && errors[item.name] && (
+                    <ErrorMessage>{errors[item.name].message}</ErrorMessage>
+                  )}
+                </div>
+              ))}
+            </FormGroup>
+          </FormControl>
+        </div>
+      )}
       <Callout variant="note">
         <strong>Notice:</strong> {disclaimerText}
       </Callout>

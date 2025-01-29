@@ -13,6 +13,7 @@ import {
 import XButton, {
   Callout,
   PageDivider,
+  PageDividerThin,
 } from "@components/CustomComponents/CustomComponents";
 import Form from "@components/Form/Form";
 import {
@@ -21,7 +22,7 @@ import {
   StandardChunkFiveSubTitleH4,
   StandardChunkFiveTitle,
 } from "@components/PageTitles/PageTitles";
-import { sections } from "./sections";
+import { agreementsCheckboxes, sections } from "./sections";
 import { CartoonyContainer } from "@components/CardContainers/CardContainers";
 import {
   SampleItinerary1,
@@ -123,79 +124,23 @@ const VolunteerFormPage = () => {
                 Thank you once again, and we can't wait to see you very, very
                 soon! ✨
               </p>
+
+              <PageDividerThin color="black" />
+
+              <p className="pageParagP">
+                Please take a moment to read through this manual, as it will
+                serve as your reference while filling out the registration form.
+              </p>
+              <p className="pageParagP">
+                Manual Link:{" "}
+                <a href="https://tinyurl.com/LDBloluntirManual">click here</a>
+              </p>
             </FlexLayoutColumn>
-            <StandardChunkFiveSubTitleH2 title="Sample Itinerary" />
-            <FlexLayoutColumn>
-              <GridLayout>
-                <img
-                  src={SampleItinerary1}
-                  alt="Liwanag at Dunong: Sample Itinerary Morning"
-                  className="pageImage-auto"
-                  loading="lazy"
-                />
-                <img
-                  src={SampleItinerary2}
-                  alt="Liwanag at Dunong: Sample Itinerary Afternoon"
-                  className="pageImage-auto"
-                  loading="lazy"
-                />
-              </GridLayout>
-            </FlexLayoutColumn>
-            <StandardChunkFiveSubTitleH2 title="Frequently Asked Questions" />
-            <FlexLayoutColumn>
-              <ol className="pageOrderedList">
-                <li>
-                  <strong>Where is the community located?</strong>
-                </li>
-                <p>
-                  Our partner-community is in Barangay CutCut II, Capas, Tarlac.
-                </p>
-                <li>
-                  <strong>How do the volunteers go to the community?</strong>
-                </li>
-                <p>
-                  Our volunteers either bring their own transportation, commute,
-                  or join us in a van coming from Manila.
-                </p>
-                <li>
-                  <strong>What is the route of the Manila Van?</strong>
-                </li>
-                <p>
-                  We set a meeting place and pick up the volunteers from these
-                  points:
-                </p>
-                <p>
-                  LP cityhall - Jollibee Zapote - Baclaran/Heritage - Roxas Blvd
-                  - Cityhall/Lawton - Quiapo/Morayta/Espana/UST - Welcome
-                  Rotonda - Mayon - A. bonifacio - Cloverleaf Ayala - NLex - San
-                  Fernando - Bamban
-                </p>
-                <li>
-                  <strong>Is there any fee to pay to be able to join?</strong>
-                </li>
-                <p>
-                  None, except for those who'd be joining us in the van coming
-                  from Manila. Although we deeply wish to cover all expenses for
-                  the weekly learning sessions, we are still falling short when
-                  it comes to transportation. To rent a van, each volunteer
-                  joining will contribute P800, which includes gas, tolls, and
-                  food for the driver. However, the option for the volunteer to
-                  bring their own transpo or commute is still open.
-                </p>
-                <li>
-                  <strong>I am from Tarlac and I want to join!</strong>
-                </li>
-                <p>
-                  Awesome! We have Team Tarlac who meets every 7:00 am at DCT.
-                  They rent their own transpo going to the community and
-                  depending on the number of volunteers, they usually contribute
-                  P100-P200 for their transpo.
-                </p>
-              </ol>
-            </FlexLayoutColumn>
+
             <StandardChunkFiveSubTitleH2 title="Volunteer Form" />
           </TransparentLargeContainer>
           <Form
+            agreements={agreementsCheckboxes}
             sections={sections}
             disclaimerText="By submitting this form, you consent to the use
         of your data for organizing volunteer activities and understand that

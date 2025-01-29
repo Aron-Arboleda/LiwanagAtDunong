@@ -1,3 +1,53 @@
+export const agreementsCheckboxes = {
+  title: "Agreements",
+  disclaimerText:
+    "By agreeing to the following statements, you confirm that you have read and understood the Liwanag at Dunong Manual and agree to the terms and conditions set forth by the organization.",
+  items: [
+    {
+      name: "liwanag_at_dunong",
+      label: "Liwanag at Dunong agreement",
+      text: "I have read the Liwanag at Dunong Manual.",
+      required: true,
+    },
+    {
+      name: "goals_and_objectives",
+      label: "Goals and Objectives agreement",
+      text: "I have read Liwanag at Dunong's goals and objectives.",
+      required: true,
+    },
+    {
+      name: "tasks_activities",
+      label: "Tasks and Activities agreement",
+      text: "I have noted the tasks, activities, and things to bring.",
+      required: true,
+    },
+    {
+      name: "transportation",
+      label: "Transportation agreement",
+      text: "I understand the ways to get to the community, pick up location, and meeting place.",
+      required: true,
+    },
+    {
+      name: "itinerary",
+      label: "Itinerary agreement",
+      text: "I have read the sample itinerary and I commit on being on time.",
+      required: true,
+    },
+    {
+      name: "no_cancellation",
+      label: "No Cancellation agreement",
+      text: "I agree to no-cancellation as I understand that the organization truly values sincere sign-ups, as the program thrives on genuine dedication and respect for the community we serve.",
+      required: true,
+    },
+    {
+      name: "transpo_contribution",
+      label: "Transportation Contribution agreement",
+      text: "I understand that Liwanag at Dunong doesn't have its own transportation yet. I understand the transpo contribution mentioned in the Manual.",
+      required: true,
+    },
+  ],
+};
+
 export const sections = [
   {
     sectionName: "Personal Information",
