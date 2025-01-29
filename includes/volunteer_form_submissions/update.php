@@ -24,7 +24,7 @@ if (json_last_error() !== JSON_ERROR_NONE) {
 }
 
 // Validate required fields
-$requiredFields = ['volunteer_form_submission_id', 'complete_name', 'nick_name', 'age', 'birthdate', 'email', 'contact_number', 'locality', 'occupation', 'facebook_link', 'availability_date1', 'team'];
+$requiredFields = ['volunteer_form_submission_id', 'complete_name', 'nick_name', 'birthdate', 'email', 'contact_number', 'current_address', 'occupation', 'facebook_link', 'date_available', 'transportation', 'team'];
 
 foreach ($requiredFields as $field) {
     if (empty($data[$field])) {
@@ -38,19 +38,19 @@ foreach ($requiredFields as $field) {
 $volunteer_form_submission_id = (int) $data['volunteer_form_submission_id'];
 $complete_name = $conn->real_escape_string($data['complete_name']);
 $nick_name = $conn->real_escape_string($data['nick_name']);
-$age = (int) $data['age'];
 $birthdate = $conn->real_escape_string($data['birthdate']);
 $email = $conn->real_escape_string($data['email']);
 $contact_number = $conn->real_escape_string($data['contact_number']);
-$locality = $conn->real_escape_string($data['locality']);
+$current_address = $conn->real_escape_string($data['current_address']);
 $occupation = $conn->real_escape_string($data['occupation']);
-$affiliation = isset($data['affiliation']) ? $conn->real_escape_string($data['affiliation']) : null;
+$affiliations = isset($data['affiliations']) ? $conn->real_escape_string($data['affiliations']) : null;
 $facebook_link = $conn->real_escape_string($data['facebook_link']);
-$availability_date1 = $conn->real_escape_string($data['availability_date1']);
-$availability_date2 = isset($data['availability_date2']) ? $conn->real_escape_string($data['availability_date2']) : null;
-$availability_date3 = isset($data['availability_date3']) ? $conn->real_escape_string($data['availability_date3']) : null;
-$questions = isset($data['questions']) ? $conn->real_escape_string($data['questions']) : null;
-$is_archived = isset($data['is_archived']) ? (bool) $data['is_archived'] : false;
+$date_available = $conn->real_escape_string($data['date_available']);
+$transportation = $conn->real_escape_string($data['transportation']);
+$manila_pickup_place = isset($data['manila_pickup_place']) ? $conn->real_escape_string($data['manila_pickup_place']) : null;
+$other_pickup_location = isset($data['other_pickup_location']) ? $conn->real_escape_string($data['other_pickup_location']) : null;
+$allergies = isset($data['allergies']) ? $conn->real_escape_string($data['allergies']) : null;
+$medical_conditions = isset($data['medical_conditions']) ? $conn->real_escape_string($data['medical_conditions']) : null;
 $team = $conn->real_escape_string($data['team']);
 
 // Check if submission exists
@@ -70,8 +70,8 @@ if ($count == 0) {
 // Start transaction
 $conn->begin_transaction();
 try {
-    $stmt = $conn->prepare("UPDATE volunteer_form_submissions SET complete_name = ?, nick_name = ?, age = ?, birthdate = ?, email = ?, contact_number = ?, locality = ?, occupation = ?, affiliation = ?, facebook_link = ?, availability_date1 = ?, availability_date2 = ?, availability_date3 = ?, questions = ?, is_archived = ?, team = ? WHERE volunteer_form_submission_id = ?");
-    $stmt->bind_param("ssisssssssssssssi", $complete_name, $nick_name, $age, $birthdate, $email, $contact_number, $locality, $occupation, $affiliation, $facebook_link, $availability_date1, $availability_date2, $availability_date3, $questions, $is_archived, $team, $volunteer_form_submission_id);
+    $stmt = $conn->prepare("UPDATE volunteer_form_submissions SET complete_name = ?, nick_name = ?, birthdate = ?, email = ?, contact_number = ?, current_address = ?, occupation = ?, affiliations = ?, facebook_link = ?, date_available = ?, transportation = ?, manila_pickup_place = ?, other_pickup_location = ?, allergies = ?, medical_conditions = ?, team = ? WHERE volunteer_form_submission_id = ?");
+    $stmt->bind_param("ssssssssssssssssi", $complete_name, $nick_name, $birthdate, $email, $contact_number, $current_address, $occupation, $affiliations, $facebook_link, $date_available, $transportation, $manila_pickup_place, $other_pickup_location, $allergies, $medical_conditions, $team, $volunteer_form_submission_id);
     
     if (!$stmt->execute()) {
         throw new Exception("Error updating volunteer form submission: " . $stmt->error);
