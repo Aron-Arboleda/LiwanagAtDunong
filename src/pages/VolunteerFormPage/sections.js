@@ -150,11 +150,11 @@ export const sections = [
         shortText: "transportation specification",
         required: true,
         options: [
-          { value: "manila_van", label: "I'll join the Manila van" },
           {
             value: "tarlac_transpo",
             label: "I'll join the Team Tarlac transpo",
           },
+          { value: "manila_van", label: "I'll join the Manila van" },
           {
             value: "own_transpo",
             label:
@@ -213,6 +213,7 @@ export const sections = [
             value: "pampanga_exit",
             label: "Pampanga Exit (please specify with the organizers)",
           },
+          { value: "others", label: "Others" },
         ],
         description: "",
       },
@@ -225,8 +226,8 @@ export const sections = [
           value: 512,
           message: "Input cannot exceed 512 characters.",
         },
-        dependentOn: "transportation",
-        valueDependentOn: "manila_van",
+        dependentOn: "manila_pickup_place",
+        valueDependentOn: "others",
         description:
           "For boluntirs joining Manila Van only: For other pick up location request, please put it here. If you are on the way, we can set up a pick up time for you. For the van's transportation route, please refer to the Boluntir's Manual.",
       },
@@ -300,3 +301,22 @@ export const sections = [
     ],
   },
 ];
+
+export const referenceValues = {
+  manila_van: "Manila Van",
+  tarlac_transpo: "Team Tarlac transpo",
+  own_transpo: "Own transpo",
+  laguna_area: "Laguna area",
+  alabang_zapote_road: "Alabang-Zapote Road",
+  jollibee_zapote: "Jollibee Zapote",
+  baclaran_heritage: "Baclaran (Heritage)",
+  lawton: "Lawton",
+  morayta: "Morayta",
+  welcome_rotonda: "Welcome, Rotonda",
+  cloverleaf_ayala_malls_balintawak: "Cloverleaf, Ayala Malls, Balintawak",
+  bulacan_exit: "Bulacan Exit",
+  pampanga_exit: "Pampanga Exit",
+  team_tarlac: "Team Tarlac",
+  team_manila: "Team Manila",
+  others: "Others",
+};

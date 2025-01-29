@@ -1,7 +1,9 @@
 import numeral from "numeral";
 
 export const checkNull = (value, fallback = "--") => {
-  return value === null || value === undefined ? fallback : value;
+  return value === null || value === undefined || value === ""
+    ? fallback
+    : value;
 };
 
 export const formatDate = (value) => {

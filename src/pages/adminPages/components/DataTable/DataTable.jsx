@@ -16,6 +16,15 @@ import Unarchive from "lucide-react/dist/esm/icons/archive-restore";
 import ConfirmationPanel from "../ConfirmationPanel/ConfirmationPanel";
 import ChevronLeft from "lucide-react/dist/esm/icons/chevron-left";
 import ChevronRight from "lucide-react/dist/esm/icons/chevron-right";
+import { referenceValues } from "@pages/VolunteerFormPage/sections";
+
+const references = Object.keys(referenceValues);
+const mapReferenceValues = (value) => {
+  if (references.includes(value)) {
+    return referenceValues[value];
+  }
+  return value;
+};
 
 const toastStyle = {
   fontFamily: "Montserrat",
@@ -224,13 +233,16 @@ const DataTable = ({
 
   const createFormSubmit = async (formData) => {
     const result = await controllers.onCreate(formData);
+    console.log(`result`, result);
+
     if (!result.success) {
       showActionDoneMessage(result.message, result.success);
-      return;
+      return result;
     }
     await refreshData();
     setEditPanel(false);
     showActionDoneMessage(result.message, result.success);
+    return result;
   };
 
   useEffect(() => {
@@ -337,7 +349,7 @@ const DataTable = ({
                   >
                     {column.format === "date" || column.format === "datetime"
                       ? formatDate(row[column.key])
-                      : checkNull(row[column.key])}
+                      : checkNull(mapReferenceValues(row[column.key]))}
                   </td>
                 ))}
               </tr>

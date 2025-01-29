@@ -17,13 +17,28 @@ const RadioButtonsControl = ({
   return (
     <FormControl error={!!errors[field.name]} fullWidth>
       <CustomFormLabel>{field.label}</CustomFormLabel>
-      <CustomRadioGroup {...register(field.name)}>
+      <CustomRadioGroup
+        {...register(field.name, {
+          required: field.required ? `${field.label} is required` : false,
+        })}
+        error={!!errors[field.name]}
+      >
         {field.options.map((option, idx) => (
           <CustomFormControlLabel
             key={idx}
             value={option.value}
-            control={<CustomRadio />}
+            control={
+              <CustomRadio
+                {...register(field.name, {
+                  required: field.required
+                    ? `${field.label} is required`
+                    : false,
+                })}
+                error={!!errors[field.name]}
+              />
+            }
             label={option.label}
+            error={!!errors[field.name]}
           />
         ))}
       </CustomRadioGroup>

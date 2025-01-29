@@ -1,11 +1,14 @@
 import Grid2 from "@mui/material/Grid2";
-import { CustomTextField, SubmitButton } from "@components/Form/Form";
 import CircularProgress from "@mui/material/CircularProgress";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import IconButton from "@mui/material/IconButton";
 import Eye from "lucide-react/dist/esm/icons/eye";
 import EyeOff from "lucide-react/dist/esm/icons/eye-off";
+import {
+  CustomTextField,
+  SubmitButton,
+} from "@components/Form/components/CustomFormComponents";
 
 const AuthForm = ({ fields, formSubmit, children }) => {
   const {

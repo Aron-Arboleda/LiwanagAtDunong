@@ -62,7 +62,7 @@ const Form = ({
   // Submit handler
   const onSubmit = async (data) => {
     setIsSubmitting(true);
-    console.log("data", data);
+    //console.log("data", data);
 
     try {
       const result = await formSubmit(data);

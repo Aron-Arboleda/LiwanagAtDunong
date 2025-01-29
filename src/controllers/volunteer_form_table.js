@@ -121,11 +121,10 @@ export const createRecord = async (data) => {
     const responseData = response;
 
     if (response.ok) {
-      return { message: responseData.message, success: true };
+      return { message: "Record created successfully.", success: true };
     } else {
       console.error(responseData);
-
-      return { message: responseData.message, success: false };
+      return { message: "Record created successfully.", success: false };
     }
   } catch (error) {
     console.error(error);
@@ -186,18 +185,19 @@ export const fetchArchivedSubmissions = async (fileName) => {
 export const columns = [
   { label: "Complete Name", key: "complete_name" },
   { label: "Nick Name", key: "nick_name" },
-  { label: "Age", key: "age" },
   { label: "Birthdate", key: "birthdate", format: "date" },
   { label: "Email", key: "email" },
   { label: "Contact Number", key: "contact_number" },
-  { label: "Locality", key: "locality" },
+  { label: "Current Address", key: "current_address" },
   { label: "Occupation", key: "occupation" },
-  { label: "Affiliation", key: "affiliation" },
+  { label: "Affiliations", key: "affiliations" },
   { label: "Facebook Link", key: "facebook_link" },
-  { label: "Availability Date 1", key: "availability_date1", format: "date" },
-  { label: "Availability Date 2", key: "availability_date2", format: "date" },
-  { label: "Availability Date 3", key: "availability_date3", format: "date" },
-  { label: "Questions", key: "questions" },
+  { label: "Date Available", key: "date_available", format: "date" },
+  { label: "Transportation", key: "transportation" },
+  { label: "Manila Pickup Place", key: "manila_pickup_place" },
+  { label: "Other Pickup Location", key: "other_pickup_location" },
+  { label: "Allergies", key: "allergies" },
+  { label: "Medical Conditions", key: "medical_conditions" },
   { label: "Team", key: "team" },
   { label: "Submitted At", key: "submitted_at", format: "datetime" },
 ];
