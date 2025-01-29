@@ -222,15 +222,16 @@ const VolunteerFormPage = () => {
                         </p>
                       </div>
                       <p className="pageParagP">
-                        Please refresh the page and try again or reach out to us
-                        through our{" "}
+                        Please refresh the page and try again. If errors still
+                        persist you can fill up our alternative google forms to
+                        register{" "}
                         <a
-                          href="https://www.facebook.com/LiwanagAtDunongProject"
+                          href="https://docs.google.com/forms/d/e/1FAIpQLScXHyrwh4v7z9j67SkM5_0lTTQBlw_lWMhShE8zODx7-xM96w/viewform"
                           target="_blank"
                         >
-                          Facebook page
+                          Form link
                         </a>
-                        . We're here to help!
+                        .
                       </p>
                     </>
                   )}
