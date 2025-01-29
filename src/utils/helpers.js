@@ -41,3 +41,13 @@ export const formatMonth = (yearMonth) => {
 export const formatCompressWithLetters = (views) => {
   return numeral(views).format("0a"); // Formats the number in short form (e.g., 1K, 1.3M)
 };
+
+// for testing purposes
+export const getNextSundayDate = () => {
+  const today = new Date();
+  const daysUntilSunday = today.getDay() === 0 ? 0 : 7 - today.getDay(); // If today is Sunday, return today
+  const nextSunday = new Date(today);
+  nextSunday.setDate(today.getDate() + daysUntilSunday);
+
+  return nextSunday.toISOString().split("T")[0]; // Return in YYYY-MM-DD format
+};

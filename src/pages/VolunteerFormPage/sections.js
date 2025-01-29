@@ -1,3 +1,5 @@
+import { getNextSundayDate } from "@utils/helpers";
+
 export const agreementsCheckboxes = {
   title: "Agreements",
   disclaimerText:
@@ -78,17 +80,6 @@ export const sections = [
         type: "text",
       },
       {
-        name: "age",
-        label: "Age *",
-        required: true,
-        type: "number",
-        min: { value: 1, message: "Age must be at least 1." },
-        max: { value: 120, message: "Age must not exceed 120." },
-        validate: (value) =>
-          Number.isInteger(Number(value)) || "Age must be a whole number.",
-        description: "Please enter your age",
-      },
-      {
         name: "birthdate",
         label: "Birthdate *",
         required: true,
@@ -128,14 +119,14 @@ export const sections = [
         description: "Follow the format 09XXXXXXXXX",
       },
       {
-        name: "locality",
-        label: "Locality (City/Municipality) *",
+        name: "current_address",
+        label: "Current Address *",
         required: true,
         maxLength: {
-          value: 100,
-          message: "Locality cannot exceed 100 characters.",
+          value: 255,
+          message: "Current Address cannot exceed 255 characters.",
         },
-        description: "Please enter your city or municipality of residence",
+        description: "Please enter your current address of residence",
       },
       {
         name: "team",
@@ -151,6 +142,94 @@ export const sections = [
         description: "Please select your team",
       },
       {
+        name: "transportation",
+        type: "radio",
+        label:
+          "How do you prefer to go to the community? (Exact location, options, and detailed info please refer to the Manual) *",
+        shortText: "transportation specification",
+        required: true,
+        options: [
+          { value: "manila_van", label: "I'll join the Manila van" },
+          {
+            value: "tarlac_transpo",
+            label: "I'll join the Team Tarlac transpo",
+          },
+          {
+            value: "own_transpo",
+            label:
+              "I'll bring my own transpo and be there at the meeting place.",
+          },
+        ],
+        description: "",
+      },
+      {
+        name: "manila_pickup_place",
+        type: "radio",
+        label:
+          "For boluntirs joining Manila Van only: Where is your preferred pick up? *",
+        shortText: "Pickup place specification",
+        dependentOn: "transportation",
+        valueDependentOn: "manila_van",
+        required: true,
+        options: [
+          {
+            value: "laguna_area",
+            label: "Laguna area (please specify with the organizers)",
+          },
+          {
+            value: "alabang_zapote_road",
+            label: "Alabang-Zapote Road (please specify with the organizers)",
+          },
+          {
+            value: "jollibee_zapote",
+            label: "Jollibee Zapote",
+          },
+          {
+            value: "baclaran_heritage",
+            label: "Baclaran (Heritage)",
+          },
+          {
+            value: "lawton",
+            label: "Lawton",
+          },
+          {
+            value: "morayta",
+            label: "Morayta",
+          },
+          {
+            value: "welcome_rotonda",
+            label: "Welcome, Rotonda",
+          },
+          {
+            value: "cloverleaf_ayala_malls_balintawak",
+            label: "Cloverleaf, Ayala Malls, Balintawak",
+          },
+          {
+            value: "bulacan_exit",
+            label: "Bulacan Exit (please specify with the organizers)",
+          },
+          {
+            value: "pampanga_exit",
+            label: "Pampanga Exit (please specify with the organizers)",
+          },
+        ],
+        description: "",
+      },
+      {
+        name: "other_pickup_location",
+        variant: "outlined",
+        label: "Other pick up location",
+        required: false,
+        maxLength: {
+          value: 512,
+          message: "Input cannot exceed 512 characters.",
+        },
+        dependentOn: "transportation",
+        valueDependentOn: "manila_van",
+        description:
+          "For boluntirs joining Manila Van only: For other pick up location request, please put it here. If you are on the way, we can set up a pick up time for you. For the van's transportation route, please refer to the Boluntir's Manual.",
+      },
+      {
         name: "occupation",
         label: "Occupation *",
         required: true,
@@ -162,6 +241,28 @@ export const sections = [
           "For Students: Write 'Student' (Your course, year level, and your school). For Professionals: Write your field of work, company, and position.",
       },
       {
+        name: "allergies",
+        label: "Food allergies",
+        required: false,
+        maxLength: {
+          value: 512,
+          message: "Allergy description cannot exceed 512 characters.",
+        },
+        description:
+          "Please indicate if you have any food allergies or dietary restrictions. Leave blank if none.",
+      },
+      {
+        name: "medical_conditions",
+        label: "Medical Conditions",
+        required: false,
+        maxLength: {
+          value: 512,
+          message: "Allergy description cannot exceed 512 characters.",
+        },
+        description:
+          "Please indicate if you have any medical conditions. Leave blank if none.",
+      },
+      {
         name: "affiliation",
         label: "Affiliation/Organization",
         required: false,
@@ -171,7 +272,7 @@ export const sections = [
             "Affiliation/Organization name cannot exceed 150 characters.",
         },
         description:
-          "Please enter your affiliation or organization name (optional)",
+          "Please enter your affiliation or organization name. Leave blank if none.",
       },
       {
         name: "facebook_link",
@@ -186,87 +287,14 @@ export const sections = [
         },
         description: "Copy in FB Profile Page > three-dot button > Copy Link",
       },
-    ],
-  },
-  {
-    sectionName: "Date availablity",
-    sectionDescription:
-      "Please share your available dates (for up to 3 Sundays!) when you can commit to visiting the community. Our team will get in touch with you to confirm your attendance.",
-    fields: [
       {
-        name: "availability_date1",
-        label: "Availability Date 1 (Sunday) *",
+        name: "date_available",
+        label: "When will you join us in the community? *",
+        disabled: true,
         required: true,
         type: "date",
-        validate: (value) => {
-          const selectedDate = new Date(value);
-          const today = new Date();
-          today.setHours(0, 0, 0, 0); // Set time to 00:00:00 for comparison
-
-          if (selectedDate.getDay() !== 0) {
-            return "Date must be a Sunday.";
-          }
-          return true;
-        },
-        description: "Please select a Sunday you're available to volunteer",
-      },
-      {
-        name: "availability_date2",
-        label: "Availability Date 2 (Sunday) *",
-        required: false,
-        type: "date",
-        validate: (value) => {
-          if (!value) return true;
-          const selectedDate = new Date(value);
-          const today = new Date();
-          today.setHours(0, 0, 0, 0); // Set time to 00:00:00 for comparison
-
-          if (selectedDate.getDay() !== 0) {
-            return "Date must be a Sunday.";
-          }
-          if (selectedDate < today) {
-            return "Past dates are not valid.";
-          }
-          return true;
-        },
-        description:
-          "(optional) Please select a 2nd Sunday you're available to volunteer",
-      },
-      {
-        name: "availability_date3",
-        label: "Availability Date 3 (Sunday) *",
-        required: false,
-        type: "date",
-        validate: (value) => {
-          if (!value) return true;
-          const selectedDate = new Date(value);
-          const today = new Date();
-          today.setHours(0, 0, 0, 0); // Set time to 00:00:00 for comparison
-
-          if (selectedDate.getDay() !== 0) {
-            return "Date must be a Sunday.";
-          }
-          if (selectedDate < today) {
-            return "Past dates are not valid.";
-          }
-          return true;
-        },
-        description:
-          "(optional) Please select a 3rd Sunday you're available to volunteer",
-      },
-      {
-        name: "questions",
-        label: "Questions *",
-        required: false,
-        maxLength: {
-          value: 500,
-          message: "Your question cannot exceed 500 characters.",
-        },
-        description:
-          "(optional) Feel free to reach out if you have any program-related questions; we're here to assist you! If you're interested in partnerships or collaborations, please get in touch with us via our Facebook page for the best response. 😊",
-        type: "text",
-        multiline: true,
-        rows: 4,
+        description: "",
+        defaultValue: getNextSundayDate(),
       },
     ],
   },
