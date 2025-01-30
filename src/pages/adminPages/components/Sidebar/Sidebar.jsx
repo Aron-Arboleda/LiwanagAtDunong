@@ -1,9 +1,6 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import "./Sidebar.css";
-import {
-  adminProfile,
-  LDLogo,
-} from "@images/Graphics/WEBSITE_Graphics/IconsAndVectors";
+import { LDLogo } from "@images/Graphics/WEBSITE_Graphics/IconsAndVectors";
 
 import FileSpreadsheet from "lucide-react/dist/esm/icons/file-spreadsheet";
 import House from "lucide-react/dist/esm/icons/house";
@@ -17,6 +14,15 @@ import School from "lucide-react/dist/esm/icons/school";
 import ConfirmationPanel from "../ConfirmationPanel/ConfirmationPanel";
 import { ToastContainer } from "react-toastify";
 import { showActionDoneMessage } from "../DataTable/DataTable";
+import {
+  Admin1,
+  Admin2,
+  Admin3,
+  Admin4,
+} from "@images/Graphics/WEBSITE_Graphics/IconsAndVectors/adminProfiles";
+import { pickRandomFromArray } from "@utils/helpers";
+
+const adminProfile = pickRandomFromArray([Admin1, Admin2, Admin3, Admin4]);
 
 const Sidebar = () => {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);

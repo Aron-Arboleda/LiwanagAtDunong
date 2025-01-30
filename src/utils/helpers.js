@@ -53,3 +53,7 @@ export const getNextSundayDate = () => {
 
   return nextSunday.toISOString().split("T")[0]; // Return in YYYY-MM-DD format
 };
+
+export const pickRandomFromArray = (array) => {
+  return array[Math.floor(Math.random() * array.length)];
+};
