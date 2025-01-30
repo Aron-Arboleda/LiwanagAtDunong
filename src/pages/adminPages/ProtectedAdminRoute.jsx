@@ -1,12 +1,13 @@
-// ProtectedRoute.jsx
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { CONFIG } from "@controllers/config";
 import AuthContext from "@contexts/AuthContext";
+import LoadingPage from "@pages/morePages/LoadingPage/LoadingPage";
 
 const ProtectedAdminRoute = ({ children }) => {
   const { setUser } = useContext(AuthContext);
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const checkSession = async () => {
@@ -20,7 +21,7 @@ const ProtectedAdminRoute = ({ children }) => {
         const data = await response.json();
         console.log("Session check response:", data);
 
-        if (data.loggedIn === true) {
+        if (data.loggedIn) {
           console.log("Checked session. User is logged in");
           setUser(data.user);
         } else {
@@ -30,13 +31,20 @@ const ProtectedAdminRoute = ({ children }) => {
       } catch (error) {
         console.error("Session check failed:", error);
         setUser(null);
+        navigate("/admin-auth");
+      } finally {
+        setLoading(false);
       }
     };
 
     checkSession();
   }, [navigate, setUser]);
 
-  return children;
+  if (loading) {
+    return <LoadingPage />; // Show loading screen while checking session
+  }
+
+  return <>{children}</>;
 };
 
 export default ProtectedAdminRoute;
