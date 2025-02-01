@@ -1,2 +1,18 @@
+User-agent: *
+Allow: /
+
+# Allow Open Graph and Twitter Card crawlers
+User-agent: Twitterbot
+Allow: /
 User-agent: facebookexternalhit
 Allow: /
+
+# Block sensitive areas (optional)
+Disallow: /admin/
+Disallow: /login/
+Disallow: /register/
+
+# Allow search engines to access images and metadata
+Allow: /images/
+Allow: /assets/
+Allow: /meta-tags/

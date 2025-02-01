@@ -1,6 +1,28 @@
 Options -Indexes
+
+# Allow Facebook Crawler
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{HTTP_USER_AGENT} ^facebookexternalhit [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Facebot
+RewriteRule .* - [E=FB_CRAWLER:1]
+</IfModule>
+
+# Your existing rules
 RewriteEngine On
 RewriteBase /
+
+# Redirect all HTTP requests to HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+# Ensure the main URL rewriting still works
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ /index.html [L]
+
+# Additional headers for external access
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+    Header set Access-Control-Allow-Methods "GET,POST,OPTIONS,DELETE,PUT"
+</IfModule>
