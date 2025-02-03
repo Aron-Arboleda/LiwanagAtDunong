@@ -6,13 +6,6 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-// Check if the request method is PUT
-if ($_SERVER['REQUEST_METHOD'] !== 'PUT') {
-    http_response_code(405); // Method Not Allowed
-    echo json_encode(["message" => "Invalid request method."]);
-    exit;
-}
-
 // Parse the input data (JSON payload)
 $rawData = file_get_contents('php://input');
 $data = json_decode($rawData, true);

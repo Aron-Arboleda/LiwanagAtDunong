@@ -8,6 +8,7 @@ export async function fetchFacebookData() {
     if (!response.ok)
       throw new Error(`Facebook API error: ${response.statusText}`);
     const data = await response.json();
+    console.log("Facebook followers fetch success");
     return data[0] || null;
   } catch (error) {
     throw new Error(`Facebook data fetch failed: ${error.message}`);
@@ -28,6 +29,7 @@ export async function fetchInstagramData() {
     if (!response.ok)
       throw new Error(`Instagram API error: ${response.statusText}`);
     const data = await response.json();
+    console.log("Instagram followers fetch success");
     return data.data;
   } catch (error) {
     throw new Error(`Instagram data fetch failed: ${error.message}`);
@@ -48,6 +50,7 @@ export async function fetchTiktokData() {
     if (!response.ok)
       throw new Error(`TikTok API error: ${response.statusText}`);
     const data = await response.json();
+    console.log("TikTok followers fetch success");
     return data.userInfo;
   } catch (error) {
     throw new Error(`TikTok data fetch failed: ${error.message}`);
@@ -67,6 +70,7 @@ export async function fetchTwitterData() {
     const response = await fetch(url, options);
     if (!response.ok)
       throw new Error(`Twitter API error: ${response.statusText}`);
+    console.log("Twitter followers fetch success");
     return await response.json();
   } catch (error) {
     throw new Error(`Twitter data fetch failed: ${error.message}`);
@@ -87,6 +91,7 @@ export async function fetchYoutubeData() {
     if (!response.ok)
       throw new Error(`YouTube API error: ${response.statusText}`);
     const data = await response.json();
+    console.log("YouTube followers fetch success");
     return data.meta;
   } catch (error) {
     throw new Error(`YouTube data fetch failed: ${error.message}`);
@@ -123,18 +128,21 @@ export async function updateFollowers() {
     }
 
     // Send update request
+    console.log("Logging before sending update request");
     const putUrl = `${CONFIG.BACKEND_API}admin/update_all_followers_count.php`;
     const response = await fetch(putUrl, {
-      method: "PUT",
+      method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ updates }),
     });
+    console.log("Logging after sending update request");
 
     if (!response.ok) {
       throw new Error(`Update failed with status: ${response.status}`);
     }
 
     const responseData = await response.json();
+    console.log("Followers update success");
     return { message: responseData.message, success: true };
   } catch (error) {
     return { message: error.message, success: false };
