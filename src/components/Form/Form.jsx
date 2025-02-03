@@ -129,6 +129,7 @@ const Form = ({
                           field={field}
                           errors={errors}
                           isSubmitted={isSubmitted}
+                          defaultValues={defaultValues}
                           register={register}
                         />
                       </Grid2>

@@ -94,6 +94,13 @@ const DataTable = ({
     setEditPanel(false);
   };
 
+  const updatedSections = formFields.map((section) => ({
+    ...section,
+    fields: section.fields.map((field) =>
+      field.name === "date_available" ? { ...field, disabled: false } : field
+    ),
+  }));
+
   const refreshData = async () => {
     const data = await controllers.fetchData();
     setData(data);
@@ -454,7 +461,7 @@ const DataTable = ({
             >
               <Form
                 sections={
-                  editing ? removePasswordField(formFields) : formFields
+                  editing ? removePasswordField(updatedSections) : formFields
                 }
                 disclaimerText={
                   editing

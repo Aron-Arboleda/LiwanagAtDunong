@@ -7,13 +7,7 @@ import {
   CustomFormControlLabel,
 } from "./CustomFormComponents";
 
-const RadioButtonsControl = ({
-  field,
-  errors,
-  defaultValues,
-  isSubmitted,
-  register,
-}) => {
+const RadioButtonsControl = ({ field, errors, defaultValues, register }) => {
   return (
     <FormControl error={!!errors[field.name]} fullWidth>
       <CustomFormLabel>{field.label}</CustomFormLabel>
@@ -22,6 +16,11 @@ const RadioButtonsControl = ({
           required: field.required ? `${field.label} is required` : false,
         })}
         error={!!errors[field.name]}
+        defaultValue={
+          defaultValues?.defaultValues
+            ? defaultValues.defaultValues[field.name] ?? ""
+            : ""
+        }
       >
         {field.options.map((option, idx) => (
           <CustomFormControlLabel
