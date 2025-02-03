@@ -8,11 +8,12 @@ import { useState, useEffect } from "react";
 import { fetchFollowers } from "@controllers/social_platforms";
 import AuthContext from "@contexts/AuthContext";
 import { StandardButton } from "@components/Buttons/Buttons";
-import { updateFollowersCounts } from "@controllers/utils";
+
 import RefreshCCW from "lucide-react/dist/esm/icons/refresh-ccw-dot";
 import "./SocialMediaFollowersTracker.css";
 import { ToastContainer } from "react-toastify";
 import { showActionDoneMessage } from "../DataTable/DataTable";
+import { updateFollowers } from "@utils/get_latest_followers_counts";
 
 const SocialMediaFollowersTracker = () => {
   const { user } = useContext(AuthContext);
@@ -64,12 +65,18 @@ const SocialMediaFollowersTracker = () => {
       youtube: { followers: null, loading: true },
     });
 
-    updateFollowersCounts().then((response) => {
+    updateFollowers().then((response) => {
       loadFollowers();
-      if (response.success) {
+      if (!response.success) {
         setLoading(false);
-        showActionDoneMessage("Followers count updated successfully.", true);
+        showActionDoneMessage(
+          "Fetching API failed, Showed the latest followers counts instead.",
+          false
+        );
+        return;
       }
+      setLoading(false);
+      showActionDoneMessage("Followers count updated successfully.", true);
     });
   };
 
