@@ -12,14 +12,14 @@ Liwanag at Dunong is a non-governmental organization that seeks to uplift the Ae
 
 ### To access the website
 
-- Go to the link --> (under construction)
+- Go to the link --> https://liwanagatdunong.com
 
 ## Features still in development
 
-- Custom Domain
-- Adding subpages
-- Form feature (Database management)
-- Data analytics
+- Setting up web sockets
+- Better SEO
+- Blogs
+- Volunteers tracking
 
 ## LD Dev Team
 
