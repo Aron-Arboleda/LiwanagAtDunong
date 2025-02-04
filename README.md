@@ -63,4 +63,4 @@ Documentation:
   <img src="README/footer.jpeg" width="49%" />
 </div>
 
-<br>&copy; 2025 Aron-Arboleda. All rights reserved.
+<br>&copy; 2025 Liwanag at Dunong. All rights reserved.
