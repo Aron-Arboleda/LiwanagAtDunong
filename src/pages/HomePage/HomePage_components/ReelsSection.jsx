@@ -11,10 +11,7 @@ const ReelsSection = () => {
       <div id="reelsPageWrapper">
         <div className="flex-center">
           <a href="https://www.tiktok.com/@liwanagatdunong" target="_blank">
-            <div
-              id="reelsTiktokLogoContainer"
-              className="lightCartoonyBorder cartoonyComponentShadow"
-            >
+            <div id="reelsTiktokLogoContainer">
               <svg
                 viewBox="0 0 24 24"
                 style={{ enableBackground: "new 0 0 24 24" }}

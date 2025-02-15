@@ -23,35 +23,42 @@
 }
 
 #btnVolunteer {
-  font-family: "Corben";
+  font-family: "ChunkFive";
   font-weight: bold;
-  color: var(--pallete-yellow);
-  background-color: #fffbe6;
+  color: var(--pallete-logo-green);
+  background-color: var(--pallete-logo-white);
+  border: 2px solid var(--pallete-logo-green);
   border-radius: 35px;
   height: 55px;
   width: 140px;
-  font-size: 0.9rem;
-  border: 3px solid black;
-  box-shadow: 4px 4px 0px black;
-  text-shadow: 2px 0 #000000, -2px 0 #000000, 0 2px #000000, 0 -2px #000000,
-    1.5px 1.5px #000000, -1.5px -1.5px #000000, 1.5px -1.5px #000000,
-    -1.5px 1.5px #000000;
+  font-size: 1rem;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.409);
   cursor: pointer;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: all 0.3s;
+}
+
+#btnVolunteerAbout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 3px;
+  font-family: "ChunkFive";
 }
 
 #btnVolunteerAboutContainer {
   display: inline-block;
+  text-align: center;
   position: relative;
   width: 32px;
   height: 32px;
   border-radius: 15px;
-  background-color: var(--pallete-brightWhite);
+  color: var(--pallete-logo-green);
+  background-color: var(--pallete-logo-white);
+  border: 2px solid var(--pallete-logo-green);
   font-weight: bold;
   font-size: 17px;
   padding: 0;
-  border: 1px solid black;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: all 0.3s;
 }
 
 #iButtonInfoContainer {
@@ -66,7 +73,7 @@
   background-image: none;
   background-color: var(--pallete-brightWhite);
   border-radius: 5px;
-  border: 1px solid black;
+  border: 2px solid white;
   background-size: contain;
   padding: 20px 20px;
   background-repeat: no-repeat;
@@ -76,19 +83,6 @@
 #dialogThemedInfoText {
   font-size: 0.7rem;
   text-align: left;
-}
-
-#btnVolunteerAbout {
-  position: absolute;
-  top: 3px;
-  left: 5px;
-  width: 20px;
-  height: 22px;
-  text-align: center;
-  margin: 0;
-  border: 2px solid black;
-  border-radius: 15px;
-  font-size: 15px;
 }
 
 #btnVolunteer:active {
@@ -106,29 +100,25 @@
   }
 
   #btnVolunteer {
-    font-family: "Corben";
     font-weight: bold;
-    color: #fccd2a;
-    background-color: #fffbe6;
     border-radius: 35px;
     height: 70px;
     width: 200px;
-    font-size: 1.2rem;
-    border: 3px solid black;
-    box-shadow: 4px 4px 0px black;
-    text-shadow: 2px 0 #000000, -2px 0 #000000, 0 2px #000000, 0 -2px #000000,
-      1.5px 1.5px #000000, -1.5px -1.5px #000000, 1.5px -1.5px #000000,
-      -1.5px 1.5px #000000;
+    font-size: 1.4rem;
     cursor: pointer;
   }
 
   #btnVolunteer:hover {
-    transform: translate(5px, 5px);
-    box-shadow: 0px 0px 0px black;
+    color: var(--pallete-lightYellow);
+    background-color: var(--pallete-logo-green);
+    border: 2px solid var(--pallete-logo-green);
+    text-shadow: 1px 1px 0px var(--pallete-black);
   }
   #btnVolunteerAboutContainer:hover {
-    transform: translate(5px, 5px);
-    box-shadow: 0px 0px 0px black;
+    color: var(--pallete-lightYellow);
+    background-color: var(--pallete-logo-green);
+    border: 2px solid var(--pallete-logo-green);
+    text-shadow: 1px 1px 0px var(--pallete-black);
   }
 
   #iButtonInfoContainer {
@@ -142,6 +132,7 @@
     border-radius: none;
     bottom: 30px;
     border: none;
+    text-shadow: none;
   }
 
   #dialogThemedInfoText {

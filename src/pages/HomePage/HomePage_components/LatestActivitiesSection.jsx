@@ -72,10 +72,7 @@ const LatestActivitiesSection = () => {
               href="https://www.facebook.com/LiwanagAtDunongProject"
               target="_blank"
             >
-              <div
-                id="facebookContainer"
-                className="lightCartoonyBorder cartoonyComponentShadow"
-              >
+              <div id="facebookContainer">
                 <svg
                   viewBox="0 0 24 24"
                   style={{ enableBackground: "new 0 0 24 24" }}

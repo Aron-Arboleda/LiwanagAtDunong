@@ -29,6 +29,15 @@
   --pallete-redOrangeBackgroundColor: #ff4026;
   --pallete-lightBlue: #7b98ff;
   --pallete-purple: #c148eb;
+
+  /* logo pallete */
+  --pallete-logo-green: #283908;
+  --pallete-logo-grayGreen: #4d4812;
+  --pallete-logo-brown: #7a4a1c;
+  --pallete-logo-darkBrown: #3c2007;
+  --pallete-logo-yellow: #d1b838;
+  --pallete-logo-background-yellow: #f3d336;
+  --pallete-logo-white: #f8f7de;
 }
 
 @font-face {

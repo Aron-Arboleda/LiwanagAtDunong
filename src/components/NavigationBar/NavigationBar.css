@@ -18,6 +18,12 @@ header {
   display: block;
   width: 50px;
   cursor: pointer;
+  background-color: var(--pallete-logo-green);
+  color: var(--pallete-logo-white);
+  padding: 10px 3px 5px 4px;
+  border: 2px solid white;
+  border-radius: 10px;
+  margin-bottom: 10px;
 }
 
 #check {
@@ -38,7 +44,7 @@ nav {
 }
 
 .navLinks {
-  color: white;
+  color: var(--pallete-logo-green);
   transition: all 0.3s;
   text-decoration: none;
   display: block;
@@ -57,8 +63,8 @@ nav ul li {
 }
 
 nav ul li a:hover {
-  background-color: var(--pallete-brightWhite);
-  color: var(--pallete-brownTextColor);
+  background-color: var(--pallete-logo-green);
+  color: var(--pallete-logo-white);
 }
 
 #volunteerLi {
@@ -66,13 +72,17 @@ nav ul li a:hover {
 }
 
 #volunteer {
+  text-transform: uppercase;
   display: block;
-  font-family: "Corben";
-  -webkit-text-stroke: 0.5px black;
+  font-family: "ChunkFive";
+  padding: 0px;
+  padding-top: 5px;
 }
 
 #volunteer:hover {
-  color: var(--pallete-yellow);
+  background-color: var(--pallete-logo-green);
+  color: var(--pallete-lightYellow);
+  text-shadow: 1px 1px 0px var(--pallete-black);
 }
 
 header svg {
@@ -83,24 +93,25 @@ header svg {
   display: none;
   gap: 7px;
   padding: 10px;
-  border: 2px solid white;
+  border: 2px solid var(--pallete-logo-green);
   border-radius: 5px;
   flex-direction: column;
   max-width: 130px;
   height: auto;
-  background-color: var(--pallete-green);
+  background-color: var(--pallete-logo-white);
   text-align: center;
   transition: all 0.5s;
 }
 
 #ulNav .active a {
-  background-color: var(--pallete-brightWhite);
-  color: var(--pallete-brownTextColor); /* Highlight color */
+  background-color: var(--pallete-logo-green);
+  color: var(--pallete-logo-white); /* Highlight color */
 }
 
 #ulNav .center-active a {
-  background-color: var(--pallete-brightWhite);
-  color: var(--pallete-yellow); /* Highlight color */
+  background-color: var(--pallete-logo-green);
+  color: var(--pallete-lightYellow);
+  text-shadow: 1px 1px 0px var(--pallete-black);
 }
 
 #check:checked ~ #ulNav {
@@ -172,16 +183,12 @@ header svg {
 
   #volunteer {
     display: block;
-    font-family: "Corben";
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     min-width: 70px;
     text-decoration: none;
-    color: white;
     border-radius: 1.2rem;
     transition: background-color 0.3s, color 0.3s;
-    text-shadow: 2px 0 #000000, -2px 0 #000000, 0 2px #000000, 0 -2px #000000,
-      1px 1px #000000, -1px -1px #000000, 1px -1px #000000, -1px 1px #000000;
     -webkit-text-stroke: 0px;
   }
 }

@@ -90,9 +90,6 @@ export const InteractiveFolders = ({ IFoldersData }) => {
   const [styles, setStyles] = useState({
     0: {
       folderNotch: {
-        borderTop: "2px solid black",
-        borderLeft: "2px solid black",
-        borderRight: "2px solid black",
         backgroundColor: interactiveFoldersData[0].originalColor, // Default color for folder 1
       },
       folderBody: {
@@ -101,9 +98,6 @@ export const InteractiveFolders = ({ IFoldersData }) => {
     },
     1: {
       folderNotch: {
-        borderTop: "2px solid black",
-        borderLeft: "2px solid black",
-        borderRight: "2px solid black",
         backgroundColor: interactiveFoldersData[1].originalColor, // Default color for folder 2
       },
       folderBody: {
@@ -112,9 +106,6 @@ export const InteractiveFolders = ({ IFoldersData }) => {
     },
     2: {
       folderNotch: {
-        borderTop: "2px solid black",
-        borderLeft: "2px solid black",
-        borderRight: "2px solid black",
         backgroundColor: interactiveFoldersData[2].originalColor, // Default color for folder 3
       },
       folderBody: {
@@ -123,9 +114,6 @@ export const InteractiveFolders = ({ IFoldersData }) => {
     },
     3: {
       folderNotch: {
-        borderTop: "2px solid black",
-        borderLeft: "2px solid black",
-        borderRight: "2px solid black",
         backgroundColor: interactiveFoldersData[3].originalColor, // Default color for folder 4
       },
       folderBody: {
@@ -134,9 +122,6 @@ export const InteractiveFolders = ({ IFoldersData }) => {
     },
     4: {
       folderNotch: {
-        borderTop: "2px solid black",
-        borderLeft: "2px solid black",
-        borderRight: "2px solid black",
         backgroundColor: interactiveFoldersData[4].originalColor, // Default color for folder 5
       },
       folderBody: {
@@ -150,9 +135,6 @@ export const InteractiveFolders = ({ IFoldersData }) => {
       ...prevStyles,
       [index]: {
         folderNotch: {
-          borderTop: "3px solid black",
-          borderLeft: "3px solid black",
-          borderRight: "3px solid black",
           backgroundColor: brightenColor(originalColor, 20),
         },
         folderBody: {
@@ -167,9 +149,6 @@ export const InteractiveFolders = ({ IFoldersData }) => {
       ...prevStyles,
       [index]: {
         folderNotch: {
-          borderTop: "2px solid black",
-          borderLeft: "2px solid black",
-          borderRight: "2px solid black",
           backgroundColor: originalColor,
         },
         folderBody: {

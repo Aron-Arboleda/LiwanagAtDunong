@@ -43,7 +43,6 @@
 .folderNotch {
   margin: 0px 10px;
   border-radius: 10px 10px 0px 0px;
-  border: 2px solid black;
   border-bottom: none;
   position: relative;
   top: 2px;
@@ -55,7 +54,7 @@
 }
 
 .folderBody {
-  border-top: 2px solid black;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.064);
   z-index: 1;
   scroll-behavior: auto;
   overflow-y: auto;
@@ -64,14 +63,14 @@
 }
 
 .folderNotch1 {
-  background-color: var(--pallete-yellow);
+  background-color: var(--pallete-logo-background-yellow);
   grid-area: 1 / 1;
 }
 
 .folderBody1 {
   display: flex;
   height: auto;
-  background-color: var(--pallete-yellow);
+  background-color: var(--pallete-logo-background-yellow);
   padding: 0px;
 }
 

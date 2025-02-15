@@ -19,7 +19,6 @@ const InitialSection = () => {
         </a>
         <div
           id="btnVolunteerAboutContainer"
-          className="cartoonyComponentShadow"
           onMouseEnter={() => setInfoVisible(true)}
           onMouseLeave={() => setInfoVisible(false)}
           onClick={() => setInfoVisible(!isInfoVisible)}

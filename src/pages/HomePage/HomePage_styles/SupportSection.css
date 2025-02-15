@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
   height: auto;
-  background-color: var(--pallete-lightGreen);
+  background-color: var(--pallete-logo-white);
   width: 100%;
 }
 
@@ -23,7 +23,8 @@
 }
 
 #supportPageTitleContainer h1 {
-  font-family: "Corben";
+  font-family: "ChunkFive";
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.55);
   color: var(--pallete-brightWhite);
   -webkit-text-stroke: 1.5px black;
   text-transform: capitalize;
@@ -71,7 +72,7 @@
 .pubmatImage {
   width: 100%;
   border-radius: 15px;
-  box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.358);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.502);
   transition: transform 0.3s;
 }
 

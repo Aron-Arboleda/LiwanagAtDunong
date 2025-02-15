@@ -101,7 +101,7 @@ const currentYear = new Date().getFullYear();
 const Footer = () => {
   return (
     <footer>
-      <Section backgroundColor="#083800">
+      <Section backgroundColor="#283908">
         <div className="headerSpace"></div>
         <TransparentLargeContainer>
           <div className="footerContainer">

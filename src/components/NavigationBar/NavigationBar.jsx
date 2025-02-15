@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./NavigationBar.css";
+import Menu from "lucide-react/dist/esm/icons/menu";
 
 const NavigationBar = () => {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
@@ -34,51 +35,7 @@ const NavigationBar = () => {
       <nav id="navBar">
         <input type="checkbox" id="check" />
         <label htmlFor="check" className="checkbtn">
-          <svg
-            viewBox="-5.105 -4.982 34.088 33.922"
-            fill="none"
-            stroke="#ffffff"
-            transform="rotate(180)"
-          >
-            <defs />
-            <g
-              id="SVGRepo_bgCarrier"
-              strokeWidth="0"
-              transform="translate(0,0), scale(1)"
-            >
-              <rect
-                x="-4.32"
-                y="-4.32"
-                width="32.64"
-                height="32.64"
-                rx="5.15"
-                fill="#347928"
-                strokeWidth="1"
-                ry="5.15"
-                style={{
-                  paintOrder: "fill markers",
-                  stroke: "rgb(255, 251, 230)",
-                  strokeWidth: "1px",
-                }}
-              />
-            </g>
-            <g
-              id="SVGRepo_tracerCarrier"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              stroke="#CCCCCC"
-              strokeWidth="0.528"
-            />
-            <g id="SVGRepo_iconCarrier">
-              <path
-                d="M4 6H20M4 12H20M4 18H20"
-                stroke="#FFFBE6"
-                strokeWidth="1.68"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </g>
-          </svg>
+          <Menu size={30} />
         </label>
         <ul id="ulNav">
           <li className={isActive("/") ? "active" : ""}>
@@ -101,7 +58,7 @@ const NavigationBar = () => {
             className={isActive("/volunteer") ? "center-active" : ""}
           >
             <a href="/volunteer" id="volunteer" className="navLinks">
-              VOLUNTEER
+              Volunteer
             </a>
             {/* <a
               rel="noopener"

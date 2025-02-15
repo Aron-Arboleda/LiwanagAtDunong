@@ -2,7 +2,7 @@
   padding: 180px 0px;
   width: 100%;
   height: auto;
-  background-color: var(--pallete-green);
+  background-color: var(--pallete-logo-green);
 }
 
 #partnershipsContainer {
@@ -29,9 +29,8 @@
   background-color: var(--pallete-brightWhite);
   padding: 10px;
   border-radius: 10px;
-  border: 2px solid black;
-  box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.55);
-  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.502);
+  transition: all 0.3s;
 }
 
 .pLogoContainer:hover {
@@ -55,9 +54,8 @@
 }
 
 #partnershipsPage h1 {
-  color: var(--pallete-lightYellow);
-  text-shadow: 2px 0 #000000, -2px 0 #000000, 0 2px #000000, 0 -2px #000000,
-    1px 1px #000000, -1px -1px #000000, 1px -1px #000000, -1px 1px #000000;
+  color: var(--pallete-logo-white);
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.55);
   font-size: 2rem;
   max-width: 500px;
   text-align: center;

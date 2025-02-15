@@ -36,7 +36,7 @@ const FAQsPage = () => {
       <MainContainer>
         <Section backgroundColor="#347928">
           <div className="headerSpace"></div>
-          <SharpBrightWhiteShadowTitle title="FREQUENTLY ASKED QUESTIONS FOR VOLUNTEERS" />
+          <SharpBrightWhiteShadowTitle title="Frequently Asked Questions of Volunteers" />
           <CurvyLargeContainer>
             <FlexLayoutColumn>
               <ol className="pageOrderedList">
