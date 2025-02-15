@@ -34,13 +34,13 @@ const LiteracyPage = () => {
   return (
     <StandardLayout>
       <MainContainer>
-        <Section backgroundColor="#c0eba6" fullContentArea={true}>
+        <Section backgroundColor="#f8f7de" fullContentArea={true}>
           <div className="headerSpace"></div>
           <BrownCircleTitle
             title="Adult Literacy Program"
             id="adultLiteracyProgramTitle"
           />
-          <StaticFolderContainer color={"yellow"} withSpaceAbove={false}>
+          <StaticFolderContainer color={"#51781b"} withSpaceAbove={false}>
             <ContentArea fullWidth={false}>
               <CardLargeContainer>
                 <FlexLayoutColumn>

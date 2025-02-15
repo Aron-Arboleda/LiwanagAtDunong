@@ -1,9 +1,9 @@
 import XButton from "@components/CustomComponents/CustomComponents";
 import "./CardContainers.css";
 
-export const GreenCardContainer = ({ children, imgSrc }) => {
+export const CorporateStyledContainer = ({ children, imgSrc }) => {
   return (
-    <div className="greencardcontainer">
+    <div className="corporateStyledContainer">
       {imgSrc && <img src={imgSrc} alt="Image Logo" loading="lazy" />}
       {children}
     </div>

@@ -31,7 +31,7 @@ const NetworkPage = () => {
   return (
     <StandardLayout>
       <MainContainer>
-        <Section backgroundColor="#fde7c0">
+        <Section backgroundColor="#f8f7de">
           <div className="headerSpace"></div>
           <TransparentLargeContainer>
             <StandardChunkFiveTitle title="Network of Organizations and Volunteers" />

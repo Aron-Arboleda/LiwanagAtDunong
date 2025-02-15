@@ -34,7 +34,7 @@ const FAQsPage = () => {
   return (
     <StandardLayout>
       <MainContainer>
-        <Section backgroundColor="#347928">
+        <Section backgroundColor="#283908">
           <div className="headerSpace"></div>
           <SharpBrightWhiteShadowTitle title="Frequently Asked Questions of Volunteers" />
           <CurvyLargeContainer>

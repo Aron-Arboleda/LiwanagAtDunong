@@ -60,22 +60,18 @@ export const FolderBody = ({ children, folderBodyIndex, style }) => {
 };
 
 export const StaticFolderContainer = ({ children, color, withSpaceAbove }) => {
-  const colorIndex = {
-    yellow: 1,
-    orange: 2,
-    green: 3,
-    redOrange: 4,
-    blue: 5,
-    purple: 5,
-  };
-
   return (
     <FoldersContainer withSpaceAbove={withSpaceAbove}>
-      <Folder folderIndex={colorIndex[color]}>
+      <Folder folderIndex={1}>
         <FolderHeader>
-          <FolderNotch folderNotchIndex={colorIndex[color]}></FolderNotch>
+          <FolderNotch
+            folderNotchIndex={1}
+            style={{ backgroundColor: color }}
+          ></FolderNotch>
         </FolderHeader>
-        <FolderBody folderBodyIndex={colorIndex[color]}>{children}</FolderBody>
+        <FolderBody folderBodyIndex={1} style={{ backgroundColor: color }}>
+          {children}
+        </FolderBody>
       </Folder>
     </FoldersContainer>
   );

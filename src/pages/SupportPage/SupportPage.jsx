@@ -12,6 +12,9 @@ import {
 import {
   CorbenWhiteCurvyTitle,
   MontserratUnorderedList,
+  SharpBrightWhiteShadowTitle,
+  StandardChunkFiveTitle,
+  WhiteChunkFiveWithSubtleShadow,
 } from "@components/PageTitles/PageTitles";
 import Section from "@components/Section/Section";
 import SharpLightShadowCard from "./SupportPageComponents/SharpLightShadowCard";
@@ -72,10 +75,10 @@ const SupportPage = () => {
   return (
     <StandardLayout>
       <MainContainer>
-        <Section backgroundColor="#c0eba6">
+        <Section backgroundColor="#f8f7de">
           <div className="headerSpace"></div>
           <TransparentLargeContainer>
-            <CorbenWhiteCurvyTitle title="Support Needed" />
+            <WhiteChunkFiveWithSubtleShadow title="Support Needed" />
             <FlexLayoutColumn>
               <CardGridLayout sizeOfCard="100%">
                 <SharpLightShadowCard

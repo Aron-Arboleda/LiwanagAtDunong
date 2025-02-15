@@ -1,4 +1,4 @@
-import { GreenCardContainer } from "@components/CardContainers/CardContainers";
+import { CorporateStyledContainer } from "@components/CardContainers/CardContainers";
 import {
   MontserratCardInfo,
   MontserratCardTitle,
@@ -6,10 +6,10 @@ import {
 
 const PartnerCard = ({ imgSrc, title, info }) => {
   return (
-    <GreenCardContainer imgSrc={imgSrc}>
+    <CorporateStyledContainer imgSrc={imgSrc}>
       <MontserratCardTitle text={title} />
       <MontserratCardInfo text={info} />
-    </GreenCardContainer>
+    </CorporateStyledContainer>
   );
 };
 

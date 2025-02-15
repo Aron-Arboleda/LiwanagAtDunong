@@ -71,12 +71,28 @@ export const StandardChunkFiveSubTitleH5 = ({ title = "Title", style }) => {
   );
 };
 
-export const MontserratCardTitle = ({ text }) => {
-  return <h3 className="montserratCardTitle">{text}</h3>;
+export const WhiteChunkFiveWithSubtleShadow = ({ title = "Title", style }) => {
+  return (
+    <h6 className="pageSubTitle whiteChunkFiveWithSubtleShadow" style={style}>
+      {title}
+    </h6>
+  );
 };
 
-export const MontserratCardInfo = ({ text }) => {
-  return <p className="montserratCardInfo">{text}</p>;
+export const MontserratCardTitle = ({ text, style }) => {
+  return (
+    <h3 className="montserratCardTitle" style={style}>
+      {text}
+    </h3>
+  );
+};
+
+export const MontserratCardInfo = ({ text, style }) => {
+  return (
+    <p className="montserratCardInfo" style={style}>
+      {text}
+    </p>
+  );
 };
 
 export const MontserratTextInfo = ({
