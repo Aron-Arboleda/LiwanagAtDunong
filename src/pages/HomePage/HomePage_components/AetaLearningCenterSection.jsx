@@ -20,35 +20,35 @@ const foldersData = [
     description:
       "Before commencing the construction, Our technical team, consisting of engineering students and dedicated volunteers, initially designed a structure that incorporates indigenous materials such as cogon and bamboo to harmonize with the community's surroundings and culture.",
     image: ALCProgress1,
-    originalColor: "rgb(255, 160, 72)",
+    originalColor: "rgb(184, 213, 61)",
   },
   {
     date: "March 27, 2022",
     description:
       "Following extensive consultations with the community and new project partners, the original design was fortified with additional materials to ensure its long-lasting durability and practicality.",
     image: ALCProgress2,
-    originalColor: "rgb(52, 121, 40)",
+    originalColor: "rgb(141, 199, 30)",
   },
   {
     date: "April 18, 2022",
     description:
       "The male members of the community joined forces to construct the ALC, utilizing materials provided by IP supporters. As a token of gratitude for their active involvement in the construction of the ALC and their contributions to community development, they received food support.",
     image: ALCProgress3,
-    originalColor: "rgb(255, 64, 38)",
+    originalColor: "rgb(105, 180, 30)",
   },
   {
     date: "April 24, 2022",
     description:
       "The structure's design features an outer wall with mural art inspired by Aeta children's drawings. With the help of creative volunteers and the contributions of all the workers involved in the project, the art has become a popular photo spot for many tourists and volunteers who continue to support Liwanag at Dunong.",
     image: ALCProgress4,
-    originalColor: "rgb(123, 152, 255)",
+    originalColor: "rgb(24, 124, 25)",
   },
   {
     date: "Nov. 15, 2022",
     description:
       "At present, the ALC administers an adult literacy program, aiding community members in obtaining a Certificate of Completion for Basic Education through the Alternative Learning System. Construction commenced in March 2022 and concluded in November 2022.",
     image: ALCProgress5,
-    originalColor: "rgb(193, 72, 235)",
+    originalColor: "rgb(13, 91, 17)",
   },
 ];
 

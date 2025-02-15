@@ -47,9 +47,7 @@ const LatestActivitiesSection = () => {
           <h1 id="latestActivitiesh1" className="corben">
             LATEST ACTIVITIES
           </h1>
-          <h2 className="lightTextBorderWithShadow">
-            “PAGBABALIK SA KOMUNIDAD”
-          </h2>
+          <h2>“PAGBABALIK SA KOMUNIDAD”</h2>
           <FlexLayoutColumn style={{ marginBottom: "1rem" }}>
             <p className="latestActivitiesText">
               J.M. Barrie's quote, "Those who bring sunshine into the lives of

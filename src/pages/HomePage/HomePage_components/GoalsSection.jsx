@@ -47,9 +47,7 @@ const GoalsSection = () => {
     <div id="goalsPage">
       <div id="mainContainer">
         <StandardChunkFiveTitle>
-          PROJECT <span className="textGreen">LIWANAG </span>
-          <span className="textYellow">AT </span>
-          <span className="textGreen">DUNONG</span> ALSO AIMS TO:
+          PROJECT LIWANAG AT DUNONG ALSO AIMS TO:
         </StandardChunkFiveTitle>
         <div id="goalsContainer">
           <div className="goalRow">

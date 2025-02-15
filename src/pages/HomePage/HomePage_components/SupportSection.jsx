@@ -13,11 +13,7 @@ const SupportSection = () => {
     <div id="supportPage">
       <div id="supportMainContainer">
         <div id="supportPageTitleContainer">
-          <img
-            src={callForSupportTitle}
-            alt="Call for Support Title"
-            loading="lazy"
-          />
+          <h1>Call for Support</h1>
         </div>
         <div id="supportPubmatsContainer">
           <div className="supportPubmatColumn">

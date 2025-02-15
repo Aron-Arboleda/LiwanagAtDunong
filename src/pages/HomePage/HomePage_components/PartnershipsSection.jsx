@@ -105,7 +105,7 @@ const PartnershipsSection = () => {
             </div>
           </div>
           <div className="flex-center">
-            <h1 className="lightTextBorder" id="ptHeading" ref={ptHeadingRef}>
+            <h1 id="ptHeading" ref={ptHeadingRef}>
               BUILDING PARTNERSHIPS
             </h1>
           </div>
