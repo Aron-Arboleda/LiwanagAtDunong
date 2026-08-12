@@ -18,7 +18,7 @@ A landing page website for the non-governmental organization "Liwanag at Dunong"
 
 ### To access the website
 
-- Go to the link --> https://liwanagatdunongproject.ct.ws/
+- Go to the link --> https://liwanagatdunong.gt.tc/
 
 ## Key Features
 
